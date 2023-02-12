@@ -95,10 +95,7 @@ internal static class ChoiceExtension
                     }
                 }
 
-                if (!context.IsParsed(cls.Name))
-                {
-                    context.Add(cls);
-                }
+                context.Add(cls);
             }
 
             type = new TypeSpec(new CodeTypeReference(className), true);

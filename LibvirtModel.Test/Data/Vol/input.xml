@@ -1,0 +1,12 @@
+<volume>
+  <name>test.qcow2</name>
+  <capacity>1</capacity>
+  <allocation>2</allocation>
+  <target>
+    <format type='raw'/>
+  </target>
+  <backingStore>
+    <path>backing.qcow2</path>
+    <format type='raw'/>
+  </backingStore>
+</volume>

@@ -1,0 +1,23 @@
+name: CI
+
+on:
+  push:
+    branches: [ main ]
+    tags-ignore: [ '*' ]
+
+jobs:
+  build:
+
+    runs-on: ubuntu-latest
+
+    steps:
+    - uses: actions/checkout@v3
+    - name: Prepare
+      run: |
+        LOCALPKG=`mktemp -d`
+        wget -P "${LOCALPKG}" https://github.com/9506hqwy/relaxng-net/releases/download/0.1.0/RelaxNg.Schema.0.1.0.nupkg
+        dotnet nuget add source --name local "${LOCALPKG}"
+    - name: Build
+      run: dotnet build
+    - name: Test
+      run: dotnet test

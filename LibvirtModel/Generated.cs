@@ -338,6 +338,174 @@ namespace Libvirt.Model {
         }
     }
     
+    [System.Xml.Serialization.XmlTypeAttribute("storagepoolCapabilities", Namespace="")]
+    public partial class StoragepoolCapabilities {
+        
+        private StoragepoolCapabilitiesPoolCapsType[] pool;
+        
+        [System.Xml.Serialization.XmlElementAttribute("pool", Namespace="")]
+        public StoragepoolCapabilitiesPoolCapsType[] Pool {
+            get {
+                return this.pool;
+            }
+            set {
+                this.pool = value;
+            }
+        }
+    }
+    
+    [System.Xml.Serialization.XmlTypeAttribute("enum", Namespace="")]
+    public partial class StoragepoolCapabilitiesPoolCapsEnum {
+        
+        private string name;
+        
+        private string[] value;
+        
+        [System.Xml.Serialization.XmlAttributeAttribute("name")]
+        public string Name {
+            get {
+                return this.name;
+            }
+            set {
+                this.name = value;
+            }
+        }
+        
+        [System.Xml.Serialization.XmlElementAttribute("value", Namespace="")]
+        public string[] Value {
+            get {
+                return this.value;
+            }
+            set {
+                this.value = value;
+            }
+        }
+    }
+    
+    [System.Xml.Serialization.XmlTypeAttribute("poolOptions", Namespace="")]
+    public partial class StoragepoolCapabilitiesPoolCapsPoolOptions {
+        
+        private StoragepoolCapabilitiesPoolDefaultFormat defaultFormat;
+        
+        private StoragepoolCapabilitiesPoolCapsEnum[] @enum;
+        
+        [System.Xml.Serialization.XmlElementAttribute("defaultFormat", Namespace="")]
+        public StoragepoolCapabilitiesPoolDefaultFormat DefaultFormat {
+            get {
+                return this.defaultFormat;
+            }
+            set {
+                this.defaultFormat = value;
+            }
+        }
+        
+        [System.Xml.Serialization.XmlElementAttribute("enum", Namespace="")]
+        public StoragepoolCapabilitiesPoolCapsEnum[] Enum {
+            get {
+                return this.@enum;
+            }
+            set {
+                this.@enum = value;
+            }
+        }
+    }
+    
+    [System.Xml.Serialization.XmlTypeAttribute("pool", Namespace="")]
+    public partial class StoragepoolCapabilitiesPoolCapsType {
+        
+        private string type;
+        
+        private VirYesNo supported;
+        
+        private StoragepoolCapabilitiesPoolCapsPoolOptions poolOptions;
+        
+        private StoragepoolCapabilitiesPoolCapsVolOptions volOptions;
+        
+        [System.Xml.Serialization.XmlAttributeAttribute("type")]
+        public string Type {
+            get {
+                return this.type;
+            }
+            set {
+                this.type = value;
+            }
+        }
+        
+        [System.Xml.Serialization.XmlAttributeAttribute("supported")]
+        public VirYesNo Supported {
+            get {
+                return this.supported;
+            }
+            set {
+                this.supported = value;
+            }
+        }
+        
+        [System.Xml.Serialization.XmlElementAttribute("poolOptions", Namespace="")]
+        public StoragepoolCapabilitiesPoolCapsPoolOptions PoolOptions {
+            get {
+                return this.poolOptions;
+            }
+            set {
+                this.poolOptions = value;
+            }
+        }
+        
+        [System.Xml.Serialization.XmlElementAttribute("volOptions", Namespace="")]
+        public StoragepoolCapabilitiesPoolCapsVolOptions VolOptions {
+            get {
+                return this.volOptions;
+            }
+            set {
+                this.volOptions = value;
+            }
+        }
+    }
+    
+    [System.Xml.Serialization.XmlTypeAttribute("volOptions", Namespace="")]
+    public partial class StoragepoolCapabilitiesPoolCapsVolOptions {
+        
+        private StoragepoolCapabilitiesPoolDefaultFormat defaultFormat;
+        
+        private StoragepoolCapabilitiesPoolCapsEnum[] @enum;
+        
+        [System.Xml.Serialization.XmlElementAttribute("defaultFormat", Namespace="")]
+        public StoragepoolCapabilitiesPoolDefaultFormat DefaultFormat {
+            get {
+                return this.defaultFormat;
+            }
+            set {
+                this.defaultFormat = value;
+            }
+        }
+        
+        [System.Xml.Serialization.XmlElementAttribute("enum", Namespace="")]
+        public StoragepoolCapabilitiesPoolCapsEnum[] Enum {
+            get {
+                return this.@enum;
+            }
+            set {
+                this.@enum = value;
+            }
+        }
+    }
+    
+    [System.Xml.Serialization.XmlTypeAttribute("defaultFormat", Namespace="")]
+    public partial class StoragepoolCapabilitiesPoolDefaultFormat {
+        
+        private string type;
+        
+        [System.Xml.Serialization.XmlAttributeAttribute("type")]
+        public string Type {
+            get {
+                return this.type;
+            }
+            set {
+                this.type = value;
+            }
+        }
+    }
+    
     [System.Xml.Serialization.XmlTypeAttribute("secret", Namespace="")]
     public partial class StorageSecret {
         
@@ -376,6 +544,15 @@ namespace Libvirt.Model {
                 this.usage = value;
             }
         }
+    }
+    
+    public enum VirYesNo {
+        
+        [System.Xml.Serialization.XmlEnumAttribute(Name="yes")]
+        Yes,
+        
+        [System.Xml.Serialization.XmlEnumAttribute(Name="no")]
+        No,
     }
     
     [System.Xml.Serialization.XmlTypeAttribute("volume", Namespace="")]

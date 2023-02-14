@@ -36,6 +36,9 @@ internal class MainShell
 
         var schema = new Schema();
 
+        // storagepoolcaps.rng
+        this.Parse(schema, files["storagepoolcaps.rng"]).CollectType(context);
+
         // storagevol.rng
         this.Parse(schema, files["storagevol.rng"]).CollectType(context);
 

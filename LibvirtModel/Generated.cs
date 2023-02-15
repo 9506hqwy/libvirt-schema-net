@@ -10,6 +10,3237 @@
 namespace Libvirt.Model {
     
     
+    public abstract partial class Pool {
+    }
+    
+    [System.Xml.Serialization.XmlTypeAttribute("freeExtent", Namespace="")]
+    public partial class PoolDevextents {
+        
+        private ulong start;
+        
+        private ulong end;
+        
+        [System.Xml.Serialization.XmlAttributeAttribute("start")]
+        public ulong Start {
+            get {
+                return this.start;
+            }
+            set {
+                this.start = value;
+            }
+        }
+        
+        [System.Xml.Serialization.XmlAttributeAttribute("end")]
+        public ulong End {
+            get {
+                return this.end;
+            }
+            set {
+                this.end = value;
+            }
+        }
+    }
+    
+    [System.Xml.Serialization.XmlTypeAttribute("pool", Namespace="")]
+    public partial class Pooldir : Pool {
+        
+        private string type;
+        
+        private string name;
+        
+        private string uuid;
+        
+        private PoolSizingCapacity capacity;
+        
+        private PoolSizingAllocation allocation;
+        
+        private PoolSizingAvailable available;
+        
+        private PoolFeatures features;
+        
+        private PoolSourcedir source;
+        
+        private PoolTarget target;
+        
+        [System.Xml.Serialization.XmlAttributeAttribute("type")]
+        public string Type {
+            get {
+                return this.type;
+            }
+            set {
+                this.type = value;
+            }
+        }
+        
+        [System.Xml.Serialization.XmlElementAttribute("name", Namespace="")]
+        public string Name {
+            get {
+                return this.name;
+            }
+            set {
+                this.name = value;
+            }
+        }
+        
+        [System.Xml.Serialization.XmlElementAttribute("uuid", Namespace="")]
+        public string Uuid {
+            get {
+                return this.uuid;
+            }
+            set {
+                this.uuid = value;
+            }
+        }
+        
+        [System.Xml.Serialization.XmlElementAttribute("capacity", Namespace="")]
+        public PoolSizingCapacity Capacity {
+            get {
+                return this.capacity;
+            }
+            set {
+                this.capacity = value;
+            }
+        }
+        
+        [System.Xml.Serialization.XmlElementAttribute("allocation", Namespace="")]
+        public PoolSizingAllocation Allocation {
+            get {
+                return this.allocation;
+            }
+            set {
+                this.allocation = value;
+            }
+        }
+        
+        [System.Xml.Serialization.XmlElementAttribute("available", Namespace="")]
+        public PoolSizingAvailable Available {
+            get {
+                return this.available;
+            }
+            set {
+                this.available = value;
+            }
+        }
+        
+        [System.Xml.Serialization.XmlElementAttribute("features", Namespace="")]
+        public PoolFeatures Features {
+            get {
+                return this.features;
+            }
+            set {
+                this.features = value;
+            }
+        }
+        
+        [System.Xml.Serialization.XmlElementAttribute("source", Namespace="")]
+        public PoolSourcedir Source {
+            get {
+                return this.source;
+            }
+            set {
+                this.source = value;
+            }
+        }
+        
+        [System.Xml.Serialization.XmlElementAttribute("target", Namespace="")]
+        public PoolTarget Target {
+            get {
+                return this.target;
+            }
+            set {
+                this.target = value;
+            }
+        }
+    }
+    
+    [System.Xml.Serialization.XmlTypeAttribute("pool", Namespace="")]
+    public partial class Pooldisk : Pool {
+        
+        private string type;
+        
+        private string name;
+        
+        private string uuid;
+        
+        private PoolSizingCapacity capacity;
+        
+        private PoolSizingAllocation allocation;
+        
+        private PoolSizingAvailable available;
+        
+        private PoolFeatures features;
+        
+        private PoolSourcedisk source;
+        
+        private PoolTarget target;
+        
+        [System.Xml.Serialization.XmlAttributeAttribute("type")]
+        public string Type {
+            get {
+                return this.type;
+            }
+            set {
+                this.type = value;
+            }
+        }
+        
+        [System.Xml.Serialization.XmlElementAttribute("name", Namespace="")]
+        public string Name {
+            get {
+                return this.name;
+            }
+            set {
+                this.name = value;
+            }
+        }
+        
+        [System.Xml.Serialization.XmlElementAttribute("uuid", Namespace="")]
+        public string Uuid {
+            get {
+                return this.uuid;
+            }
+            set {
+                this.uuid = value;
+            }
+        }
+        
+        [System.Xml.Serialization.XmlElementAttribute("capacity", Namespace="")]
+        public PoolSizingCapacity Capacity {
+            get {
+                return this.capacity;
+            }
+            set {
+                this.capacity = value;
+            }
+        }
+        
+        [System.Xml.Serialization.XmlElementAttribute("allocation", Namespace="")]
+        public PoolSizingAllocation Allocation {
+            get {
+                return this.allocation;
+            }
+            set {
+                this.allocation = value;
+            }
+        }
+        
+        [System.Xml.Serialization.XmlElementAttribute("available", Namespace="")]
+        public PoolSizingAvailable Available {
+            get {
+                return this.available;
+            }
+            set {
+                this.available = value;
+            }
+        }
+        
+        [System.Xml.Serialization.XmlElementAttribute("features", Namespace="")]
+        public PoolFeatures Features {
+            get {
+                return this.features;
+            }
+            set {
+                this.features = value;
+            }
+        }
+        
+        [System.Xml.Serialization.XmlElementAttribute("source", Namespace="")]
+        public PoolSourcedisk Source {
+            get {
+                return this.source;
+            }
+            set {
+                this.source = value;
+            }
+        }
+        
+        [System.Xml.Serialization.XmlElementAttribute("target", Namespace="")]
+        public PoolTarget Target {
+            get {
+                return this.target;
+            }
+            set {
+                this.target = value;
+            }
+        }
+    }
+    
+    [System.Xml.Serialization.XmlTypeAttribute("features", Namespace="")]
+    public partial class PoolFeatures {
+        
+        private PoolFeaturesCow cow;
+        
+        [System.Xml.Serialization.XmlElementAttribute("cow", Namespace="")]
+        public PoolFeaturesCow Cow {
+            get {
+                return this.cow;
+            }
+            set {
+                this.cow = value;
+            }
+        }
+    }
+    
+    public partial class PoolFeaturesCow {
+        
+        private VirYesNo state;
+        
+        [System.Xml.Serialization.XmlAttributeAttribute("state")]
+        public VirYesNo State {
+            get {
+                return this.state;
+            }
+            set {
+                this.state = value;
+            }
+        }
+    }
+    
+    [System.Xml.Serialization.XmlTypeAttribute("pool", Namespace="")]
+    public partial class Poolfs : Pool {
+        
+        private string type;
+        
+        private string name;
+        
+        private string uuid;
+        
+        private PoolSizingCapacity capacity;
+        
+        private PoolSizingAllocation allocation;
+        
+        private PoolSizingAvailable available;
+        
+        private PoolFeatures features;
+        
+        private PoolSourcefs source;
+        
+        private PoolTarget target;
+        
+        private PoolFsMountOpts mountOpts;
+        
+        [System.Xml.Serialization.XmlAttributeAttribute("type")]
+        public string Type {
+            get {
+                return this.type;
+            }
+            set {
+                this.type = value;
+            }
+        }
+        
+        [System.Xml.Serialization.XmlElementAttribute("name", Namespace="")]
+        public string Name {
+            get {
+                return this.name;
+            }
+            set {
+                this.name = value;
+            }
+        }
+        
+        [System.Xml.Serialization.XmlElementAttribute("uuid", Namespace="")]
+        public string Uuid {
+            get {
+                return this.uuid;
+            }
+            set {
+                this.uuid = value;
+            }
+        }
+        
+        [System.Xml.Serialization.XmlElementAttribute("capacity", Namespace="")]
+        public PoolSizingCapacity Capacity {
+            get {
+                return this.capacity;
+            }
+            set {
+                this.capacity = value;
+            }
+        }
+        
+        [System.Xml.Serialization.XmlElementAttribute("allocation", Namespace="")]
+        public PoolSizingAllocation Allocation {
+            get {
+                return this.allocation;
+            }
+            set {
+                this.allocation = value;
+            }
+        }
+        
+        [System.Xml.Serialization.XmlElementAttribute("available", Namespace="")]
+        public PoolSizingAvailable Available {
+            get {
+                return this.available;
+            }
+            set {
+                this.available = value;
+            }
+        }
+        
+        [System.Xml.Serialization.XmlElementAttribute("features", Namespace="")]
+        public PoolFeatures Features {
+            get {
+                return this.features;
+            }
+            set {
+                this.features = value;
+            }
+        }
+        
+        [System.Xml.Serialization.XmlElementAttribute("source", Namespace="")]
+        public PoolSourcefs Source {
+            get {
+                return this.source;
+            }
+            set {
+                this.source = value;
+            }
+        }
+        
+        [System.Xml.Serialization.XmlElementAttribute("target", Namespace="")]
+        public PoolTarget Target {
+            get {
+                return this.target;
+            }
+            set {
+                this.target = value;
+            }
+        }
+        
+        [System.Xml.Serialization.XmlElementAttribute("mount_opts", Namespace="http://libvirt.org/schemas/storagepool/fs/1.0")]
+        public PoolFsMountOpts MountOpts {
+            get {
+                return this.mountOpts;
+            }
+            set {
+                this.mountOpts = value;
+            }
+        }
+    }
+    
+    [System.Xml.Serialization.XmlTypeAttribute("mount_opts", Namespace="http://libvirt.org/schemas/storagepool/fs/1.0")]
+    public partial class PoolFsMountOpts {
+        
+        private PoolFsMountOptsOption[] option;
+        
+        [System.Xml.Serialization.XmlElementAttribute("option", Namespace="http://libvirt.org/schemas/storagepool/fs/1.0")]
+        public PoolFsMountOptsOption[] Option {
+            get {
+                return this.option;
+            }
+            set {
+                this.option = value;
+            }
+        }
+    }
+    
+    public partial class PoolFsMountOptsOption {
+        
+        private string name;
+        
+        [System.Xml.Serialization.XmlAttributeAttribute("name")]
+        public string Name {
+            get {
+                return this.name;
+            }
+            set {
+                this.name = value;
+            }
+        }
+    }
+    
+    [System.Xml.Serialization.XmlTypeAttribute("pool", Namespace="")]
+    public partial class Poolgluster : Pool {
+        
+        private string type;
+        
+        private string name;
+        
+        private string uuid;
+        
+        private PoolSizingCapacity capacity;
+        
+        private PoolSizingAllocation allocation;
+        
+        private PoolSizingAvailable available;
+        
+        private PoolFeatures features;
+        
+        private PoolSourcegluster source;
+        
+        [System.Xml.Serialization.XmlAttributeAttribute("type")]
+        public string Type {
+            get {
+                return this.type;
+            }
+            set {
+                this.type = value;
+            }
+        }
+        
+        [System.Xml.Serialization.XmlElementAttribute("name", Namespace="")]
+        public string Name {
+            get {
+                return this.name;
+            }
+            set {
+                this.name = value;
+            }
+        }
+        
+        [System.Xml.Serialization.XmlElementAttribute("uuid", Namespace="")]
+        public string Uuid {
+            get {
+                return this.uuid;
+            }
+            set {
+                this.uuid = value;
+            }
+        }
+        
+        [System.Xml.Serialization.XmlElementAttribute("capacity", Namespace="")]
+        public PoolSizingCapacity Capacity {
+            get {
+                return this.capacity;
+            }
+            set {
+                this.capacity = value;
+            }
+        }
+        
+        [System.Xml.Serialization.XmlElementAttribute("allocation", Namespace="")]
+        public PoolSizingAllocation Allocation {
+            get {
+                return this.allocation;
+            }
+            set {
+                this.allocation = value;
+            }
+        }
+        
+        [System.Xml.Serialization.XmlElementAttribute("available", Namespace="")]
+        public PoolSizingAvailable Available {
+            get {
+                return this.available;
+            }
+            set {
+                this.available = value;
+            }
+        }
+        
+        [System.Xml.Serialization.XmlElementAttribute("features", Namespace="")]
+        public PoolFeatures Features {
+            get {
+                return this.features;
+            }
+            set {
+                this.features = value;
+            }
+        }
+        
+        [System.Xml.Serialization.XmlElementAttribute("source", Namespace="")]
+        public PoolSourcegluster Source {
+            get {
+                return this.source;
+            }
+            set {
+                this.source = value;
+            }
+        }
+    }
+    
+    [System.Xml.Serialization.XmlTypeAttribute("pool", Namespace="")]
+    public partial class Pooliscsi : Pool {
+        
+        private string type;
+        
+        private string name;
+        
+        private string uuid;
+        
+        private PoolSizingCapacity capacity;
+        
+        private PoolSizingAllocation allocation;
+        
+        private PoolSizingAvailable available;
+        
+        private PoolFeatures features;
+        
+        private PoolSourceiscsi source;
+        
+        private PoolTarget target;
+        
+        [System.Xml.Serialization.XmlAttributeAttribute("type")]
+        public string Type {
+            get {
+                return this.type;
+            }
+            set {
+                this.type = value;
+            }
+        }
+        
+        [System.Xml.Serialization.XmlElementAttribute("name", Namespace="")]
+        public string Name {
+            get {
+                return this.name;
+            }
+            set {
+                this.name = value;
+            }
+        }
+        
+        [System.Xml.Serialization.XmlElementAttribute("uuid", Namespace="")]
+        public string Uuid {
+            get {
+                return this.uuid;
+            }
+            set {
+                this.uuid = value;
+            }
+        }
+        
+        [System.Xml.Serialization.XmlElementAttribute("capacity", Namespace="")]
+        public PoolSizingCapacity Capacity {
+            get {
+                return this.capacity;
+            }
+            set {
+                this.capacity = value;
+            }
+        }
+        
+        [System.Xml.Serialization.XmlElementAttribute("allocation", Namespace="")]
+        public PoolSizingAllocation Allocation {
+            get {
+                return this.allocation;
+            }
+            set {
+                this.allocation = value;
+            }
+        }
+        
+        [System.Xml.Serialization.XmlElementAttribute("available", Namespace="")]
+        public PoolSizingAvailable Available {
+            get {
+                return this.available;
+            }
+            set {
+                this.available = value;
+            }
+        }
+        
+        [System.Xml.Serialization.XmlElementAttribute("features", Namespace="")]
+        public PoolFeatures Features {
+            get {
+                return this.features;
+            }
+            set {
+                this.features = value;
+            }
+        }
+        
+        [System.Xml.Serialization.XmlElementAttribute("source", Namespace="")]
+        public PoolSourceiscsi Source {
+            get {
+                return this.source;
+            }
+            set {
+                this.source = value;
+            }
+        }
+        
+        [System.Xml.Serialization.XmlElementAttribute("target", Namespace="")]
+        public PoolTarget Target {
+            get {
+                return this.target;
+            }
+            set {
+                this.target = value;
+            }
+        }
+    }
+    
+    [System.Xml.Serialization.XmlTypeAttribute("pool", Namespace="")]
+    public partial class Pooliscsidirect : Pool {
+        
+        private string type;
+        
+        private string name;
+        
+        private string uuid;
+        
+        private PoolSizingCapacity capacity;
+        
+        private PoolSizingAllocation allocation;
+        
+        private PoolSizingAvailable available;
+        
+        private PoolFeatures features;
+        
+        private PoolSourceiscsidirect source;
+        
+        [System.Xml.Serialization.XmlAttributeAttribute("type")]
+        public string Type {
+            get {
+                return this.type;
+            }
+            set {
+                this.type = value;
+            }
+        }
+        
+        [System.Xml.Serialization.XmlElementAttribute("name", Namespace="")]
+        public string Name {
+            get {
+                return this.name;
+            }
+            set {
+                this.name = value;
+            }
+        }
+        
+        [System.Xml.Serialization.XmlElementAttribute("uuid", Namespace="")]
+        public string Uuid {
+            get {
+                return this.uuid;
+            }
+            set {
+                this.uuid = value;
+            }
+        }
+        
+        [System.Xml.Serialization.XmlElementAttribute("capacity", Namespace="")]
+        public PoolSizingCapacity Capacity {
+            get {
+                return this.capacity;
+            }
+            set {
+                this.capacity = value;
+            }
+        }
+        
+        [System.Xml.Serialization.XmlElementAttribute("allocation", Namespace="")]
+        public PoolSizingAllocation Allocation {
+            get {
+                return this.allocation;
+            }
+            set {
+                this.allocation = value;
+            }
+        }
+        
+        [System.Xml.Serialization.XmlElementAttribute("available", Namespace="")]
+        public PoolSizingAvailable Available {
+            get {
+                return this.available;
+            }
+            set {
+                this.available = value;
+            }
+        }
+        
+        [System.Xml.Serialization.XmlElementAttribute("features", Namespace="")]
+        public PoolFeatures Features {
+            get {
+                return this.features;
+            }
+            set {
+                this.features = value;
+            }
+        }
+        
+        [System.Xml.Serialization.XmlElementAttribute("source", Namespace="")]
+        public PoolSourceiscsidirect Source {
+            get {
+                return this.source;
+            }
+            set {
+                this.source = value;
+            }
+        }
+    }
+    
+    [System.Xml.Serialization.XmlTypeAttribute("pool", Namespace="")]
+    public partial class Poollogical : Pool {
+        
+        private string type;
+        
+        private string name;
+        
+        private string uuid;
+        
+        private PoolSizingCapacity capacity;
+        
+        private PoolSizingAllocation allocation;
+        
+        private PoolSizingAvailable available;
+        
+        private PoolFeatures features;
+        
+        private PoolSourcelogical source;
+        
+        private PoolTargetlogical target;
+        
+        [System.Xml.Serialization.XmlAttributeAttribute("type")]
+        public string Type {
+            get {
+                return this.type;
+            }
+            set {
+                this.type = value;
+            }
+        }
+        
+        [System.Xml.Serialization.XmlElementAttribute("name", Namespace="")]
+        public string Name {
+            get {
+                return this.name;
+            }
+            set {
+                this.name = value;
+            }
+        }
+        
+        [System.Xml.Serialization.XmlElementAttribute("uuid", Namespace="")]
+        public string Uuid {
+            get {
+                return this.uuid;
+            }
+            set {
+                this.uuid = value;
+            }
+        }
+        
+        [System.Xml.Serialization.XmlElementAttribute("capacity", Namespace="")]
+        public PoolSizingCapacity Capacity {
+            get {
+                return this.capacity;
+            }
+            set {
+                this.capacity = value;
+            }
+        }
+        
+        [System.Xml.Serialization.XmlElementAttribute("allocation", Namespace="")]
+        public PoolSizingAllocation Allocation {
+            get {
+                return this.allocation;
+            }
+            set {
+                this.allocation = value;
+            }
+        }
+        
+        [System.Xml.Serialization.XmlElementAttribute("available", Namespace="")]
+        public PoolSizingAvailable Available {
+            get {
+                return this.available;
+            }
+            set {
+                this.available = value;
+            }
+        }
+        
+        [System.Xml.Serialization.XmlElementAttribute("features", Namespace="")]
+        public PoolFeatures Features {
+            get {
+                return this.features;
+            }
+            set {
+                this.features = value;
+            }
+        }
+        
+        [System.Xml.Serialization.XmlElementAttribute("source", Namespace="")]
+        public PoolSourcelogical Source {
+            get {
+                return this.source;
+            }
+            set {
+                this.source = value;
+            }
+        }
+        
+        [System.Xml.Serialization.XmlElementAttribute("target", Namespace="")]
+        public PoolTargetlogical Target {
+            get {
+                return this.target;
+            }
+            set {
+                this.target = value;
+            }
+        }
+    }
+    
+    [System.Xml.Serialization.XmlTypeAttribute("pool", Namespace="")]
+    public partial class Poolmpath : Pool {
+        
+        private string type;
+        
+        private string name;
+        
+        private string uuid;
+        
+        private PoolSizingCapacity capacity;
+        
+        private PoolSizingAllocation allocation;
+        
+        private PoolSizingAvailable available;
+        
+        private PoolFeatures features;
+        
+        private PoolSourcempath source;
+        
+        private PoolTarget target;
+        
+        [System.Xml.Serialization.XmlAttributeAttribute("type")]
+        public string Type {
+            get {
+                return this.type;
+            }
+            set {
+                this.type = value;
+            }
+        }
+        
+        [System.Xml.Serialization.XmlElementAttribute("name", Namespace="")]
+        public string Name {
+            get {
+                return this.name;
+            }
+            set {
+                this.name = value;
+            }
+        }
+        
+        [System.Xml.Serialization.XmlElementAttribute("uuid", Namespace="")]
+        public string Uuid {
+            get {
+                return this.uuid;
+            }
+            set {
+                this.uuid = value;
+            }
+        }
+        
+        [System.Xml.Serialization.XmlElementAttribute("capacity", Namespace="")]
+        public PoolSizingCapacity Capacity {
+            get {
+                return this.capacity;
+            }
+            set {
+                this.capacity = value;
+            }
+        }
+        
+        [System.Xml.Serialization.XmlElementAttribute("allocation", Namespace="")]
+        public PoolSizingAllocation Allocation {
+            get {
+                return this.allocation;
+            }
+            set {
+                this.allocation = value;
+            }
+        }
+        
+        [System.Xml.Serialization.XmlElementAttribute("available", Namespace="")]
+        public PoolSizingAvailable Available {
+            get {
+                return this.available;
+            }
+            set {
+                this.available = value;
+            }
+        }
+        
+        [System.Xml.Serialization.XmlElementAttribute("features", Namespace="")]
+        public PoolFeatures Features {
+            get {
+                return this.features;
+            }
+            set {
+                this.features = value;
+            }
+        }
+        
+        [System.Xml.Serialization.XmlElementAttribute("source", Namespace="")]
+        public PoolSourcempath Source {
+            get {
+                return this.source;
+            }
+            set {
+                this.source = value;
+            }
+        }
+        
+        [System.Xml.Serialization.XmlElementAttribute("target", Namespace="")]
+        public PoolTarget Target {
+            get {
+                return this.target;
+            }
+            set {
+                this.target = value;
+            }
+        }
+    }
+    
+    [System.Xml.Serialization.XmlTypeAttribute("pool", Namespace="")]
+    public partial class Poolnetfs : Pool {
+        
+        private string type;
+        
+        private string name;
+        
+        private string uuid;
+        
+        private PoolSizingCapacity capacity;
+        
+        private PoolSizingAllocation allocation;
+        
+        private PoolSizingAvailable available;
+        
+        private PoolFeatures features;
+        
+        private PoolSourcenetfs source;
+        
+        private PoolTarget target;
+        
+        private PoolFsMountOpts mountOpts;
+        
+        [System.Xml.Serialization.XmlAttributeAttribute("type")]
+        public string Type {
+            get {
+                return this.type;
+            }
+            set {
+                this.type = value;
+            }
+        }
+        
+        [System.Xml.Serialization.XmlElementAttribute("name", Namespace="")]
+        public string Name {
+            get {
+                return this.name;
+            }
+            set {
+                this.name = value;
+            }
+        }
+        
+        [System.Xml.Serialization.XmlElementAttribute("uuid", Namespace="")]
+        public string Uuid {
+            get {
+                return this.uuid;
+            }
+            set {
+                this.uuid = value;
+            }
+        }
+        
+        [System.Xml.Serialization.XmlElementAttribute("capacity", Namespace="")]
+        public PoolSizingCapacity Capacity {
+            get {
+                return this.capacity;
+            }
+            set {
+                this.capacity = value;
+            }
+        }
+        
+        [System.Xml.Serialization.XmlElementAttribute("allocation", Namespace="")]
+        public PoolSizingAllocation Allocation {
+            get {
+                return this.allocation;
+            }
+            set {
+                this.allocation = value;
+            }
+        }
+        
+        [System.Xml.Serialization.XmlElementAttribute("available", Namespace="")]
+        public PoolSizingAvailable Available {
+            get {
+                return this.available;
+            }
+            set {
+                this.available = value;
+            }
+        }
+        
+        [System.Xml.Serialization.XmlElementAttribute("features", Namespace="")]
+        public PoolFeatures Features {
+            get {
+                return this.features;
+            }
+            set {
+                this.features = value;
+            }
+        }
+        
+        [System.Xml.Serialization.XmlElementAttribute("source", Namespace="")]
+        public PoolSourcenetfs Source {
+            get {
+                return this.source;
+            }
+            set {
+                this.source = value;
+            }
+        }
+        
+        [System.Xml.Serialization.XmlElementAttribute("target", Namespace="")]
+        public PoolTarget Target {
+            get {
+                return this.target;
+            }
+            set {
+                this.target = value;
+            }
+        }
+        
+        [System.Xml.Serialization.XmlElementAttribute("mount_opts", Namespace="http://libvirt.org/schemas/storagepool/fs/1.0")]
+        public PoolFsMountOpts MountOpts {
+            get {
+                return this.mountOpts;
+            }
+            set {
+                this.mountOpts = value;
+            }
+        }
+    }
+    
+    [System.Xml.Serialization.XmlTypeAttribute("pool", Namespace="")]
+    public partial class Poolrbd : Pool {
+        
+        private string type;
+        
+        private string name;
+        
+        private string uuid;
+        
+        private PoolSizingCapacity capacity;
+        
+        private PoolSizingAllocation allocation;
+        
+        private PoolSizingAvailable available;
+        
+        private PoolFeatures features;
+        
+        private PoolSourcerbd source;
+        
+        private PoolRefresh refresh;
+        
+        private PoolRbdConfigOpts configOpts;
+        
+        [System.Xml.Serialization.XmlAttributeAttribute("type")]
+        public string Type {
+            get {
+                return this.type;
+            }
+            set {
+                this.type = value;
+            }
+        }
+        
+        [System.Xml.Serialization.XmlElementAttribute("name", Namespace="")]
+        public string Name {
+            get {
+                return this.name;
+            }
+            set {
+                this.name = value;
+            }
+        }
+        
+        [System.Xml.Serialization.XmlElementAttribute("uuid", Namespace="")]
+        public string Uuid {
+            get {
+                return this.uuid;
+            }
+            set {
+                this.uuid = value;
+            }
+        }
+        
+        [System.Xml.Serialization.XmlElementAttribute("capacity", Namespace="")]
+        public PoolSizingCapacity Capacity {
+            get {
+                return this.capacity;
+            }
+            set {
+                this.capacity = value;
+            }
+        }
+        
+        [System.Xml.Serialization.XmlElementAttribute("allocation", Namespace="")]
+        public PoolSizingAllocation Allocation {
+            get {
+                return this.allocation;
+            }
+            set {
+                this.allocation = value;
+            }
+        }
+        
+        [System.Xml.Serialization.XmlElementAttribute("available", Namespace="")]
+        public PoolSizingAvailable Available {
+            get {
+                return this.available;
+            }
+            set {
+                this.available = value;
+            }
+        }
+        
+        [System.Xml.Serialization.XmlElementAttribute("features", Namespace="")]
+        public PoolFeatures Features {
+            get {
+                return this.features;
+            }
+            set {
+                this.features = value;
+            }
+        }
+        
+        [System.Xml.Serialization.XmlElementAttribute("source", Namespace="")]
+        public PoolSourcerbd Source {
+            get {
+                return this.source;
+            }
+            set {
+                this.source = value;
+            }
+        }
+        
+        [System.Xml.Serialization.XmlElementAttribute("refresh", Namespace="")]
+        public PoolRefresh Refresh {
+            get {
+                return this.refresh;
+            }
+            set {
+                this.refresh = value;
+            }
+        }
+        
+        [System.Xml.Serialization.XmlElementAttribute("config_opts", Namespace="http://libvirt.org/schemas/storagepool/rbd/1.0")]
+        public PoolRbdConfigOpts ConfigOpts {
+            get {
+                return this.configOpts;
+            }
+            set {
+                this.configOpts = value;
+            }
+        }
+    }
+    
+    [System.Xml.Serialization.XmlTypeAttribute("config_opts", Namespace="http://libvirt.org/schemas/storagepool/rbd/1.0")]
+    public partial class PoolRbdConfigOpts {
+        
+        private PoolRbdConfigOptsOption[] option;
+        
+        [System.Xml.Serialization.XmlElementAttribute("option", Namespace="http://libvirt.org/schemas/storagepool/rbd/1.0")]
+        public PoolRbdConfigOptsOption[] Option {
+            get {
+                return this.option;
+            }
+            set {
+                this.option = value;
+            }
+        }
+    }
+    
+    public partial class PoolRbdConfigOptsOption {
+        
+        private string name;
+        
+        private string value;
+        
+        [System.Xml.Serialization.XmlAttributeAttribute("name")]
+        public string Name {
+            get {
+                return this.name;
+            }
+            set {
+                this.name = value;
+            }
+        }
+        
+        [System.Xml.Serialization.XmlAttributeAttribute("value")]
+        public string Value {
+            get {
+                return this.value;
+            }
+            set {
+                this.value = value;
+            }
+        }
+    }
+    
+    [System.Xml.Serialization.XmlTypeAttribute("refresh", Namespace="")]
+    public partial class PoolRefresh {
+        
+        private PoolRefreshVolume volume;
+        
+        [System.Xml.Serialization.XmlElementAttribute("volume", Namespace="")]
+        public PoolRefreshVolume Volume {
+            get {
+                return this.volume;
+            }
+            set {
+                this.volume = value;
+            }
+        }
+    }
+    
+    [System.Xml.Serialization.XmlTypeAttribute("volume", Namespace="")]
+    public partial class PoolRefreshVolume {
+        
+        private RefreshVolumeAllocation allocation;
+        
+        private bool allocationSpecified;
+        
+        [System.Xml.Serialization.XmlAttributeAttribute("allocation")]
+        public RefreshVolumeAllocation Allocation {
+            get {
+                return this.allocation;
+            }
+            set {
+                this.allocation = value;
+            }
+        }
+        
+        [System.Xml.Serialization.XmlIgnoreAttribute()]
+        public bool AllocationSpecified {
+            get {
+                return this.allocationSpecified;
+            }
+            set {
+                this.allocationSpecified = value;
+            }
+        }
+    }
+    
+    [System.Xml.Serialization.XmlTypeAttribute("pool", Namespace="")]
+    public partial class Poolscsi : Pool {
+        
+        private string type;
+        
+        private string name;
+        
+        private string uuid;
+        
+        private PoolSizingCapacity capacity;
+        
+        private PoolSizingAllocation allocation;
+        
+        private PoolSizingAvailable available;
+        
+        private PoolFeatures features;
+        
+        private PoolSourcescsi source;
+        
+        private PoolTarget target;
+        
+        [System.Xml.Serialization.XmlAttributeAttribute("type")]
+        public string Type {
+            get {
+                return this.type;
+            }
+            set {
+                this.type = value;
+            }
+        }
+        
+        [System.Xml.Serialization.XmlElementAttribute("name", Namespace="")]
+        public string Name {
+            get {
+                return this.name;
+            }
+            set {
+                this.name = value;
+            }
+        }
+        
+        [System.Xml.Serialization.XmlElementAttribute("uuid", Namespace="")]
+        public string Uuid {
+            get {
+                return this.uuid;
+            }
+            set {
+                this.uuid = value;
+            }
+        }
+        
+        [System.Xml.Serialization.XmlElementAttribute("capacity", Namespace="")]
+        public PoolSizingCapacity Capacity {
+            get {
+                return this.capacity;
+            }
+            set {
+                this.capacity = value;
+            }
+        }
+        
+        [System.Xml.Serialization.XmlElementAttribute("allocation", Namespace="")]
+        public PoolSizingAllocation Allocation {
+            get {
+                return this.allocation;
+            }
+            set {
+                this.allocation = value;
+            }
+        }
+        
+        [System.Xml.Serialization.XmlElementAttribute("available", Namespace="")]
+        public PoolSizingAvailable Available {
+            get {
+                return this.available;
+            }
+            set {
+                this.available = value;
+            }
+        }
+        
+        [System.Xml.Serialization.XmlElementAttribute("features", Namespace="")]
+        public PoolFeatures Features {
+            get {
+                return this.features;
+            }
+            set {
+                this.features = value;
+            }
+        }
+        
+        [System.Xml.Serialization.XmlElementAttribute("source", Namespace="")]
+        public PoolSourcescsi Source {
+            get {
+                return this.source;
+            }
+            set {
+                this.source = value;
+            }
+        }
+        
+        [System.Xml.Serialization.XmlElementAttribute("target", Namespace="")]
+        public PoolTarget Target {
+            get {
+                return this.target;
+            }
+            set {
+                this.target = value;
+            }
+        }
+    }
+    
+    [System.Xml.Serialization.XmlTypeAttribute("pool", Namespace="")]
+    public partial class Poolsheepdog : Pool {
+        
+        private string type;
+        
+        private string name;
+        
+        private string uuid;
+        
+        private PoolSizingCapacity capacity;
+        
+        private PoolSizingAllocation allocation;
+        
+        private PoolSizingAvailable available;
+        
+        private PoolFeatures features;
+        
+        private PoolSourcesheepdog source;
+        
+        [System.Xml.Serialization.XmlAttributeAttribute("type")]
+        public string Type {
+            get {
+                return this.type;
+            }
+            set {
+                this.type = value;
+            }
+        }
+        
+        [System.Xml.Serialization.XmlElementAttribute("name", Namespace="")]
+        public string Name {
+            get {
+                return this.name;
+            }
+            set {
+                this.name = value;
+            }
+        }
+        
+        [System.Xml.Serialization.XmlElementAttribute("uuid", Namespace="")]
+        public string Uuid {
+            get {
+                return this.uuid;
+            }
+            set {
+                this.uuid = value;
+            }
+        }
+        
+        [System.Xml.Serialization.XmlElementAttribute("capacity", Namespace="")]
+        public PoolSizingCapacity Capacity {
+            get {
+                return this.capacity;
+            }
+            set {
+                this.capacity = value;
+            }
+        }
+        
+        [System.Xml.Serialization.XmlElementAttribute("allocation", Namespace="")]
+        public PoolSizingAllocation Allocation {
+            get {
+                return this.allocation;
+            }
+            set {
+                this.allocation = value;
+            }
+        }
+        
+        [System.Xml.Serialization.XmlElementAttribute("available", Namespace="")]
+        public PoolSizingAvailable Available {
+            get {
+                return this.available;
+            }
+            set {
+                this.available = value;
+            }
+        }
+        
+        [System.Xml.Serialization.XmlElementAttribute("features", Namespace="")]
+        public PoolFeatures Features {
+            get {
+                return this.features;
+            }
+            set {
+                this.features = value;
+            }
+        }
+        
+        [System.Xml.Serialization.XmlElementAttribute("source", Namespace="")]
+        public PoolSourcesheepdog Source {
+            get {
+                return this.source;
+            }
+            set {
+                this.source = value;
+            }
+        }
+    }
+    
+    public partial class PoolSizingAllocation {
+        
+        private string value;
+        
+        private string unit;
+        
+        [System.Xml.Serialization.XmlTextAttribute()]
+        public string Value {
+            get {
+                return this.value;
+            }
+            set {
+                this.value = value;
+            }
+        }
+        
+        [System.Xml.Serialization.XmlAttributeAttribute("unit")]
+        public string Unit {
+            get {
+                return this.unit;
+            }
+            set {
+                this.unit = value;
+            }
+        }
+    }
+    
+    public partial class PoolSizingAvailable {
+        
+        private string value;
+        
+        private string unit;
+        
+        [System.Xml.Serialization.XmlTextAttribute()]
+        public string Value {
+            get {
+                return this.value;
+            }
+            set {
+                this.value = value;
+            }
+        }
+        
+        [System.Xml.Serialization.XmlAttributeAttribute("unit")]
+        public string Unit {
+            get {
+                return this.unit;
+            }
+            set {
+                this.unit = value;
+            }
+        }
+    }
+    
+    public partial class PoolSizingCapacity {
+        
+        private string value;
+        
+        private string unit;
+        
+        [System.Xml.Serialization.XmlTextAttribute()]
+        public string Value {
+            get {
+                return this.value;
+            }
+            set {
+                this.value = value;
+            }
+        }
+        
+        [System.Xml.Serialization.XmlAttributeAttribute("unit")]
+        public string Unit {
+            get {
+                return this.unit;
+            }
+            set {
+                this.unit = value;
+            }
+        }
+    }
+    
+    [System.Xml.Serialization.XmlTypeAttribute("source", Namespace="")]
+    public partial class PoolSourcedir {
+        
+        private PoolSourceinfovendorVendor vendor;
+        
+        private PoolSourceinfovendorProduct product;
+        
+        [System.Xml.Serialization.XmlElementAttribute("vendor", Namespace="")]
+        public PoolSourceinfovendorVendor Vendor {
+            get {
+                return this.vendor;
+            }
+            set {
+                this.vendor = value;
+            }
+        }
+        
+        [System.Xml.Serialization.XmlElementAttribute("product", Namespace="")]
+        public PoolSourceinfovendorProduct Product {
+            get {
+                return this.product;
+            }
+            set {
+                this.product = value;
+            }
+        }
+    }
+    
+    [System.Xml.Serialization.XmlTypeAttribute("source", Namespace="")]
+    public partial class PoolSourcedisk {
+        
+        private PoolSourceinfodev device;
+        
+        private PoolSourcefmtdisk format;
+        
+        private PoolSourceinfovendorVendor vendor;
+        
+        private PoolSourceinfovendorProduct product;
+        
+        [System.Xml.Serialization.XmlElementAttribute("device", Namespace="")]
+        public PoolSourceinfodev Device {
+            get {
+                return this.device;
+            }
+            set {
+                this.device = value;
+            }
+        }
+        
+        [System.Xml.Serialization.XmlElementAttribute("format", Namespace="")]
+        public PoolSourcefmtdisk Format {
+            get {
+                return this.format;
+            }
+            set {
+                this.format = value;
+            }
+        }
+        
+        [System.Xml.Serialization.XmlElementAttribute("vendor", Namespace="")]
+        public PoolSourceinfovendorVendor Vendor {
+            get {
+                return this.vendor;
+            }
+            set {
+                this.vendor = value;
+            }
+        }
+        
+        [System.Xml.Serialization.XmlElementAttribute("product", Namespace="")]
+        public PoolSourceinfovendorProduct Product {
+            get {
+                return this.product;
+            }
+            set {
+                this.product = value;
+            }
+        }
+    }
+    
+    [System.Xml.Serialization.XmlTypeAttribute("format", Namespace="")]
+    public partial class PoolSourcefmtdisk {
+        
+        private PoolSourcefmtdiskType type;
+        
+        private PoolSourceinfovendorVendor vendor;
+        
+        private PoolSourceinfovendorProduct product;
+        
+        [System.Xml.Serialization.XmlAttributeAttribute("type")]
+        public PoolSourcefmtdiskType Type {
+            get {
+                return this.type;
+            }
+            set {
+                this.type = value;
+            }
+        }
+        
+        [System.Xml.Serialization.XmlElementAttribute("vendor", Namespace="")]
+        public PoolSourceinfovendorVendor Vendor {
+            get {
+                return this.vendor;
+            }
+            set {
+                this.vendor = value;
+            }
+        }
+        
+        [System.Xml.Serialization.XmlElementAttribute("product", Namespace="")]
+        public PoolSourceinfovendorProduct Product {
+            get {
+                return this.product;
+            }
+            set {
+                this.product = value;
+            }
+        }
+    }
+    
+    public enum PoolSourcefmtdiskType {
+        
+        [System.Xml.Serialization.XmlEnumAttribute(Name="unknown")]
+        Unknown,
+        
+        [System.Xml.Serialization.XmlEnumAttribute(Name="dos")]
+        Dos,
+        
+        [System.Xml.Serialization.XmlEnumAttribute(Name="dvh")]
+        Dvh,
+        
+        [System.Xml.Serialization.XmlEnumAttribute(Name="gpt")]
+        Gpt,
+        
+        [System.Xml.Serialization.XmlEnumAttribute(Name="mac")]
+        Mac,
+        
+        [System.Xml.Serialization.XmlEnumAttribute(Name="bsd")]
+        Bsd,
+        
+        [System.Xml.Serialization.XmlEnumAttribute(Name="pc98")]
+        Pc98,
+        
+        [System.Xml.Serialization.XmlEnumAttribute(Name="sun")]
+        Sun,
+        
+        [System.Xml.Serialization.XmlEnumAttribute(Name="lvm2")]
+        Lvm2,
+    }
+    
+    [System.Xml.Serialization.XmlTypeAttribute("format", Namespace="")]
+    public partial class PoolSourcefmtfs {
+        
+        private PoolSourcefmtfsType type;
+        
+        [System.Xml.Serialization.XmlAttributeAttribute("type")]
+        public PoolSourcefmtfsType Type {
+            get {
+                return this.type;
+            }
+            set {
+                this.type = value;
+            }
+        }
+    }
+    
+    public enum PoolSourcefmtfsType {
+        
+        [System.Xml.Serialization.XmlEnumAttribute(Name="auto")]
+        Auto,
+        
+        [System.Xml.Serialization.XmlEnumAttribute(Name="ext2")]
+        Ext2,
+        
+        [System.Xml.Serialization.XmlEnumAttribute(Name="ext3")]
+        Ext3,
+        
+        [System.Xml.Serialization.XmlEnumAttribute(Name="ext4")]
+        Ext4,
+        
+        [System.Xml.Serialization.XmlEnumAttribute(Name="ufs")]
+        Ufs,
+        
+        [System.Xml.Serialization.XmlEnumAttribute(Name="iso9660")]
+        Iso9660,
+        
+        [System.Xml.Serialization.XmlEnumAttribute(Name="udf")]
+        Udf,
+        
+        [System.Xml.Serialization.XmlEnumAttribute(Name="gfs")]
+        Gfs,
+        
+        [System.Xml.Serialization.XmlEnumAttribute(Name="gfs2")]
+        Gfs2,
+        
+        [System.Xml.Serialization.XmlEnumAttribute(Name="vfat")]
+        Vfat,
+        
+        [System.Xml.Serialization.XmlEnumAttribute(Name="hfs+")]
+        HfsPlus,
+        
+        [System.Xml.Serialization.XmlEnumAttribute(Name="xfs")]
+        Xfs,
+        
+        [System.Xml.Serialization.XmlEnumAttribute(Name="ocfs2")]
+        Ocfs2,
+        
+        [System.Xml.Serialization.XmlEnumAttribute(Name="vmfs")]
+        Vmfs,
+    }
+    
+    [System.Xml.Serialization.XmlTypeAttribute("format", Namespace="")]
+    public partial class PoolSourcefmtlogical {
+        
+        private PoolSourcefmtlogicalType type;
+        
+        private PoolSourceinfovendorVendor vendor;
+        
+        private PoolSourceinfovendorProduct product;
+        
+        [System.Xml.Serialization.XmlAttributeAttribute("type")]
+        public PoolSourcefmtlogicalType Type {
+            get {
+                return this.type;
+            }
+            set {
+                this.type = value;
+            }
+        }
+        
+        [System.Xml.Serialization.XmlElementAttribute("vendor", Namespace="")]
+        public PoolSourceinfovendorVendor Vendor {
+            get {
+                return this.vendor;
+            }
+            set {
+                this.vendor = value;
+            }
+        }
+        
+        [System.Xml.Serialization.XmlElementAttribute("product", Namespace="")]
+        public PoolSourceinfovendorProduct Product {
+            get {
+                return this.product;
+            }
+            set {
+                this.product = value;
+            }
+        }
+    }
+    
+    public enum PoolSourcefmtlogicalType {
+        
+        [System.Xml.Serialization.XmlEnumAttribute(Name="unknown")]
+        Unknown,
+        
+        [System.Xml.Serialization.XmlEnumAttribute(Name="lvm2")]
+        Lvm2,
+    }
+    
+    [System.Xml.Serialization.XmlTypeAttribute("format", Namespace="")]
+    public partial class PoolSourcefmtnetfs {
+        
+        private PoolSourcefmtnetfsType type;
+        
+        [System.Xml.Serialization.XmlAttributeAttribute("type")]
+        public PoolSourcefmtnetfsType Type {
+            get {
+                return this.type;
+            }
+            set {
+                this.type = value;
+            }
+        }
+    }
+    
+    public enum PoolSourcefmtnetfsType {
+        
+        [System.Xml.Serialization.XmlEnumAttribute(Name="auto")]
+        Auto,
+        
+        [System.Xml.Serialization.XmlEnumAttribute(Name="nfs")]
+        Nfs,
+    }
+    
+    [System.Xml.Serialization.XmlTypeAttribute("source", Namespace="")]
+    public partial class PoolSourcefs {
+        
+        private PoolSourceinfodev device;
+        
+        private PoolSourcefmtfs format;
+        
+        private PoolSourceinfovendorVendor vendor;
+        
+        private PoolSourceinfovendorProduct product;
+        
+        [System.Xml.Serialization.XmlElementAttribute("device", Namespace="")]
+        public PoolSourceinfodev Device {
+            get {
+                return this.device;
+            }
+            set {
+                this.device = value;
+            }
+        }
+        
+        [System.Xml.Serialization.XmlElementAttribute("format", Namespace="")]
+        public PoolSourcefmtfs Format {
+            get {
+                return this.format;
+            }
+            set {
+                this.format = value;
+            }
+        }
+        
+        [System.Xml.Serialization.XmlElementAttribute("vendor", Namespace="")]
+        public PoolSourceinfovendorVendor Vendor {
+            get {
+                return this.vendor;
+            }
+            set {
+                this.vendor = value;
+            }
+        }
+        
+        [System.Xml.Serialization.XmlElementAttribute("product", Namespace="")]
+        public PoolSourceinfovendorProduct Product {
+            get {
+                return this.product;
+            }
+            set {
+                this.product = value;
+            }
+        }
+    }
+    
+    [System.Xml.Serialization.XmlTypeAttribute("source", Namespace="")]
+    public partial class PoolSourcegluster {
+        
+        private PoolSourceinfohost[] host;
+        
+        private string name;
+        
+        private PoolSourceinfodir dir;
+        
+        [System.Xml.Serialization.XmlElementAttribute("host", Namespace="")]
+        public PoolSourceinfohost[] Host {
+            get {
+                return this.host;
+            }
+            set {
+                this.host = value;
+            }
+        }
+        
+        [System.Xml.Serialization.XmlElementAttribute("name", Namespace="")]
+        public string Name {
+            get {
+                return this.name;
+            }
+            set {
+                this.name = value;
+            }
+        }
+        
+        [System.Xml.Serialization.XmlElementAttribute("dir", Namespace="")]
+        public PoolSourceinfodir Dir {
+            get {
+                return this.dir;
+            }
+            set {
+                this.dir = value;
+            }
+        }
+    }
+    
+    [System.Xml.Serialization.XmlTypeAttribute("auth", Namespace="")]
+    public partial class PoolSourceinfoauth {
+        
+        private PoolSourceinfoauthType type;
+        
+        private string username;
+        
+        private PoolSourceinfoauthsecret secret;
+        
+        [System.Xml.Serialization.XmlAttributeAttribute("type")]
+        public PoolSourceinfoauthType Type {
+            get {
+                return this.type;
+            }
+            set {
+                this.type = value;
+            }
+        }
+        
+        [System.Xml.Serialization.XmlAttributeAttribute("username")]
+        public string Username {
+            get {
+                return this.username;
+            }
+            set {
+                this.username = value;
+            }
+        }
+        
+        [System.Xml.Serialization.XmlElementAttribute("secret", Namespace="")]
+        public PoolSourceinfoauthsecret Secret {
+            get {
+                return this.secret;
+            }
+            set {
+                this.secret = value;
+            }
+        }
+    }
+    
+    [System.Xml.Serialization.XmlTypeAttribute("secret", Namespace="")]
+    public partial class PoolSourceinfoauthsecret {
+        
+        private string uuid;
+        
+        private string usage;
+        
+        [System.Xml.Serialization.XmlAttributeAttribute("uuid")]
+        public string Uuid {
+            get {
+                return this.uuid;
+            }
+            set {
+                this.uuid = value;
+            }
+        }
+        
+        [System.Xml.Serialization.XmlAttributeAttribute("usage")]
+        public string Usage {
+            get {
+                return this.usage;
+            }
+            set {
+                this.usage = value;
+            }
+        }
+    }
+    
+    public enum PoolSourceinfoauthType {
+        
+        [System.Xml.Serialization.XmlEnumAttribute(Name="chap")]
+        Chap,
+        
+        [System.Xml.Serialization.XmlEnumAttribute(Name="ceph")]
+        Ceph,
+    }
+    
+    [System.Xml.Serialization.XmlTypeAttribute("device", Namespace="")]
+    public partial class PoolSourceinfodev {
+        
+        private string path;
+        
+        private PoolDevextents[] freeExtent;
+        
+        private VirYesNo partSeparator;
+        
+        private bool partSeparatorSpecified;
+        
+        [System.Xml.Serialization.XmlAttributeAttribute("path")]
+        public string Path {
+            get {
+                return this.path;
+            }
+            set {
+                this.path = value;
+            }
+        }
+        
+        [System.Xml.Serialization.XmlElementAttribute("freeExtent", Namespace="")]
+        public PoolDevextents[] FreeExtent {
+            get {
+                return this.freeExtent;
+            }
+            set {
+                this.freeExtent = value;
+            }
+        }
+        
+        [System.Xml.Serialization.XmlAttributeAttribute("part_separator")]
+        public VirYesNo PartSeparator {
+            get {
+                return this.partSeparator;
+            }
+            set {
+                this.partSeparator = value;
+            }
+        }
+        
+        [System.Xml.Serialization.XmlIgnoreAttribute()]
+        public bool PartSeparatorSpecified {
+            get {
+                return this.partSeparatorSpecified;
+            }
+            set {
+                this.partSeparatorSpecified = value;
+            }
+        }
+    }
+    
+    [System.Xml.Serialization.XmlTypeAttribute("device", Namespace="")]
+    public partial class PoolSourceinfodeviscsidirect {
+        
+        private string path;
+        
+        [System.Xml.Serialization.XmlAttributeAttribute("path")]
+        public string Path {
+            get {
+                return this.path;
+            }
+            set {
+                this.path = value;
+            }
+        }
+    }
+    
+    [System.Xml.Serialization.XmlTypeAttribute("dir", Namespace="")]
+    public partial class PoolSourceinfodir {
+        
+        private string path;
+        
+        [System.Xml.Serialization.XmlAttributeAttribute("path")]
+        public string Path {
+            get {
+                return this.path;
+            }
+            set {
+                this.path = value;
+            }
+        }
+    }
+    
+    [System.Xml.Serialization.XmlTypeAttribute("host", Namespace="")]
+    public partial class PoolSourceinfohost {
+        
+        private string name;
+        
+        private int port;
+        
+        private bool portSpecified;
+        
+        [System.Xml.Serialization.XmlAttributeAttribute("name")]
+        public string Name {
+            get {
+                return this.name;
+            }
+            set {
+                this.name = value;
+            }
+        }
+        
+        [System.Xml.Serialization.XmlAttributeAttribute("port")]
+        public int Port {
+            get {
+                return this.port;
+            }
+            set {
+                this.port = value;
+            }
+        }
+        
+        [System.Xml.Serialization.XmlIgnoreAttribute()]
+        public bool PortSpecified {
+            get {
+                return this.portSpecified;
+            }
+            set {
+                this.portSpecified = value;
+            }
+        }
+    }
+    
+    [System.Xml.Serialization.XmlTypeAttribute("dir", Namespace="")]
+    public partial class PoolSourceinfonetrelativepath {
+        
+        private string path;
+        
+        [System.Xml.Serialization.XmlAttributeAttribute("path")]
+        public string Path {
+            get {
+                return this.path;
+            }
+            set {
+                this.path = value;
+            }
+        }
+    }
+    
+    public partial class PoolSourceinfovendorProduct {
+        
+        private string name;
+        
+        [System.Xml.Serialization.XmlAttributeAttribute("name")]
+        public string Name {
+            get {
+                return this.name;
+            }
+            set {
+                this.name = value;
+            }
+        }
+    }
+    
+    public partial class PoolSourceinfovendorVendor {
+        
+        private string name;
+        
+        [System.Xml.Serialization.XmlAttributeAttribute("name")]
+        public string Name {
+            get {
+                return this.name;
+            }
+            set {
+                this.name = value;
+            }
+        }
+    }
+    
+    [System.Xml.Serialization.XmlTypeAttribute("source", Namespace="")]
+    public partial class PoolSourceiscsi {
+        
+        private PoolSourceinfohost[] host;
+        
+        private PoolSourceinfodev device;
+        
+        private StorageInitiatorinfo initiator;
+        
+        private PoolSourceinfoauth auth;
+        
+        private PoolSourceinfovendorVendor vendor;
+        
+        private PoolSourceinfovendorProduct product;
+        
+        [System.Xml.Serialization.XmlElementAttribute("host", Namespace="")]
+        public PoolSourceinfohost[] Host {
+            get {
+                return this.host;
+            }
+            set {
+                this.host = value;
+            }
+        }
+        
+        [System.Xml.Serialization.XmlElementAttribute("device", Namespace="")]
+        public PoolSourceinfodev Device {
+            get {
+                return this.device;
+            }
+            set {
+                this.device = value;
+            }
+        }
+        
+        [System.Xml.Serialization.XmlElementAttribute("initiator", Namespace="")]
+        public StorageInitiatorinfo Initiator {
+            get {
+                return this.initiator;
+            }
+            set {
+                this.initiator = value;
+            }
+        }
+        
+        [System.Xml.Serialization.XmlElementAttribute("auth", Namespace="")]
+        public PoolSourceinfoauth Auth {
+            get {
+                return this.auth;
+            }
+            set {
+                this.auth = value;
+            }
+        }
+        
+        [System.Xml.Serialization.XmlElementAttribute("vendor", Namespace="")]
+        public PoolSourceinfovendorVendor Vendor {
+            get {
+                return this.vendor;
+            }
+            set {
+                this.vendor = value;
+            }
+        }
+        
+        [System.Xml.Serialization.XmlElementAttribute("product", Namespace="")]
+        public PoolSourceinfovendorProduct Product {
+            get {
+                return this.product;
+            }
+            set {
+                this.product = value;
+            }
+        }
+    }
+    
+    [System.Xml.Serialization.XmlTypeAttribute("source", Namespace="")]
+    public partial class PoolSourceiscsidirect {
+        
+        private PoolSourceinfohost[] host;
+        
+        private PoolSourceinfodeviscsidirect device;
+        
+        private StorageInitiatorinfo initiator;
+        
+        private PoolSourceinfoauth auth;
+        
+        [System.Xml.Serialization.XmlElementAttribute("host", Namespace="")]
+        public PoolSourceinfohost[] Host {
+            get {
+                return this.host;
+            }
+            set {
+                this.host = value;
+            }
+        }
+        
+        [System.Xml.Serialization.XmlElementAttribute("device", Namespace="")]
+        public PoolSourceinfodeviscsidirect Device {
+            get {
+                return this.device;
+            }
+            set {
+                this.device = value;
+            }
+        }
+        
+        [System.Xml.Serialization.XmlElementAttribute("initiator", Namespace="")]
+        public StorageInitiatorinfo Initiator {
+            get {
+                return this.initiator;
+            }
+            set {
+                this.initiator = value;
+            }
+        }
+        
+        [System.Xml.Serialization.XmlElementAttribute("auth", Namespace="")]
+        public PoolSourceinfoauth Auth {
+            get {
+                return this.auth;
+            }
+            set {
+                this.auth = value;
+            }
+        }
+    }
+    
+    [System.Xml.Serialization.XmlTypeAttribute("source", Namespace="")]
+    public partial class PoolSourcelogical {
+        
+        private string[] name;
+        
+        private PoolSourceinfodev[] device;
+        
+        private PoolSourcefmtlogical format;
+        
+        private PoolSourceinfovendorVendor vendor;
+        
+        private PoolSourceinfovendorProduct product;
+        
+        [System.Xml.Serialization.XmlElementAttribute("name", Namespace="")]
+        public string[] Name {
+            get {
+                return this.name;
+            }
+            set {
+                this.name = value;
+            }
+        }
+        
+        [System.Xml.Serialization.XmlElementAttribute("device", Namespace="")]
+        public PoolSourceinfodev[] Device {
+            get {
+                return this.device;
+            }
+            set {
+                this.device = value;
+            }
+        }
+        
+        [System.Xml.Serialization.XmlElementAttribute("format", Namespace="")]
+        public PoolSourcefmtlogical Format {
+            get {
+                return this.format;
+            }
+            set {
+                this.format = value;
+            }
+        }
+        
+        [System.Xml.Serialization.XmlElementAttribute("vendor", Namespace="")]
+        public PoolSourceinfovendorVendor Vendor {
+            get {
+                return this.vendor;
+            }
+            set {
+                this.vendor = value;
+            }
+        }
+        
+        [System.Xml.Serialization.XmlElementAttribute("product", Namespace="")]
+        public PoolSourceinfovendorProduct Product {
+            get {
+                return this.product;
+            }
+            set {
+                this.product = value;
+            }
+        }
+    }
+    
+    [System.Xml.Serialization.XmlTypeAttribute("source", Namespace="")]
+    public partial class PoolSourcempath {
+    }
+    
+    [System.Xml.Serialization.XmlTypeAttribute("source", Namespace="")]
+    public partial class PoolSourcenetfs {
+        
+        private PoolSourceinfohost[] host;
+        
+        private PoolSourceinfodir dir;
+        
+        private PoolSourcefmtnetfs format;
+        
+        private PoolSourcenetfsProtocol protocol;
+        
+        private PoolSourceinfovendorVendor vendor;
+        
+        private PoolSourceinfovendorProduct product;
+        
+        [System.Xml.Serialization.XmlElementAttribute("host", Namespace="")]
+        public PoolSourceinfohost[] Host {
+            get {
+                return this.host;
+            }
+            set {
+                this.host = value;
+            }
+        }
+        
+        [System.Xml.Serialization.XmlElementAttribute("dir", Namespace="")]
+        public PoolSourceinfodir Dir {
+            get {
+                return this.dir;
+            }
+            set {
+                this.dir = value;
+            }
+        }
+        
+        [System.Xml.Serialization.XmlElementAttribute("format", Namespace="")]
+        public PoolSourcefmtnetfs Format {
+            get {
+                return this.format;
+            }
+            set {
+                this.format = value;
+            }
+        }
+        
+        [System.Xml.Serialization.XmlElementAttribute("protocol", Namespace="")]
+        public PoolSourcenetfsProtocol Protocol {
+            get {
+                return this.protocol;
+            }
+            set {
+                this.protocol = value;
+            }
+        }
+        
+        [System.Xml.Serialization.XmlElementAttribute("vendor", Namespace="")]
+        public PoolSourceinfovendorVendor Vendor {
+            get {
+                return this.vendor;
+            }
+            set {
+                this.vendor = value;
+            }
+        }
+        
+        [System.Xml.Serialization.XmlElementAttribute("product", Namespace="")]
+        public PoolSourceinfovendorProduct Product {
+            get {
+                return this.product;
+            }
+            set {
+                this.product = value;
+            }
+        }
+    }
+    
+    public partial class PoolSourcenetfsFormat {
+        
+        private PoolSourcenetfsFormatType type;
+        
+        [System.Xml.Serialization.XmlAttributeAttribute("type")]
+        public PoolSourcenetfsFormatType Type {
+            get {
+                return this.type;
+            }
+            set {
+                this.type = value;
+            }
+        }
+    }
+    
+    public enum PoolSourcenetfsFormatType {
+        
+        [System.Xml.Serialization.XmlEnumAttribute(Name="cifs")]
+        Cifs,
+        
+        [System.Xml.Serialization.XmlEnumAttribute(Name="glusterfs")]
+        Glusterfs,
+    }
+    
+    public partial class PoolSourcenetfsProtocol {
+        
+        private string ver;
+        
+        [System.Xml.Serialization.XmlAttributeAttribute("ver")]
+        public string Ver {
+            get {
+                return this.ver;
+            }
+            set {
+                this.ver = value;
+            }
+        }
+    }
+    
+    [System.Xml.Serialization.XmlTypeAttribute("source", Namespace="")]
+    public partial class PoolSourcerbd {
+        
+        private string name;
+        
+        private PoolSourceinfohost[] host;
+        
+        private PoolSourceinfoauth auth;
+        
+        [System.Xml.Serialization.XmlElementAttribute("name", Namespace="")]
+        public string Name {
+            get {
+                return this.name;
+            }
+            set {
+                this.name = value;
+            }
+        }
+        
+        [System.Xml.Serialization.XmlElementAttribute("host", Namespace="")]
+        public PoolSourceinfohost[] Host {
+            get {
+                return this.host;
+            }
+            set {
+                this.host = value;
+            }
+        }
+        
+        [System.Xml.Serialization.XmlElementAttribute("auth", Namespace="")]
+        public PoolSourceinfoauth Auth {
+            get {
+                return this.auth;
+            }
+            set {
+                this.auth = value;
+            }
+        }
+    }
+    
+    [System.Xml.Serialization.XmlTypeAttribute("source", Namespace="")]
+    public partial class PoolSourcescsi {
+        
+        private Sourceinfoadapter adapter;
+        
+        private PoolSourceinfovendorVendor vendor;
+        
+        private PoolSourceinfovendorProduct product;
+        
+        [System.Xml.Serialization.XmlElementAttribute("adapter", Namespace="")]
+        public Sourceinfoadapter Adapter {
+            get {
+                return this.adapter;
+            }
+            set {
+                this.adapter = value;
+            }
+        }
+        
+        [System.Xml.Serialization.XmlElementAttribute("vendor", Namespace="")]
+        public PoolSourceinfovendorVendor Vendor {
+            get {
+                return this.vendor;
+            }
+            set {
+                this.vendor = value;
+            }
+        }
+        
+        [System.Xml.Serialization.XmlElementAttribute("product", Namespace="")]
+        public PoolSourceinfovendorProduct Product {
+            get {
+                return this.product;
+            }
+            set {
+                this.product = value;
+            }
+        }
+    }
+    
+    [System.Xml.Serialization.XmlTypeAttribute("source", Namespace="")]
+    public partial class PoolSourcesheepdog {
+        
+        private PoolSourceinfohost[] host;
+        
+        private string name;
+        
+        [System.Xml.Serialization.XmlElementAttribute("host", Namespace="")]
+        public PoolSourceinfohost[] Host {
+            get {
+                return this.host;
+            }
+            set {
+                this.host = value;
+            }
+        }
+        
+        [System.Xml.Serialization.XmlElementAttribute("name", Namespace="")]
+        public string Name {
+            get {
+                return this.name;
+            }
+            set {
+                this.name = value;
+            }
+        }
+    }
+    
+    [System.Xml.Serialization.XmlTypeAttribute("source", Namespace="")]
+    public partial class PoolSourcevstorage {
+        
+        private string name;
+        
+        [System.Xml.Serialization.XmlElementAttribute("name", Namespace="")]
+        public string Name {
+            get {
+                return this.name;
+            }
+            set {
+                this.name = value;
+            }
+        }
+    }
+    
+    [System.Xml.Serialization.XmlTypeAttribute("source", Namespace="")]
+    public partial class PoolSourcezfs {
+        
+        private string name;
+        
+        private PoolSourceinfodev device;
+        
+        [System.Xml.Serialization.XmlElementAttribute("name", Namespace="")]
+        public string Name {
+            get {
+                return this.name;
+            }
+            set {
+                this.name = value;
+            }
+        }
+        
+        [System.Xml.Serialization.XmlElementAttribute("device", Namespace="")]
+        public PoolSourceinfodev Device {
+            get {
+                return this.device;
+            }
+            set {
+                this.device = value;
+            }
+        }
+    }
+    
+    [System.Xml.Serialization.XmlTypeAttribute("target", Namespace="")]
+    public partial class PoolTarget {
+        
+        private string path;
+        
+        private StoragePermissions permissions;
+        
+        [System.Xml.Serialization.XmlElementAttribute("path", Namespace="")]
+        public string Path {
+            get {
+                return this.path;
+            }
+            set {
+                this.path = value;
+            }
+        }
+        
+        [System.Xml.Serialization.XmlElementAttribute("permissions", Namespace="")]
+        public StoragePermissions Permissions {
+            get {
+                return this.permissions;
+            }
+            set {
+                this.permissions = value;
+            }
+        }
+    }
+    
+    [System.Xml.Serialization.XmlTypeAttribute("target", Namespace="")]
+    public partial class PoolTargetlogical {
+        
+        private string path;
+        
+        private StoragePermissions permissions;
+        
+        [System.Xml.Serialization.XmlElementAttribute("path", Namespace="")]
+        public string Path {
+            get {
+                return this.path;
+            }
+            set {
+                this.path = value;
+            }
+        }
+        
+        [System.Xml.Serialization.XmlElementAttribute("permissions", Namespace="")]
+        public StoragePermissions Permissions {
+            get {
+                return this.permissions;
+            }
+            set {
+                this.permissions = value;
+            }
+        }
+    }
+    
+    [System.Xml.Serialization.XmlTypeAttribute("pool", Namespace="")]
+    public partial class Poolvstorage : Pool {
+        
+        private string type;
+        
+        private string name;
+        
+        private string uuid;
+        
+        private PoolSizingCapacity capacity;
+        
+        private PoolSizingAllocation allocation;
+        
+        private PoolSizingAvailable available;
+        
+        private PoolFeatures features;
+        
+        private PoolSourcevstorage source;
+        
+        private PoolTarget target;
+        
+        [System.Xml.Serialization.XmlAttributeAttribute("type")]
+        public string Type {
+            get {
+                return this.type;
+            }
+            set {
+                this.type = value;
+            }
+        }
+        
+        [System.Xml.Serialization.XmlElementAttribute("name", Namespace="")]
+        public string Name {
+            get {
+                return this.name;
+            }
+            set {
+                this.name = value;
+            }
+        }
+        
+        [System.Xml.Serialization.XmlElementAttribute("uuid", Namespace="")]
+        public string Uuid {
+            get {
+                return this.uuid;
+            }
+            set {
+                this.uuid = value;
+            }
+        }
+        
+        [System.Xml.Serialization.XmlElementAttribute("capacity", Namespace="")]
+        public PoolSizingCapacity Capacity {
+            get {
+                return this.capacity;
+            }
+            set {
+                this.capacity = value;
+            }
+        }
+        
+        [System.Xml.Serialization.XmlElementAttribute("allocation", Namespace="")]
+        public PoolSizingAllocation Allocation {
+            get {
+                return this.allocation;
+            }
+            set {
+                this.allocation = value;
+            }
+        }
+        
+        [System.Xml.Serialization.XmlElementAttribute("available", Namespace="")]
+        public PoolSizingAvailable Available {
+            get {
+                return this.available;
+            }
+            set {
+                this.available = value;
+            }
+        }
+        
+        [System.Xml.Serialization.XmlElementAttribute("features", Namespace="")]
+        public PoolFeatures Features {
+            get {
+                return this.features;
+            }
+            set {
+                this.features = value;
+            }
+        }
+        
+        [System.Xml.Serialization.XmlElementAttribute("source", Namespace="")]
+        public PoolSourcevstorage Source {
+            get {
+                return this.source;
+            }
+            set {
+                this.source = value;
+            }
+        }
+        
+        [System.Xml.Serialization.XmlElementAttribute("target", Namespace="")]
+        public PoolTarget Target {
+            get {
+                return this.target;
+            }
+            set {
+                this.target = value;
+            }
+        }
+    }
+    
+    [System.Xml.Serialization.XmlTypeAttribute("pool", Namespace="")]
+    public partial class Poolzfs : Pool {
+        
+        private string type;
+        
+        private string name;
+        
+        private string uuid;
+        
+        private PoolSizingCapacity capacity;
+        
+        private PoolSizingAllocation allocation;
+        
+        private PoolSizingAvailable available;
+        
+        private PoolFeatures features;
+        
+        private PoolSourcezfs source;
+        
+        private PoolTarget target;
+        
+        [System.Xml.Serialization.XmlAttributeAttribute("type")]
+        public string Type {
+            get {
+                return this.type;
+            }
+            set {
+                this.type = value;
+            }
+        }
+        
+        [System.Xml.Serialization.XmlElementAttribute("name", Namespace="")]
+        public string Name {
+            get {
+                return this.name;
+            }
+            set {
+                this.name = value;
+            }
+        }
+        
+        [System.Xml.Serialization.XmlElementAttribute("uuid", Namespace="")]
+        public string Uuid {
+            get {
+                return this.uuid;
+            }
+            set {
+                this.uuid = value;
+            }
+        }
+        
+        [System.Xml.Serialization.XmlElementAttribute("capacity", Namespace="")]
+        public PoolSizingCapacity Capacity {
+            get {
+                return this.capacity;
+            }
+            set {
+                this.capacity = value;
+            }
+        }
+        
+        [System.Xml.Serialization.XmlElementAttribute("allocation", Namespace="")]
+        public PoolSizingAllocation Allocation {
+            get {
+                return this.allocation;
+            }
+            set {
+                this.allocation = value;
+            }
+        }
+        
+        [System.Xml.Serialization.XmlElementAttribute("available", Namespace="")]
+        public PoolSizingAvailable Available {
+            get {
+                return this.available;
+            }
+            set {
+                this.available = value;
+            }
+        }
+        
+        [System.Xml.Serialization.XmlElementAttribute("features", Namespace="")]
+        public PoolFeatures Features {
+            get {
+                return this.features;
+            }
+            set {
+                this.features = value;
+            }
+        }
+        
+        [System.Xml.Serialization.XmlElementAttribute("source", Namespace="")]
+        public PoolSourcezfs Source {
+            get {
+                return this.source;
+            }
+            set {
+                this.source = value;
+            }
+        }
+        
+        [System.Xml.Serialization.XmlElementAttribute("target", Namespace="")]
+        public PoolTarget Target {
+            get {
+                return this.target;
+            }
+            set {
+                this.target = value;
+            }
+        }
+    }
+    
+    public enum RefreshVolumeAllocation {
+        
+        [System.Xml.Serialization.XmlEnumAttribute(Name="default")]
+        Default,
+        
+        [System.Xml.Serialization.XmlEnumAttribute(Name="capacity")]
+        Capacity,
+    }
+    
+    [System.Xml.Serialization.XmlTypeAttribute("adapter", Namespace="")]
+    public partial class Sourceinfoadapter {
+        
+        private string type;
+        
+        private string name;
+        
+        private SourceinfoadapterParentaddr parentaddr;
+        
+        private string parent;
+        
+        private VirYesNo managed;
+        
+        private bool managedSpecified;
+        
+        private string parentWwnn;
+        
+        private string parentWwpn;
+        
+        private string parentFabricWwn;
+        
+        private string wwnn;
+        
+        private string wwpn;
+        
+        [System.Xml.Serialization.XmlAttributeAttribute("type")]
+        public string Type {
+            get {
+                return this.type;
+            }
+            set {
+                this.type = value;
+            }
+        }
+        
+        [System.Xml.Serialization.XmlAttributeAttribute("name")]
+        public string Name {
+            get {
+                return this.name;
+            }
+            set {
+                this.name = value;
+            }
+        }
+        
+        [System.Xml.Serialization.XmlElementAttribute("parentaddr", Namespace="")]
+        public SourceinfoadapterParentaddr Parentaddr {
+            get {
+                return this.parentaddr;
+            }
+            set {
+                this.parentaddr = value;
+            }
+        }
+        
+        [System.Xml.Serialization.XmlAttributeAttribute("parent")]
+        public string Parent {
+            get {
+                return this.parent;
+            }
+            set {
+                this.parent = value;
+            }
+        }
+        
+        [System.Xml.Serialization.XmlAttributeAttribute("managed")]
+        public VirYesNo Managed {
+            get {
+                return this.managed;
+            }
+            set {
+                this.managed = value;
+            }
+        }
+        
+        [System.Xml.Serialization.XmlIgnoreAttribute()]
+        public bool ManagedSpecified {
+            get {
+                return this.managedSpecified;
+            }
+            set {
+                this.managedSpecified = value;
+            }
+        }
+        
+        [System.Xml.Serialization.XmlAttributeAttribute("parent_wwnn")]
+        public string ParentWwnn {
+            get {
+                return this.parentWwnn;
+            }
+            set {
+                this.parentWwnn = value;
+            }
+        }
+        
+        [System.Xml.Serialization.XmlAttributeAttribute("parent_wwpn")]
+        public string ParentWwpn {
+            get {
+                return this.parentWwpn;
+            }
+            set {
+                this.parentWwpn = value;
+            }
+        }
+        
+        [System.Xml.Serialization.XmlAttributeAttribute("parent_fabric_wwn")]
+        public string ParentFabricWwn {
+            get {
+                return this.parentFabricWwn;
+            }
+            set {
+                this.parentFabricWwn = value;
+            }
+        }
+        
+        [System.Xml.Serialization.XmlAttributeAttribute("wwnn")]
+        public string Wwnn {
+            get {
+                return this.wwnn;
+            }
+            set {
+                this.wwnn = value;
+            }
+        }
+        
+        [System.Xml.Serialization.XmlAttributeAttribute("wwpn")]
+        public string Wwpn {
+            get {
+                return this.wwpn;
+            }
+            set {
+                this.wwpn = value;
+            }
+        }
+    }
+    
+    public partial class SourceinfoadapterParentaddr {
+        
+        private ulong uniqueId;
+        
+        private bool uniqueIdSpecified;
+        
+        private SourceinfoadapterParentaddrAddress address;
+        
+        [System.Xml.Serialization.XmlAttributeAttribute("unique_id")]
+        public ulong UniqueId {
+            get {
+                return this.uniqueId;
+            }
+            set {
+                this.uniqueId = value;
+            }
+        }
+        
+        [System.Xml.Serialization.XmlIgnoreAttribute()]
+        public bool UniqueIdSpecified {
+            get {
+                return this.uniqueIdSpecified;
+            }
+            set {
+                this.uniqueIdSpecified = value;
+            }
+        }
+        
+        [System.Xml.Serialization.XmlElementAttribute("address", Namespace="")]
+        public SourceinfoadapterParentaddrAddress Address {
+            get {
+                return this.address;
+            }
+            set {
+                this.address = value;
+            }
+        }
+    }
+    
+    public partial class SourceinfoadapterParentaddrAddress {
+        
+        private string domain;
+        
+        private string bus;
+        
+        private string slot;
+        
+        private string function;
+        
+        private VirOnOff multifunction;
+        
+        private bool multifunctionSpecified;
+        
+        [System.Xml.Serialization.XmlAttributeAttribute("domain")]
+        public string Domain {
+            get {
+                return this.domain;
+            }
+            set {
+                this.domain = value;
+            }
+        }
+        
+        [System.Xml.Serialization.XmlAttributeAttribute("bus")]
+        public string Bus {
+            get {
+                return this.bus;
+            }
+            set {
+                this.bus = value;
+            }
+        }
+        
+        [System.Xml.Serialization.XmlAttributeAttribute("slot")]
+        public string Slot {
+            get {
+                return this.slot;
+            }
+            set {
+                this.slot = value;
+            }
+        }
+        
+        [System.Xml.Serialization.XmlAttributeAttribute("function")]
+        public string Function {
+            get {
+                return this.function;
+            }
+            set {
+                this.function = value;
+            }
+        }
+        
+        [System.Xml.Serialization.XmlAttributeAttribute("multifunction")]
+        public VirOnOff Multifunction {
+            get {
+                return this.multifunction;
+            }
+            set {
+                this.multifunction = value;
+            }
+        }
+        
+        [System.Xml.Serialization.XmlIgnoreAttribute()]
+        public bool MultifunctionSpecified {
+            get {
+                return this.multifunctionSpecified;
+            }
+            set {
+                this.multifunctionSpecified = value;
+            }
+        }
+    }
+    
     [System.Xml.Serialization.XmlTypeAttribute("clusterSize", Namespace="")]
     public partial class StorageClusterSize {
         
@@ -248,6 +3479,37 @@ namespace Libvirt.Model {
     }
     
     public partial class StorageFileFormatFeaturesLazyRefcounts {
+    }
+    
+    [System.Xml.Serialization.XmlTypeAttribute("initiator", Namespace="")]
+    public partial class StorageInitiatorinfo {
+        
+        private StorageInitiatorinfoIqn iqn;
+        
+        [System.Xml.Serialization.XmlElementAttribute("iqn", Namespace="")]
+        public StorageInitiatorinfoIqn Iqn {
+            get {
+                return this.iqn;
+            }
+            set {
+                this.iqn = value;
+            }
+        }
+    }
+    
+    public partial class StorageInitiatorinfoIqn {
+        
+        private string name;
+        
+        [System.Xml.Serialization.XmlAttributeAttribute("name")]
+        public string Name {
+            get {
+                return this.name;
+            }
+            set {
+                this.name = value;
+            }
+        }
     }
     
     [System.Xml.Serialization.XmlTypeAttribute("permissions", Namespace="")]
@@ -544,6 +3806,15 @@ namespace Libvirt.Model {
                 this.usage = value;
             }
         }
+    }
+    
+    public enum VirOnOff {
+        
+        [System.Xml.Serialization.XmlEnumAttribute(Name="on")]
+        On,
+        
+        [System.Xml.Serialization.XmlEnumAttribute(Name="off")]
+        Off,
     }
     
     public enum VirYesNo {

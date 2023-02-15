@@ -1,0 +1,14 @@
+<pool type='logical'>
+  <name>lvm</name>
+  <uuid>1F675256-55F9-4799-A4F2-214331BC1E3F</uuid>
+  <capacity unit='bytes'>32208060416</capacity>
+  <allocation unit='bytes'>0</allocation>
+  <available unit='bytes'>32208060416</available>
+  <source>
+    <name>vgpool</name>
+    <format type='lvm2'/>
+  </source>
+  <target>
+    <path>/dev/vgpool</path>
+  </target>
+</pool>

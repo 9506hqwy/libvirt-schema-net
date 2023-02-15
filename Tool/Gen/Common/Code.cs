@@ -71,7 +71,7 @@ internal static class Code
             new CodeTypeReference(typeof(XmlIgnoreAttribute))));
     }
 
-    internal static bool ConvertForType(string className, string elementName, string? ns, bool xmlModifier, out CodeTypeDeclaration type)
+    internal static bool ConvertForType(string className, string elementName, string? ns, bool xmlModifier, out GenTypeDeclaration type)
     {
         var cls = new CodeTypeDeclaration(Utility.ToClassName(className))
         {
@@ -91,24 +91,7 @@ internal static class Code
                 attrArgs.ToArray()));
         }
 
-        type = cls;
-        return true;
-    }
-
-    internal static bool HasProperty(CodeContext context, CodeTypeDeclaration type, CodeMemberProperty prop)
-    {
-        var found = type.Members.OfType<CodeMemberProperty>().FirstOrDefault(p => p.Name == prop.Name);
-        if (found is null)
-        {
-            return false;
-        }
-
-        if (found.Type.BaseType == prop.Type.BaseType)
-        {
-            return true;
-        }
-
-        context.AddWarning($"Not supported. Differenct type `{found.Type.BaseType}` and `{prop.Type.BaseType}` at {type.Name}.{prop.Name}");
+        type = new GenTypeDeclaration(cls);
         return true;
     }
 

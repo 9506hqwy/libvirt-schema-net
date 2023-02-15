@@ -1,0 +1,16 @@
+<pool type='disk'>
+  <name>physical</name>
+  <uuid>5F762D24-A648-43DB-BB4A-B1FE9770BD6B</uuid>
+  <capacity unit='bytes'>21474819584</capacity>
+  <allocation unit='bytes'>0</allocation>
+  <available unit='bytes'>21474802176</available>
+  <source>
+    <device path='/dev/nvme0n1'>
+      <freeExtent start='17408' end='21474819584'/>
+    </device>
+    <format type='gpt'/>
+  </source>
+  <target>
+    <path>/mnt/physical</path>
+  </target>
+</pool>

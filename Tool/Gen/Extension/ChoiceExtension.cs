@@ -81,19 +81,17 @@ internal static class ChoiceExtension
 
             if (!context.IsParsed(className))
             {
-                var cls = new CodeTypeDeclaration(className)
+                var cls = new GenTypeDeclaration(new CodeTypeDeclaration(className)
                 {
                     IsEnum = true,
-                };
+                });
 
                 foreach (var value in children.Cast<Value>())
                 {
-                    Code.ConvertForEnum(value.Val, out var field);
-                    if (!cls.Members.OfType<CodeMemberField>().Any(f => f.Name == field.Name))
-                    {
-                        cls.Members.Add(field);
-                    }
+                    cls.Add(new GenTypeMember(value.Val));
                 }
+
+                cls.GenProperty(context);
 
                 context.Add(cls);
             }

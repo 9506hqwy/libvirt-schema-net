@@ -1,0 +1,21 @@
+<pool type='netfs'>
+  <name>nfs</name>
+  <uuid>52956CC1-310A-42DD-AB29-DD5EA69DF6F8</uuid>
+  <capacity unit='bytes'>63909658624</capacity>
+  <allocation unit='bytes'>1047920640</allocation>
+  <available unit='bytes'>62861737984</available>
+  <source>
+    <host name='192.168.0.1'/>
+    <dir path='/mnt/exports'/>
+    <format type='auto'/>
+  </source>
+  <target>
+    <path>/mnt/exports</path>
+    <permissions>
+      <mode>0777</mode>
+      <owner>0</owner>
+      <group>0</group>
+      <label>system_u:object_r:nfs_t:s0</label>
+    </permissions>
+  </target>
+</pool>

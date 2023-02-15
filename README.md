@@ -4,6 +4,7 @@ This library is Libvirt XML descriptor class to serialize or deserialize for .NE
 
 ## Generated XML descriptor class
 
+- [Storage pool XML](https://libvirt.org/formatstorage.html#storage-pool-xml)
 - [Storage Pool Capabilities XML format](https://libvirt.org/formatstoragecaps.html)
 - [Storage volume XML](https://libvirt.org/formatstorage.html#storage-volume-xml)
 

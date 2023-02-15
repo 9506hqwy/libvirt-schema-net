@@ -7,7 +7,7 @@ internal static class ElementExtension
     internal static bool TryAddProperty(
         this Element self,
         CodeContext context,
-        CodeTypeDeclaration type,
+        GenTypeDeclaration type,
         PropertyState status)
     {
         context.EnterProperty(self);
@@ -16,26 +16,8 @@ internal static class ElementExtension
             // TODO: check interleave
             self.TryParseType(context, out var typeSpec);
 
-            Code.ConvertForElement(
-                status.ToType(typeSpec!),
-                self.Name.GetName(),
-                self.Namespace,
-                out var field,
-                out var prop);
-
-            if (!Code.HasProperty(context, type, prop))
-            {
-                type.Members.Add(field);
-                type.Members.Add(prop);
-
-                if (status.NeedSpecifiedFlag(typeSpec!))
-                {
-                    Code.ConvertForSpecified(self.Name.GetName(), out var sfield, out var sprop);
-
-                    type.Members.Add(sfield);
-                    type.Members.Add(sprop);
-                }
-            }
+            var member = new GenTypeMember(typeSpec!, self.Name.GetName(), self.Namespace, status);
+            type.Add(member);
 
             return true;
         }

@@ -5,7 +5,7 @@ using System.Reflection;
 
 internal static class IHasChildrenExtension
 {
-    internal static CodeTypeDeclaration AddBaseType(this IHasChildren self, CodeContext context, out Element element)
+    internal static GenTypeDeclaration AddBaseType(this IHasChildren self, CodeContext context, out Element element)
     {
         element = self.RetrieveElement(context).SingleOrDefault()!;
         if (element is null)
@@ -13,11 +13,11 @@ internal static class IHasChildrenExtension
             throw new NotSupportedException();
         }
 
-        var cls = new CodeTypeDeclaration(Utility.ToClassName(context.GetClassName(null, out var _)))
+        var cls = new GenTypeDeclaration(new CodeTypeDeclaration(Utility.ToClassName(context.GetClassName(null, out var _)))
         {
             IsPartial = true,
             TypeAttributes = TypeAttributes.Public | TypeAttributes.Abstract,
-        };
+        });
 
         if (!context.IsParsed(cls.Name))
         {

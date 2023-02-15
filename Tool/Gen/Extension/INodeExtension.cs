@@ -7,7 +7,7 @@ internal static class INodeExtension
     internal static void AddProperty(
         this INode self,
         CodeContext context,
-        CodeTypeDeclaration cls,
+        GenTypeDeclaration cls,
         Func<IPattern, bool> filter,
         PropertyState status)
     {

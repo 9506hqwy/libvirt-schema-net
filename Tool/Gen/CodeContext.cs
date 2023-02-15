@@ -42,7 +42,7 @@ internal class CodeContext
 
     internal string[] Warnings => this.warnings.ToArray();
 
-    internal void Add(CodeTypeDeclaration type)
+    internal void Add(GenTypeDeclaration type)
     {
         var item = new CodeContextItem(this.CurrentDefile, type);
         this.items.Add(item);
@@ -60,15 +60,14 @@ internal class CodeContext
         this.EnterType(cls);
         try
         {
-            Code.ConvertForExtension(out var field, out var prop);
-
-            cls.Members.Add(field);
-            cls.Members.Add(prop);
+            cls.Add(new GenTypeMember());
 
             foreach (var property in element.Children.Where(this.FilterForAttribute))
             {
                 property.AddProperty(this, cls, this.FilterForAttribute, new PropertyState());
             }
+
+            cls.GenProperty(this);
         }
         finally
         {
@@ -76,7 +75,7 @@ internal class CodeContext
         }
     }
 
-    internal void AddType(string className, IHasChildren hasChildren, bool xmlModifier, CodeTypeDeclaration? baseType, string? elementName)
+    internal void AddType(string className, IHasChildren hasChildren, bool xmlModifier, GenTypeDeclaration? baseType, string? elementName)
     {
         var tagName = hasChildren switch
         {
@@ -110,6 +109,8 @@ internal class CodeContext
             {
                 property.AddProperty(this, cls, this.FilterForProperty, new PropertyState());
             }
+
+            cls.GenProperty(this);
         }
         finally
         {
@@ -122,7 +123,7 @@ internal class CodeContext
         this.warnings.Add(message);
     }
 
-    internal IEnumerable<CodeTypeDeclaration> EnumerateTypes()
+    internal IEnumerable<GenTypeDeclaration> EnumerateTypes()
     {
         return this.items.Select(c => c.Type!).OrderBy(t => t.Name);
     }
@@ -137,7 +138,7 @@ internal class CodeContext
         this.callerProperty.Push(property);
     }
 
-    internal void EnterType(CodeTypeDeclaration type)
+    internal void EnterType(GenTypeDeclaration type)
     {
         var item = new CodeContextItem(this.CurrentDefile, type);
         this.callerType.Push(item);
@@ -153,7 +154,7 @@ internal class CodeContext
         return this.callerProperty.Pop();
     }
 
-    internal CodeTypeDeclaration ExitType()
+    internal GenTypeDeclaration ExitType()
     {
         return this.callerType.Pop().Type;
     }
@@ -236,7 +237,7 @@ internal class CodeContext
 
     private class CodeContextItem
     {
-        internal CodeContextItem(Define define, CodeTypeDeclaration type)
+        internal CodeContextItem(Define define, GenTypeDeclaration type)
         {
             this.Define = define;
             this.Type = type;
@@ -244,6 +245,6 @@ internal class CodeContext
 
         internal Define Define { get; }
 
-        internal CodeTypeDeclaration Type { get; set; }
+        internal GenTypeDeclaration Type { get; set; }
     }
 }

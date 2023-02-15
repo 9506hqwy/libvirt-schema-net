@@ -36,6 +36,10 @@ internal class MainShell
 
         var schema = new Schema();
 
+        // storagepool.rng
+        files["storagepool.rng"].Parse(schema);
+        this.Parse(schema, files["storagepool.rng"]).CollectInheritedType(context, schema.GetDefine("pool"));
+
         // storagepoolcaps.rng
         this.Parse(schema, files["storagepoolcaps.rng"]).CollectType(context);
 
@@ -50,7 +54,7 @@ internal class MainShell
         var ns = new CodeNamespace("Libvirt.Model");
         foreach (var cls in context.EnumerateTypes())
         {
-            ns.Types.Add(cls);
+            ns.Types.Add(cls.Type);
         }
 
         Code.WriteFile("Generated.cs", ns);

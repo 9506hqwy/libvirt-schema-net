@@ -36,6 +36,9 @@ internal class MainShell
 
         var schema = new Schema();
 
+        // secret.rng
+        this.Parse(schema, files["secret.rng"]).CollectType(context);
+
         // storagepool.rng
         files["storagepool.rng"].Parse(schema);
         this.Parse(schema, files["storagepool.rng"]).CollectInheritedType(context, schema.GetDefine("pool"));

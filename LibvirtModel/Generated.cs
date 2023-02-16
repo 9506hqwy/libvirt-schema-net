@@ -2991,6 +2991,145 @@ namespace Libvirt.Model {
         Capacity,
     }
     
+    [System.Xml.Serialization.XmlTypeAttribute("secret", Namespace="")]
+    public partial class Secret {
+        
+        private VirYesNo ephemeral;
+        
+        private bool ephemeralSpecified;
+        
+        private VirYesNo @private;
+        
+        private bool privateSpecified;
+        
+        private string uuid;
+        
+        private string description;
+        
+        private SecretUsage usage;
+        
+        [System.Xml.Serialization.XmlAttributeAttribute("ephemeral")]
+        public VirYesNo Ephemeral {
+            get {
+                return this.ephemeral;
+            }
+            set {
+                this.ephemeral = value;
+            }
+        }
+        
+        [System.Xml.Serialization.XmlIgnoreAttribute()]
+        public bool EphemeralSpecified {
+            get {
+                return this.ephemeralSpecified;
+            }
+            set {
+                this.ephemeralSpecified = value;
+            }
+        }
+        
+        [System.Xml.Serialization.XmlAttributeAttribute("private")]
+        public VirYesNo Private {
+            get {
+                return this.@private;
+            }
+            set {
+                this.@private = value;
+            }
+        }
+        
+        [System.Xml.Serialization.XmlIgnoreAttribute()]
+        public bool PrivateSpecified {
+            get {
+                return this.privateSpecified;
+            }
+            set {
+                this.privateSpecified = value;
+            }
+        }
+        
+        [System.Xml.Serialization.XmlElementAttribute("uuid", Namespace="")]
+        public string Uuid {
+            get {
+                return this.uuid;
+            }
+            set {
+                this.uuid = value;
+            }
+        }
+        
+        [System.Xml.Serialization.XmlElementAttribute("description", Namespace="")]
+        public string Description {
+            get {
+                return this.description;
+            }
+            set {
+                this.description = value;
+            }
+        }
+        
+        [System.Xml.Serialization.XmlElementAttribute("usage", Namespace="")]
+        public SecretUsage Usage {
+            get {
+                return this.usage;
+            }
+            set {
+                this.usage = value;
+            }
+        }
+    }
+    
+    public partial class SecretUsage {
+        
+        private string type;
+        
+        private string volume;
+        
+        private string name;
+        
+        private string target;
+        
+        [System.Xml.Serialization.XmlAttributeAttribute("type")]
+        public string Type {
+            get {
+                return this.type;
+            }
+            set {
+                this.type = value;
+            }
+        }
+        
+        [System.Xml.Serialization.XmlElementAttribute("volume", Namespace="")]
+        public string Volume {
+            get {
+                return this.volume;
+            }
+            set {
+                this.volume = value;
+            }
+        }
+        
+        [System.Xml.Serialization.XmlElementAttribute("name", Namespace="")]
+        public string Name {
+            get {
+                return this.name;
+            }
+            set {
+                this.name = value;
+            }
+        }
+        
+        [System.Xml.Serialization.XmlElementAttribute("target", Namespace="")]
+        public string Target {
+            get {
+                return this.target;
+            }
+            set {
+                this.target = value;
+            }
+        }
+    }
+    
     [System.Xml.Serialization.XmlTypeAttribute("adapter", Namespace="")]
     public partial class Sourceinfoadapter {
         

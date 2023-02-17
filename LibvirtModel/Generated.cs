@@ -10,6 +10,197 @@
 namespace Libvirt.Model {
     
     
+    [System.Xml.Serialization.XmlTypeAttribute("filterbinding", Namespace="")]
+    public partial class Filterbinding {
+        
+        private FilterbindingOwner owner;
+        
+        private FilterbindingPortdev portdev;
+        
+        private FilterbindingLinkdev linkdev;
+        
+        private FilterbindingMac mac;
+        
+        private FilterbindingFilterref filterref;
+        
+        [System.Xml.Serialization.XmlElementAttribute("owner", Namespace="")]
+        public FilterbindingOwner Owner {
+            get {
+                return this.owner;
+            }
+            set {
+                this.owner = value;
+            }
+        }
+        
+        [System.Xml.Serialization.XmlElementAttribute("portdev", Namespace="")]
+        public FilterbindingPortdev Portdev {
+            get {
+                return this.portdev;
+            }
+            set {
+                this.portdev = value;
+            }
+        }
+        
+        [System.Xml.Serialization.XmlElementAttribute("linkdev", Namespace="")]
+        public FilterbindingLinkdev Linkdev {
+            get {
+                return this.linkdev;
+            }
+            set {
+                this.linkdev = value;
+            }
+        }
+        
+        [System.Xml.Serialization.XmlElementAttribute("mac", Namespace="")]
+        public FilterbindingMac Mac {
+            get {
+                return this.mac;
+            }
+            set {
+                this.mac = value;
+            }
+        }
+        
+        [System.Xml.Serialization.XmlElementAttribute("filterref", Namespace="")]
+        public FilterbindingFilterref Filterref {
+            get {
+                return this.filterref;
+            }
+            set {
+                this.filterref = value;
+            }
+        }
+    }
+    
+    public partial class FilterbindingFilterref {
+        
+        private string filter;
+        
+        private FilterrefNodeAttributes[] parameter;
+        
+        [System.Xml.Serialization.XmlAttributeAttribute("filter")]
+        public string Filter {
+            get {
+                return this.filter;
+            }
+            set {
+                this.filter = value;
+            }
+        }
+        
+        [System.Xml.Serialization.XmlElementAttribute("parameter", Namespace="")]
+        public FilterrefNodeAttributes[] Parameter {
+            get {
+                return this.parameter;
+            }
+            set {
+                this.parameter = value;
+            }
+        }
+    }
+    
+    public partial class FilterbindingLinkdev {
+        
+        private string name;
+        
+        [System.Xml.Serialization.XmlAttributeAttribute("name")]
+        public string Name {
+            get {
+                return this.name;
+            }
+            set {
+                this.name = value;
+            }
+        }
+    }
+    
+    public partial class FilterbindingMac {
+        
+        private string address;
+        
+        [System.Xml.Serialization.XmlAttributeAttribute("address")]
+        public string Address {
+            get {
+                return this.address;
+            }
+            set {
+                this.address = value;
+            }
+        }
+    }
+    
+    public partial class FilterbindingOwner {
+        
+        private string name;
+        
+        private string uuid;
+        
+        [System.Xml.Serialization.XmlElementAttribute("name", Namespace="")]
+        public string Name {
+            get {
+                return this.name;
+            }
+            set {
+                this.name = value;
+            }
+        }
+        
+        [System.Xml.Serialization.XmlElementAttribute("uuid", Namespace="")]
+        public string Uuid {
+            get {
+                return this.uuid;
+            }
+            set {
+                this.uuid = value;
+            }
+        }
+    }
+    
+    public partial class FilterbindingPortdev {
+        
+        private string name;
+        
+        [System.Xml.Serialization.XmlAttributeAttribute("name")]
+        public string Name {
+            get {
+                return this.name;
+            }
+            set {
+                this.name = value;
+            }
+        }
+    }
+    
+    [System.Xml.Serialization.XmlTypeAttribute("parameter", Namespace="")]
+    public partial class FilterrefNodeAttributes {
+        
+        private string name;
+        
+        private string value;
+        
+        [System.Xml.Serialization.XmlAttributeAttribute("name")]
+        public string Name {
+            get {
+                return this.name;
+            }
+            set {
+                this.name = value;
+            }
+        }
+        
+        [System.Xml.Serialization.XmlAttributeAttribute("value")]
+        public string Value {
+            get {
+                return this.value;
+            }
+            set {
+                this.value = value;
+            }
+        }
+    }
+    
     public abstract partial class Pool {
     }
     

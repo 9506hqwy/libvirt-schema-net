@@ -1,0 +1,11 @@
+<filterbinding>
+  <owner>
+    <name>name</name>
+    <uuid>uuid</uuid>
+  </owner>
+  <portdev name="portdev" />
+  <mac address="mac" />
+  <filterref filter="filter">
+    <parameter name="name" value="value" />
+  </filterref>
+</filterbinding>

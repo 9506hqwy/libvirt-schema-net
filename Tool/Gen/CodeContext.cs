@@ -50,7 +50,7 @@ internal class CodeContext
 
     internal void AddExtensionType(string className, Element element, bool xmlModifier)
     {
-        Code.ConvertForType(className, element.Name.GetName(), null, xmlModifier, out var cls);
+        var cls = new GenTypeDeclaration(className, element.Name.GetName(), null, xmlModifier, false);
 
         if (!this.IsParsed(cls.Name))
         {
@@ -66,8 +66,6 @@ internal class CodeContext
             {
                 property.AddProperty(this, cls, this.FilterForAttribute, new PropertyState());
             }
-
-            cls.GenProperty(this);
         }
         finally
         {
@@ -90,11 +88,11 @@ internal class CodeContext
             _ => null,
         };
 
-        Code.ConvertForType(className, tagName, ns, xmlModifier, out var cls);
+        var cls = new GenTypeDeclaration(className, tagName, ns, xmlModifier, false);
 
         if (baseType is not null)
         {
-            cls.BaseTypes.Add(new CodeTypeReference(baseType.Name));
+            cls.BaseType = new CodeTypeReference(baseType.Name);
         }
 
         if (!this.IsParsed(cls.Name))
@@ -109,8 +107,6 @@ internal class CodeContext
             {
                 property.AddProperty(this, cls, this.FilterForProperty, new PropertyState());
             }
-
-            cls.GenProperty(this);
         }
         finally
         {
@@ -157,6 +153,11 @@ internal class CodeContext
     internal GenTypeDeclaration ExitType()
     {
         return this.callerType.Pop().Type;
+    }
+
+    internal void Gen()
+    {
+        this.items.ForEach(i => i.Type.Gen(this));
     }
 
     internal string GetClassName(IHasName? hasName, out bool defineLevel)

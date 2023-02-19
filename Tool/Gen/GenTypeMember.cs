@@ -126,7 +126,24 @@ internal class GenTypeMember
 
     internal GenTypeDeclaration GetMemberType(CodeContext context)
     {
-        return context.EnumerateTypes().First(t => t.Name == this.Type.BaseType);
+        var type = context
+            .EnumerateTypes()
+            .FirstOrDefault(t => t.Name == this.Type.BaseType);
+        if (type is not null)
+        {
+            return type;
+        }
+
+        // for C# type.
+        return new GenTypeDeclaration(this.type!.Type.BaseType, null, null, false, false);
+    }
+
+    internal void SetOptional()
+    {
+        if (this.status is not null)
+        {
+            this.status.Optional = true;
+        }
     }
 
     private CodeTypeReference GetMemberType()

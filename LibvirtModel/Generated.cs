@@ -49,6 +49,1900 @@ namespace Libvirt.Model {
         N0,
     }
     
+    [System.Xml.Serialization.XmlTypeAttribute("device", Namespace="")]
+    public partial class Device {
+        
+        private string name;
+        
+        private string path;
+        
+        private DeviceDevnode devnode;
+        
+        private DeviceParent parent;
+        
+        private DeviceDriver driver;
+        
+        private DeviceCapability[] capability;
+        
+        [System.Xml.Serialization.XmlElementAttribute("name", Namespace="")]
+        public string Name {
+            get {
+                return this.name;
+            }
+            set {
+                this.name = value;
+            }
+        }
+        
+        [System.Xml.Serialization.XmlElementAttribute("path", Namespace="")]
+        public string Path {
+            get {
+                return this.path;
+            }
+            set {
+                this.path = value;
+            }
+        }
+        
+        [System.Xml.Serialization.XmlElementAttribute("devnode", Namespace="")]
+        public DeviceDevnode Devnode {
+            get {
+                return this.devnode;
+            }
+            set {
+                this.devnode = value;
+            }
+        }
+        
+        [System.Xml.Serialization.XmlElementAttribute("parent", Namespace="")]
+        public DeviceParent Parent {
+            get {
+                return this.parent;
+            }
+            set {
+                this.parent = value;
+            }
+        }
+        
+        [System.Xml.Serialization.XmlElementAttribute("driver", Namespace="")]
+        public DeviceDriver Driver {
+            get {
+                return this.driver;
+            }
+            set {
+                this.driver = value;
+            }
+        }
+        
+        [System.Xml.Serialization.XmlElementAttribute("capability", Namespace="")]
+        public DeviceCapability[] Capability {
+            get {
+                return this.capability;
+            }
+            set {
+                this.capability = value;
+            }
+        }
+    }
+    
+    [System.Xml.Serialization.XmlTypeAttribute("address", Namespace="")]
+    public partial class DeviceAddress {
+        
+        private string domain;
+        
+        private string bus;
+        
+        private string slot;
+        
+        private string function;
+        
+        [System.Xml.Serialization.XmlAttributeAttribute("domain")]
+        public string Domain {
+            get {
+                return this.domain;
+            }
+            set {
+                this.domain = value;
+            }
+        }
+        
+        [System.Xml.Serialization.XmlAttributeAttribute("bus")]
+        public string Bus {
+            get {
+                return this.bus;
+            }
+            set {
+                this.bus = value;
+            }
+        }
+        
+        [System.Xml.Serialization.XmlAttributeAttribute("slot")]
+        public string Slot {
+            get {
+                return this.slot;
+            }
+            set {
+                this.slot = value;
+            }
+        }
+        
+        [System.Xml.Serialization.XmlAttributeAttribute("function")]
+        public string Function {
+            get {
+                return this.function;
+            }
+            set {
+                this.function = value;
+            }
+        }
+    }
+    
+    [System.Xml.Serialization.XmlTypeAttribute("capability", Namespace="")]
+    public partial class DeviceCapability {
+        
+        private string type;
+        
+        private DeviceCappcidevProduct product;
+        
+        private DeviceCapsystemHardware hardware;
+        
+        private DeviceCapsystemFirmware firmware;
+        
+        private string @class;
+        
+        private ulong domain;
+        
+        private bool domainSpecified;
+        
+        private ulong bus;
+        
+        private bool busSpecified;
+        
+        private ulong slot;
+        
+        private bool slotSpecified;
+        
+        private ulong function;
+        
+        private bool functionSpecified;
+        
+        private DeviceCappcidevVendor vendor;
+        
+        private DeviceCapscsihostCapability[] capability;
+        
+        private DeviceCappcidevIommuGroup iommuGroup;
+        
+        private DeviceCappcidevNuma numa;
+        
+        private DeviceCappcidevPciExpress pciExpress;
+        
+        private ulong device;
+        
+        private bool deviceSpecified;
+        
+        private ulong number;
+        
+        private bool numberSpecified;
+        
+        private ulong subclass;
+        
+        private bool subclassSpecified;
+        
+        private ulong protocol;
+        
+        private bool protocolSpecified;
+        
+        private string description;
+        
+        private string @interface;
+        
+        private string address;
+        
+        private LinkSpeedState link;
+        
+        private DeviceCapnetFeature[] feature;
+        
+        private string @char;
+        
+        private ulong host;
+        
+        private bool hostSpecified;
+        
+        private uint uniqueId;
+        
+        private bool uniqueIdSpecified;
+        
+        private string target;
+        
+        private string block;
+        
+        private string driveType;
+        
+        private string model;
+        
+        private string serial;
+        
+        private ulong size;
+        
+        private bool sizeSpecified;
+        
+        private ulong logicalBlockSize;
+        
+        private bool logicalBlockSizeSpecified;
+        
+        private ulong numBlocks;
+        
+        private bool numBlocksSpecified;
+        
+        private string cssid;
+        
+        private string ssid;
+        
+        private string devno;
+        
+        private DeviceCapcssdevChannelDevAddr channelDevAddr;
+        
+        private string chardev;
+        
+        private string apAdapter;
+        
+        private string apDomain;
+        
+        [System.Xml.Serialization.XmlAttributeAttribute("type")]
+        public string Type {
+            get {
+                return this.type;
+            }
+            set {
+                this.type = value;
+            }
+        }
+        
+        [System.Xml.Serialization.XmlElementAttribute("product", Namespace="")]
+        public DeviceCappcidevProduct Product {
+            get {
+                return this.product;
+            }
+            set {
+                this.product = value;
+            }
+        }
+        
+        [System.Xml.Serialization.XmlElementAttribute("hardware", Namespace="")]
+        public DeviceCapsystemHardware Hardware {
+            get {
+                return this.hardware;
+            }
+            set {
+                this.hardware = value;
+            }
+        }
+        
+        [System.Xml.Serialization.XmlElementAttribute("firmware", Namespace="")]
+        public DeviceCapsystemFirmware Firmware {
+            get {
+                return this.firmware;
+            }
+            set {
+                this.firmware = value;
+            }
+        }
+        
+        [System.Xml.Serialization.XmlElementAttribute("class", Namespace="")]
+        public string Class {
+            get {
+                return this.@class;
+            }
+            set {
+                this.@class = value;
+            }
+        }
+        
+        [System.Xml.Serialization.XmlElementAttribute("domain", Namespace="")]
+        public ulong Domain {
+            get {
+                return this.domain;
+            }
+            set {
+                this.domain = value;
+            }
+        }
+        
+        [System.Xml.Serialization.XmlIgnoreAttribute()]
+        public bool DomainSpecified {
+            get {
+                return this.domainSpecified;
+            }
+            set {
+                this.domainSpecified = value;
+            }
+        }
+        
+        [System.Xml.Serialization.XmlElementAttribute("bus", Namespace="")]
+        public ulong Bus {
+            get {
+                return this.bus;
+            }
+            set {
+                this.bus = value;
+            }
+        }
+        
+        [System.Xml.Serialization.XmlIgnoreAttribute()]
+        public bool BusSpecified {
+            get {
+                return this.busSpecified;
+            }
+            set {
+                this.busSpecified = value;
+            }
+        }
+        
+        [System.Xml.Serialization.XmlElementAttribute("slot", Namespace="")]
+        public ulong Slot {
+            get {
+                return this.slot;
+            }
+            set {
+                this.slot = value;
+            }
+        }
+        
+        [System.Xml.Serialization.XmlIgnoreAttribute()]
+        public bool SlotSpecified {
+            get {
+                return this.slotSpecified;
+            }
+            set {
+                this.slotSpecified = value;
+            }
+        }
+        
+        [System.Xml.Serialization.XmlElementAttribute("function", Namespace="")]
+        public ulong Function {
+            get {
+                return this.function;
+            }
+            set {
+                this.function = value;
+            }
+        }
+        
+        [System.Xml.Serialization.XmlIgnoreAttribute()]
+        public bool FunctionSpecified {
+            get {
+                return this.functionSpecified;
+            }
+            set {
+                this.functionSpecified = value;
+            }
+        }
+        
+        [System.Xml.Serialization.XmlElementAttribute("vendor", Namespace="")]
+        public DeviceCappcidevVendor Vendor {
+            get {
+                return this.vendor;
+            }
+            set {
+                this.vendor = value;
+            }
+        }
+        
+        [System.Xml.Serialization.XmlElementAttribute("capability", Namespace="")]
+        public DeviceCapscsihostCapability[] Capability {
+            get {
+                return this.capability;
+            }
+            set {
+                this.capability = value;
+            }
+        }
+        
+        [System.Xml.Serialization.XmlElementAttribute("iommuGroup", Namespace="")]
+        public DeviceCappcidevIommuGroup IommuGroup {
+            get {
+                return this.iommuGroup;
+            }
+            set {
+                this.iommuGroup = value;
+            }
+        }
+        
+        [System.Xml.Serialization.XmlElementAttribute("numa", Namespace="")]
+        public DeviceCappcidevNuma Numa {
+            get {
+                return this.numa;
+            }
+            set {
+                this.numa = value;
+            }
+        }
+        
+        [System.Xml.Serialization.XmlElementAttribute("pci-express", Namespace="")]
+        public DeviceCappcidevPciExpress PciExpress {
+            get {
+                return this.pciExpress;
+            }
+            set {
+                this.pciExpress = value;
+            }
+        }
+        
+        [System.Xml.Serialization.XmlElementAttribute("device", Namespace="")]
+        public ulong Device {
+            get {
+                return this.device;
+            }
+            set {
+                this.device = value;
+            }
+        }
+        
+        [System.Xml.Serialization.XmlIgnoreAttribute()]
+        public bool DeviceSpecified {
+            get {
+                return this.deviceSpecified;
+            }
+            set {
+                this.deviceSpecified = value;
+            }
+        }
+        
+        [System.Xml.Serialization.XmlElementAttribute("number", Namespace="")]
+        public ulong Number {
+            get {
+                return this.number;
+            }
+            set {
+                this.number = value;
+            }
+        }
+        
+        [System.Xml.Serialization.XmlIgnoreAttribute()]
+        public bool NumberSpecified {
+            get {
+                return this.numberSpecified;
+            }
+            set {
+                this.numberSpecified = value;
+            }
+        }
+        
+        [System.Xml.Serialization.XmlElementAttribute("subclass", Namespace="")]
+        public ulong Subclass {
+            get {
+                return this.subclass;
+            }
+            set {
+                this.subclass = value;
+            }
+        }
+        
+        [System.Xml.Serialization.XmlIgnoreAttribute()]
+        public bool SubclassSpecified {
+            get {
+                return this.subclassSpecified;
+            }
+            set {
+                this.subclassSpecified = value;
+            }
+        }
+        
+        [System.Xml.Serialization.XmlElementAttribute("protocol", Namespace="")]
+        public ulong Protocol {
+            get {
+                return this.protocol;
+            }
+            set {
+                this.protocol = value;
+            }
+        }
+        
+        [System.Xml.Serialization.XmlIgnoreAttribute()]
+        public bool ProtocolSpecified {
+            get {
+                return this.protocolSpecified;
+            }
+            set {
+                this.protocolSpecified = value;
+            }
+        }
+        
+        [System.Xml.Serialization.XmlElementAttribute("description", Namespace="")]
+        public string Description {
+            get {
+                return this.description;
+            }
+            set {
+                this.description = value;
+            }
+        }
+        
+        [System.Xml.Serialization.XmlElementAttribute("interface", Namespace="")]
+        public string Interface {
+            get {
+                return this.@interface;
+            }
+            set {
+                this.@interface = value;
+            }
+        }
+        
+        [System.Xml.Serialization.XmlElementAttribute("address", Namespace="")]
+        public string Address {
+            get {
+                return this.address;
+            }
+            set {
+                this.address = value;
+            }
+        }
+        
+        [System.Xml.Serialization.XmlElementAttribute("link", Namespace="")]
+        public LinkSpeedState Link {
+            get {
+                return this.link;
+            }
+            set {
+                this.link = value;
+            }
+        }
+        
+        [System.Xml.Serialization.XmlElementAttribute("feature", Namespace="")]
+        public DeviceCapnetFeature[] Feature {
+            get {
+                return this.feature;
+            }
+            set {
+                this.feature = value;
+            }
+        }
+        
+        [System.Xml.Serialization.XmlElementAttribute("char", Namespace="")]
+        public string Char {
+            get {
+                return this.@char;
+            }
+            set {
+                this.@char = value;
+            }
+        }
+        
+        [System.Xml.Serialization.XmlElementAttribute("host", Namespace="")]
+        public ulong Host {
+            get {
+                return this.host;
+            }
+            set {
+                this.host = value;
+            }
+        }
+        
+        [System.Xml.Serialization.XmlIgnoreAttribute()]
+        public bool HostSpecified {
+            get {
+                return this.hostSpecified;
+            }
+            set {
+                this.hostSpecified = value;
+            }
+        }
+        
+        [System.Xml.Serialization.XmlElementAttribute("unique_id", Namespace="")]
+        public uint UniqueId {
+            get {
+                return this.uniqueId;
+            }
+            set {
+                this.uniqueId = value;
+            }
+        }
+        
+        [System.Xml.Serialization.XmlIgnoreAttribute()]
+        public bool UniqueIdSpecified {
+            get {
+                return this.uniqueIdSpecified;
+            }
+            set {
+                this.uniqueIdSpecified = value;
+            }
+        }
+        
+        [System.Xml.Serialization.XmlElementAttribute("target", Namespace="")]
+        public string Target {
+            get {
+                return this.target;
+            }
+            set {
+                this.target = value;
+            }
+        }
+        
+        [System.Xml.Serialization.XmlElementAttribute("block", Namespace="")]
+        public string Block {
+            get {
+                return this.block;
+            }
+            set {
+                this.block = value;
+            }
+        }
+        
+        [System.Xml.Serialization.XmlElementAttribute("drive_type", Namespace="")]
+        public string DriveType {
+            get {
+                return this.driveType;
+            }
+            set {
+                this.driveType = value;
+            }
+        }
+        
+        [System.Xml.Serialization.XmlElementAttribute("model", Namespace="")]
+        public string Model {
+            get {
+                return this.model;
+            }
+            set {
+                this.model = value;
+            }
+        }
+        
+        [System.Xml.Serialization.XmlElementAttribute("serial", Namespace="")]
+        public string Serial {
+            get {
+                return this.serial;
+            }
+            set {
+                this.serial = value;
+            }
+        }
+        
+        [System.Xml.Serialization.XmlElementAttribute("size", Namespace="")]
+        public ulong Size {
+            get {
+                return this.size;
+            }
+            set {
+                this.size = value;
+            }
+        }
+        
+        [System.Xml.Serialization.XmlIgnoreAttribute()]
+        public bool SizeSpecified {
+            get {
+                return this.sizeSpecified;
+            }
+            set {
+                this.sizeSpecified = value;
+            }
+        }
+        
+        [System.Xml.Serialization.XmlElementAttribute("logical_block_size", Namespace="")]
+        public ulong LogicalBlockSize {
+            get {
+                return this.logicalBlockSize;
+            }
+            set {
+                this.logicalBlockSize = value;
+            }
+        }
+        
+        [System.Xml.Serialization.XmlIgnoreAttribute()]
+        public bool LogicalBlockSizeSpecified {
+            get {
+                return this.logicalBlockSizeSpecified;
+            }
+            set {
+                this.logicalBlockSizeSpecified = value;
+            }
+        }
+        
+        [System.Xml.Serialization.XmlElementAttribute("num_blocks", Namespace="")]
+        public ulong NumBlocks {
+            get {
+                return this.numBlocks;
+            }
+            set {
+                this.numBlocks = value;
+            }
+        }
+        
+        [System.Xml.Serialization.XmlIgnoreAttribute()]
+        public bool NumBlocksSpecified {
+            get {
+                return this.numBlocksSpecified;
+            }
+            set {
+                this.numBlocksSpecified = value;
+            }
+        }
+        
+        [System.Xml.Serialization.XmlElementAttribute("cssid", Namespace="")]
+        public string Cssid {
+            get {
+                return this.cssid;
+            }
+            set {
+                this.cssid = value;
+            }
+        }
+        
+        [System.Xml.Serialization.XmlElementAttribute("ssid", Namespace="")]
+        public string Ssid {
+            get {
+                return this.ssid;
+            }
+            set {
+                this.ssid = value;
+            }
+        }
+        
+        [System.Xml.Serialization.XmlElementAttribute("devno", Namespace="")]
+        public string Devno {
+            get {
+                return this.devno;
+            }
+            set {
+                this.devno = value;
+            }
+        }
+        
+        [System.Xml.Serialization.XmlElementAttribute("channel_dev_addr", Namespace="")]
+        public DeviceCapcssdevChannelDevAddr ChannelDevAddr {
+            get {
+                return this.channelDevAddr;
+            }
+            set {
+                this.channelDevAddr = value;
+            }
+        }
+        
+        [System.Xml.Serialization.XmlElementAttribute("chardev", Namespace="")]
+        public string Chardev {
+            get {
+                return this.chardev;
+            }
+            set {
+                this.chardev = value;
+            }
+        }
+        
+        [System.Xml.Serialization.XmlElementAttribute("ap-adapter", Namespace="")]
+        public string ApAdapter {
+            get {
+                return this.apAdapter;
+            }
+            set {
+                this.apAdapter = value;
+            }
+        }
+        
+        [System.Xml.Serialization.XmlElementAttribute("ap-domain", Namespace="")]
+        public string ApDomain {
+            get {
+                return this.apDomain;
+            }
+            set {
+                this.apDomain = value;
+            }
+        }
+    }
+    
+    public partial class DeviceCapcssdevChannelDevAddr {
+        
+        private string cssid;
+        
+        private string ssid;
+        
+        private string devno;
+        
+        [System.Xml.Serialization.XmlElementAttribute("cssid", Namespace="")]
+        public string Cssid {
+            get {
+                return this.cssid;
+            }
+            set {
+                this.cssid = value;
+            }
+        }
+        
+        [System.Xml.Serialization.XmlElementAttribute("ssid", Namespace="")]
+        public string Ssid {
+            get {
+                return this.ssid;
+            }
+            set {
+                this.ssid = value;
+            }
+        }
+        
+        [System.Xml.Serialization.XmlElementAttribute("devno", Namespace="")]
+        public string Devno {
+            get {
+                return this.devno;
+            }
+            set {
+                this.devno = value;
+            }
+        }
+    }
+    
+    public partial class DeviceCapnetFeature {
+        
+        private string name;
+        
+        [System.Xml.Serialization.XmlAttributeAttribute("name")]
+        public string Name {
+            get {
+                return this.name;
+            }
+            set {
+                this.name = value;
+            }
+        }
+    }
+    
+    public partial class DeviceCappcidevCapability {
+        
+        private string type;
+        
+        private DeviceAddress address;
+        
+        [System.Xml.Serialization.XmlAttributeAttribute("type")]
+        public string Type {
+            get {
+                return this.type;
+            }
+            set {
+                this.type = value;
+            }
+        }
+        
+        [System.Xml.Serialization.XmlElementAttribute("address", Namespace="")]
+        public DeviceAddress Address {
+            get {
+                return this.address;
+            }
+            set {
+                this.address = value;
+            }
+        }
+    }
+    
+    public partial class DeviceCappcidevIommuGroup {
+        
+        private uint number;
+        
+        private DeviceAddress[] address;
+        
+        [System.Xml.Serialization.XmlAttributeAttribute("number")]
+        public uint Number {
+            get {
+                return this.number;
+            }
+            set {
+                this.number = value;
+            }
+        }
+        
+        [System.Xml.Serialization.XmlElementAttribute("address", Namespace="")]
+        public DeviceAddress[] Address {
+            get {
+                return this.address;
+            }
+            set {
+                this.address = value;
+            }
+        }
+    }
+    
+    public partial class DeviceCappcidevNuma {
+        
+        private int node;
+        
+        private bool nodeSpecified;
+        
+        [System.Xml.Serialization.XmlAttributeAttribute("node")]
+        public int Node {
+            get {
+                return this.node;
+            }
+            set {
+                this.node = value;
+            }
+        }
+        
+        [System.Xml.Serialization.XmlIgnoreAttribute()]
+        public bool NodeSpecified {
+            get {
+                return this.nodeSpecified;
+            }
+            set {
+                this.nodeSpecified = value;
+            }
+        }
+    }
+    
+    public partial class DeviceCappcidevPciExpress {
+        
+        private DeviceCappcidevPciExpressLink[] link;
+        
+        [System.Xml.Serialization.XmlElementAttribute("link", Namespace="")]
+        public DeviceCappcidevPciExpressLink[] Link {
+            get {
+                return this.link;
+            }
+            set {
+                this.link = value;
+            }
+        }
+    }
+    
+    public partial class DeviceCappcidevPciExpressLink {
+        
+        private DeviceCappcidevPciExpressLinkValidity validity;
+        
+        private uint port;
+        
+        private bool portSpecified;
+        
+        private string speed;
+        
+        private uint width;
+        
+        [System.Xml.Serialization.XmlAttributeAttribute("validity")]
+        public DeviceCappcidevPciExpressLinkValidity Validity {
+            get {
+                return this.validity;
+            }
+            set {
+                this.validity = value;
+            }
+        }
+        
+        [System.Xml.Serialization.XmlAttributeAttribute("port")]
+        public uint Port {
+            get {
+                return this.port;
+            }
+            set {
+                this.port = value;
+            }
+        }
+        
+        [System.Xml.Serialization.XmlIgnoreAttribute()]
+        public bool PortSpecified {
+            get {
+                return this.portSpecified;
+            }
+            set {
+                this.portSpecified = value;
+            }
+        }
+        
+        [System.Xml.Serialization.XmlAttributeAttribute("speed")]
+        public string Speed {
+            get {
+                return this.speed;
+            }
+            set {
+                this.speed = value;
+            }
+        }
+        
+        [System.Xml.Serialization.XmlAttributeAttribute("width")]
+        public uint Width {
+            get {
+                return this.width;
+            }
+            set {
+                this.width = value;
+            }
+        }
+    }
+    
+    public enum DeviceCappcidevPciExpressLinkValidity {
+        
+        [System.Xml.Serialization.XmlEnumAttribute(Name="cap")]
+        Cap,
+        
+        [System.Xml.Serialization.XmlEnumAttribute(Name="sta")]
+        Sta,
+    }
+    
+    public partial class DeviceCappcidevProduct {
+        
+        private string value;
+        
+        private string id;
+        
+        [System.Xml.Serialization.XmlTextAttribute()]
+        public string Value {
+            get {
+                return this.value;
+            }
+            set {
+                this.value = value;
+            }
+        }
+        
+        [System.Xml.Serialization.XmlAttributeAttribute("id")]
+        public string Id {
+            get {
+                return this.id;
+            }
+            set {
+                this.id = value;
+            }
+        }
+    }
+    
+    public partial class DeviceCappcidevVendor {
+        
+        private string value;
+        
+        private string id;
+        
+        [System.Xml.Serialization.XmlTextAttribute()]
+        public string Value {
+            get {
+                return this.value;
+            }
+            set {
+                this.value = value;
+            }
+        }
+        
+        [System.Xml.Serialization.XmlAttributeAttribute("id")]
+        public string Id {
+            get {
+                return this.id;
+            }
+            set {
+                this.id = value;
+            }
+        }
+    }
+    
+    public partial class DeviceCapscsihostCapability {
+        
+        private string type;
+        
+        private string wwnn;
+        
+        private string wwpn;
+        
+        private string fabricWwn;
+        
+        private uint maxVports;
+        
+        private bool maxVportsSpecified;
+        
+        private uint vports;
+        
+        private bool vportsSpecified;
+        
+        private DeviceAddress address;
+        
+        private string name;
+        
+        private DeviceVpdFields fields;
+        
+        private string rport;
+        
+        private DeviceCapstorageremoveableMediaAvailable mediaAvailable;
+        
+        private bool mediaAvailableSpecified;
+        
+        private ulong mediaSize;
+        
+        private bool mediaSizeSpecified;
+        
+        private string mediaLabel;
+        
+        private ulong logicalBlockSize;
+        
+        private bool logicalBlockSizeSpecified;
+        
+        private ulong numBlocks;
+        
+        private bool numBlocksSpecified;
+        
+        [System.Xml.Serialization.XmlAttributeAttribute("type")]
+        public string Type {
+            get {
+                return this.type;
+            }
+            set {
+                this.type = value;
+            }
+        }
+        
+        [System.Xml.Serialization.XmlElementAttribute("wwnn", Namespace="")]
+        public string Wwnn {
+            get {
+                return this.wwnn;
+            }
+            set {
+                this.wwnn = value;
+            }
+        }
+        
+        [System.Xml.Serialization.XmlElementAttribute("wwpn", Namespace="")]
+        public string Wwpn {
+            get {
+                return this.wwpn;
+            }
+            set {
+                this.wwpn = value;
+            }
+        }
+        
+        [System.Xml.Serialization.XmlElementAttribute("fabric_wwn", Namespace="")]
+        public string FabricWwn {
+            get {
+                return this.fabricWwn;
+            }
+            set {
+                this.fabricWwn = value;
+            }
+        }
+        
+        [System.Xml.Serialization.XmlElementAttribute("max_vports", Namespace="")]
+        public uint MaxVports {
+            get {
+                return this.maxVports;
+            }
+            set {
+                this.maxVports = value;
+            }
+        }
+        
+        [System.Xml.Serialization.XmlIgnoreAttribute()]
+        public bool MaxVportsSpecified {
+            get {
+                return this.maxVportsSpecified;
+            }
+            set {
+                this.maxVportsSpecified = value;
+            }
+        }
+        
+        [System.Xml.Serialization.XmlElementAttribute("vports", Namespace="")]
+        public uint Vports {
+            get {
+                return this.vports;
+            }
+            set {
+                this.vports = value;
+            }
+        }
+        
+        [System.Xml.Serialization.XmlIgnoreAttribute()]
+        public bool VportsSpecified {
+            get {
+                return this.vportsSpecified;
+            }
+            set {
+                this.vportsSpecified = value;
+            }
+        }
+        
+        [System.Xml.Serialization.XmlElementAttribute("address", Namespace="")]
+        public DeviceAddress Address {
+            get {
+                return this.address;
+            }
+            set {
+                this.address = value;
+            }
+        }
+        
+        [System.Xml.Serialization.XmlElementAttribute("name", Namespace="")]
+        public string Name {
+            get {
+                return this.name;
+            }
+            set {
+                this.name = value;
+            }
+        }
+        
+        [System.Xml.Serialization.XmlElementAttribute("fields", Namespace="")]
+        public DeviceVpdFields Fields {
+            get {
+                return this.fields;
+            }
+            set {
+                this.fields = value;
+            }
+        }
+        
+        [System.Xml.Serialization.XmlElementAttribute("rport", Namespace="")]
+        public string Rport {
+            get {
+                return this.rport;
+            }
+            set {
+                this.rport = value;
+            }
+        }
+        
+        [System.Xml.Serialization.XmlElementAttribute("media_available", Namespace="")]
+        public DeviceCapstorageremoveableMediaAvailable MediaAvailable {
+            get {
+                return this.mediaAvailable;
+            }
+            set {
+                this.mediaAvailable = value;
+            }
+        }
+        
+        [System.Xml.Serialization.XmlIgnoreAttribute()]
+        public bool MediaAvailableSpecified {
+            get {
+                return this.mediaAvailableSpecified;
+            }
+            set {
+                this.mediaAvailableSpecified = value;
+            }
+        }
+        
+        [System.Xml.Serialization.XmlElementAttribute("media_size", Namespace="")]
+        public ulong MediaSize {
+            get {
+                return this.mediaSize;
+            }
+            set {
+                this.mediaSize = value;
+            }
+        }
+        
+        [System.Xml.Serialization.XmlIgnoreAttribute()]
+        public bool MediaSizeSpecified {
+            get {
+                return this.mediaSizeSpecified;
+            }
+            set {
+                this.mediaSizeSpecified = value;
+            }
+        }
+        
+        [System.Xml.Serialization.XmlElementAttribute("media_label", Namespace="")]
+        public string MediaLabel {
+            get {
+                return this.mediaLabel;
+            }
+            set {
+                this.mediaLabel = value;
+            }
+        }
+        
+        [System.Xml.Serialization.XmlElementAttribute("logical_block_size", Namespace="")]
+        public ulong LogicalBlockSize {
+            get {
+                return this.logicalBlockSize;
+            }
+            set {
+                this.logicalBlockSize = value;
+            }
+        }
+        
+        [System.Xml.Serialization.XmlIgnoreAttribute()]
+        public bool LogicalBlockSizeSpecified {
+            get {
+                return this.logicalBlockSizeSpecified;
+            }
+            set {
+                this.logicalBlockSizeSpecified = value;
+            }
+        }
+        
+        [System.Xml.Serialization.XmlElementAttribute("num_blocks", Namespace="")]
+        public ulong NumBlocks {
+            get {
+                return this.numBlocks;
+            }
+            set {
+                this.numBlocks = value;
+            }
+        }
+        
+        [System.Xml.Serialization.XmlIgnoreAttribute()]
+        public bool NumBlocksSpecified {
+            get {
+                return this.numBlocksSpecified;
+            }
+            set {
+                this.numBlocksSpecified = value;
+            }
+        }
+    }
+    
+    public partial class DeviceCapscsitargetCapability {
+        
+        private string type;
+        
+        private string rport;
+        
+        private string wwpn;
+        
+        [System.Xml.Serialization.XmlAttributeAttribute("type")]
+        public string Type {
+            get {
+                return this.type;
+            }
+            set {
+                this.type = value;
+            }
+        }
+        
+        [System.Xml.Serialization.XmlElementAttribute("rport", Namespace="")]
+        public string Rport {
+            get {
+                return this.rport;
+            }
+            set {
+                this.rport = value;
+            }
+        }
+        
+        [System.Xml.Serialization.XmlElementAttribute("wwpn", Namespace="")]
+        public string Wwpn {
+            get {
+                return this.wwpn;
+            }
+            set {
+                this.wwpn = value;
+            }
+        }
+    }
+    
+    public partial class DeviceCapstorageCapability {
+        
+        private string type;
+        
+        [System.Xml.Serialization.XmlAttributeAttribute("type")]
+        public string Type {
+            get {
+                return this.type;
+            }
+            set {
+                this.type = value;
+            }
+        }
+    }
+    
+    [System.Xml.Serialization.XmlTypeAttribute("capability", Namespace="")]
+    public partial class DeviceCapstorageremoveable {
+        
+        private string type;
+        
+        private DeviceCapstorageremoveableMediaAvailable mediaAvailable;
+        
+        private bool mediaAvailableSpecified;
+        
+        private ulong mediaSize;
+        
+        private bool mediaSizeSpecified;
+        
+        private string mediaLabel;
+        
+        private ulong logicalBlockSize;
+        
+        private bool logicalBlockSizeSpecified;
+        
+        private ulong numBlocks;
+        
+        private bool numBlocksSpecified;
+        
+        [System.Xml.Serialization.XmlAttributeAttribute("type")]
+        public string Type {
+            get {
+                return this.type;
+            }
+            set {
+                this.type = value;
+            }
+        }
+        
+        [System.Xml.Serialization.XmlElementAttribute("media_available", Namespace="")]
+        public DeviceCapstorageremoveableMediaAvailable MediaAvailable {
+            get {
+                return this.mediaAvailable;
+            }
+            set {
+                this.mediaAvailable = value;
+            }
+        }
+        
+        [System.Xml.Serialization.XmlIgnoreAttribute()]
+        public bool MediaAvailableSpecified {
+            get {
+                return this.mediaAvailableSpecified;
+            }
+            set {
+                this.mediaAvailableSpecified = value;
+            }
+        }
+        
+        [System.Xml.Serialization.XmlElementAttribute("media_size", Namespace="")]
+        public ulong MediaSize {
+            get {
+                return this.mediaSize;
+            }
+            set {
+                this.mediaSize = value;
+            }
+        }
+        
+        [System.Xml.Serialization.XmlIgnoreAttribute()]
+        public bool MediaSizeSpecified {
+            get {
+                return this.mediaSizeSpecified;
+            }
+            set {
+                this.mediaSizeSpecified = value;
+            }
+        }
+        
+        [System.Xml.Serialization.XmlElementAttribute("media_label", Namespace="")]
+        public string MediaLabel {
+            get {
+                return this.mediaLabel;
+            }
+            set {
+                this.mediaLabel = value;
+            }
+        }
+        
+        [System.Xml.Serialization.XmlElementAttribute("logical_block_size", Namespace="")]
+        public ulong LogicalBlockSize {
+            get {
+                return this.logicalBlockSize;
+            }
+            set {
+                this.logicalBlockSize = value;
+            }
+        }
+        
+        [System.Xml.Serialization.XmlIgnoreAttribute()]
+        public bool LogicalBlockSizeSpecified {
+            get {
+                return this.logicalBlockSizeSpecified;
+            }
+            set {
+                this.logicalBlockSizeSpecified = value;
+            }
+        }
+        
+        [System.Xml.Serialization.XmlElementAttribute("num_blocks", Namespace="")]
+        public ulong NumBlocks {
+            get {
+                return this.numBlocks;
+            }
+            set {
+                this.numBlocks = value;
+            }
+        }
+        
+        [System.Xml.Serialization.XmlIgnoreAttribute()]
+        public bool NumBlocksSpecified {
+            get {
+                return this.numBlocksSpecified;
+            }
+            set {
+                this.numBlocksSpecified = value;
+            }
+        }
+    }
+    
+    public enum DeviceCapstorageremoveableMediaAvailable {
+        
+        [System.Xml.Serialization.XmlEnumAttribute(Name="1")]
+        N1,
+        
+        [System.Xml.Serialization.XmlEnumAttribute(Name="0")]
+        N0,
+    }
+    
+    public partial class DeviceCapsystemFirmware {
+        
+        private string vendor;
+        
+        private string version;
+        
+        private string releaseDate;
+        
+        [System.Xml.Serialization.XmlElementAttribute("vendor", Namespace="")]
+        public string Vendor {
+            get {
+                return this.vendor;
+            }
+            set {
+                this.vendor = value;
+            }
+        }
+        
+        [System.Xml.Serialization.XmlElementAttribute("version", Namespace="")]
+        public string Version {
+            get {
+                return this.version;
+            }
+            set {
+                this.version = value;
+            }
+        }
+        
+        [System.Xml.Serialization.XmlElementAttribute("release_date", Namespace="")]
+        public string ReleaseDate {
+            get {
+                return this.releaseDate;
+            }
+            set {
+                this.releaseDate = value;
+            }
+        }
+    }
+    
+    public partial class DeviceCapsystemHardware {
+        
+        private string vendor;
+        
+        private string version;
+        
+        private string serial;
+        
+        private string uuid;
+        
+        [System.Xml.Serialization.XmlElementAttribute("vendor", Namespace="")]
+        public string Vendor {
+            get {
+                return this.vendor;
+            }
+            set {
+                this.vendor = value;
+            }
+        }
+        
+        [System.Xml.Serialization.XmlElementAttribute("version", Namespace="")]
+        public string Version {
+            get {
+                return this.version;
+            }
+            set {
+                this.version = value;
+            }
+        }
+        
+        [System.Xml.Serialization.XmlElementAttribute("serial", Namespace="")]
+        public string Serial {
+            get {
+                return this.serial;
+            }
+            set {
+                this.serial = value;
+            }
+        }
+        
+        [System.Xml.Serialization.XmlElementAttribute("uuid", Namespace="")]
+        public string Uuid {
+            get {
+                return this.uuid;
+            }
+            set {
+                this.uuid = value;
+            }
+        }
+    }
+    
+    public partial class DeviceCapusbdevProduct {
+        
+        private string value;
+        
+        private string id;
+        
+        [System.Xml.Serialization.XmlTextAttribute()]
+        public string Value {
+            get {
+                return this.value;
+            }
+            set {
+                this.value = value;
+            }
+        }
+        
+        [System.Xml.Serialization.XmlAttributeAttribute("id")]
+        public string Id {
+            get {
+                return this.id;
+            }
+            set {
+                this.id = value;
+            }
+        }
+    }
+    
+    public partial class DeviceCapusbdevVendor {
+        
+        private string value;
+        
+        private string id;
+        
+        [System.Xml.Serialization.XmlTextAttribute()]
+        public string Value {
+            get {
+                return this.value;
+            }
+            set {
+                this.value = value;
+            }
+        }
+        
+        [System.Xml.Serialization.XmlAttributeAttribute("id")]
+        public string Id {
+            get {
+                return this.id;
+            }
+            set {
+                this.id = value;
+            }
+        }
+    }
+    
+    public partial class DeviceDevnode {
+        
+        private string value;
+        
+        private string type;
+        
+        [System.Xml.Serialization.XmlTextAttribute()]
+        public string Value {
+            get {
+                return this.value;
+            }
+            set {
+                this.value = value;
+            }
+        }
+        
+        [System.Xml.Serialization.XmlAttributeAttribute("type")]
+        public string Type {
+            get {
+                return this.type;
+            }
+            set {
+                this.type = value;
+            }
+        }
+    }
+    
+    public partial class DeviceDriver {
+        
+        private string name;
+        
+        [System.Xml.Serialization.XmlElementAttribute("name", Namespace="")]
+        public string Name {
+            get {
+                return this.name;
+            }
+            set {
+                this.name = value;
+            }
+        }
+    }
+    
+    [System.Xml.Serialization.XmlTypeAttribute("parent", Namespace="")]
+    public partial class DeviceParent {
+        
+        private string value;
+        
+        private string wwnn;
+        
+        private string wwpn;
+        
+        private string fabricWwn;
+        
+        [System.Xml.Serialization.XmlTextAttribute()]
+        public string Value {
+            get {
+                return this.value;
+            }
+            set {
+                this.value = value;
+            }
+        }
+        
+        [System.Xml.Serialization.XmlAttributeAttribute("wwnn")]
+        public string Wwnn {
+            get {
+                return this.wwnn;
+            }
+            set {
+                this.wwnn = value;
+            }
+        }
+        
+        [System.Xml.Serialization.XmlAttributeAttribute("wwpn")]
+        public string Wwpn {
+            get {
+                return this.wwpn;
+            }
+            set {
+                this.wwpn = value;
+            }
+        }
+        
+        [System.Xml.Serialization.XmlAttributeAttribute("fabric_wwn")]
+        public string FabricWwn {
+            get {
+                return this.fabricWwn;
+            }
+            set {
+                this.fabricWwn = value;
+            }
+        }
+    }
+    
+    [System.Xml.Serialization.XmlTypeAttribute("capability", Namespace="")]
+    public partial class DeviceSubcapnet {
+        
+        private string type;
+        
+        [System.Xml.Serialization.XmlAttributeAttribute("type")]
+        public string Type {
+            get {
+                return this.type;
+            }
+            set {
+                this.type = value;
+            }
+        }
+    }
+    
+    [System.Xml.Serialization.XmlTypeAttribute("capability", Namespace="")]
+    public partial class DeviceVpd {
+        
+        private string type;
+        
+        private string name;
+        
+        private DeviceVpdFields fields;
+        
+        [System.Xml.Serialization.XmlAttributeAttribute("type")]
+        public string Type {
+            get {
+                return this.type;
+            }
+            set {
+                this.type = value;
+            }
+        }
+        
+        [System.Xml.Serialization.XmlElementAttribute("name", Namespace="")]
+        public string Name {
+            get {
+                return this.name;
+            }
+            set {
+                this.name = value;
+            }
+        }
+        
+        [System.Xml.Serialization.XmlElementAttribute("fields", Namespace="")]
+        public DeviceVpdFields Fields {
+            get {
+                return this.fields;
+            }
+            set {
+                this.fields = value;
+            }
+        }
+    }
+    
+    public partial class DeviceVpdFields {
+        
+        private string access;
+        
+        private string changeLevel;
+        
+        private string manufactureId;
+        
+        private string partNumber;
+        
+        private string serialNumber;
+        
+        private DeviceVpdFieldsVendorField[] vendorField;
+        
+        [System.Xml.Serialization.XmlAttributeAttribute("access")]
+        public string Access {
+            get {
+                return this.access;
+            }
+            set {
+                this.access = value;
+            }
+        }
+        
+        [System.Xml.Serialization.XmlElementAttribute("change_level", Namespace="")]
+        public string ChangeLevel {
+            get {
+                return this.changeLevel;
+            }
+            set {
+                this.changeLevel = value;
+            }
+        }
+        
+        [System.Xml.Serialization.XmlElementAttribute("manufacture_id", Namespace="")]
+        public string ManufactureId {
+            get {
+                return this.manufactureId;
+            }
+            set {
+                this.manufactureId = value;
+            }
+        }
+        
+        [System.Xml.Serialization.XmlElementAttribute("part_number", Namespace="")]
+        public string PartNumber {
+            get {
+                return this.partNumber;
+            }
+            set {
+                this.partNumber = value;
+            }
+        }
+        
+        [System.Xml.Serialization.XmlElementAttribute("serial_number", Namespace="")]
+        public string SerialNumber {
+            get {
+                return this.serialNumber;
+            }
+            set {
+                this.serialNumber = value;
+            }
+        }
+        
+        [System.Xml.Serialization.XmlElementAttribute("vendor_field", Namespace="")]
+        public DeviceVpdFieldsVendorField[] VendorField {
+            get {
+                return this.vendorField;
+            }
+            set {
+                this.vendorField = value;
+            }
+        }
+    }
+    
+    public partial class DeviceVpdFieldsVendorField {
+        
+        private string value;
+        
+        private string index;
+        
+        [System.Xml.Serialization.XmlTextAttribute()]
+        public string Value {
+            get {
+                return this.value;
+            }
+            set {
+                this.value = value;
+            }
+        }
+        
+        [System.Xml.Serialization.XmlAttributeAttribute("index")]
+        public string Index {
+            get {
+                return this.index;
+            }
+            set {
+                this.index = value;
+            }
+        }
+    }
+    
     public enum DirectionType {
         
         [System.Xml.Serialization.XmlEnumAttribute(Name="in")]
@@ -5590,6 +7484,82 @@ namespace Libvirt.Model {
         }
     }
     
+    [System.Xml.Serialization.XmlTypeAttribute("link", Namespace="")]
+    public partial class LinkSpeedState {
+        
+        private uint speed;
+        
+        private bool speedSpecified;
+        
+        private LinkSpeedStateState state;
+        
+        private bool stateSpecified;
+        
+        [System.Xml.Serialization.XmlAttributeAttribute("speed")]
+        public uint Speed {
+            get {
+                return this.speed;
+            }
+            set {
+                this.speed = value;
+            }
+        }
+        
+        [System.Xml.Serialization.XmlIgnoreAttribute()]
+        public bool SpeedSpecified {
+            get {
+                return this.speedSpecified;
+            }
+            set {
+                this.speedSpecified = value;
+            }
+        }
+        
+        [System.Xml.Serialization.XmlAttributeAttribute("state")]
+        public LinkSpeedStateState State {
+            get {
+                return this.state;
+            }
+            set {
+                this.state = value;
+            }
+        }
+        
+        [System.Xml.Serialization.XmlIgnoreAttribute()]
+        public bool StateSpecified {
+            get {
+                return this.stateSpecified;
+            }
+            set {
+                this.stateSpecified = value;
+            }
+        }
+    }
+    
+    public enum LinkSpeedStateState {
+        
+        [System.Xml.Serialization.XmlEnumAttribute(Name="unknown")]
+        Unknown,
+        
+        [System.Xml.Serialization.XmlEnumAttribute(Name="notpresent")]
+        Notpresent,
+        
+        [System.Xml.Serialization.XmlEnumAttribute(Name="down")]
+        Down,
+        
+        [System.Xml.Serialization.XmlEnumAttribute(Name="lowerlayerdown")]
+        Lowerlayerdown,
+        
+        [System.Xml.Serialization.XmlEnumAttribute(Name="testing")]
+        Testing,
+        
+        [System.Xml.Serialization.XmlEnumAttribute(Name="dormant")]
+        Dormant,
+        
+        [System.Xml.Serialization.XmlEnumAttribute(Name="up")]
+        Up,
+    }
+    
     public abstract partial class Pool {
     }
     
@@ -7460,6 +9430,8 @@ namespace Libvirt.Model {
         
         private PoolSourcefmtnetfsType type;
         
+        private bool typeSpecified;
+        
         [System.Xml.Serialization.XmlAttributeAttribute("type")]
         public PoolSourcefmtnetfsType Type {
             get {
@@ -7467,6 +9439,16 @@ namespace Libvirt.Model {
             }
             set {
                 this.type = value;
+            }
+        }
+        
+        [System.Xml.Serialization.XmlIgnoreAttribute()]
+        public bool TypeSpecified {
+            get {
+                return this.typeSpecified;
+            }
+            set {
+                this.typeSpecified = value;
             }
         }
     }

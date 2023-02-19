@@ -4,6 +4,7 @@ This library is Libvirt XML descriptor class to serialize or deserialize for .NE
 
 ## Generated XML descriptor class
 
+- [Node Device XML](https://libvirt.org/formatnode.html#node-device-xml)
 - [Filter rules XML](https://libvirt.org/formatnwfilter.html#filter-rules)
 - [Secret XML](https://libvirt.org/formatsecret.html#secret-xml)
 - [Storage pool XML](https://libvirt.org/formatstorage.html#storage-pool-xml)

@@ -1,0 +1,10 @@
+<device>
+  <name>name</name>
+  <capability type="system">
+    <hardware>
+      <uuid>uuid</uuid>
+    </hardware>
+    <firmware>
+    </firmware>
+  </capability>
+</device>

@@ -2,6 +2,7 @@
 
 using Microsoft.CSharp;
 using System.CodeDom.Compiler;
+using System.Reflection;
 using System.Xml.Serialization;
 
 internal static class Code
@@ -71,12 +72,17 @@ internal static class Code
             new CodeTypeReference(typeof(XmlIgnoreAttribute))));
     }
 
-    internal static bool ConvertForType(string className, string elementName, string? ns, bool xmlModifier, out GenTypeDeclaration type)
+    internal static bool ConvertForType(string className, string elementName, string? ns, bool xmlModifier, bool isAbstract, out CodeTypeDeclaration type)
     {
         var cls = new CodeTypeDeclaration(Utility.ToClassName(className))
         {
             IsPartial = true,
         };
+
+        if (isAbstract)
+        {
+            cls.TypeAttributes = TypeAttributes.Public | TypeAttributes.Abstract;
+        }
 
         if (xmlModifier)
         {
@@ -91,7 +97,7 @@ internal static class Code
                 attrArgs.ToArray()));
         }
 
-        type = new GenTypeDeclaration(cls);
+        type = cls;
         return true;
     }
 

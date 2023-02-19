@@ -33,8 +33,15 @@ internal class MainShell
 
         var context = new CodeContext();
         context.ClassNamePrefix.Add("storagecommon.rng", "storage");
+        context.ExcludeDefines.Add("capscsi"); // Attribute と Element が同じ名前
+        context.ExcludeDefines.Add("capdrm"); // Attribute と Element が同じ名前
+        context.ExcludeDefines.Add("capmdev"); // Attribute と Element が同じ名前
+        context.ExcludeDefines.Add("mdev_types"); // Attribute と Element が同じ名前
 
         var schema = new Schema();
+
+        // nodedev.rng
+        this.Parse(schema, files["nodedev.rng"]).CollectType(context);
 
         // nwfilter.rng
         this.Parse(schema, files["nwfilter.rng"]).CollectType(context);
@@ -55,15 +62,17 @@ internal class MainShell
         // storagevol.rng
         this.Parse(schema, files["storagevol.rng"]).CollectType(context);
 
-        foreach (var warning in context.Warnings)
-        {
-            Console.Error.WriteLine("{0}", warning);
-        }
+        context.Gen();
 
         var ns = new CodeNamespace("Libvirt.Model");
         foreach (var cls in context.EnumerateTypes())
         {
-            ns.Types.Add(cls.Type);
+            ns.Types.Add(cls.Type!);
+        }
+
+        foreach (var warning in context.Warnings)
+        {
+            Console.Error.WriteLine("{0}", warning);
         }
 
         Code.WriteFile("Generated.cs", ns);

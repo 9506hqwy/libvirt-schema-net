@@ -1,7 +1,6 @@
 ﻿namespace Gen;
 
 using RelaxNg.Schema;
-using System.Reflection;
 
 internal static class IHasChildrenExtension
 {
@@ -13,11 +12,8 @@ internal static class IHasChildrenExtension
             throw new NotSupportedException();
         }
 
-        var cls = new GenTypeDeclaration(new CodeTypeDeclaration(Utility.ToClassName(context.GetClassName(null, out var _)))
-        {
-            IsPartial = true,
-            TypeAttributes = TypeAttributes.Public | TypeAttributes.Abstract,
-        });
+        var className = Utility.ToClassName(context.GetClassName(null, out var _));
+        var cls = new GenTypeDeclaration(className, null, null, false, true);
 
         if (!context.IsParsed(cls.Name))
         {

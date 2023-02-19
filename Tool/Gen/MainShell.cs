@@ -36,6 +36,9 @@ internal class MainShell
 
         var schema = new Schema();
 
+        // nwfilter.rng
+        this.Parse(schema, files["nwfilter.rng"]).CollectType(context);
+
         // nwfilterbinding.rng
         this.Parse(schema, files["nwfilterbinding.rng"]).CollectType(context);
 

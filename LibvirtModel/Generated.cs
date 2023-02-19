@@ -10,6 +10,145 @@
 namespace Libvirt.Model {
     
     
+    public enum ActionType {
+        
+        [System.Xml.Serialization.XmlEnumAttribute(Name="drop")]
+        Drop,
+        
+        [System.Xml.Serialization.XmlEnumAttribute(Name="accept")]
+        Accept,
+        
+        [System.Xml.Serialization.XmlEnumAttribute(Name="reject")]
+        Reject,
+        
+        [System.Xml.Serialization.XmlEnumAttribute(Name="continue")]
+        Continue,
+        
+        [System.Xml.Serialization.XmlEnumAttribute(Name="return")]
+        Return,
+    }
+    
+    public enum Boolean {
+        
+        [System.Xml.Serialization.XmlEnumAttribute(Name="yes")]
+        Yes,
+        
+        [System.Xml.Serialization.XmlEnumAttribute(Name="no")]
+        No,
+        
+        [System.Xml.Serialization.XmlEnumAttribute(Name="true")]
+        True,
+        
+        [System.Xml.Serialization.XmlEnumAttribute(Name="false")]
+        False,
+        
+        [System.Xml.Serialization.XmlEnumAttribute(Name="1")]
+        N1,
+        
+        [System.Xml.Serialization.XmlEnumAttribute(Name="0")]
+        N0,
+    }
+    
+    public enum DirectionType {
+        
+        [System.Xml.Serialization.XmlEnumAttribute(Name="in")]
+        In,
+        
+        [System.Xml.Serialization.XmlEnumAttribute(Name="out")]
+        Out,
+        
+        [System.Xml.Serialization.XmlEnumAttribute(Name="inout")]
+        Inout,
+    }
+    
+    [System.Xml.Serialization.XmlTypeAttribute("filter", Namespace="")]
+    public partial class Filter {
+        
+        private string name;
+        
+        private string chain;
+        
+        private int priority;
+        
+        private bool prioritySpecified;
+        
+        private string uuid;
+        
+        private FilterFilterref[] filterref;
+        
+        private FilterRule[] rule;
+        
+        [System.Xml.Serialization.XmlAttributeAttribute("name")]
+        public string Name {
+            get {
+                return this.name;
+            }
+            set {
+                this.name = value;
+            }
+        }
+        
+        [System.Xml.Serialization.XmlAttributeAttribute("chain")]
+        public string Chain {
+            get {
+                return this.chain;
+            }
+            set {
+                this.chain = value;
+            }
+        }
+        
+        [System.Xml.Serialization.XmlAttributeAttribute("priority")]
+        public int Priority {
+            get {
+                return this.priority;
+            }
+            set {
+                this.priority = value;
+            }
+        }
+        
+        [System.Xml.Serialization.XmlIgnoreAttribute()]
+        public bool PrioritySpecified {
+            get {
+                return this.prioritySpecified;
+            }
+            set {
+                this.prioritySpecified = value;
+            }
+        }
+        
+        [System.Xml.Serialization.XmlElementAttribute("uuid", Namespace="")]
+        public string Uuid {
+            get {
+                return this.uuid;
+            }
+            set {
+                this.uuid = value;
+            }
+        }
+        
+        [System.Xml.Serialization.XmlElementAttribute("filterref", Namespace="")]
+        public FilterFilterref[] Filterref {
+            get {
+                return this.filterref;
+            }
+            set {
+                this.filterref = value;
+            }
+        }
+        
+        [System.Xml.Serialization.XmlElementAttribute("rule", Namespace="")]
+        public FilterRule[] Rule {
+            get {
+                return this.rule;
+            }
+            set {
+                this.rule = value;
+            }
+        }
+    }
+    
     [System.Xml.Serialization.XmlTypeAttribute("filterbinding", Namespace="")]
     public partial class Filterbinding {
         
@@ -173,6 +312,33 @@ namespace Libvirt.Model {
         }
     }
     
+    public partial class FilterFilterref {
+        
+        private string filter;
+        
+        private FilterrefNodeAttributes[] parameter;
+        
+        [System.Xml.Serialization.XmlAttributeAttribute("filter")]
+        public string Filter {
+            get {
+                return this.filter;
+            }
+            set {
+                this.filter = value;
+            }
+        }
+        
+        [System.Xml.Serialization.XmlElementAttribute("parameter", Namespace="")]
+        public FilterrefNodeAttributes[] Parameter {
+            get {
+                return this.parameter;
+            }
+            set {
+                this.parameter = value;
+            }
+        }
+    }
+    
     [System.Xml.Serialization.XmlTypeAttribute("parameter", Namespace="")]
     public partial class FilterrefNodeAttributes {
         
@@ -197,6 +363,5229 @@ namespace Libvirt.Model {
             }
             set {
                 this.value = value;
+            }
+        }
+    }
+    
+    public partial class FilterRule {
+        
+        private ActionType action;
+        
+        private DirectionType direction;
+        
+        private int priority;
+        
+        private bool prioritySpecified;
+        
+        private string statematch;
+        
+        private FilterRuleMac mac;
+        
+        private FilterRuleVlan vlan;
+        
+        private FilterRuleStp stp;
+        
+        private FilterRuleArp arp;
+        
+        private FilterRuleRarp rarp;
+        
+        private FilterRuleIp ip;
+        
+        private FilterRuleIpv6 ipv6;
+        
+        private FilterRuleTcp tcp;
+        
+        private FilterRuleUdp udp;
+        
+        private FilterRuleSctp sctp;
+        
+        private FilterRuleIcmp icmp;
+        
+        private FilterRuleIgmp igmp;
+        
+        private FilterRuleAll all;
+        
+        private FilterRuleEsp esp;
+        
+        private FilterRuleAh ah;
+        
+        private FilterRuleUdplite udplite;
+        
+        private FilterRuleTcpIpv6 tcpIpv6;
+        
+        private FilterRuleUdpIpv6 udpIpv6;
+        
+        private FilterRuleSctpIpv6 sctpIpv6;
+        
+        private FilterRuleIcmpv6 icmpv6;
+        
+        private FilterRuleAllIpv6 allIpv6;
+        
+        private FilterRuleEspIpv6 espIpv6;
+        
+        private FilterRuleAhIpv6 ahIpv6;
+        
+        private FilterRuleUdpliteIpv6 udpliteIpv6;
+        
+        [System.Xml.Serialization.XmlAttributeAttribute("action")]
+        public ActionType Action {
+            get {
+                return this.action;
+            }
+            set {
+                this.action = value;
+            }
+        }
+        
+        [System.Xml.Serialization.XmlAttributeAttribute("direction")]
+        public DirectionType Direction {
+            get {
+                return this.direction;
+            }
+            set {
+                this.direction = value;
+            }
+        }
+        
+        [System.Xml.Serialization.XmlAttributeAttribute("priority")]
+        public int Priority {
+            get {
+                return this.priority;
+            }
+            set {
+                this.priority = value;
+            }
+        }
+        
+        [System.Xml.Serialization.XmlIgnoreAttribute()]
+        public bool PrioritySpecified {
+            get {
+                return this.prioritySpecified;
+            }
+            set {
+                this.prioritySpecified = value;
+            }
+        }
+        
+        [System.Xml.Serialization.XmlAttributeAttribute("statematch")]
+        public string Statematch {
+            get {
+                return this.statematch;
+            }
+            set {
+                this.statematch = value;
+            }
+        }
+        
+        [System.Xml.Serialization.XmlElementAttribute("mac", Namespace="")]
+        public FilterRuleMac Mac {
+            get {
+                return this.mac;
+            }
+            set {
+                this.mac = value;
+            }
+        }
+        
+        [System.Xml.Serialization.XmlElementAttribute("vlan", Namespace="")]
+        public FilterRuleVlan Vlan {
+            get {
+                return this.vlan;
+            }
+            set {
+                this.vlan = value;
+            }
+        }
+        
+        [System.Xml.Serialization.XmlElementAttribute("stp", Namespace="")]
+        public FilterRuleStp Stp {
+            get {
+                return this.stp;
+            }
+            set {
+                this.stp = value;
+            }
+        }
+        
+        [System.Xml.Serialization.XmlElementAttribute("arp", Namespace="")]
+        public FilterRuleArp Arp {
+            get {
+                return this.arp;
+            }
+            set {
+                this.arp = value;
+            }
+        }
+        
+        [System.Xml.Serialization.XmlElementAttribute("rarp", Namespace="")]
+        public FilterRuleRarp Rarp {
+            get {
+                return this.rarp;
+            }
+            set {
+                this.rarp = value;
+            }
+        }
+        
+        [System.Xml.Serialization.XmlElementAttribute("ip", Namespace="")]
+        public FilterRuleIp Ip {
+            get {
+                return this.ip;
+            }
+            set {
+                this.ip = value;
+            }
+        }
+        
+        [System.Xml.Serialization.XmlElementAttribute("ipv6", Namespace="")]
+        public FilterRuleIpv6 Ipv6 {
+            get {
+                return this.ipv6;
+            }
+            set {
+                this.ipv6 = value;
+            }
+        }
+        
+        [System.Xml.Serialization.XmlElementAttribute("tcp", Namespace="")]
+        public FilterRuleTcp Tcp {
+            get {
+                return this.tcp;
+            }
+            set {
+                this.tcp = value;
+            }
+        }
+        
+        [System.Xml.Serialization.XmlElementAttribute("udp", Namespace="")]
+        public FilterRuleUdp Udp {
+            get {
+                return this.udp;
+            }
+            set {
+                this.udp = value;
+            }
+        }
+        
+        [System.Xml.Serialization.XmlElementAttribute("sctp", Namespace="")]
+        public FilterRuleSctp Sctp {
+            get {
+                return this.sctp;
+            }
+            set {
+                this.sctp = value;
+            }
+        }
+        
+        [System.Xml.Serialization.XmlElementAttribute("icmp", Namespace="")]
+        public FilterRuleIcmp Icmp {
+            get {
+                return this.icmp;
+            }
+            set {
+                this.icmp = value;
+            }
+        }
+        
+        [System.Xml.Serialization.XmlElementAttribute("igmp", Namespace="")]
+        public FilterRuleIgmp Igmp {
+            get {
+                return this.igmp;
+            }
+            set {
+                this.igmp = value;
+            }
+        }
+        
+        [System.Xml.Serialization.XmlElementAttribute("all", Namespace="")]
+        public FilterRuleAll All {
+            get {
+                return this.all;
+            }
+            set {
+                this.all = value;
+            }
+        }
+        
+        [System.Xml.Serialization.XmlElementAttribute("esp", Namespace="")]
+        public FilterRuleEsp Esp {
+            get {
+                return this.esp;
+            }
+            set {
+                this.esp = value;
+            }
+        }
+        
+        [System.Xml.Serialization.XmlElementAttribute("ah", Namespace="")]
+        public FilterRuleAh Ah {
+            get {
+                return this.ah;
+            }
+            set {
+                this.ah = value;
+            }
+        }
+        
+        [System.Xml.Serialization.XmlElementAttribute("udplite", Namespace="")]
+        public FilterRuleUdplite Udplite {
+            get {
+                return this.udplite;
+            }
+            set {
+                this.udplite = value;
+            }
+        }
+        
+        [System.Xml.Serialization.XmlElementAttribute("tcp-ipv6", Namespace="")]
+        public FilterRuleTcpIpv6 TcpIpv6 {
+            get {
+                return this.tcpIpv6;
+            }
+            set {
+                this.tcpIpv6 = value;
+            }
+        }
+        
+        [System.Xml.Serialization.XmlElementAttribute("udp-ipv6", Namespace="")]
+        public FilterRuleUdpIpv6 UdpIpv6 {
+            get {
+                return this.udpIpv6;
+            }
+            set {
+                this.udpIpv6 = value;
+            }
+        }
+        
+        [System.Xml.Serialization.XmlElementAttribute("sctp-ipv6", Namespace="")]
+        public FilterRuleSctpIpv6 SctpIpv6 {
+            get {
+                return this.sctpIpv6;
+            }
+            set {
+                this.sctpIpv6 = value;
+            }
+        }
+        
+        [System.Xml.Serialization.XmlElementAttribute("icmpv6", Namespace="")]
+        public FilterRuleIcmpv6 Icmpv6 {
+            get {
+                return this.icmpv6;
+            }
+            set {
+                this.icmpv6 = value;
+            }
+        }
+        
+        [System.Xml.Serialization.XmlElementAttribute("all-ipv6", Namespace="")]
+        public FilterRuleAllIpv6 AllIpv6 {
+            get {
+                return this.allIpv6;
+            }
+            set {
+                this.allIpv6 = value;
+            }
+        }
+        
+        [System.Xml.Serialization.XmlElementAttribute("esp-ipv6", Namespace="")]
+        public FilterRuleEspIpv6 EspIpv6 {
+            get {
+                return this.espIpv6;
+            }
+            set {
+                this.espIpv6 = value;
+            }
+        }
+        
+        [System.Xml.Serialization.XmlElementAttribute("ah-ipv6", Namespace="")]
+        public FilterRuleAhIpv6 AhIpv6 {
+            get {
+                return this.ahIpv6;
+            }
+            set {
+                this.ahIpv6 = value;
+            }
+        }
+        
+        [System.Xml.Serialization.XmlElementAttribute("udplite-ipv6", Namespace="")]
+        public FilterRuleUdpliteIpv6 UdpliteIpv6 {
+            get {
+                return this.udpliteIpv6;
+            }
+            set {
+                this.udpliteIpv6 = value;
+            }
+        }
+    }
+    
+    public partial class FilterRuleAh {
+        
+        private VirYesNo match;
+        
+        private bool matchSpecified;
+        
+        private string srcmacaddr;
+        
+        private string srcipaddr;
+        
+        private string srcipmask;
+        
+        private string dstipaddr;
+        
+        private string dstipmask;
+        
+        private string srcipfrom;
+        
+        private string srcipto;
+        
+        private string dstipfrom;
+        
+        private string dstipto;
+        
+        private string dscp;
+        
+        private string connlimitAbove;
+        
+        private string state;
+        
+        private string ipset;
+        
+        private string ipsetflags;
+        
+        private string comment;
+        
+        [System.Xml.Serialization.XmlAttributeAttribute("match")]
+        public VirYesNo Match {
+            get {
+                return this.match;
+            }
+            set {
+                this.match = value;
+            }
+        }
+        
+        [System.Xml.Serialization.XmlIgnoreAttribute()]
+        public bool MatchSpecified {
+            get {
+                return this.matchSpecified;
+            }
+            set {
+                this.matchSpecified = value;
+            }
+        }
+        
+        [System.Xml.Serialization.XmlAttributeAttribute("srcmacaddr")]
+        public string Srcmacaddr {
+            get {
+                return this.srcmacaddr;
+            }
+            set {
+                this.srcmacaddr = value;
+            }
+        }
+        
+        [System.Xml.Serialization.XmlAttributeAttribute("srcipaddr")]
+        public string Srcipaddr {
+            get {
+                return this.srcipaddr;
+            }
+            set {
+                this.srcipaddr = value;
+            }
+        }
+        
+        [System.Xml.Serialization.XmlAttributeAttribute("srcipmask")]
+        public string Srcipmask {
+            get {
+                return this.srcipmask;
+            }
+            set {
+                this.srcipmask = value;
+            }
+        }
+        
+        [System.Xml.Serialization.XmlAttributeAttribute("dstipaddr")]
+        public string Dstipaddr {
+            get {
+                return this.dstipaddr;
+            }
+            set {
+                this.dstipaddr = value;
+            }
+        }
+        
+        [System.Xml.Serialization.XmlAttributeAttribute("dstipmask")]
+        public string Dstipmask {
+            get {
+                return this.dstipmask;
+            }
+            set {
+                this.dstipmask = value;
+            }
+        }
+        
+        [System.Xml.Serialization.XmlAttributeAttribute("srcipfrom")]
+        public string Srcipfrom {
+            get {
+                return this.srcipfrom;
+            }
+            set {
+                this.srcipfrom = value;
+            }
+        }
+        
+        [System.Xml.Serialization.XmlAttributeAttribute("srcipto")]
+        public string Srcipto {
+            get {
+                return this.srcipto;
+            }
+            set {
+                this.srcipto = value;
+            }
+        }
+        
+        [System.Xml.Serialization.XmlAttributeAttribute("dstipfrom")]
+        public string Dstipfrom {
+            get {
+                return this.dstipfrom;
+            }
+            set {
+                this.dstipfrom = value;
+            }
+        }
+        
+        [System.Xml.Serialization.XmlAttributeAttribute("dstipto")]
+        public string Dstipto {
+            get {
+                return this.dstipto;
+            }
+            set {
+                this.dstipto = value;
+            }
+        }
+        
+        [System.Xml.Serialization.XmlAttributeAttribute("dscp")]
+        public string Dscp {
+            get {
+                return this.dscp;
+            }
+            set {
+                this.dscp = value;
+            }
+        }
+        
+        [System.Xml.Serialization.XmlAttributeAttribute("connlimit-above")]
+        public string ConnlimitAbove {
+            get {
+                return this.connlimitAbove;
+            }
+            set {
+                this.connlimitAbove = value;
+            }
+        }
+        
+        [System.Xml.Serialization.XmlAttributeAttribute("state")]
+        public string State {
+            get {
+                return this.state;
+            }
+            set {
+                this.state = value;
+            }
+        }
+        
+        [System.Xml.Serialization.XmlAttributeAttribute("ipset")]
+        public string Ipset {
+            get {
+                return this.ipset;
+            }
+            set {
+                this.ipset = value;
+            }
+        }
+        
+        [System.Xml.Serialization.XmlAttributeAttribute("ipsetflags")]
+        public string Ipsetflags {
+            get {
+                return this.ipsetflags;
+            }
+            set {
+                this.ipsetflags = value;
+            }
+        }
+        
+        [System.Xml.Serialization.XmlAttributeAttribute("comment")]
+        public string Comment {
+            get {
+                return this.comment;
+            }
+            set {
+                this.comment = value;
+            }
+        }
+    }
+    
+    public partial class FilterRuleAhIpv6 {
+        
+        private VirYesNo match;
+        
+        private bool matchSpecified;
+        
+        private string srcmacaddr;
+        
+        private string srcipaddr;
+        
+        private string srcipmask;
+        
+        private string dstipaddr;
+        
+        private string dstipmask;
+        
+        private string srcipfrom;
+        
+        private string srcipto;
+        
+        private string dstipfrom;
+        
+        private string dstipto;
+        
+        private string dscp;
+        
+        private string comment;
+        
+        [System.Xml.Serialization.XmlAttributeAttribute("match")]
+        public VirYesNo Match {
+            get {
+                return this.match;
+            }
+            set {
+                this.match = value;
+            }
+        }
+        
+        [System.Xml.Serialization.XmlIgnoreAttribute()]
+        public bool MatchSpecified {
+            get {
+                return this.matchSpecified;
+            }
+            set {
+                this.matchSpecified = value;
+            }
+        }
+        
+        [System.Xml.Serialization.XmlAttributeAttribute("srcmacaddr")]
+        public string Srcmacaddr {
+            get {
+                return this.srcmacaddr;
+            }
+            set {
+                this.srcmacaddr = value;
+            }
+        }
+        
+        [System.Xml.Serialization.XmlAttributeAttribute("srcipaddr")]
+        public string Srcipaddr {
+            get {
+                return this.srcipaddr;
+            }
+            set {
+                this.srcipaddr = value;
+            }
+        }
+        
+        [System.Xml.Serialization.XmlAttributeAttribute("srcipmask")]
+        public string Srcipmask {
+            get {
+                return this.srcipmask;
+            }
+            set {
+                this.srcipmask = value;
+            }
+        }
+        
+        [System.Xml.Serialization.XmlAttributeAttribute("dstipaddr")]
+        public string Dstipaddr {
+            get {
+                return this.dstipaddr;
+            }
+            set {
+                this.dstipaddr = value;
+            }
+        }
+        
+        [System.Xml.Serialization.XmlAttributeAttribute("dstipmask")]
+        public string Dstipmask {
+            get {
+                return this.dstipmask;
+            }
+            set {
+                this.dstipmask = value;
+            }
+        }
+        
+        [System.Xml.Serialization.XmlAttributeAttribute("srcipfrom")]
+        public string Srcipfrom {
+            get {
+                return this.srcipfrom;
+            }
+            set {
+                this.srcipfrom = value;
+            }
+        }
+        
+        [System.Xml.Serialization.XmlAttributeAttribute("srcipto")]
+        public string Srcipto {
+            get {
+                return this.srcipto;
+            }
+            set {
+                this.srcipto = value;
+            }
+        }
+        
+        [System.Xml.Serialization.XmlAttributeAttribute("dstipfrom")]
+        public string Dstipfrom {
+            get {
+                return this.dstipfrom;
+            }
+            set {
+                this.dstipfrom = value;
+            }
+        }
+        
+        [System.Xml.Serialization.XmlAttributeAttribute("dstipto")]
+        public string Dstipto {
+            get {
+                return this.dstipto;
+            }
+            set {
+                this.dstipto = value;
+            }
+        }
+        
+        [System.Xml.Serialization.XmlAttributeAttribute("dscp")]
+        public string Dscp {
+            get {
+                return this.dscp;
+            }
+            set {
+                this.dscp = value;
+            }
+        }
+        
+        [System.Xml.Serialization.XmlAttributeAttribute("comment")]
+        public string Comment {
+            get {
+                return this.comment;
+            }
+            set {
+                this.comment = value;
+            }
+        }
+    }
+    
+    public partial class FilterRuleAll {
+        
+        private VirYesNo match;
+        
+        private bool matchSpecified;
+        
+        private string srcmacaddr;
+        
+        private string srcipaddr;
+        
+        private string srcipmask;
+        
+        private string dstipaddr;
+        
+        private string dstipmask;
+        
+        private string srcipfrom;
+        
+        private string srcipto;
+        
+        private string dstipfrom;
+        
+        private string dstipto;
+        
+        private string dscp;
+        
+        private string connlimitAbove;
+        
+        private string state;
+        
+        private string ipset;
+        
+        private string ipsetflags;
+        
+        private string comment;
+        
+        [System.Xml.Serialization.XmlAttributeAttribute("match")]
+        public VirYesNo Match {
+            get {
+                return this.match;
+            }
+            set {
+                this.match = value;
+            }
+        }
+        
+        [System.Xml.Serialization.XmlIgnoreAttribute()]
+        public bool MatchSpecified {
+            get {
+                return this.matchSpecified;
+            }
+            set {
+                this.matchSpecified = value;
+            }
+        }
+        
+        [System.Xml.Serialization.XmlAttributeAttribute("srcmacaddr")]
+        public string Srcmacaddr {
+            get {
+                return this.srcmacaddr;
+            }
+            set {
+                this.srcmacaddr = value;
+            }
+        }
+        
+        [System.Xml.Serialization.XmlAttributeAttribute("srcipaddr")]
+        public string Srcipaddr {
+            get {
+                return this.srcipaddr;
+            }
+            set {
+                this.srcipaddr = value;
+            }
+        }
+        
+        [System.Xml.Serialization.XmlAttributeAttribute("srcipmask")]
+        public string Srcipmask {
+            get {
+                return this.srcipmask;
+            }
+            set {
+                this.srcipmask = value;
+            }
+        }
+        
+        [System.Xml.Serialization.XmlAttributeAttribute("dstipaddr")]
+        public string Dstipaddr {
+            get {
+                return this.dstipaddr;
+            }
+            set {
+                this.dstipaddr = value;
+            }
+        }
+        
+        [System.Xml.Serialization.XmlAttributeAttribute("dstipmask")]
+        public string Dstipmask {
+            get {
+                return this.dstipmask;
+            }
+            set {
+                this.dstipmask = value;
+            }
+        }
+        
+        [System.Xml.Serialization.XmlAttributeAttribute("srcipfrom")]
+        public string Srcipfrom {
+            get {
+                return this.srcipfrom;
+            }
+            set {
+                this.srcipfrom = value;
+            }
+        }
+        
+        [System.Xml.Serialization.XmlAttributeAttribute("srcipto")]
+        public string Srcipto {
+            get {
+                return this.srcipto;
+            }
+            set {
+                this.srcipto = value;
+            }
+        }
+        
+        [System.Xml.Serialization.XmlAttributeAttribute("dstipfrom")]
+        public string Dstipfrom {
+            get {
+                return this.dstipfrom;
+            }
+            set {
+                this.dstipfrom = value;
+            }
+        }
+        
+        [System.Xml.Serialization.XmlAttributeAttribute("dstipto")]
+        public string Dstipto {
+            get {
+                return this.dstipto;
+            }
+            set {
+                this.dstipto = value;
+            }
+        }
+        
+        [System.Xml.Serialization.XmlAttributeAttribute("dscp")]
+        public string Dscp {
+            get {
+                return this.dscp;
+            }
+            set {
+                this.dscp = value;
+            }
+        }
+        
+        [System.Xml.Serialization.XmlAttributeAttribute("connlimit-above")]
+        public string ConnlimitAbove {
+            get {
+                return this.connlimitAbove;
+            }
+            set {
+                this.connlimitAbove = value;
+            }
+        }
+        
+        [System.Xml.Serialization.XmlAttributeAttribute("state")]
+        public string State {
+            get {
+                return this.state;
+            }
+            set {
+                this.state = value;
+            }
+        }
+        
+        [System.Xml.Serialization.XmlAttributeAttribute("ipset")]
+        public string Ipset {
+            get {
+                return this.ipset;
+            }
+            set {
+                this.ipset = value;
+            }
+        }
+        
+        [System.Xml.Serialization.XmlAttributeAttribute("ipsetflags")]
+        public string Ipsetflags {
+            get {
+                return this.ipsetflags;
+            }
+            set {
+                this.ipsetflags = value;
+            }
+        }
+        
+        [System.Xml.Serialization.XmlAttributeAttribute("comment")]
+        public string Comment {
+            get {
+                return this.comment;
+            }
+            set {
+                this.comment = value;
+            }
+        }
+    }
+    
+    public partial class FilterRuleAllIpv6 {
+        
+        private VirYesNo match;
+        
+        private bool matchSpecified;
+        
+        private string srcmacaddr;
+        
+        private string srcipaddr;
+        
+        private string srcipmask;
+        
+        private string dstipaddr;
+        
+        private string dstipmask;
+        
+        private string srcipfrom;
+        
+        private string srcipto;
+        
+        private string dstipfrom;
+        
+        private string dstipto;
+        
+        private string dscp;
+        
+        private string comment;
+        
+        [System.Xml.Serialization.XmlAttributeAttribute("match")]
+        public VirYesNo Match {
+            get {
+                return this.match;
+            }
+            set {
+                this.match = value;
+            }
+        }
+        
+        [System.Xml.Serialization.XmlIgnoreAttribute()]
+        public bool MatchSpecified {
+            get {
+                return this.matchSpecified;
+            }
+            set {
+                this.matchSpecified = value;
+            }
+        }
+        
+        [System.Xml.Serialization.XmlAttributeAttribute("srcmacaddr")]
+        public string Srcmacaddr {
+            get {
+                return this.srcmacaddr;
+            }
+            set {
+                this.srcmacaddr = value;
+            }
+        }
+        
+        [System.Xml.Serialization.XmlAttributeAttribute("srcipaddr")]
+        public string Srcipaddr {
+            get {
+                return this.srcipaddr;
+            }
+            set {
+                this.srcipaddr = value;
+            }
+        }
+        
+        [System.Xml.Serialization.XmlAttributeAttribute("srcipmask")]
+        public string Srcipmask {
+            get {
+                return this.srcipmask;
+            }
+            set {
+                this.srcipmask = value;
+            }
+        }
+        
+        [System.Xml.Serialization.XmlAttributeAttribute("dstipaddr")]
+        public string Dstipaddr {
+            get {
+                return this.dstipaddr;
+            }
+            set {
+                this.dstipaddr = value;
+            }
+        }
+        
+        [System.Xml.Serialization.XmlAttributeAttribute("dstipmask")]
+        public string Dstipmask {
+            get {
+                return this.dstipmask;
+            }
+            set {
+                this.dstipmask = value;
+            }
+        }
+        
+        [System.Xml.Serialization.XmlAttributeAttribute("srcipfrom")]
+        public string Srcipfrom {
+            get {
+                return this.srcipfrom;
+            }
+            set {
+                this.srcipfrom = value;
+            }
+        }
+        
+        [System.Xml.Serialization.XmlAttributeAttribute("srcipto")]
+        public string Srcipto {
+            get {
+                return this.srcipto;
+            }
+            set {
+                this.srcipto = value;
+            }
+        }
+        
+        [System.Xml.Serialization.XmlAttributeAttribute("dstipfrom")]
+        public string Dstipfrom {
+            get {
+                return this.dstipfrom;
+            }
+            set {
+                this.dstipfrom = value;
+            }
+        }
+        
+        [System.Xml.Serialization.XmlAttributeAttribute("dstipto")]
+        public string Dstipto {
+            get {
+                return this.dstipto;
+            }
+            set {
+                this.dstipto = value;
+            }
+        }
+        
+        [System.Xml.Serialization.XmlAttributeAttribute("dscp")]
+        public string Dscp {
+            get {
+                return this.dscp;
+            }
+            set {
+                this.dscp = value;
+            }
+        }
+        
+        [System.Xml.Serialization.XmlAttributeAttribute("comment")]
+        public string Comment {
+            get {
+                return this.comment;
+            }
+            set {
+                this.comment = value;
+            }
+        }
+    }
+    
+    public partial class FilterRuleArp {
+        
+        private VirYesNo match;
+        
+        private bool matchSpecified;
+        
+        private string srcmacaddr;
+        
+        private string srcmacmask;
+        
+        private string dstmacaddr;
+        
+        private string dstmacmask;
+        
+        private string arpsrcmacaddr;
+        
+        private string arpsrcipaddr;
+        
+        private string arpdstmacaddr;
+        
+        private string arpdstipaddr;
+        
+        private string hwtype;
+        
+        private string opcode;
+        
+        private string protocoltype;
+        
+        private Boolean gratuitous;
+        
+        private bool gratuitousSpecified;
+        
+        private string comment;
+        
+        [System.Xml.Serialization.XmlAttributeAttribute("match")]
+        public VirYesNo Match {
+            get {
+                return this.match;
+            }
+            set {
+                this.match = value;
+            }
+        }
+        
+        [System.Xml.Serialization.XmlIgnoreAttribute()]
+        public bool MatchSpecified {
+            get {
+                return this.matchSpecified;
+            }
+            set {
+                this.matchSpecified = value;
+            }
+        }
+        
+        [System.Xml.Serialization.XmlAttributeAttribute("srcmacaddr")]
+        public string Srcmacaddr {
+            get {
+                return this.srcmacaddr;
+            }
+            set {
+                this.srcmacaddr = value;
+            }
+        }
+        
+        [System.Xml.Serialization.XmlAttributeAttribute("srcmacmask")]
+        public string Srcmacmask {
+            get {
+                return this.srcmacmask;
+            }
+            set {
+                this.srcmacmask = value;
+            }
+        }
+        
+        [System.Xml.Serialization.XmlAttributeAttribute("dstmacaddr")]
+        public string Dstmacaddr {
+            get {
+                return this.dstmacaddr;
+            }
+            set {
+                this.dstmacaddr = value;
+            }
+        }
+        
+        [System.Xml.Serialization.XmlAttributeAttribute("dstmacmask")]
+        public string Dstmacmask {
+            get {
+                return this.dstmacmask;
+            }
+            set {
+                this.dstmacmask = value;
+            }
+        }
+        
+        [System.Xml.Serialization.XmlAttributeAttribute("arpsrcmacaddr")]
+        public string Arpsrcmacaddr {
+            get {
+                return this.arpsrcmacaddr;
+            }
+            set {
+                this.arpsrcmacaddr = value;
+            }
+        }
+        
+        [System.Xml.Serialization.XmlAttributeAttribute("arpsrcipaddr")]
+        public string Arpsrcipaddr {
+            get {
+                return this.arpsrcipaddr;
+            }
+            set {
+                this.arpsrcipaddr = value;
+            }
+        }
+        
+        [System.Xml.Serialization.XmlAttributeAttribute("arpdstmacaddr")]
+        public string Arpdstmacaddr {
+            get {
+                return this.arpdstmacaddr;
+            }
+            set {
+                this.arpdstmacaddr = value;
+            }
+        }
+        
+        [System.Xml.Serialization.XmlAttributeAttribute("arpdstipaddr")]
+        public string Arpdstipaddr {
+            get {
+                return this.arpdstipaddr;
+            }
+            set {
+                this.arpdstipaddr = value;
+            }
+        }
+        
+        [System.Xml.Serialization.XmlAttributeAttribute("hwtype")]
+        public string Hwtype {
+            get {
+                return this.hwtype;
+            }
+            set {
+                this.hwtype = value;
+            }
+        }
+        
+        [System.Xml.Serialization.XmlAttributeAttribute("opcode")]
+        public string Opcode {
+            get {
+                return this.opcode;
+            }
+            set {
+                this.opcode = value;
+            }
+        }
+        
+        [System.Xml.Serialization.XmlAttributeAttribute("protocoltype")]
+        public string Protocoltype {
+            get {
+                return this.protocoltype;
+            }
+            set {
+                this.protocoltype = value;
+            }
+        }
+        
+        [System.Xml.Serialization.XmlAttributeAttribute("gratuitous")]
+        public Boolean Gratuitous {
+            get {
+                return this.gratuitous;
+            }
+            set {
+                this.gratuitous = value;
+            }
+        }
+        
+        [System.Xml.Serialization.XmlIgnoreAttribute()]
+        public bool GratuitousSpecified {
+            get {
+                return this.gratuitousSpecified;
+            }
+            set {
+                this.gratuitousSpecified = value;
+            }
+        }
+        
+        [System.Xml.Serialization.XmlAttributeAttribute("comment")]
+        public string Comment {
+            get {
+                return this.comment;
+            }
+            set {
+                this.comment = value;
+            }
+        }
+    }
+    
+    public partial class FilterRuleEsp {
+        
+        private VirYesNo match;
+        
+        private bool matchSpecified;
+        
+        private string srcmacaddr;
+        
+        private string srcipaddr;
+        
+        private string srcipmask;
+        
+        private string dstipaddr;
+        
+        private string dstipmask;
+        
+        private string srcipfrom;
+        
+        private string srcipto;
+        
+        private string dstipfrom;
+        
+        private string dstipto;
+        
+        private string dscp;
+        
+        private string connlimitAbove;
+        
+        private string state;
+        
+        private string ipset;
+        
+        private string ipsetflags;
+        
+        private string comment;
+        
+        [System.Xml.Serialization.XmlAttributeAttribute("match")]
+        public VirYesNo Match {
+            get {
+                return this.match;
+            }
+            set {
+                this.match = value;
+            }
+        }
+        
+        [System.Xml.Serialization.XmlIgnoreAttribute()]
+        public bool MatchSpecified {
+            get {
+                return this.matchSpecified;
+            }
+            set {
+                this.matchSpecified = value;
+            }
+        }
+        
+        [System.Xml.Serialization.XmlAttributeAttribute("srcmacaddr")]
+        public string Srcmacaddr {
+            get {
+                return this.srcmacaddr;
+            }
+            set {
+                this.srcmacaddr = value;
+            }
+        }
+        
+        [System.Xml.Serialization.XmlAttributeAttribute("srcipaddr")]
+        public string Srcipaddr {
+            get {
+                return this.srcipaddr;
+            }
+            set {
+                this.srcipaddr = value;
+            }
+        }
+        
+        [System.Xml.Serialization.XmlAttributeAttribute("srcipmask")]
+        public string Srcipmask {
+            get {
+                return this.srcipmask;
+            }
+            set {
+                this.srcipmask = value;
+            }
+        }
+        
+        [System.Xml.Serialization.XmlAttributeAttribute("dstipaddr")]
+        public string Dstipaddr {
+            get {
+                return this.dstipaddr;
+            }
+            set {
+                this.dstipaddr = value;
+            }
+        }
+        
+        [System.Xml.Serialization.XmlAttributeAttribute("dstipmask")]
+        public string Dstipmask {
+            get {
+                return this.dstipmask;
+            }
+            set {
+                this.dstipmask = value;
+            }
+        }
+        
+        [System.Xml.Serialization.XmlAttributeAttribute("srcipfrom")]
+        public string Srcipfrom {
+            get {
+                return this.srcipfrom;
+            }
+            set {
+                this.srcipfrom = value;
+            }
+        }
+        
+        [System.Xml.Serialization.XmlAttributeAttribute("srcipto")]
+        public string Srcipto {
+            get {
+                return this.srcipto;
+            }
+            set {
+                this.srcipto = value;
+            }
+        }
+        
+        [System.Xml.Serialization.XmlAttributeAttribute("dstipfrom")]
+        public string Dstipfrom {
+            get {
+                return this.dstipfrom;
+            }
+            set {
+                this.dstipfrom = value;
+            }
+        }
+        
+        [System.Xml.Serialization.XmlAttributeAttribute("dstipto")]
+        public string Dstipto {
+            get {
+                return this.dstipto;
+            }
+            set {
+                this.dstipto = value;
+            }
+        }
+        
+        [System.Xml.Serialization.XmlAttributeAttribute("dscp")]
+        public string Dscp {
+            get {
+                return this.dscp;
+            }
+            set {
+                this.dscp = value;
+            }
+        }
+        
+        [System.Xml.Serialization.XmlAttributeAttribute("connlimit-above")]
+        public string ConnlimitAbove {
+            get {
+                return this.connlimitAbove;
+            }
+            set {
+                this.connlimitAbove = value;
+            }
+        }
+        
+        [System.Xml.Serialization.XmlAttributeAttribute("state")]
+        public string State {
+            get {
+                return this.state;
+            }
+            set {
+                this.state = value;
+            }
+        }
+        
+        [System.Xml.Serialization.XmlAttributeAttribute("ipset")]
+        public string Ipset {
+            get {
+                return this.ipset;
+            }
+            set {
+                this.ipset = value;
+            }
+        }
+        
+        [System.Xml.Serialization.XmlAttributeAttribute("ipsetflags")]
+        public string Ipsetflags {
+            get {
+                return this.ipsetflags;
+            }
+            set {
+                this.ipsetflags = value;
+            }
+        }
+        
+        [System.Xml.Serialization.XmlAttributeAttribute("comment")]
+        public string Comment {
+            get {
+                return this.comment;
+            }
+            set {
+                this.comment = value;
+            }
+        }
+    }
+    
+    public partial class FilterRuleEspIpv6 {
+        
+        private VirYesNo match;
+        
+        private bool matchSpecified;
+        
+        private string srcmacaddr;
+        
+        private string srcipaddr;
+        
+        private string srcipmask;
+        
+        private string dstipaddr;
+        
+        private string dstipmask;
+        
+        private string srcipfrom;
+        
+        private string srcipto;
+        
+        private string dstipfrom;
+        
+        private string dstipto;
+        
+        private string dscp;
+        
+        private string comment;
+        
+        [System.Xml.Serialization.XmlAttributeAttribute("match")]
+        public VirYesNo Match {
+            get {
+                return this.match;
+            }
+            set {
+                this.match = value;
+            }
+        }
+        
+        [System.Xml.Serialization.XmlIgnoreAttribute()]
+        public bool MatchSpecified {
+            get {
+                return this.matchSpecified;
+            }
+            set {
+                this.matchSpecified = value;
+            }
+        }
+        
+        [System.Xml.Serialization.XmlAttributeAttribute("srcmacaddr")]
+        public string Srcmacaddr {
+            get {
+                return this.srcmacaddr;
+            }
+            set {
+                this.srcmacaddr = value;
+            }
+        }
+        
+        [System.Xml.Serialization.XmlAttributeAttribute("srcipaddr")]
+        public string Srcipaddr {
+            get {
+                return this.srcipaddr;
+            }
+            set {
+                this.srcipaddr = value;
+            }
+        }
+        
+        [System.Xml.Serialization.XmlAttributeAttribute("srcipmask")]
+        public string Srcipmask {
+            get {
+                return this.srcipmask;
+            }
+            set {
+                this.srcipmask = value;
+            }
+        }
+        
+        [System.Xml.Serialization.XmlAttributeAttribute("dstipaddr")]
+        public string Dstipaddr {
+            get {
+                return this.dstipaddr;
+            }
+            set {
+                this.dstipaddr = value;
+            }
+        }
+        
+        [System.Xml.Serialization.XmlAttributeAttribute("dstipmask")]
+        public string Dstipmask {
+            get {
+                return this.dstipmask;
+            }
+            set {
+                this.dstipmask = value;
+            }
+        }
+        
+        [System.Xml.Serialization.XmlAttributeAttribute("srcipfrom")]
+        public string Srcipfrom {
+            get {
+                return this.srcipfrom;
+            }
+            set {
+                this.srcipfrom = value;
+            }
+        }
+        
+        [System.Xml.Serialization.XmlAttributeAttribute("srcipto")]
+        public string Srcipto {
+            get {
+                return this.srcipto;
+            }
+            set {
+                this.srcipto = value;
+            }
+        }
+        
+        [System.Xml.Serialization.XmlAttributeAttribute("dstipfrom")]
+        public string Dstipfrom {
+            get {
+                return this.dstipfrom;
+            }
+            set {
+                this.dstipfrom = value;
+            }
+        }
+        
+        [System.Xml.Serialization.XmlAttributeAttribute("dstipto")]
+        public string Dstipto {
+            get {
+                return this.dstipto;
+            }
+            set {
+                this.dstipto = value;
+            }
+        }
+        
+        [System.Xml.Serialization.XmlAttributeAttribute("dscp")]
+        public string Dscp {
+            get {
+                return this.dscp;
+            }
+            set {
+                this.dscp = value;
+            }
+        }
+        
+        [System.Xml.Serialization.XmlAttributeAttribute("comment")]
+        public string Comment {
+            get {
+                return this.comment;
+            }
+            set {
+                this.comment = value;
+            }
+        }
+    }
+    
+    public partial class FilterRuleIcmp {
+        
+        private VirYesNo match;
+        
+        private bool matchSpecified;
+        
+        private string srcmacaddr;
+        
+        private string srcipaddr;
+        
+        private string srcipmask;
+        
+        private string dstipaddr;
+        
+        private string dstipmask;
+        
+        private string srcipfrom;
+        
+        private string srcipto;
+        
+        private string dstipfrom;
+        
+        private string dstipto;
+        
+        private string dscp;
+        
+        private string connlimitAbove;
+        
+        private string state;
+        
+        private string ipset;
+        
+        private string ipsetflags;
+        
+        private string type;
+        
+        private string code;
+        
+        private string comment;
+        
+        [System.Xml.Serialization.XmlAttributeAttribute("match")]
+        public VirYesNo Match {
+            get {
+                return this.match;
+            }
+            set {
+                this.match = value;
+            }
+        }
+        
+        [System.Xml.Serialization.XmlIgnoreAttribute()]
+        public bool MatchSpecified {
+            get {
+                return this.matchSpecified;
+            }
+            set {
+                this.matchSpecified = value;
+            }
+        }
+        
+        [System.Xml.Serialization.XmlAttributeAttribute("srcmacaddr")]
+        public string Srcmacaddr {
+            get {
+                return this.srcmacaddr;
+            }
+            set {
+                this.srcmacaddr = value;
+            }
+        }
+        
+        [System.Xml.Serialization.XmlAttributeAttribute("srcipaddr")]
+        public string Srcipaddr {
+            get {
+                return this.srcipaddr;
+            }
+            set {
+                this.srcipaddr = value;
+            }
+        }
+        
+        [System.Xml.Serialization.XmlAttributeAttribute("srcipmask")]
+        public string Srcipmask {
+            get {
+                return this.srcipmask;
+            }
+            set {
+                this.srcipmask = value;
+            }
+        }
+        
+        [System.Xml.Serialization.XmlAttributeAttribute("dstipaddr")]
+        public string Dstipaddr {
+            get {
+                return this.dstipaddr;
+            }
+            set {
+                this.dstipaddr = value;
+            }
+        }
+        
+        [System.Xml.Serialization.XmlAttributeAttribute("dstipmask")]
+        public string Dstipmask {
+            get {
+                return this.dstipmask;
+            }
+            set {
+                this.dstipmask = value;
+            }
+        }
+        
+        [System.Xml.Serialization.XmlAttributeAttribute("srcipfrom")]
+        public string Srcipfrom {
+            get {
+                return this.srcipfrom;
+            }
+            set {
+                this.srcipfrom = value;
+            }
+        }
+        
+        [System.Xml.Serialization.XmlAttributeAttribute("srcipto")]
+        public string Srcipto {
+            get {
+                return this.srcipto;
+            }
+            set {
+                this.srcipto = value;
+            }
+        }
+        
+        [System.Xml.Serialization.XmlAttributeAttribute("dstipfrom")]
+        public string Dstipfrom {
+            get {
+                return this.dstipfrom;
+            }
+            set {
+                this.dstipfrom = value;
+            }
+        }
+        
+        [System.Xml.Serialization.XmlAttributeAttribute("dstipto")]
+        public string Dstipto {
+            get {
+                return this.dstipto;
+            }
+            set {
+                this.dstipto = value;
+            }
+        }
+        
+        [System.Xml.Serialization.XmlAttributeAttribute("dscp")]
+        public string Dscp {
+            get {
+                return this.dscp;
+            }
+            set {
+                this.dscp = value;
+            }
+        }
+        
+        [System.Xml.Serialization.XmlAttributeAttribute("connlimit-above")]
+        public string ConnlimitAbove {
+            get {
+                return this.connlimitAbove;
+            }
+            set {
+                this.connlimitAbove = value;
+            }
+        }
+        
+        [System.Xml.Serialization.XmlAttributeAttribute("state")]
+        public string State {
+            get {
+                return this.state;
+            }
+            set {
+                this.state = value;
+            }
+        }
+        
+        [System.Xml.Serialization.XmlAttributeAttribute("ipset")]
+        public string Ipset {
+            get {
+                return this.ipset;
+            }
+            set {
+                this.ipset = value;
+            }
+        }
+        
+        [System.Xml.Serialization.XmlAttributeAttribute("ipsetflags")]
+        public string Ipsetflags {
+            get {
+                return this.ipsetflags;
+            }
+            set {
+                this.ipsetflags = value;
+            }
+        }
+        
+        [System.Xml.Serialization.XmlAttributeAttribute("type")]
+        public string Type {
+            get {
+                return this.type;
+            }
+            set {
+                this.type = value;
+            }
+        }
+        
+        [System.Xml.Serialization.XmlAttributeAttribute("code")]
+        public string Code {
+            get {
+                return this.code;
+            }
+            set {
+                this.code = value;
+            }
+        }
+        
+        [System.Xml.Serialization.XmlAttributeAttribute("comment")]
+        public string Comment {
+            get {
+                return this.comment;
+            }
+            set {
+                this.comment = value;
+            }
+        }
+    }
+    
+    public partial class FilterRuleIcmpv6 {
+        
+        private VirYesNo match;
+        
+        private bool matchSpecified;
+        
+        private string srcmacaddr;
+        
+        private string srcipaddr;
+        
+        private string srcipmask;
+        
+        private string dstipaddr;
+        
+        private string dstipmask;
+        
+        private string srcipfrom;
+        
+        private string srcipto;
+        
+        private string dstipfrom;
+        
+        private string dstipto;
+        
+        private string dscp;
+        
+        private string type;
+        
+        private string code;
+        
+        private string comment;
+        
+        [System.Xml.Serialization.XmlAttributeAttribute("match")]
+        public VirYesNo Match {
+            get {
+                return this.match;
+            }
+            set {
+                this.match = value;
+            }
+        }
+        
+        [System.Xml.Serialization.XmlIgnoreAttribute()]
+        public bool MatchSpecified {
+            get {
+                return this.matchSpecified;
+            }
+            set {
+                this.matchSpecified = value;
+            }
+        }
+        
+        [System.Xml.Serialization.XmlAttributeAttribute("srcmacaddr")]
+        public string Srcmacaddr {
+            get {
+                return this.srcmacaddr;
+            }
+            set {
+                this.srcmacaddr = value;
+            }
+        }
+        
+        [System.Xml.Serialization.XmlAttributeAttribute("srcipaddr")]
+        public string Srcipaddr {
+            get {
+                return this.srcipaddr;
+            }
+            set {
+                this.srcipaddr = value;
+            }
+        }
+        
+        [System.Xml.Serialization.XmlAttributeAttribute("srcipmask")]
+        public string Srcipmask {
+            get {
+                return this.srcipmask;
+            }
+            set {
+                this.srcipmask = value;
+            }
+        }
+        
+        [System.Xml.Serialization.XmlAttributeAttribute("dstipaddr")]
+        public string Dstipaddr {
+            get {
+                return this.dstipaddr;
+            }
+            set {
+                this.dstipaddr = value;
+            }
+        }
+        
+        [System.Xml.Serialization.XmlAttributeAttribute("dstipmask")]
+        public string Dstipmask {
+            get {
+                return this.dstipmask;
+            }
+            set {
+                this.dstipmask = value;
+            }
+        }
+        
+        [System.Xml.Serialization.XmlAttributeAttribute("srcipfrom")]
+        public string Srcipfrom {
+            get {
+                return this.srcipfrom;
+            }
+            set {
+                this.srcipfrom = value;
+            }
+        }
+        
+        [System.Xml.Serialization.XmlAttributeAttribute("srcipto")]
+        public string Srcipto {
+            get {
+                return this.srcipto;
+            }
+            set {
+                this.srcipto = value;
+            }
+        }
+        
+        [System.Xml.Serialization.XmlAttributeAttribute("dstipfrom")]
+        public string Dstipfrom {
+            get {
+                return this.dstipfrom;
+            }
+            set {
+                this.dstipfrom = value;
+            }
+        }
+        
+        [System.Xml.Serialization.XmlAttributeAttribute("dstipto")]
+        public string Dstipto {
+            get {
+                return this.dstipto;
+            }
+            set {
+                this.dstipto = value;
+            }
+        }
+        
+        [System.Xml.Serialization.XmlAttributeAttribute("dscp")]
+        public string Dscp {
+            get {
+                return this.dscp;
+            }
+            set {
+                this.dscp = value;
+            }
+        }
+        
+        [System.Xml.Serialization.XmlAttributeAttribute("type")]
+        public string Type {
+            get {
+                return this.type;
+            }
+            set {
+                this.type = value;
+            }
+        }
+        
+        [System.Xml.Serialization.XmlAttributeAttribute("code")]
+        public string Code {
+            get {
+                return this.code;
+            }
+            set {
+                this.code = value;
+            }
+        }
+        
+        [System.Xml.Serialization.XmlAttributeAttribute("comment")]
+        public string Comment {
+            get {
+                return this.comment;
+            }
+            set {
+                this.comment = value;
+            }
+        }
+    }
+    
+    public partial class FilterRuleIgmp {
+        
+        private VirYesNo match;
+        
+        private bool matchSpecified;
+        
+        private string srcmacaddr;
+        
+        private string srcipaddr;
+        
+        private string srcipmask;
+        
+        private string dstipaddr;
+        
+        private string dstipmask;
+        
+        private string srcipfrom;
+        
+        private string srcipto;
+        
+        private string dstipfrom;
+        
+        private string dstipto;
+        
+        private string dscp;
+        
+        private string connlimitAbove;
+        
+        private string state;
+        
+        private string ipset;
+        
+        private string ipsetflags;
+        
+        private string comment;
+        
+        [System.Xml.Serialization.XmlAttributeAttribute("match")]
+        public VirYesNo Match {
+            get {
+                return this.match;
+            }
+            set {
+                this.match = value;
+            }
+        }
+        
+        [System.Xml.Serialization.XmlIgnoreAttribute()]
+        public bool MatchSpecified {
+            get {
+                return this.matchSpecified;
+            }
+            set {
+                this.matchSpecified = value;
+            }
+        }
+        
+        [System.Xml.Serialization.XmlAttributeAttribute("srcmacaddr")]
+        public string Srcmacaddr {
+            get {
+                return this.srcmacaddr;
+            }
+            set {
+                this.srcmacaddr = value;
+            }
+        }
+        
+        [System.Xml.Serialization.XmlAttributeAttribute("srcipaddr")]
+        public string Srcipaddr {
+            get {
+                return this.srcipaddr;
+            }
+            set {
+                this.srcipaddr = value;
+            }
+        }
+        
+        [System.Xml.Serialization.XmlAttributeAttribute("srcipmask")]
+        public string Srcipmask {
+            get {
+                return this.srcipmask;
+            }
+            set {
+                this.srcipmask = value;
+            }
+        }
+        
+        [System.Xml.Serialization.XmlAttributeAttribute("dstipaddr")]
+        public string Dstipaddr {
+            get {
+                return this.dstipaddr;
+            }
+            set {
+                this.dstipaddr = value;
+            }
+        }
+        
+        [System.Xml.Serialization.XmlAttributeAttribute("dstipmask")]
+        public string Dstipmask {
+            get {
+                return this.dstipmask;
+            }
+            set {
+                this.dstipmask = value;
+            }
+        }
+        
+        [System.Xml.Serialization.XmlAttributeAttribute("srcipfrom")]
+        public string Srcipfrom {
+            get {
+                return this.srcipfrom;
+            }
+            set {
+                this.srcipfrom = value;
+            }
+        }
+        
+        [System.Xml.Serialization.XmlAttributeAttribute("srcipto")]
+        public string Srcipto {
+            get {
+                return this.srcipto;
+            }
+            set {
+                this.srcipto = value;
+            }
+        }
+        
+        [System.Xml.Serialization.XmlAttributeAttribute("dstipfrom")]
+        public string Dstipfrom {
+            get {
+                return this.dstipfrom;
+            }
+            set {
+                this.dstipfrom = value;
+            }
+        }
+        
+        [System.Xml.Serialization.XmlAttributeAttribute("dstipto")]
+        public string Dstipto {
+            get {
+                return this.dstipto;
+            }
+            set {
+                this.dstipto = value;
+            }
+        }
+        
+        [System.Xml.Serialization.XmlAttributeAttribute("dscp")]
+        public string Dscp {
+            get {
+                return this.dscp;
+            }
+            set {
+                this.dscp = value;
+            }
+        }
+        
+        [System.Xml.Serialization.XmlAttributeAttribute("connlimit-above")]
+        public string ConnlimitAbove {
+            get {
+                return this.connlimitAbove;
+            }
+            set {
+                this.connlimitAbove = value;
+            }
+        }
+        
+        [System.Xml.Serialization.XmlAttributeAttribute("state")]
+        public string State {
+            get {
+                return this.state;
+            }
+            set {
+                this.state = value;
+            }
+        }
+        
+        [System.Xml.Serialization.XmlAttributeAttribute("ipset")]
+        public string Ipset {
+            get {
+                return this.ipset;
+            }
+            set {
+                this.ipset = value;
+            }
+        }
+        
+        [System.Xml.Serialization.XmlAttributeAttribute("ipsetflags")]
+        public string Ipsetflags {
+            get {
+                return this.ipsetflags;
+            }
+            set {
+                this.ipsetflags = value;
+            }
+        }
+        
+        [System.Xml.Serialization.XmlAttributeAttribute("comment")]
+        public string Comment {
+            get {
+                return this.comment;
+            }
+            set {
+                this.comment = value;
+            }
+        }
+    }
+    
+    public partial class FilterRuleIp {
+        
+        private VirYesNo match;
+        
+        private bool matchSpecified;
+        
+        private string srcmacaddr;
+        
+        private string srcmacmask;
+        
+        private string dstmacaddr;
+        
+        private string dstmacmask;
+        
+        private string srcipaddr;
+        
+        private string srcipmask;
+        
+        private string dstipaddr;
+        
+        private string dstipmask;
+        
+        private string srcportstart;
+        
+        private string srcportend;
+        
+        private string dstportstart;
+        
+        private string dstportend;
+        
+        private string protocol;
+        
+        private string dscp;
+        
+        private string comment;
+        
+        [System.Xml.Serialization.XmlAttributeAttribute("match")]
+        public VirYesNo Match {
+            get {
+                return this.match;
+            }
+            set {
+                this.match = value;
+            }
+        }
+        
+        [System.Xml.Serialization.XmlIgnoreAttribute()]
+        public bool MatchSpecified {
+            get {
+                return this.matchSpecified;
+            }
+            set {
+                this.matchSpecified = value;
+            }
+        }
+        
+        [System.Xml.Serialization.XmlAttributeAttribute("srcmacaddr")]
+        public string Srcmacaddr {
+            get {
+                return this.srcmacaddr;
+            }
+            set {
+                this.srcmacaddr = value;
+            }
+        }
+        
+        [System.Xml.Serialization.XmlAttributeAttribute("srcmacmask")]
+        public string Srcmacmask {
+            get {
+                return this.srcmacmask;
+            }
+            set {
+                this.srcmacmask = value;
+            }
+        }
+        
+        [System.Xml.Serialization.XmlAttributeAttribute("dstmacaddr")]
+        public string Dstmacaddr {
+            get {
+                return this.dstmacaddr;
+            }
+            set {
+                this.dstmacaddr = value;
+            }
+        }
+        
+        [System.Xml.Serialization.XmlAttributeAttribute("dstmacmask")]
+        public string Dstmacmask {
+            get {
+                return this.dstmacmask;
+            }
+            set {
+                this.dstmacmask = value;
+            }
+        }
+        
+        [System.Xml.Serialization.XmlAttributeAttribute("srcipaddr")]
+        public string Srcipaddr {
+            get {
+                return this.srcipaddr;
+            }
+            set {
+                this.srcipaddr = value;
+            }
+        }
+        
+        [System.Xml.Serialization.XmlAttributeAttribute("srcipmask")]
+        public string Srcipmask {
+            get {
+                return this.srcipmask;
+            }
+            set {
+                this.srcipmask = value;
+            }
+        }
+        
+        [System.Xml.Serialization.XmlAttributeAttribute("dstipaddr")]
+        public string Dstipaddr {
+            get {
+                return this.dstipaddr;
+            }
+            set {
+                this.dstipaddr = value;
+            }
+        }
+        
+        [System.Xml.Serialization.XmlAttributeAttribute("dstipmask")]
+        public string Dstipmask {
+            get {
+                return this.dstipmask;
+            }
+            set {
+                this.dstipmask = value;
+            }
+        }
+        
+        [System.Xml.Serialization.XmlAttributeAttribute("srcportstart")]
+        public string Srcportstart {
+            get {
+                return this.srcportstart;
+            }
+            set {
+                this.srcportstart = value;
+            }
+        }
+        
+        [System.Xml.Serialization.XmlAttributeAttribute("srcportend")]
+        public string Srcportend {
+            get {
+                return this.srcportend;
+            }
+            set {
+                this.srcportend = value;
+            }
+        }
+        
+        [System.Xml.Serialization.XmlAttributeAttribute("dstportstart")]
+        public string Dstportstart {
+            get {
+                return this.dstportstart;
+            }
+            set {
+                this.dstportstart = value;
+            }
+        }
+        
+        [System.Xml.Serialization.XmlAttributeAttribute("dstportend")]
+        public string Dstportend {
+            get {
+                return this.dstportend;
+            }
+            set {
+                this.dstportend = value;
+            }
+        }
+        
+        [System.Xml.Serialization.XmlAttributeAttribute("protocol")]
+        public string Protocol {
+            get {
+                return this.protocol;
+            }
+            set {
+                this.protocol = value;
+            }
+        }
+        
+        [System.Xml.Serialization.XmlAttributeAttribute("dscp")]
+        public string Dscp {
+            get {
+                return this.dscp;
+            }
+            set {
+                this.dscp = value;
+            }
+        }
+        
+        [System.Xml.Serialization.XmlAttributeAttribute("comment")]
+        public string Comment {
+            get {
+                return this.comment;
+            }
+            set {
+                this.comment = value;
+            }
+        }
+    }
+    
+    public partial class FilterRuleIpv6 {
+        
+        private VirYesNo match;
+        
+        private bool matchSpecified;
+        
+        private string srcmacaddr;
+        
+        private string srcmacmask;
+        
+        private string dstmacaddr;
+        
+        private string dstmacmask;
+        
+        private string srcipaddr;
+        
+        private string srcipmask;
+        
+        private string dstipaddr;
+        
+        private string dstipmask;
+        
+        private string srcportstart;
+        
+        private string srcportend;
+        
+        private string dstportstart;
+        
+        private string dstportend;
+        
+        private string protocol;
+        
+        private string type;
+        
+        private string typeend;
+        
+        private string code;
+        
+        private string codeend;
+        
+        private string comment;
+        
+        [System.Xml.Serialization.XmlAttributeAttribute("match")]
+        public VirYesNo Match {
+            get {
+                return this.match;
+            }
+            set {
+                this.match = value;
+            }
+        }
+        
+        [System.Xml.Serialization.XmlIgnoreAttribute()]
+        public bool MatchSpecified {
+            get {
+                return this.matchSpecified;
+            }
+            set {
+                this.matchSpecified = value;
+            }
+        }
+        
+        [System.Xml.Serialization.XmlAttributeAttribute("srcmacaddr")]
+        public string Srcmacaddr {
+            get {
+                return this.srcmacaddr;
+            }
+            set {
+                this.srcmacaddr = value;
+            }
+        }
+        
+        [System.Xml.Serialization.XmlAttributeAttribute("srcmacmask")]
+        public string Srcmacmask {
+            get {
+                return this.srcmacmask;
+            }
+            set {
+                this.srcmacmask = value;
+            }
+        }
+        
+        [System.Xml.Serialization.XmlAttributeAttribute("dstmacaddr")]
+        public string Dstmacaddr {
+            get {
+                return this.dstmacaddr;
+            }
+            set {
+                this.dstmacaddr = value;
+            }
+        }
+        
+        [System.Xml.Serialization.XmlAttributeAttribute("dstmacmask")]
+        public string Dstmacmask {
+            get {
+                return this.dstmacmask;
+            }
+            set {
+                this.dstmacmask = value;
+            }
+        }
+        
+        [System.Xml.Serialization.XmlAttributeAttribute("srcipaddr")]
+        public string Srcipaddr {
+            get {
+                return this.srcipaddr;
+            }
+            set {
+                this.srcipaddr = value;
+            }
+        }
+        
+        [System.Xml.Serialization.XmlAttributeAttribute("srcipmask")]
+        public string Srcipmask {
+            get {
+                return this.srcipmask;
+            }
+            set {
+                this.srcipmask = value;
+            }
+        }
+        
+        [System.Xml.Serialization.XmlAttributeAttribute("dstipaddr")]
+        public string Dstipaddr {
+            get {
+                return this.dstipaddr;
+            }
+            set {
+                this.dstipaddr = value;
+            }
+        }
+        
+        [System.Xml.Serialization.XmlAttributeAttribute("dstipmask")]
+        public string Dstipmask {
+            get {
+                return this.dstipmask;
+            }
+            set {
+                this.dstipmask = value;
+            }
+        }
+        
+        [System.Xml.Serialization.XmlAttributeAttribute("srcportstart")]
+        public string Srcportstart {
+            get {
+                return this.srcportstart;
+            }
+            set {
+                this.srcportstart = value;
+            }
+        }
+        
+        [System.Xml.Serialization.XmlAttributeAttribute("srcportend")]
+        public string Srcportend {
+            get {
+                return this.srcportend;
+            }
+            set {
+                this.srcportend = value;
+            }
+        }
+        
+        [System.Xml.Serialization.XmlAttributeAttribute("dstportstart")]
+        public string Dstportstart {
+            get {
+                return this.dstportstart;
+            }
+            set {
+                this.dstportstart = value;
+            }
+        }
+        
+        [System.Xml.Serialization.XmlAttributeAttribute("dstportend")]
+        public string Dstportend {
+            get {
+                return this.dstportend;
+            }
+            set {
+                this.dstportend = value;
+            }
+        }
+        
+        [System.Xml.Serialization.XmlAttributeAttribute("protocol")]
+        public string Protocol {
+            get {
+                return this.protocol;
+            }
+            set {
+                this.protocol = value;
+            }
+        }
+        
+        [System.Xml.Serialization.XmlAttributeAttribute("type")]
+        public string Type {
+            get {
+                return this.type;
+            }
+            set {
+                this.type = value;
+            }
+        }
+        
+        [System.Xml.Serialization.XmlAttributeAttribute("typeend")]
+        public string Typeend {
+            get {
+                return this.typeend;
+            }
+            set {
+                this.typeend = value;
+            }
+        }
+        
+        [System.Xml.Serialization.XmlAttributeAttribute("code")]
+        public string Code {
+            get {
+                return this.code;
+            }
+            set {
+                this.code = value;
+            }
+        }
+        
+        [System.Xml.Serialization.XmlAttributeAttribute("codeend")]
+        public string Codeend {
+            get {
+                return this.codeend;
+            }
+            set {
+                this.codeend = value;
+            }
+        }
+        
+        [System.Xml.Serialization.XmlAttributeAttribute("comment")]
+        public string Comment {
+            get {
+                return this.comment;
+            }
+            set {
+                this.comment = value;
+            }
+        }
+    }
+    
+    public partial class FilterRuleMac {
+        
+        private VirYesNo match;
+        
+        private bool matchSpecified;
+        
+        private string srcmacaddr;
+        
+        private string srcmacmask;
+        
+        private string dstmacaddr;
+        
+        private string dstmacmask;
+        
+        private string protocolid;
+        
+        private string comment;
+        
+        [System.Xml.Serialization.XmlAttributeAttribute("match")]
+        public VirYesNo Match {
+            get {
+                return this.match;
+            }
+            set {
+                this.match = value;
+            }
+        }
+        
+        [System.Xml.Serialization.XmlIgnoreAttribute()]
+        public bool MatchSpecified {
+            get {
+                return this.matchSpecified;
+            }
+            set {
+                this.matchSpecified = value;
+            }
+        }
+        
+        [System.Xml.Serialization.XmlAttributeAttribute("srcmacaddr")]
+        public string Srcmacaddr {
+            get {
+                return this.srcmacaddr;
+            }
+            set {
+                this.srcmacaddr = value;
+            }
+        }
+        
+        [System.Xml.Serialization.XmlAttributeAttribute("srcmacmask")]
+        public string Srcmacmask {
+            get {
+                return this.srcmacmask;
+            }
+            set {
+                this.srcmacmask = value;
+            }
+        }
+        
+        [System.Xml.Serialization.XmlAttributeAttribute("dstmacaddr")]
+        public string Dstmacaddr {
+            get {
+                return this.dstmacaddr;
+            }
+            set {
+                this.dstmacaddr = value;
+            }
+        }
+        
+        [System.Xml.Serialization.XmlAttributeAttribute("dstmacmask")]
+        public string Dstmacmask {
+            get {
+                return this.dstmacmask;
+            }
+            set {
+                this.dstmacmask = value;
+            }
+        }
+        
+        [System.Xml.Serialization.XmlAttributeAttribute("protocolid")]
+        public string Protocolid {
+            get {
+                return this.protocolid;
+            }
+            set {
+                this.protocolid = value;
+            }
+        }
+        
+        [System.Xml.Serialization.XmlAttributeAttribute("comment")]
+        public string Comment {
+            get {
+                return this.comment;
+            }
+            set {
+                this.comment = value;
+            }
+        }
+    }
+    
+    public partial class FilterRuleRarp {
+        
+        private VirYesNo match;
+        
+        private bool matchSpecified;
+        
+        private string srcmacaddr;
+        
+        private string srcmacmask;
+        
+        private string dstmacaddr;
+        
+        private string dstmacmask;
+        
+        private string arpsrcmacaddr;
+        
+        private string arpsrcipaddr;
+        
+        private string arpdstmacaddr;
+        
+        private string arpdstipaddr;
+        
+        private string hwtype;
+        
+        private string opcode;
+        
+        private string protocoltype;
+        
+        private Boolean gratuitous;
+        
+        private bool gratuitousSpecified;
+        
+        private string comment;
+        
+        [System.Xml.Serialization.XmlAttributeAttribute("match")]
+        public VirYesNo Match {
+            get {
+                return this.match;
+            }
+            set {
+                this.match = value;
+            }
+        }
+        
+        [System.Xml.Serialization.XmlIgnoreAttribute()]
+        public bool MatchSpecified {
+            get {
+                return this.matchSpecified;
+            }
+            set {
+                this.matchSpecified = value;
+            }
+        }
+        
+        [System.Xml.Serialization.XmlAttributeAttribute("srcmacaddr")]
+        public string Srcmacaddr {
+            get {
+                return this.srcmacaddr;
+            }
+            set {
+                this.srcmacaddr = value;
+            }
+        }
+        
+        [System.Xml.Serialization.XmlAttributeAttribute("srcmacmask")]
+        public string Srcmacmask {
+            get {
+                return this.srcmacmask;
+            }
+            set {
+                this.srcmacmask = value;
+            }
+        }
+        
+        [System.Xml.Serialization.XmlAttributeAttribute("dstmacaddr")]
+        public string Dstmacaddr {
+            get {
+                return this.dstmacaddr;
+            }
+            set {
+                this.dstmacaddr = value;
+            }
+        }
+        
+        [System.Xml.Serialization.XmlAttributeAttribute("dstmacmask")]
+        public string Dstmacmask {
+            get {
+                return this.dstmacmask;
+            }
+            set {
+                this.dstmacmask = value;
+            }
+        }
+        
+        [System.Xml.Serialization.XmlAttributeAttribute("arpsrcmacaddr")]
+        public string Arpsrcmacaddr {
+            get {
+                return this.arpsrcmacaddr;
+            }
+            set {
+                this.arpsrcmacaddr = value;
+            }
+        }
+        
+        [System.Xml.Serialization.XmlAttributeAttribute("arpsrcipaddr")]
+        public string Arpsrcipaddr {
+            get {
+                return this.arpsrcipaddr;
+            }
+            set {
+                this.arpsrcipaddr = value;
+            }
+        }
+        
+        [System.Xml.Serialization.XmlAttributeAttribute("arpdstmacaddr")]
+        public string Arpdstmacaddr {
+            get {
+                return this.arpdstmacaddr;
+            }
+            set {
+                this.arpdstmacaddr = value;
+            }
+        }
+        
+        [System.Xml.Serialization.XmlAttributeAttribute("arpdstipaddr")]
+        public string Arpdstipaddr {
+            get {
+                return this.arpdstipaddr;
+            }
+            set {
+                this.arpdstipaddr = value;
+            }
+        }
+        
+        [System.Xml.Serialization.XmlAttributeAttribute("hwtype")]
+        public string Hwtype {
+            get {
+                return this.hwtype;
+            }
+            set {
+                this.hwtype = value;
+            }
+        }
+        
+        [System.Xml.Serialization.XmlAttributeAttribute("opcode")]
+        public string Opcode {
+            get {
+                return this.opcode;
+            }
+            set {
+                this.opcode = value;
+            }
+        }
+        
+        [System.Xml.Serialization.XmlAttributeAttribute("protocoltype")]
+        public string Protocoltype {
+            get {
+                return this.protocoltype;
+            }
+            set {
+                this.protocoltype = value;
+            }
+        }
+        
+        [System.Xml.Serialization.XmlAttributeAttribute("gratuitous")]
+        public Boolean Gratuitous {
+            get {
+                return this.gratuitous;
+            }
+            set {
+                this.gratuitous = value;
+            }
+        }
+        
+        [System.Xml.Serialization.XmlIgnoreAttribute()]
+        public bool GratuitousSpecified {
+            get {
+                return this.gratuitousSpecified;
+            }
+            set {
+                this.gratuitousSpecified = value;
+            }
+        }
+        
+        [System.Xml.Serialization.XmlAttributeAttribute("comment")]
+        public string Comment {
+            get {
+                return this.comment;
+            }
+            set {
+                this.comment = value;
+            }
+        }
+    }
+    
+    public partial class FilterRuleSctp {
+        
+        private VirYesNo match;
+        
+        private bool matchSpecified;
+        
+        private string srcmacaddr;
+        
+        private string srcportstart;
+        
+        private string srcportend;
+        
+        private string dstportstart;
+        
+        private string dstportend;
+        
+        private string srcipaddr;
+        
+        private string srcipmask;
+        
+        private string dstipaddr;
+        
+        private string dstipmask;
+        
+        private string srcipfrom;
+        
+        private string srcipto;
+        
+        private string dstipfrom;
+        
+        private string dstipto;
+        
+        private string dscp;
+        
+        private string connlimitAbove;
+        
+        private string state;
+        
+        private string ipset;
+        
+        private string ipsetflags;
+        
+        private string comment;
+        
+        [System.Xml.Serialization.XmlAttributeAttribute("match")]
+        public VirYesNo Match {
+            get {
+                return this.match;
+            }
+            set {
+                this.match = value;
+            }
+        }
+        
+        [System.Xml.Serialization.XmlIgnoreAttribute()]
+        public bool MatchSpecified {
+            get {
+                return this.matchSpecified;
+            }
+            set {
+                this.matchSpecified = value;
+            }
+        }
+        
+        [System.Xml.Serialization.XmlAttributeAttribute("srcmacaddr")]
+        public string Srcmacaddr {
+            get {
+                return this.srcmacaddr;
+            }
+            set {
+                this.srcmacaddr = value;
+            }
+        }
+        
+        [System.Xml.Serialization.XmlAttributeAttribute("srcportstart")]
+        public string Srcportstart {
+            get {
+                return this.srcportstart;
+            }
+            set {
+                this.srcportstart = value;
+            }
+        }
+        
+        [System.Xml.Serialization.XmlAttributeAttribute("srcportend")]
+        public string Srcportend {
+            get {
+                return this.srcportend;
+            }
+            set {
+                this.srcportend = value;
+            }
+        }
+        
+        [System.Xml.Serialization.XmlAttributeAttribute("dstportstart")]
+        public string Dstportstart {
+            get {
+                return this.dstportstart;
+            }
+            set {
+                this.dstportstart = value;
+            }
+        }
+        
+        [System.Xml.Serialization.XmlAttributeAttribute("dstportend")]
+        public string Dstportend {
+            get {
+                return this.dstportend;
+            }
+            set {
+                this.dstportend = value;
+            }
+        }
+        
+        [System.Xml.Serialization.XmlAttributeAttribute("srcipaddr")]
+        public string Srcipaddr {
+            get {
+                return this.srcipaddr;
+            }
+            set {
+                this.srcipaddr = value;
+            }
+        }
+        
+        [System.Xml.Serialization.XmlAttributeAttribute("srcipmask")]
+        public string Srcipmask {
+            get {
+                return this.srcipmask;
+            }
+            set {
+                this.srcipmask = value;
+            }
+        }
+        
+        [System.Xml.Serialization.XmlAttributeAttribute("dstipaddr")]
+        public string Dstipaddr {
+            get {
+                return this.dstipaddr;
+            }
+            set {
+                this.dstipaddr = value;
+            }
+        }
+        
+        [System.Xml.Serialization.XmlAttributeAttribute("dstipmask")]
+        public string Dstipmask {
+            get {
+                return this.dstipmask;
+            }
+            set {
+                this.dstipmask = value;
+            }
+        }
+        
+        [System.Xml.Serialization.XmlAttributeAttribute("srcipfrom")]
+        public string Srcipfrom {
+            get {
+                return this.srcipfrom;
+            }
+            set {
+                this.srcipfrom = value;
+            }
+        }
+        
+        [System.Xml.Serialization.XmlAttributeAttribute("srcipto")]
+        public string Srcipto {
+            get {
+                return this.srcipto;
+            }
+            set {
+                this.srcipto = value;
+            }
+        }
+        
+        [System.Xml.Serialization.XmlAttributeAttribute("dstipfrom")]
+        public string Dstipfrom {
+            get {
+                return this.dstipfrom;
+            }
+            set {
+                this.dstipfrom = value;
+            }
+        }
+        
+        [System.Xml.Serialization.XmlAttributeAttribute("dstipto")]
+        public string Dstipto {
+            get {
+                return this.dstipto;
+            }
+            set {
+                this.dstipto = value;
+            }
+        }
+        
+        [System.Xml.Serialization.XmlAttributeAttribute("dscp")]
+        public string Dscp {
+            get {
+                return this.dscp;
+            }
+            set {
+                this.dscp = value;
+            }
+        }
+        
+        [System.Xml.Serialization.XmlAttributeAttribute("connlimit-above")]
+        public string ConnlimitAbove {
+            get {
+                return this.connlimitAbove;
+            }
+            set {
+                this.connlimitAbove = value;
+            }
+        }
+        
+        [System.Xml.Serialization.XmlAttributeAttribute("state")]
+        public string State {
+            get {
+                return this.state;
+            }
+            set {
+                this.state = value;
+            }
+        }
+        
+        [System.Xml.Serialization.XmlAttributeAttribute("ipset")]
+        public string Ipset {
+            get {
+                return this.ipset;
+            }
+            set {
+                this.ipset = value;
+            }
+        }
+        
+        [System.Xml.Serialization.XmlAttributeAttribute("ipsetflags")]
+        public string Ipsetflags {
+            get {
+                return this.ipsetflags;
+            }
+            set {
+                this.ipsetflags = value;
+            }
+        }
+        
+        [System.Xml.Serialization.XmlAttributeAttribute("comment")]
+        public string Comment {
+            get {
+                return this.comment;
+            }
+            set {
+                this.comment = value;
+            }
+        }
+    }
+    
+    public partial class FilterRuleSctpIpv6 {
+        
+        private VirYesNo match;
+        
+        private bool matchSpecified;
+        
+        private string srcmacaddr;
+        
+        private string srcportstart;
+        
+        private string srcportend;
+        
+        private string dstportstart;
+        
+        private string dstportend;
+        
+        private string srcipaddr;
+        
+        private string srcipmask;
+        
+        private string dstipaddr;
+        
+        private string dstipmask;
+        
+        private string srcipfrom;
+        
+        private string srcipto;
+        
+        private string dstipfrom;
+        
+        private string dstipto;
+        
+        private string dscp;
+        
+        private string comment;
+        
+        [System.Xml.Serialization.XmlAttributeAttribute("match")]
+        public VirYesNo Match {
+            get {
+                return this.match;
+            }
+            set {
+                this.match = value;
+            }
+        }
+        
+        [System.Xml.Serialization.XmlIgnoreAttribute()]
+        public bool MatchSpecified {
+            get {
+                return this.matchSpecified;
+            }
+            set {
+                this.matchSpecified = value;
+            }
+        }
+        
+        [System.Xml.Serialization.XmlAttributeAttribute("srcmacaddr")]
+        public string Srcmacaddr {
+            get {
+                return this.srcmacaddr;
+            }
+            set {
+                this.srcmacaddr = value;
+            }
+        }
+        
+        [System.Xml.Serialization.XmlAttributeAttribute("srcportstart")]
+        public string Srcportstart {
+            get {
+                return this.srcportstart;
+            }
+            set {
+                this.srcportstart = value;
+            }
+        }
+        
+        [System.Xml.Serialization.XmlAttributeAttribute("srcportend")]
+        public string Srcportend {
+            get {
+                return this.srcportend;
+            }
+            set {
+                this.srcportend = value;
+            }
+        }
+        
+        [System.Xml.Serialization.XmlAttributeAttribute("dstportstart")]
+        public string Dstportstart {
+            get {
+                return this.dstportstart;
+            }
+            set {
+                this.dstportstart = value;
+            }
+        }
+        
+        [System.Xml.Serialization.XmlAttributeAttribute("dstportend")]
+        public string Dstportend {
+            get {
+                return this.dstportend;
+            }
+            set {
+                this.dstportend = value;
+            }
+        }
+        
+        [System.Xml.Serialization.XmlAttributeAttribute("srcipaddr")]
+        public string Srcipaddr {
+            get {
+                return this.srcipaddr;
+            }
+            set {
+                this.srcipaddr = value;
+            }
+        }
+        
+        [System.Xml.Serialization.XmlAttributeAttribute("srcipmask")]
+        public string Srcipmask {
+            get {
+                return this.srcipmask;
+            }
+            set {
+                this.srcipmask = value;
+            }
+        }
+        
+        [System.Xml.Serialization.XmlAttributeAttribute("dstipaddr")]
+        public string Dstipaddr {
+            get {
+                return this.dstipaddr;
+            }
+            set {
+                this.dstipaddr = value;
+            }
+        }
+        
+        [System.Xml.Serialization.XmlAttributeAttribute("dstipmask")]
+        public string Dstipmask {
+            get {
+                return this.dstipmask;
+            }
+            set {
+                this.dstipmask = value;
+            }
+        }
+        
+        [System.Xml.Serialization.XmlAttributeAttribute("srcipfrom")]
+        public string Srcipfrom {
+            get {
+                return this.srcipfrom;
+            }
+            set {
+                this.srcipfrom = value;
+            }
+        }
+        
+        [System.Xml.Serialization.XmlAttributeAttribute("srcipto")]
+        public string Srcipto {
+            get {
+                return this.srcipto;
+            }
+            set {
+                this.srcipto = value;
+            }
+        }
+        
+        [System.Xml.Serialization.XmlAttributeAttribute("dstipfrom")]
+        public string Dstipfrom {
+            get {
+                return this.dstipfrom;
+            }
+            set {
+                this.dstipfrom = value;
+            }
+        }
+        
+        [System.Xml.Serialization.XmlAttributeAttribute("dstipto")]
+        public string Dstipto {
+            get {
+                return this.dstipto;
+            }
+            set {
+                this.dstipto = value;
+            }
+        }
+        
+        [System.Xml.Serialization.XmlAttributeAttribute("dscp")]
+        public string Dscp {
+            get {
+                return this.dscp;
+            }
+            set {
+                this.dscp = value;
+            }
+        }
+        
+        [System.Xml.Serialization.XmlAttributeAttribute("comment")]
+        public string Comment {
+            get {
+                return this.comment;
+            }
+            set {
+                this.comment = value;
+            }
+        }
+    }
+    
+    public partial class FilterRuleStp {
+        
+        private VirYesNo match;
+        
+        private bool matchSpecified;
+        
+        private string srcmacaddr;
+        
+        private string srcmacmask;
+        
+        private string type;
+        
+        private string flags;
+        
+        private string rootPriority;
+        
+        private string rootPriorityHi;
+        
+        private string rootAddress;
+        
+        private string rootAddressMask;
+        
+        private string rootCost;
+        
+        private string rootCostHi;
+        
+        private string senderPriority;
+        
+        private string senderPriorityHi;
+        
+        private string senderAddress;
+        
+        private string senderAddressMask;
+        
+        private string port;
+        
+        private string portHi;
+        
+        private string age;
+        
+        private string ageHi;
+        
+        private string maxAge;
+        
+        private string maxAgeHi;
+        
+        private string helloTime;
+        
+        private string helloTimeHi;
+        
+        private string forwardDelay;
+        
+        private string forwardDelayHi;
+        
+        private string comment;
+        
+        [System.Xml.Serialization.XmlAttributeAttribute("match")]
+        public VirYesNo Match {
+            get {
+                return this.match;
+            }
+            set {
+                this.match = value;
+            }
+        }
+        
+        [System.Xml.Serialization.XmlIgnoreAttribute()]
+        public bool MatchSpecified {
+            get {
+                return this.matchSpecified;
+            }
+            set {
+                this.matchSpecified = value;
+            }
+        }
+        
+        [System.Xml.Serialization.XmlAttributeAttribute("srcmacaddr")]
+        public string Srcmacaddr {
+            get {
+                return this.srcmacaddr;
+            }
+            set {
+                this.srcmacaddr = value;
+            }
+        }
+        
+        [System.Xml.Serialization.XmlAttributeAttribute("srcmacmask")]
+        public string Srcmacmask {
+            get {
+                return this.srcmacmask;
+            }
+            set {
+                this.srcmacmask = value;
+            }
+        }
+        
+        [System.Xml.Serialization.XmlAttributeAttribute("type")]
+        public string Type {
+            get {
+                return this.type;
+            }
+            set {
+                this.type = value;
+            }
+        }
+        
+        [System.Xml.Serialization.XmlAttributeAttribute("flags")]
+        public string Flags {
+            get {
+                return this.flags;
+            }
+            set {
+                this.flags = value;
+            }
+        }
+        
+        [System.Xml.Serialization.XmlAttributeAttribute("root-priority")]
+        public string RootPriority {
+            get {
+                return this.rootPriority;
+            }
+            set {
+                this.rootPriority = value;
+            }
+        }
+        
+        [System.Xml.Serialization.XmlAttributeAttribute("root-priority-hi")]
+        public string RootPriorityHi {
+            get {
+                return this.rootPriorityHi;
+            }
+            set {
+                this.rootPriorityHi = value;
+            }
+        }
+        
+        [System.Xml.Serialization.XmlAttributeAttribute("root-address")]
+        public string RootAddress {
+            get {
+                return this.rootAddress;
+            }
+            set {
+                this.rootAddress = value;
+            }
+        }
+        
+        [System.Xml.Serialization.XmlAttributeAttribute("root-address-mask")]
+        public string RootAddressMask {
+            get {
+                return this.rootAddressMask;
+            }
+            set {
+                this.rootAddressMask = value;
+            }
+        }
+        
+        [System.Xml.Serialization.XmlAttributeAttribute("root-cost")]
+        public string RootCost {
+            get {
+                return this.rootCost;
+            }
+            set {
+                this.rootCost = value;
+            }
+        }
+        
+        [System.Xml.Serialization.XmlAttributeAttribute("root-cost-hi")]
+        public string RootCostHi {
+            get {
+                return this.rootCostHi;
+            }
+            set {
+                this.rootCostHi = value;
+            }
+        }
+        
+        [System.Xml.Serialization.XmlAttributeAttribute("sender-priority")]
+        public string SenderPriority {
+            get {
+                return this.senderPriority;
+            }
+            set {
+                this.senderPriority = value;
+            }
+        }
+        
+        [System.Xml.Serialization.XmlAttributeAttribute("sender-priority-hi")]
+        public string SenderPriorityHi {
+            get {
+                return this.senderPriorityHi;
+            }
+            set {
+                this.senderPriorityHi = value;
+            }
+        }
+        
+        [System.Xml.Serialization.XmlAttributeAttribute("sender-address")]
+        public string SenderAddress {
+            get {
+                return this.senderAddress;
+            }
+            set {
+                this.senderAddress = value;
+            }
+        }
+        
+        [System.Xml.Serialization.XmlAttributeAttribute("sender-address-mask")]
+        public string SenderAddressMask {
+            get {
+                return this.senderAddressMask;
+            }
+            set {
+                this.senderAddressMask = value;
+            }
+        }
+        
+        [System.Xml.Serialization.XmlAttributeAttribute("port")]
+        public string Port {
+            get {
+                return this.port;
+            }
+            set {
+                this.port = value;
+            }
+        }
+        
+        [System.Xml.Serialization.XmlAttributeAttribute("port-hi")]
+        public string PortHi {
+            get {
+                return this.portHi;
+            }
+            set {
+                this.portHi = value;
+            }
+        }
+        
+        [System.Xml.Serialization.XmlAttributeAttribute("age")]
+        public string Age {
+            get {
+                return this.age;
+            }
+            set {
+                this.age = value;
+            }
+        }
+        
+        [System.Xml.Serialization.XmlAttributeAttribute("age-hi")]
+        public string AgeHi {
+            get {
+                return this.ageHi;
+            }
+            set {
+                this.ageHi = value;
+            }
+        }
+        
+        [System.Xml.Serialization.XmlAttributeAttribute("max-age")]
+        public string MaxAge {
+            get {
+                return this.maxAge;
+            }
+            set {
+                this.maxAge = value;
+            }
+        }
+        
+        [System.Xml.Serialization.XmlAttributeAttribute("max-age-hi")]
+        public string MaxAgeHi {
+            get {
+                return this.maxAgeHi;
+            }
+            set {
+                this.maxAgeHi = value;
+            }
+        }
+        
+        [System.Xml.Serialization.XmlAttributeAttribute("hello-time")]
+        public string HelloTime {
+            get {
+                return this.helloTime;
+            }
+            set {
+                this.helloTime = value;
+            }
+        }
+        
+        [System.Xml.Serialization.XmlAttributeAttribute("hello-time-hi")]
+        public string HelloTimeHi {
+            get {
+                return this.helloTimeHi;
+            }
+            set {
+                this.helloTimeHi = value;
+            }
+        }
+        
+        [System.Xml.Serialization.XmlAttributeAttribute("forward-delay")]
+        public string ForwardDelay {
+            get {
+                return this.forwardDelay;
+            }
+            set {
+                this.forwardDelay = value;
+            }
+        }
+        
+        [System.Xml.Serialization.XmlAttributeAttribute("forward-delay-hi")]
+        public string ForwardDelayHi {
+            get {
+                return this.forwardDelayHi;
+            }
+            set {
+                this.forwardDelayHi = value;
+            }
+        }
+        
+        [System.Xml.Serialization.XmlAttributeAttribute("comment")]
+        public string Comment {
+            get {
+                return this.comment;
+            }
+            set {
+                this.comment = value;
+            }
+        }
+    }
+    
+    public partial class FilterRuleTcp {
+        
+        private VirYesNo match;
+        
+        private bool matchSpecified;
+        
+        private string srcmacaddr;
+        
+        private string srcportstart;
+        
+        private string srcportend;
+        
+        private string dstportstart;
+        
+        private string dstportend;
+        
+        private string srcipaddr;
+        
+        private string srcipmask;
+        
+        private string dstipaddr;
+        
+        private string dstipmask;
+        
+        private string srcipfrom;
+        
+        private string srcipto;
+        
+        private string dstipfrom;
+        
+        private string dstipto;
+        
+        private string dscp;
+        
+        private string connlimitAbove;
+        
+        private string state;
+        
+        private string ipset;
+        
+        private string ipsetflags;
+        
+        private string flags;
+        
+        private string comment;
+        
+        [System.Xml.Serialization.XmlAttributeAttribute("match")]
+        public VirYesNo Match {
+            get {
+                return this.match;
+            }
+            set {
+                this.match = value;
+            }
+        }
+        
+        [System.Xml.Serialization.XmlIgnoreAttribute()]
+        public bool MatchSpecified {
+            get {
+                return this.matchSpecified;
+            }
+            set {
+                this.matchSpecified = value;
+            }
+        }
+        
+        [System.Xml.Serialization.XmlAttributeAttribute("srcmacaddr")]
+        public string Srcmacaddr {
+            get {
+                return this.srcmacaddr;
+            }
+            set {
+                this.srcmacaddr = value;
+            }
+        }
+        
+        [System.Xml.Serialization.XmlAttributeAttribute("srcportstart")]
+        public string Srcportstart {
+            get {
+                return this.srcportstart;
+            }
+            set {
+                this.srcportstart = value;
+            }
+        }
+        
+        [System.Xml.Serialization.XmlAttributeAttribute("srcportend")]
+        public string Srcportend {
+            get {
+                return this.srcportend;
+            }
+            set {
+                this.srcportend = value;
+            }
+        }
+        
+        [System.Xml.Serialization.XmlAttributeAttribute("dstportstart")]
+        public string Dstportstart {
+            get {
+                return this.dstportstart;
+            }
+            set {
+                this.dstportstart = value;
+            }
+        }
+        
+        [System.Xml.Serialization.XmlAttributeAttribute("dstportend")]
+        public string Dstportend {
+            get {
+                return this.dstportend;
+            }
+            set {
+                this.dstportend = value;
+            }
+        }
+        
+        [System.Xml.Serialization.XmlAttributeAttribute("srcipaddr")]
+        public string Srcipaddr {
+            get {
+                return this.srcipaddr;
+            }
+            set {
+                this.srcipaddr = value;
+            }
+        }
+        
+        [System.Xml.Serialization.XmlAttributeAttribute("srcipmask")]
+        public string Srcipmask {
+            get {
+                return this.srcipmask;
+            }
+            set {
+                this.srcipmask = value;
+            }
+        }
+        
+        [System.Xml.Serialization.XmlAttributeAttribute("dstipaddr")]
+        public string Dstipaddr {
+            get {
+                return this.dstipaddr;
+            }
+            set {
+                this.dstipaddr = value;
+            }
+        }
+        
+        [System.Xml.Serialization.XmlAttributeAttribute("dstipmask")]
+        public string Dstipmask {
+            get {
+                return this.dstipmask;
+            }
+            set {
+                this.dstipmask = value;
+            }
+        }
+        
+        [System.Xml.Serialization.XmlAttributeAttribute("srcipfrom")]
+        public string Srcipfrom {
+            get {
+                return this.srcipfrom;
+            }
+            set {
+                this.srcipfrom = value;
+            }
+        }
+        
+        [System.Xml.Serialization.XmlAttributeAttribute("srcipto")]
+        public string Srcipto {
+            get {
+                return this.srcipto;
+            }
+            set {
+                this.srcipto = value;
+            }
+        }
+        
+        [System.Xml.Serialization.XmlAttributeAttribute("dstipfrom")]
+        public string Dstipfrom {
+            get {
+                return this.dstipfrom;
+            }
+            set {
+                this.dstipfrom = value;
+            }
+        }
+        
+        [System.Xml.Serialization.XmlAttributeAttribute("dstipto")]
+        public string Dstipto {
+            get {
+                return this.dstipto;
+            }
+            set {
+                this.dstipto = value;
+            }
+        }
+        
+        [System.Xml.Serialization.XmlAttributeAttribute("dscp")]
+        public string Dscp {
+            get {
+                return this.dscp;
+            }
+            set {
+                this.dscp = value;
+            }
+        }
+        
+        [System.Xml.Serialization.XmlAttributeAttribute("connlimit-above")]
+        public string ConnlimitAbove {
+            get {
+                return this.connlimitAbove;
+            }
+            set {
+                this.connlimitAbove = value;
+            }
+        }
+        
+        [System.Xml.Serialization.XmlAttributeAttribute("state")]
+        public string State {
+            get {
+                return this.state;
+            }
+            set {
+                this.state = value;
+            }
+        }
+        
+        [System.Xml.Serialization.XmlAttributeAttribute("ipset")]
+        public string Ipset {
+            get {
+                return this.ipset;
+            }
+            set {
+                this.ipset = value;
+            }
+        }
+        
+        [System.Xml.Serialization.XmlAttributeAttribute("ipsetflags")]
+        public string Ipsetflags {
+            get {
+                return this.ipsetflags;
+            }
+            set {
+                this.ipsetflags = value;
+            }
+        }
+        
+        [System.Xml.Serialization.XmlAttributeAttribute("flags")]
+        public string Flags {
+            get {
+                return this.flags;
+            }
+            set {
+                this.flags = value;
+            }
+        }
+        
+        [System.Xml.Serialization.XmlAttributeAttribute("comment")]
+        public string Comment {
+            get {
+                return this.comment;
+            }
+            set {
+                this.comment = value;
+            }
+        }
+    }
+    
+    public partial class FilterRuleTcpIpv6 {
+        
+        private VirYesNo match;
+        
+        private bool matchSpecified;
+        
+        private string srcmacaddr;
+        
+        private string srcportstart;
+        
+        private string srcportend;
+        
+        private string dstportstart;
+        
+        private string dstportend;
+        
+        private string srcipaddr;
+        
+        private string srcipmask;
+        
+        private string dstipaddr;
+        
+        private string dstipmask;
+        
+        private string srcipfrom;
+        
+        private string srcipto;
+        
+        private string dstipfrom;
+        
+        private string dstipto;
+        
+        private string dscp;
+        
+        private string flags;
+        
+        private string comment;
+        
+        [System.Xml.Serialization.XmlAttributeAttribute("match")]
+        public VirYesNo Match {
+            get {
+                return this.match;
+            }
+            set {
+                this.match = value;
+            }
+        }
+        
+        [System.Xml.Serialization.XmlIgnoreAttribute()]
+        public bool MatchSpecified {
+            get {
+                return this.matchSpecified;
+            }
+            set {
+                this.matchSpecified = value;
+            }
+        }
+        
+        [System.Xml.Serialization.XmlAttributeAttribute("srcmacaddr")]
+        public string Srcmacaddr {
+            get {
+                return this.srcmacaddr;
+            }
+            set {
+                this.srcmacaddr = value;
+            }
+        }
+        
+        [System.Xml.Serialization.XmlAttributeAttribute("srcportstart")]
+        public string Srcportstart {
+            get {
+                return this.srcportstart;
+            }
+            set {
+                this.srcportstart = value;
+            }
+        }
+        
+        [System.Xml.Serialization.XmlAttributeAttribute("srcportend")]
+        public string Srcportend {
+            get {
+                return this.srcportend;
+            }
+            set {
+                this.srcportend = value;
+            }
+        }
+        
+        [System.Xml.Serialization.XmlAttributeAttribute("dstportstart")]
+        public string Dstportstart {
+            get {
+                return this.dstportstart;
+            }
+            set {
+                this.dstportstart = value;
+            }
+        }
+        
+        [System.Xml.Serialization.XmlAttributeAttribute("dstportend")]
+        public string Dstportend {
+            get {
+                return this.dstportend;
+            }
+            set {
+                this.dstportend = value;
+            }
+        }
+        
+        [System.Xml.Serialization.XmlAttributeAttribute("srcipaddr")]
+        public string Srcipaddr {
+            get {
+                return this.srcipaddr;
+            }
+            set {
+                this.srcipaddr = value;
+            }
+        }
+        
+        [System.Xml.Serialization.XmlAttributeAttribute("srcipmask")]
+        public string Srcipmask {
+            get {
+                return this.srcipmask;
+            }
+            set {
+                this.srcipmask = value;
+            }
+        }
+        
+        [System.Xml.Serialization.XmlAttributeAttribute("dstipaddr")]
+        public string Dstipaddr {
+            get {
+                return this.dstipaddr;
+            }
+            set {
+                this.dstipaddr = value;
+            }
+        }
+        
+        [System.Xml.Serialization.XmlAttributeAttribute("dstipmask")]
+        public string Dstipmask {
+            get {
+                return this.dstipmask;
+            }
+            set {
+                this.dstipmask = value;
+            }
+        }
+        
+        [System.Xml.Serialization.XmlAttributeAttribute("srcipfrom")]
+        public string Srcipfrom {
+            get {
+                return this.srcipfrom;
+            }
+            set {
+                this.srcipfrom = value;
+            }
+        }
+        
+        [System.Xml.Serialization.XmlAttributeAttribute("srcipto")]
+        public string Srcipto {
+            get {
+                return this.srcipto;
+            }
+            set {
+                this.srcipto = value;
+            }
+        }
+        
+        [System.Xml.Serialization.XmlAttributeAttribute("dstipfrom")]
+        public string Dstipfrom {
+            get {
+                return this.dstipfrom;
+            }
+            set {
+                this.dstipfrom = value;
+            }
+        }
+        
+        [System.Xml.Serialization.XmlAttributeAttribute("dstipto")]
+        public string Dstipto {
+            get {
+                return this.dstipto;
+            }
+            set {
+                this.dstipto = value;
+            }
+        }
+        
+        [System.Xml.Serialization.XmlAttributeAttribute("dscp")]
+        public string Dscp {
+            get {
+                return this.dscp;
+            }
+            set {
+                this.dscp = value;
+            }
+        }
+        
+        [System.Xml.Serialization.XmlAttributeAttribute("flags")]
+        public string Flags {
+            get {
+                return this.flags;
+            }
+            set {
+                this.flags = value;
+            }
+        }
+        
+        [System.Xml.Serialization.XmlAttributeAttribute("comment")]
+        public string Comment {
+            get {
+                return this.comment;
+            }
+            set {
+                this.comment = value;
+            }
+        }
+    }
+    
+    public partial class FilterRuleUdp {
+        
+        private VirYesNo match;
+        
+        private bool matchSpecified;
+        
+        private string srcmacaddr;
+        
+        private string srcportstart;
+        
+        private string srcportend;
+        
+        private string dstportstart;
+        
+        private string dstportend;
+        
+        private string srcipaddr;
+        
+        private string srcipmask;
+        
+        private string dstipaddr;
+        
+        private string dstipmask;
+        
+        private string srcipfrom;
+        
+        private string srcipto;
+        
+        private string dstipfrom;
+        
+        private string dstipto;
+        
+        private string dscp;
+        
+        private string connlimitAbove;
+        
+        private string state;
+        
+        private string ipset;
+        
+        private string ipsetflags;
+        
+        private string comment;
+        
+        [System.Xml.Serialization.XmlAttributeAttribute("match")]
+        public VirYesNo Match {
+            get {
+                return this.match;
+            }
+            set {
+                this.match = value;
+            }
+        }
+        
+        [System.Xml.Serialization.XmlIgnoreAttribute()]
+        public bool MatchSpecified {
+            get {
+                return this.matchSpecified;
+            }
+            set {
+                this.matchSpecified = value;
+            }
+        }
+        
+        [System.Xml.Serialization.XmlAttributeAttribute("srcmacaddr")]
+        public string Srcmacaddr {
+            get {
+                return this.srcmacaddr;
+            }
+            set {
+                this.srcmacaddr = value;
+            }
+        }
+        
+        [System.Xml.Serialization.XmlAttributeAttribute("srcportstart")]
+        public string Srcportstart {
+            get {
+                return this.srcportstart;
+            }
+            set {
+                this.srcportstart = value;
+            }
+        }
+        
+        [System.Xml.Serialization.XmlAttributeAttribute("srcportend")]
+        public string Srcportend {
+            get {
+                return this.srcportend;
+            }
+            set {
+                this.srcportend = value;
+            }
+        }
+        
+        [System.Xml.Serialization.XmlAttributeAttribute("dstportstart")]
+        public string Dstportstart {
+            get {
+                return this.dstportstart;
+            }
+            set {
+                this.dstportstart = value;
+            }
+        }
+        
+        [System.Xml.Serialization.XmlAttributeAttribute("dstportend")]
+        public string Dstportend {
+            get {
+                return this.dstportend;
+            }
+            set {
+                this.dstportend = value;
+            }
+        }
+        
+        [System.Xml.Serialization.XmlAttributeAttribute("srcipaddr")]
+        public string Srcipaddr {
+            get {
+                return this.srcipaddr;
+            }
+            set {
+                this.srcipaddr = value;
+            }
+        }
+        
+        [System.Xml.Serialization.XmlAttributeAttribute("srcipmask")]
+        public string Srcipmask {
+            get {
+                return this.srcipmask;
+            }
+            set {
+                this.srcipmask = value;
+            }
+        }
+        
+        [System.Xml.Serialization.XmlAttributeAttribute("dstipaddr")]
+        public string Dstipaddr {
+            get {
+                return this.dstipaddr;
+            }
+            set {
+                this.dstipaddr = value;
+            }
+        }
+        
+        [System.Xml.Serialization.XmlAttributeAttribute("dstipmask")]
+        public string Dstipmask {
+            get {
+                return this.dstipmask;
+            }
+            set {
+                this.dstipmask = value;
+            }
+        }
+        
+        [System.Xml.Serialization.XmlAttributeAttribute("srcipfrom")]
+        public string Srcipfrom {
+            get {
+                return this.srcipfrom;
+            }
+            set {
+                this.srcipfrom = value;
+            }
+        }
+        
+        [System.Xml.Serialization.XmlAttributeAttribute("srcipto")]
+        public string Srcipto {
+            get {
+                return this.srcipto;
+            }
+            set {
+                this.srcipto = value;
+            }
+        }
+        
+        [System.Xml.Serialization.XmlAttributeAttribute("dstipfrom")]
+        public string Dstipfrom {
+            get {
+                return this.dstipfrom;
+            }
+            set {
+                this.dstipfrom = value;
+            }
+        }
+        
+        [System.Xml.Serialization.XmlAttributeAttribute("dstipto")]
+        public string Dstipto {
+            get {
+                return this.dstipto;
+            }
+            set {
+                this.dstipto = value;
+            }
+        }
+        
+        [System.Xml.Serialization.XmlAttributeAttribute("dscp")]
+        public string Dscp {
+            get {
+                return this.dscp;
+            }
+            set {
+                this.dscp = value;
+            }
+        }
+        
+        [System.Xml.Serialization.XmlAttributeAttribute("connlimit-above")]
+        public string ConnlimitAbove {
+            get {
+                return this.connlimitAbove;
+            }
+            set {
+                this.connlimitAbove = value;
+            }
+        }
+        
+        [System.Xml.Serialization.XmlAttributeAttribute("state")]
+        public string State {
+            get {
+                return this.state;
+            }
+            set {
+                this.state = value;
+            }
+        }
+        
+        [System.Xml.Serialization.XmlAttributeAttribute("ipset")]
+        public string Ipset {
+            get {
+                return this.ipset;
+            }
+            set {
+                this.ipset = value;
+            }
+        }
+        
+        [System.Xml.Serialization.XmlAttributeAttribute("ipsetflags")]
+        public string Ipsetflags {
+            get {
+                return this.ipsetflags;
+            }
+            set {
+                this.ipsetflags = value;
+            }
+        }
+        
+        [System.Xml.Serialization.XmlAttributeAttribute("comment")]
+        public string Comment {
+            get {
+                return this.comment;
+            }
+            set {
+                this.comment = value;
+            }
+        }
+    }
+    
+    public partial class FilterRuleUdpIpv6 {
+        
+        private VirYesNo match;
+        
+        private bool matchSpecified;
+        
+        private string srcmacaddr;
+        
+        private string srcportstart;
+        
+        private string srcportend;
+        
+        private string dstportstart;
+        
+        private string dstportend;
+        
+        private string srcipaddr;
+        
+        private string srcipmask;
+        
+        private string dstipaddr;
+        
+        private string dstipmask;
+        
+        private string srcipfrom;
+        
+        private string srcipto;
+        
+        private string dstipfrom;
+        
+        private string dstipto;
+        
+        private string dscp;
+        
+        private string comment;
+        
+        [System.Xml.Serialization.XmlAttributeAttribute("match")]
+        public VirYesNo Match {
+            get {
+                return this.match;
+            }
+            set {
+                this.match = value;
+            }
+        }
+        
+        [System.Xml.Serialization.XmlIgnoreAttribute()]
+        public bool MatchSpecified {
+            get {
+                return this.matchSpecified;
+            }
+            set {
+                this.matchSpecified = value;
+            }
+        }
+        
+        [System.Xml.Serialization.XmlAttributeAttribute("srcmacaddr")]
+        public string Srcmacaddr {
+            get {
+                return this.srcmacaddr;
+            }
+            set {
+                this.srcmacaddr = value;
+            }
+        }
+        
+        [System.Xml.Serialization.XmlAttributeAttribute("srcportstart")]
+        public string Srcportstart {
+            get {
+                return this.srcportstart;
+            }
+            set {
+                this.srcportstart = value;
+            }
+        }
+        
+        [System.Xml.Serialization.XmlAttributeAttribute("srcportend")]
+        public string Srcportend {
+            get {
+                return this.srcportend;
+            }
+            set {
+                this.srcportend = value;
+            }
+        }
+        
+        [System.Xml.Serialization.XmlAttributeAttribute("dstportstart")]
+        public string Dstportstart {
+            get {
+                return this.dstportstart;
+            }
+            set {
+                this.dstportstart = value;
+            }
+        }
+        
+        [System.Xml.Serialization.XmlAttributeAttribute("dstportend")]
+        public string Dstportend {
+            get {
+                return this.dstportend;
+            }
+            set {
+                this.dstportend = value;
+            }
+        }
+        
+        [System.Xml.Serialization.XmlAttributeAttribute("srcipaddr")]
+        public string Srcipaddr {
+            get {
+                return this.srcipaddr;
+            }
+            set {
+                this.srcipaddr = value;
+            }
+        }
+        
+        [System.Xml.Serialization.XmlAttributeAttribute("srcipmask")]
+        public string Srcipmask {
+            get {
+                return this.srcipmask;
+            }
+            set {
+                this.srcipmask = value;
+            }
+        }
+        
+        [System.Xml.Serialization.XmlAttributeAttribute("dstipaddr")]
+        public string Dstipaddr {
+            get {
+                return this.dstipaddr;
+            }
+            set {
+                this.dstipaddr = value;
+            }
+        }
+        
+        [System.Xml.Serialization.XmlAttributeAttribute("dstipmask")]
+        public string Dstipmask {
+            get {
+                return this.dstipmask;
+            }
+            set {
+                this.dstipmask = value;
+            }
+        }
+        
+        [System.Xml.Serialization.XmlAttributeAttribute("srcipfrom")]
+        public string Srcipfrom {
+            get {
+                return this.srcipfrom;
+            }
+            set {
+                this.srcipfrom = value;
+            }
+        }
+        
+        [System.Xml.Serialization.XmlAttributeAttribute("srcipto")]
+        public string Srcipto {
+            get {
+                return this.srcipto;
+            }
+            set {
+                this.srcipto = value;
+            }
+        }
+        
+        [System.Xml.Serialization.XmlAttributeAttribute("dstipfrom")]
+        public string Dstipfrom {
+            get {
+                return this.dstipfrom;
+            }
+            set {
+                this.dstipfrom = value;
+            }
+        }
+        
+        [System.Xml.Serialization.XmlAttributeAttribute("dstipto")]
+        public string Dstipto {
+            get {
+                return this.dstipto;
+            }
+            set {
+                this.dstipto = value;
+            }
+        }
+        
+        [System.Xml.Serialization.XmlAttributeAttribute("dscp")]
+        public string Dscp {
+            get {
+                return this.dscp;
+            }
+            set {
+                this.dscp = value;
+            }
+        }
+        
+        [System.Xml.Serialization.XmlAttributeAttribute("comment")]
+        public string Comment {
+            get {
+                return this.comment;
+            }
+            set {
+                this.comment = value;
+            }
+        }
+    }
+    
+    public partial class FilterRuleUdplite {
+        
+        private VirYesNo match;
+        
+        private bool matchSpecified;
+        
+        private string srcmacaddr;
+        
+        private string srcipaddr;
+        
+        private string srcipmask;
+        
+        private string dstipaddr;
+        
+        private string dstipmask;
+        
+        private string srcipfrom;
+        
+        private string srcipto;
+        
+        private string dstipfrom;
+        
+        private string dstipto;
+        
+        private string dscp;
+        
+        private string connlimitAbove;
+        
+        private string state;
+        
+        private string ipset;
+        
+        private string ipsetflags;
+        
+        private string comment;
+        
+        [System.Xml.Serialization.XmlAttributeAttribute("match")]
+        public VirYesNo Match {
+            get {
+                return this.match;
+            }
+            set {
+                this.match = value;
+            }
+        }
+        
+        [System.Xml.Serialization.XmlIgnoreAttribute()]
+        public bool MatchSpecified {
+            get {
+                return this.matchSpecified;
+            }
+            set {
+                this.matchSpecified = value;
+            }
+        }
+        
+        [System.Xml.Serialization.XmlAttributeAttribute("srcmacaddr")]
+        public string Srcmacaddr {
+            get {
+                return this.srcmacaddr;
+            }
+            set {
+                this.srcmacaddr = value;
+            }
+        }
+        
+        [System.Xml.Serialization.XmlAttributeAttribute("srcipaddr")]
+        public string Srcipaddr {
+            get {
+                return this.srcipaddr;
+            }
+            set {
+                this.srcipaddr = value;
+            }
+        }
+        
+        [System.Xml.Serialization.XmlAttributeAttribute("srcipmask")]
+        public string Srcipmask {
+            get {
+                return this.srcipmask;
+            }
+            set {
+                this.srcipmask = value;
+            }
+        }
+        
+        [System.Xml.Serialization.XmlAttributeAttribute("dstipaddr")]
+        public string Dstipaddr {
+            get {
+                return this.dstipaddr;
+            }
+            set {
+                this.dstipaddr = value;
+            }
+        }
+        
+        [System.Xml.Serialization.XmlAttributeAttribute("dstipmask")]
+        public string Dstipmask {
+            get {
+                return this.dstipmask;
+            }
+            set {
+                this.dstipmask = value;
+            }
+        }
+        
+        [System.Xml.Serialization.XmlAttributeAttribute("srcipfrom")]
+        public string Srcipfrom {
+            get {
+                return this.srcipfrom;
+            }
+            set {
+                this.srcipfrom = value;
+            }
+        }
+        
+        [System.Xml.Serialization.XmlAttributeAttribute("srcipto")]
+        public string Srcipto {
+            get {
+                return this.srcipto;
+            }
+            set {
+                this.srcipto = value;
+            }
+        }
+        
+        [System.Xml.Serialization.XmlAttributeAttribute("dstipfrom")]
+        public string Dstipfrom {
+            get {
+                return this.dstipfrom;
+            }
+            set {
+                this.dstipfrom = value;
+            }
+        }
+        
+        [System.Xml.Serialization.XmlAttributeAttribute("dstipto")]
+        public string Dstipto {
+            get {
+                return this.dstipto;
+            }
+            set {
+                this.dstipto = value;
+            }
+        }
+        
+        [System.Xml.Serialization.XmlAttributeAttribute("dscp")]
+        public string Dscp {
+            get {
+                return this.dscp;
+            }
+            set {
+                this.dscp = value;
+            }
+        }
+        
+        [System.Xml.Serialization.XmlAttributeAttribute("connlimit-above")]
+        public string ConnlimitAbove {
+            get {
+                return this.connlimitAbove;
+            }
+            set {
+                this.connlimitAbove = value;
+            }
+        }
+        
+        [System.Xml.Serialization.XmlAttributeAttribute("state")]
+        public string State {
+            get {
+                return this.state;
+            }
+            set {
+                this.state = value;
+            }
+        }
+        
+        [System.Xml.Serialization.XmlAttributeAttribute("ipset")]
+        public string Ipset {
+            get {
+                return this.ipset;
+            }
+            set {
+                this.ipset = value;
+            }
+        }
+        
+        [System.Xml.Serialization.XmlAttributeAttribute("ipsetflags")]
+        public string Ipsetflags {
+            get {
+                return this.ipsetflags;
+            }
+            set {
+                this.ipsetflags = value;
+            }
+        }
+        
+        [System.Xml.Serialization.XmlAttributeAttribute("comment")]
+        public string Comment {
+            get {
+                return this.comment;
+            }
+            set {
+                this.comment = value;
+            }
+        }
+    }
+    
+    public partial class FilterRuleUdpliteIpv6 {
+        
+        private VirYesNo match;
+        
+        private bool matchSpecified;
+        
+        private string srcmacaddr;
+        
+        private string srcipaddr;
+        
+        private string srcipmask;
+        
+        private string dstipaddr;
+        
+        private string dstipmask;
+        
+        private string srcipfrom;
+        
+        private string srcipto;
+        
+        private string dstipfrom;
+        
+        private string dstipto;
+        
+        private string dscp;
+        
+        private string comment;
+        
+        [System.Xml.Serialization.XmlAttributeAttribute("match")]
+        public VirYesNo Match {
+            get {
+                return this.match;
+            }
+            set {
+                this.match = value;
+            }
+        }
+        
+        [System.Xml.Serialization.XmlIgnoreAttribute()]
+        public bool MatchSpecified {
+            get {
+                return this.matchSpecified;
+            }
+            set {
+                this.matchSpecified = value;
+            }
+        }
+        
+        [System.Xml.Serialization.XmlAttributeAttribute("srcmacaddr")]
+        public string Srcmacaddr {
+            get {
+                return this.srcmacaddr;
+            }
+            set {
+                this.srcmacaddr = value;
+            }
+        }
+        
+        [System.Xml.Serialization.XmlAttributeAttribute("srcipaddr")]
+        public string Srcipaddr {
+            get {
+                return this.srcipaddr;
+            }
+            set {
+                this.srcipaddr = value;
+            }
+        }
+        
+        [System.Xml.Serialization.XmlAttributeAttribute("srcipmask")]
+        public string Srcipmask {
+            get {
+                return this.srcipmask;
+            }
+            set {
+                this.srcipmask = value;
+            }
+        }
+        
+        [System.Xml.Serialization.XmlAttributeAttribute("dstipaddr")]
+        public string Dstipaddr {
+            get {
+                return this.dstipaddr;
+            }
+            set {
+                this.dstipaddr = value;
+            }
+        }
+        
+        [System.Xml.Serialization.XmlAttributeAttribute("dstipmask")]
+        public string Dstipmask {
+            get {
+                return this.dstipmask;
+            }
+            set {
+                this.dstipmask = value;
+            }
+        }
+        
+        [System.Xml.Serialization.XmlAttributeAttribute("srcipfrom")]
+        public string Srcipfrom {
+            get {
+                return this.srcipfrom;
+            }
+            set {
+                this.srcipfrom = value;
+            }
+        }
+        
+        [System.Xml.Serialization.XmlAttributeAttribute("srcipto")]
+        public string Srcipto {
+            get {
+                return this.srcipto;
+            }
+            set {
+                this.srcipto = value;
+            }
+        }
+        
+        [System.Xml.Serialization.XmlAttributeAttribute("dstipfrom")]
+        public string Dstipfrom {
+            get {
+                return this.dstipfrom;
+            }
+            set {
+                this.dstipfrom = value;
+            }
+        }
+        
+        [System.Xml.Serialization.XmlAttributeAttribute("dstipto")]
+        public string Dstipto {
+            get {
+                return this.dstipto;
+            }
+            set {
+                this.dstipto = value;
+            }
+        }
+        
+        [System.Xml.Serialization.XmlAttributeAttribute("dscp")]
+        public string Dscp {
+            get {
+                return this.dscp;
+            }
+            set {
+                this.dscp = value;
+            }
+        }
+        
+        [System.Xml.Serialization.XmlAttributeAttribute("comment")]
+        public string Comment {
+            get {
+                return this.comment;
+            }
+            set {
+                this.comment = value;
+            }
+        }
+    }
+    
+    public partial class FilterRuleVlan {
+        
+        private VirYesNo match;
+        
+        private bool matchSpecified;
+        
+        private string srcmacaddr;
+        
+        private string srcmacmask;
+        
+        private string dstmacaddr;
+        
+        private string dstmacmask;
+        
+        private string vlanid;
+        
+        private string encapProtocol;
+        
+        private string comment;
+        
+        [System.Xml.Serialization.XmlAttributeAttribute("match")]
+        public VirYesNo Match {
+            get {
+                return this.match;
+            }
+            set {
+                this.match = value;
+            }
+        }
+        
+        [System.Xml.Serialization.XmlIgnoreAttribute()]
+        public bool MatchSpecified {
+            get {
+                return this.matchSpecified;
+            }
+            set {
+                this.matchSpecified = value;
+            }
+        }
+        
+        [System.Xml.Serialization.XmlAttributeAttribute("srcmacaddr")]
+        public string Srcmacaddr {
+            get {
+                return this.srcmacaddr;
+            }
+            set {
+                this.srcmacaddr = value;
+            }
+        }
+        
+        [System.Xml.Serialization.XmlAttributeAttribute("srcmacmask")]
+        public string Srcmacmask {
+            get {
+                return this.srcmacmask;
+            }
+            set {
+                this.srcmacmask = value;
+            }
+        }
+        
+        [System.Xml.Serialization.XmlAttributeAttribute("dstmacaddr")]
+        public string Dstmacaddr {
+            get {
+                return this.dstmacaddr;
+            }
+            set {
+                this.dstmacaddr = value;
+            }
+        }
+        
+        [System.Xml.Serialization.XmlAttributeAttribute("dstmacmask")]
+        public string Dstmacmask {
+            get {
+                return this.dstmacmask;
+            }
+            set {
+                this.dstmacmask = value;
+            }
+        }
+        
+        [System.Xml.Serialization.XmlAttributeAttribute("vlanid")]
+        public string Vlanid {
+            get {
+                return this.vlanid;
+            }
+            set {
+                this.vlanid = value;
+            }
+        }
+        
+        [System.Xml.Serialization.XmlAttributeAttribute("encap-protocol")]
+        public string EncapProtocol {
+            get {
+                return this.encapProtocol;
+            }
+            set {
+                this.encapProtocol = value;
+            }
+        }
+        
+        [System.Xml.Serialization.XmlAttributeAttribute("comment")]
+        public string Comment {
+            get {
+                return this.comment;
+            }
+            set {
+                this.comment = value;
             }
         }
     }

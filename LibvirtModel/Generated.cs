@@ -28,6 +28,256 @@ namespace Libvirt.Model {
         Return,
     }
     
+    [System.Xml.Serialization.XmlTypeAttribute("bandwidth", Namespace="")]
+    public partial class Bandwidth {
+        
+        private ulong classId;
+        
+        private bool classIdSpecified;
+        
+        private BandwidthInbound inbound;
+        
+        private BandwidthOutbound outbound;
+        
+        [System.Xml.Serialization.XmlAttributeAttribute("classID")]
+        public ulong ClassId {
+            get {
+                return this.classId;
+            }
+            set {
+                this.classId = value;
+            }
+        }
+        
+        [System.Xml.Serialization.XmlIgnoreAttribute()]
+        public bool ClassIdSpecified {
+            get {
+                return this.classIdSpecified;
+            }
+            set {
+                this.classIdSpecified = value;
+            }
+        }
+        
+        [System.Xml.Serialization.XmlElementAttribute("inbound", Namespace="")]
+        public BandwidthInbound Inbound {
+            get {
+                return this.inbound;
+            }
+            set {
+                this.inbound = value;
+            }
+        }
+        
+        [System.Xml.Serialization.XmlElementAttribute("outbound", Namespace="")]
+        public BandwidthOutbound Outbound {
+            get {
+                return this.outbound;
+            }
+            set {
+                this.outbound = value;
+            }
+        }
+    }
+    
+    public partial class BandwidthInbound {
+        
+        private uint average;
+        
+        private bool averageSpecified;
+        
+        private uint peak;
+        
+        private bool peakSpecified;
+        
+        private uint floor;
+        
+        private bool floorSpecified;
+        
+        private uint burst;
+        
+        private bool burstSpecified;
+        
+        [System.Xml.Serialization.XmlAttributeAttribute("average")]
+        public uint Average {
+            get {
+                return this.average;
+            }
+            set {
+                this.average = value;
+            }
+        }
+        
+        [System.Xml.Serialization.XmlIgnoreAttribute()]
+        public bool AverageSpecified {
+            get {
+                return this.averageSpecified;
+            }
+            set {
+                this.averageSpecified = value;
+            }
+        }
+        
+        [System.Xml.Serialization.XmlAttributeAttribute("peak")]
+        public uint Peak {
+            get {
+                return this.peak;
+            }
+            set {
+                this.peak = value;
+            }
+        }
+        
+        [System.Xml.Serialization.XmlIgnoreAttribute()]
+        public bool PeakSpecified {
+            get {
+                return this.peakSpecified;
+            }
+            set {
+                this.peakSpecified = value;
+            }
+        }
+        
+        [System.Xml.Serialization.XmlAttributeAttribute("floor")]
+        public uint Floor {
+            get {
+                return this.floor;
+            }
+            set {
+                this.floor = value;
+            }
+        }
+        
+        [System.Xml.Serialization.XmlIgnoreAttribute()]
+        public bool FloorSpecified {
+            get {
+                return this.floorSpecified;
+            }
+            set {
+                this.floorSpecified = value;
+            }
+        }
+        
+        [System.Xml.Serialization.XmlAttributeAttribute("burst")]
+        public uint Burst {
+            get {
+                return this.burst;
+            }
+            set {
+                this.burst = value;
+            }
+        }
+        
+        [System.Xml.Serialization.XmlIgnoreAttribute()]
+        public bool BurstSpecified {
+            get {
+                return this.burstSpecified;
+            }
+            set {
+                this.burstSpecified = value;
+            }
+        }
+    }
+    
+    public partial class BandwidthOutbound {
+        
+        private uint average;
+        
+        private bool averageSpecified;
+        
+        private uint peak;
+        
+        private bool peakSpecified;
+        
+        private uint floor;
+        
+        private bool floorSpecified;
+        
+        private uint burst;
+        
+        private bool burstSpecified;
+        
+        [System.Xml.Serialization.XmlAttributeAttribute("average")]
+        public uint Average {
+            get {
+                return this.average;
+            }
+            set {
+                this.average = value;
+            }
+        }
+        
+        [System.Xml.Serialization.XmlIgnoreAttribute()]
+        public bool AverageSpecified {
+            get {
+                return this.averageSpecified;
+            }
+            set {
+                this.averageSpecified = value;
+            }
+        }
+        
+        [System.Xml.Serialization.XmlAttributeAttribute("peak")]
+        public uint Peak {
+            get {
+                return this.peak;
+            }
+            set {
+                this.peak = value;
+            }
+        }
+        
+        [System.Xml.Serialization.XmlIgnoreAttribute()]
+        public bool PeakSpecified {
+            get {
+                return this.peakSpecified;
+            }
+            set {
+                this.peakSpecified = value;
+            }
+        }
+        
+        [System.Xml.Serialization.XmlAttributeAttribute("floor")]
+        public uint Floor {
+            get {
+                return this.floor;
+            }
+            set {
+                this.floor = value;
+            }
+        }
+        
+        [System.Xml.Serialization.XmlIgnoreAttribute()]
+        public bool FloorSpecified {
+            get {
+                return this.floorSpecified;
+            }
+            set {
+                this.floorSpecified = value;
+            }
+        }
+        
+        [System.Xml.Serialization.XmlAttributeAttribute("burst")]
+        public uint Burst {
+            get {
+                return this.burst;
+            }
+            set {
+                this.burst = value;
+            }
+        }
+        
+        [System.Xml.Serialization.XmlIgnoreAttribute()]
+        public bool BurstSpecified {
+            get {
+                return this.burstSpecified;
+            }
+            set {
+                this.burstSpecified = value;
+            }
+        }
+    }
+    
     public enum Boolean {
         
         [System.Xml.Serialization.XmlEnumAttribute(Name="yes")]
@@ -7560,6 +7810,437 @@ namespace Libvirt.Model {
         Up,
     }
     
+    public enum MacTableManager {
+        
+        [System.Xml.Serialization.XmlEnumAttribute(Name="kernel")]
+        Kernel,
+        
+        [System.Xml.Serialization.XmlEnumAttribute(Name="libvirt")]
+        Libvirt,
+    }
+    
+    [System.Xml.Serialization.XmlTypeAttribute("networkport", Namespace="")]
+    public partial class Networkport {
+        
+        private string uuid;
+        
+        private NetworkportOwner owner;
+        
+        private NetworkportMac mac;
+        
+        private string group;
+        
+        private NetworkportRxfilters rxfilters;
+        
+        private VirtualPortProfileVirtualport virtualport;
+        
+        private Bandwidth bandwidth;
+        
+        private Vlan vlan;
+        
+        private PortOptions port;
+        
+        private NetworkportPlug plug;
+        
+        [System.Xml.Serialization.XmlElementAttribute("uuid", Namespace="")]
+        public string Uuid {
+            get {
+                return this.uuid;
+            }
+            set {
+                this.uuid = value;
+            }
+        }
+        
+        [System.Xml.Serialization.XmlElementAttribute("owner", Namespace="")]
+        public NetworkportOwner Owner {
+            get {
+                return this.owner;
+            }
+            set {
+                this.owner = value;
+            }
+        }
+        
+        [System.Xml.Serialization.XmlElementAttribute("mac", Namespace="")]
+        public NetworkportMac Mac {
+            get {
+                return this.mac;
+            }
+            set {
+                this.mac = value;
+            }
+        }
+        
+        [System.Xml.Serialization.XmlElementAttribute("group", Namespace="")]
+        public string Group {
+            get {
+                return this.group;
+            }
+            set {
+                this.group = value;
+            }
+        }
+        
+        [System.Xml.Serialization.XmlElementAttribute("rxfilters", Namespace="")]
+        public NetworkportRxfilters Rxfilters {
+            get {
+                return this.rxfilters;
+            }
+            set {
+                this.rxfilters = value;
+            }
+        }
+        
+        [System.Xml.Serialization.XmlElementAttribute("virtualport", Namespace="")]
+        public VirtualPortProfileVirtualport Virtualport {
+            get {
+                return this.virtualport;
+            }
+            set {
+                this.virtualport = value;
+            }
+        }
+        
+        [System.Xml.Serialization.XmlElementAttribute("bandwidth", Namespace="")]
+        public Bandwidth Bandwidth {
+            get {
+                return this.bandwidth;
+            }
+            set {
+                this.bandwidth = value;
+            }
+        }
+        
+        [System.Xml.Serialization.XmlElementAttribute("vlan", Namespace="")]
+        public Vlan Vlan {
+            get {
+                return this.vlan;
+            }
+            set {
+                this.vlan = value;
+            }
+        }
+        
+        [System.Xml.Serialization.XmlElementAttribute("port", Namespace="")]
+        public PortOptions Port {
+            get {
+                return this.port;
+            }
+            set {
+                this.port = value;
+            }
+        }
+        
+        [System.Xml.Serialization.XmlElementAttribute("plug", Namespace="")]
+        public NetworkportPlug Plug {
+            get {
+                return this.plug;
+            }
+            set {
+                this.plug = value;
+            }
+        }
+    }
+    
+    [System.Xml.Serialization.XmlTypeAttribute("mac", Namespace="")]
+    public partial class NetworkportMac {
+        
+        private string address;
+        
+        [System.Xml.Serialization.XmlAttributeAttribute("address")]
+        public string Address {
+            get {
+                return this.address;
+            }
+            set {
+                this.address = value;
+            }
+        }
+    }
+    
+    [System.Xml.Serialization.XmlTypeAttribute("owner", Namespace="")]
+    public partial class NetworkportOwner {
+        
+        private string name;
+        
+        private string uuid;
+        
+        [System.Xml.Serialization.XmlElementAttribute("name", Namespace="")]
+        public string Name {
+            get {
+                return this.name;
+            }
+            set {
+                this.name = value;
+            }
+        }
+        
+        [System.Xml.Serialization.XmlElementAttribute("uuid", Namespace="")]
+        public string Uuid {
+            get {
+                return this.uuid;
+            }
+            set {
+                this.uuid = value;
+            }
+        }
+    }
+    
+    [System.Xml.Serialization.XmlTypeAttribute("plug", Namespace="")]
+    public partial class NetworkportPlug {
+        
+        private string type;
+        
+        private string bridge;
+        
+        private MacTableManager macTableManager;
+        
+        private bool macTableManagerSpecified;
+        
+        private string dev;
+        
+        private Plugdirect mode;
+        
+        private VirYesNo managed;
+        
+        private bool managedSpecified;
+        
+        private NetworkportPlughostdevpciDriver driver;
+        
+        private NetworkportPlughostdevpciAddress address;
+        
+        [System.Xml.Serialization.XmlAttributeAttribute("type")]
+        public string Type {
+            get {
+                return this.type;
+            }
+            set {
+                this.type = value;
+            }
+        }
+        
+        [System.Xml.Serialization.XmlAttributeAttribute("bridge")]
+        public string Bridge {
+            get {
+                return this.bridge;
+            }
+            set {
+                this.bridge = value;
+            }
+        }
+        
+        [System.Xml.Serialization.XmlAttributeAttribute("macTableManager")]
+        public MacTableManager MacTableManager {
+            get {
+                return this.macTableManager;
+            }
+            set {
+                this.macTableManager = value;
+            }
+        }
+        
+        [System.Xml.Serialization.XmlIgnoreAttribute()]
+        public bool MacTableManagerSpecified {
+            get {
+                return this.macTableManagerSpecified;
+            }
+            set {
+                this.macTableManagerSpecified = value;
+            }
+        }
+        
+        [System.Xml.Serialization.XmlAttributeAttribute("dev")]
+        public string Dev {
+            get {
+                return this.dev;
+            }
+            set {
+                this.dev = value;
+            }
+        }
+        
+        [System.Xml.Serialization.XmlAttributeAttribute("mode")]
+        public Plugdirect Mode {
+            get {
+                return this.mode;
+            }
+            set {
+                this.mode = value;
+            }
+        }
+        
+        [System.Xml.Serialization.XmlAttributeAttribute("managed")]
+        public VirYesNo Managed {
+            get {
+                return this.managed;
+            }
+            set {
+                this.managed = value;
+            }
+        }
+        
+        [System.Xml.Serialization.XmlIgnoreAttribute()]
+        public bool ManagedSpecified {
+            get {
+                return this.managedSpecified;
+            }
+            set {
+                this.managedSpecified = value;
+            }
+        }
+        
+        [System.Xml.Serialization.XmlElementAttribute("driver", Namespace="")]
+        public NetworkportPlughostdevpciDriver Driver {
+            get {
+                return this.driver;
+            }
+            set {
+                this.driver = value;
+            }
+        }
+        
+        [System.Xml.Serialization.XmlElementAttribute("address", Namespace="")]
+        public NetworkportPlughostdevpciAddress Address {
+            get {
+                return this.address;
+            }
+            set {
+                this.address = value;
+            }
+        }
+    }
+    
+    public partial class NetworkportPlughostdevpciAddress {
+        
+        private string domain;
+        
+        private string bus;
+        
+        private string slot;
+        
+        private string function;
+        
+        private VirOnOff multifunction;
+        
+        private bool multifunctionSpecified;
+        
+        [System.Xml.Serialization.XmlAttributeAttribute("domain")]
+        public string Domain {
+            get {
+                return this.domain;
+            }
+            set {
+                this.domain = value;
+            }
+        }
+        
+        [System.Xml.Serialization.XmlAttributeAttribute("bus")]
+        public string Bus {
+            get {
+                return this.bus;
+            }
+            set {
+                this.bus = value;
+            }
+        }
+        
+        [System.Xml.Serialization.XmlAttributeAttribute("slot")]
+        public string Slot {
+            get {
+                return this.slot;
+            }
+            set {
+                this.slot = value;
+            }
+        }
+        
+        [System.Xml.Serialization.XmlAttributeAttribute("function")]
+        public string Function {
+            get {
+                return this.function;
+            }
+            set {
+                this.function = value;
+            }
+        }
+        
+        [System.Xml.Serialization.XmlAttributeAttribute("multifunction")]
+        public VirOnOff Multifunction {
+            get {
+                return this.multifunction;
+            }
+            set {
+                this.multifunction = value;
+            }
+        }
+        
+        [System.Xml.Serialization.XmlIgnoreAttribute()]
+        public bool MultifunctionSpecified {
+            get {
+                return this.multifunctionSpecified;
+            }
+            set {
+                this.multifunctionSpecified = value;
+            }
+        }
+    }
+    
+    public partial class NetworkportPlughostdevpciDriver {
+        
+        private NetworkportPlughostdevpciDriverName name;
+        
+        [System.Xml.Serialization.XmlAttributeAttribute("name")]
+        public NetworkportPlughostdevpciDriverName Name {
+            get {
+                return this.name;
+            }
+            set {
+                this.name = value;
+            }
+        }
+    }
+    
+    public enum NetworkportPlughostdevpciDriverName {
+        
+        [System.Xml.Serialization.XmlEnumAttribute(Name="kvm")]
+        Kvm,
+        
+        [System.Xml.Serialization.XmlEnumAttribute(Name="vfio")]
+        Vfio,
+    }
+    
+    [System.Xml.Serialization.XmlTypeAttribute("rxfilters", Namespace="")]
+    public partial class NetworkportRxfilters {
+        
+        private VirYesNo trustGuest;
+        
+        [System.Xml.Serialization.XmlAttributeAttribute("trustGuest")]
+        public VirYesNo TrustGuest {
+            get {
+                return this.trustGuest;
+            }
+            set {
+                this.trustGuest = value;
+            }
+        }
+    }
+    
+    public enum Plugdirect {
+        
+        [System.Xml.Serialization.XmlEnumAttribute(Name="bridge")]
+        Bridge,
+        
+        [System.Xml.Serialization.XmlEnumAttribute(Name="passthrough")]
+        Passthrough,
+        
+        [System.Xml.Serialization.XmlEnumAttribute(Name="private")]
+        Private,
+        
+        [System.Xml.Serialization.XmlEnumAttribute(Name="vepa")]
+        Vepa,
+    }
+    
     public abstract partial class Pool {
     }
     
@@ -10544,6 +11225,34 @@ namespace Libvirt.Model {
         }
     }
     
+    [System.Xml.Serialization.XmlTypeAttribute("port", Namespace="")]
+    public partial class PortOptions {
+        
+        private VirYesNo isolated;
+        
+        private bool isolatedSpecified;
+        
+        [System.Xml.Serialization.XmlAttributeAttribute("isolated")]
+        public VirYesNo Isolated {
+            get {
+                return this.isolated;
+            }
+            set {
+                this.isolated = value;
+            }
+        }
+        
+        [System.Xml.Serialization.XmlIgnoreAttribute()]
+        public bool IsolatedSpecified {
+            get {
+                return this.isolatedSpecified;
+            }
+            set {
+                this.isolatedSpecified = value;
+            }
+        }
+    }
+    
     public enum RefreshVolumeAllocation {
         
         [System.Xml.Serialization.XmlEnumAttribute(Name="default")]
@@ -11518,6 +12227,84 @@ namespace Libvirt.Model {
         Off,
     }
     
+    public partial class VirtualPortProfileVirtualport {
+        
+        private string type;
+        
+        private VirtualPortProfileVirtualportParameters parameters;
+        
+        [System.Xml.Serialization.XmlAttributeAttribute("type")]
+        public string Type {
+            get {
+                return this.type;
+            }
+            set {
+                this.type = value;
+            }
+        }
+        
+        [System.Xml.Serialization.XmlElementAttribute("parameters", Namespace="")]
+        public VirtualPortProfileVirtualportParameters Parameters {
+            get {
+                return this.parameters;
+            }
+            set {
+                this.parameters = value;
+            }
+        }
+    }
+    
+    public partial class VirtualPortProfileVirtualportParameters {
+        
+        private string managerid;
+        
+        private string typeid;
+        
+        private string typeidversion;
+        
+        private string instanceid;
+        
+        [System.Xml.Serialization.XmlAttributeAttribute("managerid")]
+        public string Managerid {
+            get {
+                return this.managerid;
+            }
+            set {
+                this.managerid = value;
+            }
+        }
+        
+        [System.Xml.Serialization.XmlAttributeAttribute("typeid")]
+        public string Typeid {
+            get {
+                return this.typeid;
+            }
+            set {
+                this.typeid = value;
+            }
+        }
+        
+        [System.Xml.Serialization.XmlAttributeAttribute("typeidversion")]
+        public string Typeidversion {
+            get {
+                return this.typeidversion;
+            }
+            set {
+                this.typeidversion = value;
+            }
+        }
+        
+        [System.Xml.Serialization.XmlAttributeAttribute("instanceid")]
+        public string Instanceid {
+            get {
+                return this.instanceid;
+            }
+            set {
+                this.instanceid = value;
+            }
+        }
+    }
+    
     public enum VirYesNo {
         
         [System.Xml.Serialization.XmlEnumAttribute(Name="yes")]
@@ -11525,6 +12312,82 @@ namespace Libvirt.Model {
         
         [System.Xml.Serialization.XmlEnumAttribute(Name="no")]
         No,
+    }
+    
+    [System.Xml.Serialization.XmlTypeAttribute("vlan", Namespace="")]
+    public partial class Vlan {
+        
+        private string trunk;
+        
+        private VlanTag[] tag;
+        
+        [System.Xml.Serialization.XmlAttributeAttribute("trunk")]
+        public string Trunk {
+            get {
+                return this.trunk;
+            }
+            set {
+                this.trunk = value;
+            }
+        }
+        
+        [System.Xml.Serialization.XmlElementAttribute("tag", Namespace="")]
+        public VlanTag[] Tag {
+            get {
+                return this.tag;
+            }
+            set {
+                this.tag = value;
+            }
+        }
+    }
+    
+    public partial class VlanTag {
+        
+        private uint id;
+        
+        private VlanTagNativeMode nativeMode;
+        
+        private bool nativeModeSpecified;
+        
+        [System.Xml.Serialization.XmlAttributeAttribute("id")]
+        public uint Id {
+            get {
+                return this.id;
+            }
+            set {
+                this.id = value;
+            }
+        }
+        
+        [System.Xml.Serialization.XmlAttributeAttribute("nativeMode")]
+        public VlanTagNativeMode NativeMode {
+            get {
+                return this.nativeMode;
+            }
+            set {
+                this.nativeMode = value;
+            }
+        }
+        
+        [System.Xml.Serialization.XmlIgnoreAttribute()]
+        public bool NativeModeSpecified {
+            get {
+                return this.nativeModeSpecified;
+            }
+            set {
+                this.nativeModeSpecified = value;
+            }
+        }
+    }
+    
+    public enum VlanTagNativeMode {
+        
+        [System.Xml.Serialization.XmlEnumAttribute(Name="tagged")]
+        Tagged,
+        
+        [System.Xml.Serialization.XmlEnumAttribute(Name="untagged")]
+        Untagged,
     }
     
     [System.Xml.Serialization.XmlTypeAttribute("volume", Namespace="")]

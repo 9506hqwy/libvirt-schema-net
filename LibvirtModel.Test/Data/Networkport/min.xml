@@ -1,0 +1,8 @@
+<networkport>
+  <uuid>uuid1</uuid>
+  <owner>
+    <name>name</name>
+    <uuid>uuid2</uuid>
+  </owner>
+  <mac address="00:11:22:33:44:55" />
+</networkport>

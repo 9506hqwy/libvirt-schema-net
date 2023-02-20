@@ -40,6 +40,9 @@ internal class MainShell
 
         var schema = new Schema();
 
+        // networkport.rng
+        this.Parse(schema, files["networkport.rng"]).CollectType(context);
+
         // nodedev.rng
         this.Parse(schema, files["nodedev.rng"]).CollectType(context);
 

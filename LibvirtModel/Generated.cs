@@ -7734,6 +7734,18 @@ namespace Libvirt.Model {
         }
     }
     
+    public enum LeaseUnit {
+        
+        [System.Xml.Serialization.XmlEnumAttribute(Name="seconds")]
+        Seconds,
+        
+        [System.Xml.Serialization.XmlEnumAttribute(Name="minutes")]
+        Minutes,
+        
+        [System.Xml.Serialization.XmlEnumAttribute(Name="hours")]
+        Hours,
+    }
+    
     [System.Xml.Serialization.XmlTypeAttribute("link", Namespace="")]
     public partial class LinkSpeedState {
         
@@ -7817,6 +7829,1608 @@ namespace Libvirt.Model {
         
         [System.Xml.Serialization.XmlEnumAttribute(Name="libvirt")]
         Libvirt,
+    }
+    
+    [System.Xml.Serialization.XmlTypeAttribute("metadata", Namespace="")]
+    public partial class Metadata {
+    }
+    
+    [System.Xml.Serialization.XmlTypeAttribute("mtu", Namespace="")]
+    public partial class Mtu {
+        
+        private long size;
+        
+        [System.Xml.Serialization.XmlAttributeAttribute("size")]
+        public long Size {
+            get {
+                return this.size;
+            }
+            set {
+                this.size = value;
+            }
+        }
+    }
+    
+    [System.Xml.Serialization.XmlTypeAttribute("network", Namespace="")]
+    public partial class Network {
+        
+        private uint connections;
+        
+        private bool connectionsSpecified;
+        
+        private VirYesNo ipv6;
+        
+        private bool ipv6Specified;
+        
+        private VirYesNo trustGuestRxFilters;
+        
+        private bool trustGuestRxFiltersSpecified;
+        
+        private string name;
+        
+        private Metadata metadata;
+        
+        private string uuid;
+        
+        private NetworkBridge bridge;
+        
+        private Mtu mtu;
+        
+        private NetworkMac mac;
+        
+        private NetworkForward forward;
+        
+        private VirtualPortProfileVirtualport virtualport;
+        
+        private NetworkPortgroup[] portgroup;
+        
+        private NetworkDomain domain;
+        
+        private NetworkDns dns;
+        
+        private Bandwidth bandwidth;
+        
+        private Vlan vlan;
+        
+        private PortOptions port;
+        
+        private NetworkIp[] ip;
+        
+        private Route[] route;
+        
+        private NetworkOptions options;
+        
+        [System.Xml.Serialization.XmlAttributeAttribute("connections")]
+        public uint Connections {
+            get {
+                return this.connections;
+            }
+            set {
+                this.connections = value;
+            }
+        }
+        
+        [System.Xml.Serialization.XmlIgnoreAttribute()]
+        public bool ConnectionsSpecified {
+            get {
+                return this.connectionsSpecified;
+            }
+            set {
+                this.connectionsSpecified = value;
+            }
+        }
+        
+        [System.Xml.Serialization.XmlAttributeAttribute("ipv6")]
+        public VirYesNo Ipv6 {
+            get {
+                return this.ipv6;
+            }
+            set {
+                this.ipv6 = value;
+            }
+        }
+        
+        [System.Xml.Serialization.XmlIgnoreAttribute()]
+        public bool Ipv6Specified {
+            get {
+                return this.ipv6Specified;
+            }
+            set {
+                this.ipv6Specified = value;
+            }
+        }
+        
+        [System.Xml.Serialization.XmlAttributeAttribute("trustGuestRxFilters")]
+        public VirYesNo TrustGuestRxFilters {
+            get {
+                return this.trustGuestRxFilters;
+            }
+            set {
+                this.trustGuestRxFilters = value;
+            }
+        }
+        
+        [System.Xml.Serialization.XmlIgnoreAttribute()]
+        public bool TrustGuestRxFiltersSpecified {
+            get {
+                return this.trustGuestRxFiltersSpecified;
+            }
+            set {
+                this.trustGuestRxFiltersSpecified = value;
+            }
+        }
+        
+        [System.Xml.Serialization.XmlElementAttribute("name", Namespace="")]
+        public string Name {
+            get {
+                return this.name;
+            }
+            set {
+                this.name = value;
+            }
+        }
+        
+        [System.Xml.Serialization.XmlElementAttribute("metadata", Namespace="")]
+        public Metadata Metadata {
+            get {
+                return this.metadata;
+            }
+            set {
+                this.metadata = value;
+            }
+        }
+        
+        [System.Xml.Serialization.XmlElementAttribute("uuid", Namespace="")]
+        public string Uuid {
+            get {
+                return this.uuid;
+            }
+            set {
+                this.uuid = value;
+            }
+        }
+        
+        [System.Xml.Serialization.XmlElementAttribute("bridge", Namespace="")]
+        public NetworkBridge Bridge {
+            get {
+                return this.bridge;
+            }
+            set {
+                this.bridge = value;
+            }
+        }
+        
+        [System.Xml.Serialization.XmlElementAttribute("mtu", Namespace="")]
+        public Mtu Mtu {
+            get {
+                return this.mtu;
+            }
+            set {
+                this.mtu = value;
+            }
+        }
+        
+        [System.Xml.Serialization.XmlElementAttribute("mac", Namespace="")]
+        public NetworkMac Mac {
+            get {
+                return this.mac;
+            }
+            set {
+                this.mac = value;
+            }
+        }
+        
+        [System.Xml.Serialization.XmlElementAttribute("forward", Namespace="")]
+        public NetworkForward Forward {
+            get {
+                return this.forward;
+            }
+            set {
+                this.forward = value;
+            }
+        }
+        
+        [System.Xml.Serialization.XmlElementAttribute("virtualport", Namespace="")]
+        public VirtualPortProfileVirtualport Virtualport {
+            get {
+                return this.virtualport;
+            }
+            set {
+                this.virtualport = value;
+            }
+        }
+        
+        [System.Xml.Serialization.XmlElementAttribute("portgroup", Namespace="")]
+        public NetworkPortgroup[] Portgroup {
+            get {
+                return this.portgroup;
+            }
+            set {
+                this.portgroup = value;
+            }
+        }
+        
+        [System.Xml.Serialization.XmlElementAttribute("domain", Namespace="")]
+        public NetworkDomain Domain {
+            get {
+                return this.domain;
+            }
+            set {
+                this.domain = value;
+            }
+        }
+        
+        [System.Xml.Serialization.XmlElementAttribute("dns", Namespace="")]
+        public NetworkDns Dns {
+            get {
+                return this.dns;
+            }
+            set {
+                this.dns = value;
+            }
+        }
+        
+        [System.Xml.Serialization.XmlElementAttribute("bandwidth", Namespace="")]
+        public Bandwidth Bandwidth {
+            get {
+                return this.bandwidth;
+            }
+            set {
+                this.bandwidth = value;
+            }
+        }
+        
+        [System.Xml.Serialization.XmlElementAttribute("vlan", Namespace="")]
+        public Vlan Vlan {
+            get {
+                return this.vlan;
+            }
+            set {
+                this.vlan = value;
+            }
+        }
+        
+        [System.Xml.Serialization.XmlElementAttribute("port", Namespace="")]
+        public PortOptions Port {
+            get {
+                return this.port;
+            }
+            set {
+                this.port = value;
+            }
+        }
+        
+        [System.Xml.Serialization.XmlElementAttribute("ip", Namespace="")]
+        public NetworkIp[] Ip {
+            get {
+                return this.ip;
+            }
+            set {
+                this.ip = value;
+            }
+        }
+        
+        [System.Xml.Serialization.XmlElementAttribute("route", Namespace="")]
+        public Route[] Route {
+            get {
+                return this.route;
+            }
+            set {
+                this.route = value;
+            }
+        }
+        
+        [System.Xml.Serialization.XmlElementAttribute("options", Namespace="http://libvirt.org/schemas/network/dnsmasq/1.0")]
+        public NetworkOptions Options {
+            get {
+                return this.options;
+            }
+            set {
+                this.options = value;
+            }
+        }
+    }
+    
+    public partial class NetworkBridge {
+        
+        private string name;
+        
+        private string zone;
+        
+        private VirOnOff stp;
+        
+        private bool stpSpecified;
+        
+        private ulong delay;
+        
+        private bool delaySpecified;
+        
+        private MacTableManager macTableManager;
+        
+        private bool macTableManagerSpecified;
+        
+        [System.Xml.Serialization.XmlAttributeAttribute("name")]
+        public string Name {
+            get {
+                return this.name;
+            }
+            set {
+                this.name = value;
+            }
+        }
+        
+        [System.Xml.Serialization.XmlAttributeAttribute("zone")]
+        public string Zone {
+            get {
+                return this.zone;
+            }
+            set {
+                this.zone = value;
+            }
+        }
+        
+        [System.Xml.Serialization.XmlAttributeAttribute("stp")]
+        public VirOnOff Stp {
+            get {
+                return this.stp;
+            }
+            set {
+                this.stp = value;
+            }
+        }
+        
+        [System.Xml.Serialization.XmlIgnoreAttribute()]
+        public bool StpSpecified {
+            get {
+                return this.stpSpecified;
+            }
+            set {
+                this.stpSpecified = value;
+            }
+        }
+        
+        [System.Xml.Serialization.XmlAttributeAttribute("delay")]
+        public ulong Delay {
+            get {
+                return this.delay;
+            }
+            set {
+                this.delay = value;
+            }
+        }
+        
+        [System.Xml.Serialization.XmlIgnoreAttribute()]
+        public bool DelaySpecified {
+            get {
+                return this.delaySpecified;
+            }
+            set {
+                this.delaySpecified = value;
+            }
+        }
+        
+        [System.Xml.Serialization.XmlAttributeAttribute("macTableManager")]
+        public MacTableManager MacTableManager {
+            get {
+                return this.macTableManager;
+            }
+            set {
+                this.macTableManager = value;
+            }
+        }
+        
+        [System.Xml.Serialization.XmlIgnoreAttribute()]
+        public bool MacTableManagerSpecified {
+            get {
+                return this.macTableManagerSpecified;
+            }
+            set {
+                this.macTableManagerSpecified = value;
+            }
+        }
+    }
+    
+    public partial class NetworkDns {
+        
+        private VirYesNo enable;
+        
+        private bool enableSpecified;
+        
+        private VirYesNo forwardPlainNames;
+        
+        private bool forwardPlainNamesSpecified;
+        
+        private NetworkDnsForwarder[] forwarder;
+        
+        private NetworkDnsTxt[] txt;
+        
+        private NetworkDnsSrv[] srv;
+        
+        private NetworkDnsHost[] host;
+        
+        [System.Xml.Serialization.XmlAttributeAttribute("enable")]
+        public VirYesNo Enable {
+            get {
+                return this.enable;
+            }
+            set {
+                this.enable = value;
+            }
+        }
+        
+        [System.Xml.Serialization.XmlIgnoreAttribute()]
+        public bool EnableSpecified {
+            get {
+                return this.enableSpecified;
+            }
+            set {
+                this.enableSpecified = value;
+            }
+        }
+        
+        [System.Xml.Serialization.XmlAttributeAttribute("forwardPlainNames")]
+        public VirYesNo ForwardPlainNames {
+            get {
+                return this.forwardPlainNames;
+            }
+            set {
+                this.forwardPlainNames = value;
+            }
+        }
+        
+        [System.Xml.Serialization.XmlIgnoreAttribute()]
+        public bool ForwardPlainNamesSpecified {
+            get {
+                return this.forwardPlainNamesSpecified;
+            }
+            set {
+                this.forwardPlainNamesSpecified = value;
+            }
+        }
+        
+        [System.Xml.Serialization.XmlElementAttribute("forwarder", Namespace="")]
+        public NetworkDnsForwarder[] Forwarder {
+            get {
+                return this.forwarder;
+            }
+            set {
+                this.forwarder = value;
+            }
+        }
+        
+        [System.Xml.Serialization.XmlElementAttribute("txt", Namespace="")]
+        public NetworkDnsTxt[] Txt {
+            get {
+                return this.txt;
+            }
+            set {
+                this.txt = value;
+            }
+        }
+        
+        [System.Xml.Serialization.XmlElementAttribute("srv", Namespace="")]
+        public NetworkDnsSrv[] Srv {
+            get {
+                return this.srv;
+            }
+            set {
+                this.srv = value;
+            }
+        }
+        
+        [System.Xml.Serialization.XmlElementAttribute("host", Namespace="")]
+        public NetworkDnsHost[] Host {
+            get {
+                return this.host;
+            }
+            set {
+                this.host = value;
+            }
+        }
+    }
+    
+    public partial class NetworkDnsForwarder {
+        
+        private string addr;
+        
+        private string domain;
+        
+        [System.Xml.Serialization.XmlAttributeAttribute("addr")]
+        public string Addr {
+            get {
+                return this.addr;
+            }
+            set {
+                this.addr = value;
+            }
+        }
+        
+        [System.Xml.Serialization.XmlAttributeAttribute("domain")]
+        public string Domain {
+            get {
+                return this.domain;
+            }
+            set {
+                this.domain = value;
+            }
+        }
+    }
+    
+    public partial class NetworkDnsHost {
+        
+        private string ip;
+        
+        private string[] hostname;
+        
+        [System.Xml.Serialization.XmlAttributeAttribute("ip")]
+        public string Ip {
+            get {
+                return this.ip;
+            }
+            set {
+                this.ip = value;
+            }
+        }
+        
+        [System.Xml.Serialization.XmlElementAttribute("hostname", Namespace="")]
+        public string[] Hostname {
+            get {
+                return this.hostname;
+            }
+            set {
+                this.hostname = value;
+            }
+        }
+    }
+    
+    public partial class NetworkDnsSrv {
+        
+        private string service;
+        
+        private string protocol;
+        
+        private string domain;
+        
+        private string target;
+        
+        private long port;
+        
+        private bool portSpecified;
+        
+        private long priority;
+        
+        private bool prioritySpecified;
+        
+        private long weight;
+        
+        private bool weightSpecified;
+        
+        [System.Xml.Serialization.XmlAttributeAttribute("service")]
+        public string Service {
+            get {
+                return this.service;
+            }
+            set {
+                this.service = value;
+            }
+        }
+        
+        [System.Xml.Serialization.XmlAttributeAttribute("protocol")]
+        public string Protocol {
+            get {
+                return this.protocol;
+            }
+            set {
+                this.protocol = value;
+            }
+        }
+        
+        [System.Xml.Serialization.XmlAttributeAttribute("domain")]
+        public string Domain {
+            get {
+                return this.domain;
+            }
+            set {
+                this.domain = value;
+            }
+        }
+        
+        [System.Xml.Serialization.XmlAttributeAttribute("target")]
+        public string Target {
+            get {
+                return this.target;
+            }
+            set {
+                this.target = value;
+            }
+        }
+        
+        [System.Xml.Serialization.XmlAttributeAttribute("port")]
+        public long Port {
+            get {
+                return this.port;
+            }
+            set {
+                this.port = value;
+            }
+        }
+        
+        [System.Xml.Serialization.XmlIgnoreAttribute()]
+        public bool PortSpecified {
+            get {
+                return this.portSpecified;
+            }
+            set {
+                this.portSpecified = value;
+            }
+        }
+        
+        [System.Xml.Serialization.XmlAttributeAttribute("priority")]
+        public long Priority {
+            get {
+                return this.priority;
+            }
+            set {
+                this.priority = value;
+            }
+        }
+        
+        [System.Xml.Serialization.XmlIgnoreAttribute()]
+        public bool PrioritySpecified {
+            get {
+                return this.prioritySpecified;
+            }
+            set {
+                this.prioritySpecified = value;
+            }
+        }
+        
+        [System.Xml.Serialization.XmlAttributeAttribute("weight")]
+        public long Weight {
+            get {
+                return this.weight;
+            }
+            set {
+                this.weight = value;
+            }
+        }
+        
+        [System.Xml.Serialization.XmlIgnoreAttribute()]
+        public bool WeightSpecified {
+            get {
+                return this.weightSpecified;
+            }
+            set {
+                this.weightSpecified = value;
+            }
+        }
+    }
+    
+    public partial class NetworkDnsTxt {
+        
+        private string name;
+        
+        private string value;
+        
+        [System.Xml.Serialization.XmlAttributeAttribute("name")]
+        public string Name {
+            get {
+                return this.name;
+            }
+            set {
+                this.name = value;
+            }
+        }
+        
+        [System.Xml.Serialization.XmlAttributeAttribute("value")]
+        public string Value {
+            get {
+                return this.value;
+            }
+            set {
+                this.value = value;
+            }
+        }
+    }
+    
+    public partial class NetworkDomain {
+        
+        private string name;
+        
+        private VirYesNo localOnly;
+        
+        private bool localOnlySpecified;
+        
+        [System.Xml.Serialization.XmlAttributeAttribute("name")]
+        public string Name {
+            get {
+                return this.name;
+            }
+            set {
+                this.name = value;
+            }
+        }
+        
+        [System.Xml.Serialization.XmlAttributeAttribute("localOnly")]
+        public VirYesNo LocalOnly {
+            get {
+                return this.localOnly;
+            }
+            set {
+                this.localOnly = value;
+            }
+        }
+        
+        [System.Xml.Serialization.XmlIgnoreAttribute()]
+        public bool LocalOnlySpecified {
+            get {
+                return this.localOnlySpecified;
+            }
+            set {
+                this.localOnlySpecified = value;
+            }
+        }
+    }
+    
+    public partial class NetworkForward {
+        
+        private string dev;
+        
+        private NetworkForwardMode mode;
+        
+        private bool modeSpecified;
+        
+        private VirYesNo managed;
+        
+        private bool managedSpecified;
+        
+        private NetworkForwardInterface[] @interface;
+        
+        private NetworkForwardAddress[] address;
+        
+        private NetworkForwardPf pf;
+        
+        private NetworkForwardDriver driver;
+        
+        private NetworkForwardNat nat;
+        
+        [System.Xml.Serialization.XmlAttributeAttribute("dev")]
+        public string Dev {
+            get {
+                return this.dev;
+            }
+            set {
+                this.dev = value;
+            }
+        }
+        
+        [System.Xml.Serialization.XmlAttributeAttribute("mode")]
+        public NetworkForwardMode Mode {
+            get {
+                return this.mode;
+            }
+            set {
+                this.mode = value;
+            }
+        }
+        
+        [System.Xml.Serialization.XmlIgnoreAttribute()]
+        public bool ModeSpecified {
+            get {
+                return this.modeSpecified;
+            }
+            set {
+                this.modeSpecified = value;
+            }
+        }
+        
+        [System.Xml.Serialization.XmlAttributeAttribute("managed")]
+        public VirYesNo Managed {
+            get {
+                return this.managed;
+            }
+            set {
+                this.managed = value;
+            }
+        }
+        
+        [System.Xml.Serialization.XmlIgnoreAttribute()]
+        public bool ManagedSpecified {
+            get {
+                return this.managedSpecified;
+            }
+            set {
+                this.managedSpecified = value;
+            }
+        }
+        
+        [System.Xml.Serialization.XmlElementAttribute("interface", Namespace="")]
+        public NetworkForwardInterface[] Interface {
+            get {
+                return this.@interface;
+            }
+            set {
+                this.@interface = value;
+            }
+        }
+        
+        [System.Xml.Serialization.XmlElementAttribute("address", Namespace="")]
+        public NetworkForwardAddress[] Address {
+            get {
+                return this.address;
+            }
+            set {
+                this.address = value;
+            }
+        }
+        
+        [System.Xml.Serialization.XmlElementAttribute("pf", Namespace="")]
+        public NetworkForwardPf Pf {
+            get {
+                return this.pf;
+            }
+            set {
+                this.pf = value;
+            }
+        }
+        
+        [System.Xml.Serialization.XmlElementAttribute("driver", Namespace="")]
+        public NetworkForwardDriver Driver {
+            get {
+                return this.driver;
+            }
+            set {
+                this.driver = value;
+            }
+        }
+        
+        [System.Xml.Serialization.XmlElementAttribute("nat", Namespace="")]
+        public NetworkForwardNat Nat {
+            get {
+                return this.nat;
+            }
+            set {
+                this.nat = value;
+            }
+        }
+    }
+    
+    public partial class NetworkForwardAddress {
+        
+        private string type;
+        
+        private string domain;
+        
+        private string bus;
+        
+        private string slot;
+        
+        private string function;
+        
+        private VirOnOff multifunction;
+        
+        private bool multifunctionSpecified;
+        
+        private uint connections;
+        
+        private bool connectionsSpecified;
+        
+        [System.Xml.Serialization.XmlAttributeAttribute("type")]
+        public string Type {
+            get {
+                return this.type;
+            }
+            set {
+                this.type = value;
+            }
+        }
+        
+        [System.Xml.Serialization.XmlAttributeAttribute("domain")]
+        public string Domain {
+            get {
+                return this.domain;
+            }
+            set {
+                this.domain = value;
+            }
+        }
+        
+        [System.Xml.Serialization.XmlAttributeAttribute("bus")]
+        public string Bus {
+            get {
+                return this.bus;
+            }
+            set {
+                this.bus = value;
+            }
+        }
+        
+        [System.Xml.Serialization.XmlAttributeAttribute("slot")]
+        public string Slot {
+            get {
+                return this.slot;
+            }
+            set {
+                this.slot = value;
+            }
+        }
+        
+        [System.Xml.Serialization.XmlAttributeAttribute("function")]
+        public string Function {
+            get {
+                return this.function;
+            }
+            set {
+                this.function = value;
+            }
+        }
+        
+        [System.Xml.Serialization.XmlAttributeAttribute("multifunction")]
+        public VirOnOff Multifunction {
+            get {
+                return this.multifunction;
+            }
+            set {
+                this.multifunction = value;
+            }
+        }
+        
+        [System.Xml.Serialization.XmlIgnoreAttribute()]
+        public bool MultifunctionSpecified {
+            get {
+                return this.multifunctionSpecified;
+            }
+            set {
+                this.multifunctionSpecified = value;
+            }
+        }
+        
+        [System.Xml.Serialization.XmlAttributeAttribute("connections")]
+        public uint Connections {
+            get {
+                return this.connections;
+            }
+            set {
+                this.connections = value;
+            }
+        }
+        
+        [System.Xml.Serialization.XmlIgnoreAttribute()]
+        public bool ConnectionsSpecified {
+            get {
+                return this.connectionsSpecified;
+            }
+            set {
+                this.connectionsSpecified = value;
+            }
+        }
+    }
+    
+    public partial class NetworkForwardDriver {
+        
+        private NetworkForwardDriverName name;
+        
+        [System.Xml.Serialization.XmlAttributeAttribute("name")]
+        public NetworkForwardDriverName Name {
+            get {
+                return this.name;
+            }
+            set {
+                this.name = value;
+            }
+        }
+    }
+    
+    public enum NetworkForwardDriverName {
+        
+        [System.Xml.Serialization.XmlEnumAttribute(Name="kvm")]
+        Kvm,
+        
+        [System.Xml.Serialization.XmlEnumAttribute(Name="vfio")]
+        Vfio,
+    }
+    
+    public partial class NetworkForwardInterface {
+        
+        private string dev;
+        
+        private uint connections;
+        
+        private bool connectionsSpecified;
+        
+        [System.Xml.Serialization.XmlAttributeAttribute("dev")]
+        public string Dev {
+            get {
+                return this.dev;
+            }
+            set {
+                this.dev = value;
+            }
+        }
+        
+        [System.Xml.Serialization.XmlAttributeAttribute("connections")]
+        public uint Connections {
+            get {
+                return this.connections;
+            }
+            set {
+                this.connections = value;
+            }
+        }
+        
+        [System.Xml.Serialization.XmlIgnoreAttribute()]
+        public bool ConnectionsSpecified {
+            get {
+                return this.connectionsSpecified;
+            }
+            set {
+                this.connectionsSpecified = value;
+            }
+        }
+    }
+    
+    public enum NetworkForwardMode {
+        
+        [System.Xml.Serialization.XmlEnumAttribute(Name="nat")]
+        Nat,
+        
+        [System.Xml.Serialization.XmlEnumAttribute(Name="route")]
+        Route,
+        
+        [System.Xml.Serialization.XmlEnumAttribute(Name="open")]
+        Open,
+        
+        [System.Xml.Serialization.XmlEnumAttribute(Name="bridge")]
+        Bridge,
+        
+        [System.Xml.Serialization.XmlEnumAttribute(Name="passthrough")]
+        Passthrough,
+        
+        [System.Xml.Serialization.XmlEnumAttribute(Name="private")]
+        Private,
+        
+        [System.Xml.Serialization.XmlEnumAttribute(Name="vepa")]
+        Vepa,
+        
+        [System.Xml.Serialization.XmlEnumAttribute(Name="hostdev")]
+        Hostdev,
+    }
+    
+    public partial class NetworkForwardNat {
+        
+        private VirYesNo ipv6;
+        
+        private bool ipv6Specified;
+        
+        private NetworkForwardNatAddress address;
+        
+        private NetworkForwardNatPort port;
+        
+        [System.Xml.Serialization.XmlAttributeAttribute("ipv6")]
+        public VirYesNo Ipv6 {
+            get {
+                return this.ipv6;
+            }
+            set {
+                this.ipv6 = value;
+            }
+        }
+        
+        [System.Xml.Serialization.XmlIgnoreAttribute()]
+        public bool Ipv6Specified {
+            get {
+                return this.ipv6Specified;
+            }
+            set {
+                this.ipv6Specified = value;
+            }
+        }
+        
+        [System.Xml.Serialization.XmlElementAttribute("address", Namespace="")]
+        public NetworkForwardNatAddress Address {
+            get {
+                return this.address;
+            }
+            set {
+                this.address = value;
+            }
+        }
+        
+        [System.Xml.Serialization.XmlElementAttribute("port", Namespace="")]
+        public NetworkForwardNatPort Port {
+            get {
+                return this.port;
+            }
+            set {
+                this.port = value;
+            }
+        }
+    }
+    
+    public partial class NetworkForwardNatAddress {
+        
+        private string start;
+        
+        private string end;
+        
+        [System.Xml.Serialization.XmlAttributeAttribute("start")]
+        public string Start {
+            get {
+                return this.start;
+            }
+            set {
+                this.start = value;
+            }
+        }
+        
+        [System.Xml.Serialization.XmlAttributeAttribute("end")]
+        public string End {
+            get {
+                return this.end;
+            }
+            set {
+                this.end = value;
+            }
+        }
+    }
+    
+    public partial class NetworkForwardNatPort {
+        
+        private long start;
+        
+        private long end;
+        
+        [System.Xml.Serialization.XmlAttributeAttribute("start")]
+        public long Start {
+            get {
+                return this.start;
+            }
+            set {
+                this.start = value;
+            }
+        }
+        
+        [System.Xml.Serialization.XmlAttributeAttribute("end")]
+        public long End {
+            get {
+                return this.end;
+            }
+            set {
+                this.end = value;
+            }
+        }
+    }
+    
+    public partial class NetworkForwardPf {
+        
+        private string dev;
+        
+        [System.Xml.Serialization.XmlAttributeAttribute("dev")]
+        public string Dev {
+            get {
+                return this.dev;
+            }
+            set {
+                this.dev = value;
+            }
+        }
+    }
+    
+    public partial class NetworkIp {
+        
+        private string address;
+        
+        private string netmask;
+        
+        private uint prefix;
+        
+        private bool prefixSpecified;
+        
+        private string family;
+        
+        private VirYesNo localPtr;
+        
+        private bool localPtrSpecified;
+        
+        private NetworkIpTftp tftp;
+        
+        private NetworkIpDhcp dhcp;
+        
+        [System.Xml.Serialization.XmlAttributeAttribute("address")]
+        public string Address {
+            get {
+                return this.address;
+            }
+            set {
+                this.address = value;
+            }
+        }
+        
+        [System.Xml.Serialization.XmlAttributeAttribute("netmask")]
+        public string Netmask {
+            get {
+                return this.netmask;
+            }
+            set {
+                this.netmask = value;
+            }
+        }
+        
+        [System.Xml.Serialization.XmlAttributeAttribute("prefix")]
+        public uint Prefix {
+            get {
+                return this.prefix;
+            }
+            set {
+                this.prefix = value;
+            }
+        }
+        
+        [System.Xml.Serialization.XmlIgnoreAttribute()]
+        public bool PrefixSpecified {
+            get {
+                return this.prefixSpecified;
+            }
+            set {
+                this.prefixSpecified = value;
+            }
+        }
+        
+        [System.Xml.Serialization.XmlAttributeAttribute("family")]
+        public string Family {
+            get {
+                return this.family;
+            }
+            set {
+                this.family = value;
+            }
+        }
+        
+        [System.Xml.Serialization.XmlAttributeAttribute("localPtr")]
+        public VirYesNo LocalPtr {
+            get {
+                return this.localPtr;
+            }
+            set {
+                this.localPtr = value;
+            }
+        }
+        
+        [System.Xml.Serialization.XmlIgnoreAttribute()]
+        public bool LocalPtrSpecified {
+            get {
+                return this.localPtrSpecified;
+            }
+            set {
+                this.localPtrSpecified = value;
+            }
+        }
+        
+        [System.Xml.Serialization.XmlElementAttribute("tftp", Namespace="")]
+        public NetworkIpTftp Tftp {
+            get {
+                return this.tftp;
+            }
+            set {
+                this.tftp = value;
+            }
+        }
+        
+        [System.Xml.Serialization.XmlElementAttribute("dhcp", Namespace="")]
+        public NetworkIpDhcp Dhcp {
+            get {
+                return this.dhcp;
+            }
+            set {
+                this.dhcp = value;
+            }
+        }
+    }
+    
+    public partial class NetworkIpDhcp {
+        
+        private NetworkIpDhcpRange[] range;
+        
+        private NetworkIpDhcpHost[] host;
+        
+        private NetworkIpDhcpBootp bootp;
+        
+        [System.Xml.Serialization.XmlElementAttribute("range", Namespace="")]
+        public NetworkIpDhcpRange[] Range {
+            get {
+                return this.range;
+            }
+            set {
+                this.range = value;
+            }
+        }
+        
+        [System.Xml.Serialization.XmlElementAttribute("host", Namespace="")]
+        public NetworkIpDhcpHost[] Host {
+            get {
+                return this.host;
+            }
+            set {
+                this.host = value;
+            }
+        }
+        
+        [System.Xml.Serialization.XmlElementAttribute("bootp", Namespace="")]
+        public NetworkIpDhcpBootp Bootp {
+            get {
+                return this.bootp;
+            }
+            set {
+                this.bootp = value;
+            }
+        }
+    }
+    
+    public partial class NetworkIpDhcpBootp {
+        
+        private string file;
+        
+        private string server;
+        
+        [System.Xml.Serialization.XmlAttributeAttribute("file")]
+        public string File {
+            get {
+                return this.file;
+            }
+            set {
+                this.file = value;
+            }
+        }
+        
+        [System.Xml.Serialization.XmlAttributeAttribute("server")]
+        public string Server {
+            get {
+                return this.server;
+            }
+            set {
+                this.server = value;
+            }
+        }
+    }
+    
+    public partial class NetworkIpDhcpHost {
+        
+        private string mac;
+        
+        private string id;
+        
+        private string name;
+        
+        private string ip;
+        
+        private NetworkIpDhcpHostLease lease;
+        
+        [System.Xml.Serialization.XmlAttributeAttribute("mac")]
+        public string Mac {
+            get {
+                return this.mac;
+            }
+            set {
+                this.mac = value;
+            }
+        }
+        
+        [System.Xml.Serialization.XmlAttributeAttribute("id")]
+        public string Id {
+            get {
+                return this.id;
+            }
+            set {
+                this.id = value;
+            }
+        }
+        
+        [System.Xml.Serialization.XmlAttributeAttribute("name")]
+        public string Name {
+            get {
+                return this.name;
+            }
+            set {
+                this.name = value;
+            }
+        }
+        
+        [System.Xml.Serialization.XmlAttributeAttribute("ip")]
+        public string Ip {
+            get {
+                return this.ip;
+            }
+            set {
+                this.ip = value;
+            }
+        }
+        
+        [System.Xml.Serialization.XmlElementAttribute("lease", Namespace="")]
+        public NetworkIpDhcpHostLease Lease {
+            get {
+                return this.lease;
+            }
+            set {
+                this.lease = value;
+            }
+        }
+    }
+    
+    public partial class NetworkIpDhcpHostLease {
+        
+        private ulong expiry;
+        
+        private LeaseUnit unit;
+        
+        private bool unitSpecified;
+        
+        [System.Xml.Serialization.XmlAttributeAttribute("expiry")]
+        public ulong Expiry {
+            get {
+                return this.expiry;
+            }
+            set {
+                this.expiry = value;
+            }
+        }
+        
+        [System.Xml.Serialization.XmlAttributeAttribute("unit")]
+        public LeaseUnit Unit {
+            get {
+                return this.unit;
+            }
+            set {
+                this.unit = value;
+            }
+        }
+        
+        [System.Xml.Serialization.XmlIgnoreAttribute()]
+        public bool UnitSpecified {
+            get {
+                return this.unitSpecified;
+            }
+            set {
+                this.unitSpecified = value;
+            }
+        }
+    }
+    
+    public partial class NetworkIpDhcpRange {
+        
+        private string start;
+        
+        private string end;
+        
+        private NetworkIpDhcpRangeLease lease;
+        
+        [System.Xml.Serialization.XmlAttributeAttribute("start")]
+        public string Start {
+            get {
+                return this.start;
+            }
+            set {
+                this.start = value;
+            }
+        }
+        
+        [System.Xml.Serialization.XmlAttributeAttribute("end")]
+        public string End {
+            get {
+                return this.end;
+            }
+            set {
+                this.end = value;
+            }
+        }
+        
+        [System.Xml.Serialization.XmlElementAttribute("lease", Namespace="")]
+        public NetworkIpDhcpRangeLease Lease {
+            get {
+                return this.lease;
+            }
+            set {
+                this.lease = value;
+            }
+        }
+    }
+    
+    public partial class NetworkIpDhcpRangeLease {
+        
+        private ulong expiry;
+        
+        private LeaseUnit unit;
+        
+        private bool unitSpecified;
+        
+        [System.Xml.Serialization.XmlAttributeAttribute("expiry")]
+        public ulong Expiry {
+            get {
+                return this.expiry;
+            }
+            set {
+                this.expiry = value;
+            }
+        }
+        
+        [System.Xml.Serialization.XmlAttributeAttribute("unit")]
+        public LeaseUnit Unit {
+            get {
+                return this.unit;
+            }
+            set {
+                this.unit = value;
+            }
+        }
+        
+        [System.Xml.Serialization.XmlIgnoreAttribute()]
+        public bool UnitSpecified {
+            get {
+                return this.unitSpecified;
+            }
+            set {
+                this.unitSpecified = value;
+            }
+        }
+    }
+    
+    public partial class NetworkIpTftp {
+        
+        private string root;
+        
+        [System.Xml.Serialization.XmlAttributeAttribute("root")]
+        public string Root {
+            get {
+                return this.root;
+            }
+            set {
+                this.root = value;
+            }
+        }
+    }
+    
+    public partial class NetworkMac {
+        
+        private string address;
+        
+        [System.Xml.Serialization.XmlAttributeAttribute("address")]
+        public string Address {
+            get {
+                return this.address;
+            }
+            set {
+                this.address = value;
+            }
+        }
+    }
+    
+    public partial class NetworkOptions {
+        
+        private NetworkOptionsOption[] option;
+        
+        [System.Xml.Serialization.XmlElementAttribute("option", Namespace="http://libvirt.org/schemas/network/dnsmasq/1.0")]
+        public NetworkOptionsOption[] Option {
+            get {
+                return this.option;
+            }
+            set {
+                this.option = value;
+            }
+        }
+    }
+    
+    public partial class NetworkOptionsOption {
+        
+        private string value;
+        
+        [System.Xml.Serialization.XmlAttributeAttribute("value")]
+        public string Value {
+            get {
+                return this.value;
+            }
+            set {
+                this.value = value;
+            }
+        }
     }
     
     [System.Xml.Serialization.XmlTypeAttribute("networkport", Namespace="")]
@@ -7939,6 +9553,105 @@ namespace Libvirt.Model {
             }
             set {
                 this.plug = value;
+            }
+        }
+    }
+    
+    public partial class NetworkPortgroup {
+        
+        private string name;
+        
+        private VirYesNo @default;
+        
+        private bool defaultSpecified;
+        
+        private VirYesNo trustGuestRxFilters;
+        
+        private bool trustGuestRxFiltersSpecified;
+        
+        private VirtualPortProfileVirtualport virtualport;
+        
+        private Bandwidth bandwidth;
+        
+        private Vlan vlan;
+        
+        [System.Xml.Serialization.XmlAttributeAttribute("name")]
+        public string Name {
+            get {
+                return this.name;
+            }
+            set {
+                this.name = value;
+            }
+        }
+        
+        [System.Xml.Serialization.XmlAttributeAttribute("default")]
+        public VirYesNo Default {
+            get {
+                return this.@default;
+            }
+            set {
+                this.@default = value;
+            }
+        }
+        
+        [System.Xml.Serialization.XmlIgnoreAttribute()]
+        public bool DefaultSpecified {
+            get {
+                return this.defaultSpecified;
+            }
+            set {
+                this.defaultSpecified = value;
+            }
+        }
+        
+        [System.Xml.Serialization.XmlAttributeAttribute("trustGuestRxFilters")]
+        public VirYesNo TrustGuestRxFilters {
+            get {
+                return this.trustGuestRxFilters;
+            }
+            set {
+                this.trustGuestRxFilters = value;
+            }
+        }
+        
+        [System.Xml.Serialization.XmlIgnoreAttribute()]
+        public bool TrustGuestRxFiltersSpecified {
+            get {
+                return this.trustGuestRxFiltersSpecified;
+            }
+            set {
+                this.trustGuestRxFiltersSpecified = value;
+            }
+        }
+        
+        [System.Xml.Serialization.XmlElementAttribute("virtualport", Namespace="")]
+        public VirtualPortProfileVirtualport Virtualport {
+            get {
+                return this.virtualport;
+            }
+            set {
+                this.virtualport = value;
+            }
+        }
+        
+        [System.Xml.Serialization.XmlElementAttribute("bandwidth", Namespace="")]
+        public Bandwidth Bandwidth {
+            get {
+                return this.bandwidth;
+            }
+            set {
+                this.bandwidth = value;
+            }
+        }
+        
+        [System.Xml.Serialization.XmlElementAttribute("vlan", Namespace="")]
+        public Vlan Vlan {
+            get {
+                return this.vlan;
+            }
+            set {
+                this.vlan = value;
             }
         }
     }
@@ -11260,6 +12973,106 @@ namespace Libvirt.Model {
         
         [System.Xml.Serialization.XmlEnumAttribute(Name="capacity")]
         Capacity,
+    }
+    
+    [System.Xml.Serialization.XmlTypeAttribute("route", Namespace="")]
+    public partial class Route {
+        
+        private string family;
+        
+        private string address;
+        
+        private string netmask;
+        
+        private uint prefix;
+        
+        private bool prefixSpecified;
+        
+        private string gateway;
+        
+        private uint metric;
+        
+        private bool metricSpecified;
+        
+        [System.Xml.Serialization.XmlAttributeAttribute("family")]
+        public string Family {
+            get {
+                return this.family;
+            }
+            set {
+                this.family = value;
+            }
+        }
+        
+        [System.Xml.Serialization.XmlAttributeAttribute("address")]
+        public string Address {
+            get {
+                return this.address;
+            }
+            set {
+                this.address = value;
+            }
+        }
+        
+        [System.Xml.Serialization.XmlAttributeAttribute("netmask")]
+        public string Netmask {
+            get {
+                return this.netmask;
+            }
+            set {
+                this.netmask = value;
+            }
+        }
+        
+        [System.Xml.Serialization.XmlAttributeAttribute("prefix")]
+        public uint Prefix {
+            get {
+                return this.prefix;
+            }
+            set {
+                this.prefix = value;
+            }
+        }
+        
+        [System.Xml.Serialization.XmlIgnoreAttribute()]
+        public bool PrefixSpecified {
+            get {
+                return this.prefixSpecified;
+            }
+            set {
+                this.prefixSpecified = value;
+            }
+        }
+        
+        [System.Xml.Serialization.XmlAttributeAttribute("gateway")]
+        public string Gateway {
+            get {
+                return this.gateway;
+            }
+            set {
+                this.gateway = value;
+            }
+        }
+        
+        [System.Xml.Serialization.XmlAttributeAttribute("metric")]
+        public uint Metric {
+            get {
+                return this.metric;
+            }
+            set {
+                this.metric = value;
+            }
+        }
+        
+        [System.Xml.Serialization.XmlIgnoreAttribute()]
+        public bool MetricSpecified {
+            get {
+                return this.metricSpecified;
+            }
+            set {
+                this.metricSpecified = value;
+            }
+        }
     }
     
     [System.Xml.Serialization.XmlTypeAttribute("secret", Namespace="")]

@@ -33,12 +33,16 @@ internal class MainShell
 
         var context = new CodeContext();
         context.ClassNamePrefix.Add("storagecommon.rng", "storage");
+        context.ExcludeDefines.Add("customElement");
         context.ExcludeDefines.Add("capscsi"); // Attribute と Element が同じ名前
         context.ExcludeDefines.Add("capdrm"); // Attribute と Element が同じ名前
         context.ExcludeDefines.Add("capmdev"); // Attribute と Element が同じ名前
         context.ExcludeDefines.Add("mdev_types"); // Attribute と Element が同じ名前
 
         var schema = new Schema();
+
+        // network.rng
+        this.Parse(schema, files["network.rng"]).CollectType(context);
 
         // networkport.rng
         this.Parse(schema, files["networkport.rng"]).CollectType(context);

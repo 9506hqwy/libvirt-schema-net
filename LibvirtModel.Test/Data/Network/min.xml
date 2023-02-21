@@ -1,0 +1,6 @@
+<network>
+  <name>name1</name>
+  <portgroup name="name2" />
+  <ip  />
+  <route  address="192.168.0.1" gateway="255.255.255.0" />
+</network>

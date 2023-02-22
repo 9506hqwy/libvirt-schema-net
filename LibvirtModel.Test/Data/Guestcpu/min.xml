@@ -1,0 +1,3 @@
+<cpu>
+  <feature policy="force" name="name" />
+</cpu>

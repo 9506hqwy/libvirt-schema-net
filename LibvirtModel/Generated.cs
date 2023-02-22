@@ -299,6 +299,357 @@ namespace Libvirt.Model {
         N0,
     }
     
+    [System.Xml.Serialization.XmlTypeAttribute("cache", Namespace="")]
+    public partial class CpuCache {
+        
+        private CpuCacheLevel level;
+        
+        private bool levelSpecified;
+        
+        private CpuCacheMode mode;
+        
+        [System.Xml.Serialization.XmlAttributeAttribute("level")]
+        public CpuCacheLevel Level {
+            get {
+                return this.level;
+            }
+            set {
+                this.level = value;
+            }
+        }
+        
+        [System.Xml.Serialization.XmlIgnoreAttribute()]
+        public bool LevelSpecified {
+            get {
+                return this.levelSpecified;
+            }
+            set {
+                this.levelSpecified = value;
+            }
+        }
+        
+        [System.Xml.Serialization.XmlAttributeAttribute("mode")]
+        public CpuCacheMode Mode {
+            get {
+                return this.mode;
+            }
+            set {
+                this.mode = value;
+            }
+        }
+    }
+    
+    public enum CpuCacheLevel {
+        
+        [System.Xml.Serialization.XmlEnumAttribute(Name="1")]
+        N1,
+        
+        [System.Xml.Serialization.XmlEnumAttribute(Name="2")]
+        N2,
+        
+        [System.Xml.Serialization.XmlEnumAttribute(Name="3")]
+        N3,
+    }
+    
+    public enum CpuCacheMode {
+        
+        [System.Xml.Serialization.XmlEnumAttribute(Name="emulate")]
+        Emulate,
+        
+        [System.Xml.Serialization.XmlEnumAttribute(Name="passthrough")]
+        Passthrough,
+        
+        [System.Xml.Serialization.XmlEnumAttribute(Name="disable")]
+        Disable,
+    }
+    
+    public enum CpuCheck {
+        
+        [System.Xml.Serialization.XmlEnumAttribute(Name="none")]
+        None,
+        
+        [System.Xml.Serialization.XmlEnumAttribute(Name="partial")]
+        Partial,
+        
+        [System.Xml.Serialization.XmlEnumAttribute(Name="full")]
+        Full,
+    }
+    
+    [System.Xml.Serialization.XmlTypeAttribute("feature", Namespace="")]
+    public partial class CpuFeature {
+        
+        private CpuFeaturePolicy policy;
+        
+        private string name;
+        
+        [System.Xml.Serialization.XmlAttributeAttribute("policy")]
+        public CpuFeaturePolicy Policy {
+            get {
+                return this.policy;
+            }
+            set {
+                this.policy = value;
+            }
+        }
+        
+        [System.Xml.Serialization.XmlAttributeAttribute("name")]
+        public string Name {
+            get {
+                return this.name;
+            }
+            set {
+                this.name = value;
+            }
+        }
+    }
+    
+    public enum CpuFeaturePolicy {
+        
+        [System.Xml.Serialization.XmlEnumAttribute(Name="force")]
+        Force,
+        
+        [System.Xml.Serialization.XmlEnumAttribute(Name="require")]
+        Require,
+        
+        [System.Xml.Serialization.XmlEnumAttribute(Name="optional")]
+        Optional,
+        
+        [System.Xml.Serialization.XmlEnumAttribute(Name="disable")]
+        Disable,
+        
+        [System.Xml.Serialization.XmlEnumAttribute(Name="forbid")]
+        Forbid,
+    }
+    
+    public enum CpuMatch {
+        
+        [System.Xml.Serialization.XmlEnumAttribute(Name="minimum")]
+        Minimum,
+        
+        [System.Xml.Serialization.XmlEnumAttribute(Name="exact")]
+        Exact,
+        
+        [System.Xml.Serialization.XmlEnumAttribute(Name="strict")]
+        Strict,
+    }
+    
+    [System.Xml.Serialization.XmlTypeAttribute("maxphysaddr", Namespace="")]
+    public partial class CpuMaxPhysAddr {
+        
+        private CpuMaxPhysAddrMode mode;
+        
+        private uint bits;
+        
+        private bool bitsSpecified;
+        
+        [System.Xml.Serialization.XmlAttributeAttribute("mode")]
+        public CpuMaxPhysAddrMode Mode {
+            get {
+                return this.mode;
+            }
+            set {
+                this.mode = value;
+            }
+        }
+        
+        [System.Xml.Serialization.XmlAttributeAttribute("bits")]
+        public uint Bits {
+            get {
+                return this.bits;
+            }
+            set {
+                this.bits = value;
+            }
+        }
+        
+        [System.Xml.Serialization.XmlIgnoreAttribute()]
+        public bool BitsSpecified {
+            get {
+                return this.bitsSpecified;
+            }
+            set {
+                this.bitsSpecified = value;
+            }
+        }
+    }
+    
+    public enum CpuMaxPhysAddrMode {
+        
+        [System.Xml.Serialization.XmlEnumAttribute(Name="emulate")]
+        Emulate,
+        
+        [System.Xml.Serialization.XmlEnumAttribute(Name="passthrough")]
+        Passthrough,
+    }
+    
+    public enum CpuMode {
+        
+        [System.Xml.Serialization.XmlEnumAttribute(Name="custom")]
+        Custom,
+        
+        [System.Xml.Serialization.XmlEnumAttribute(Name="host-model")]
+        HostModel,
+        
+        [System.Xml.Serialization.XmlEnumAttribute(Name="host-passthrough")]
+        HostPassthrough,
+        
+        [System.Xml.Serialization.XmlEnumAttribute(Name="maximum")]
+        Maximum,
+    }
+    
+    [System.Xml.Serialization.XmlTypeAttribute("model", Namespace="")]
+    public partial class CpuModel {
+        
+        private string value;
+        
+        private CpuModelFallback fallback;
+        
+        private bool fallbackSpecified;
+        
+        private string vendorId;
+        
+        [System.Xml.Serialization.XmlTextAttribute()]
+        public string Value {
+            get {
+                return this.value;
+            }
+            set {
+                this.value = value;
+            }
+        }
+        
+        [System.Xml.Serialization.XmlAttributeAttribute("fallback")]
+        public CpuModelFallback Fallback {
+            get {
+                return this.fallback;
+            }
+            set {
+                this.fallback = value;
+            }
+        }
+        
+        [System.Xml.Serialization.XmlIgnoreAttribute()]
+        public bool FallbackSpecified {
+            get {
+                return this.fallbackSpecified;
+            }
+            set {
+                this.fallbackSpecified = value;
+            }
+        }
+        
+        [System.Xml.Serialization.XmlAttributeAttribute("vendor_id")]
+        public string VendorId {
+            get {
+                return this.vendorId;
+            }
+            set {
+                this.vendorId = value;
+            }
+        }
+    }
+    
+    public enum CpuModelFallback {
+        
+        [System.Xml.Serialization.XmlEnumAttribute(Name="allow")]
+        Allow,
+        
+        [System.Xml.Serialization.XmlEnumAttribute(Name="forbid")]
+        Forbid,
+    }
+    
+    [System.Xml.Serialization.XmlTypeAttribute("numa", Namespace="")]
+    public partial class CpuNuma {
+        
+        private NumaCell[] cell;
+        
+        private NumaInterconnects interconnects;
+        
+        [System.Xml.Serialization.XmlElementAttribute("cell", Namespace="")]
+        public NumaCell[] Cell {
+            get {
+                return this.cell;
+            }
+            set {
+                this.cell = value;
+            }
+        }
+        
+        [System.Xml.Serialization.XmlElementAttribute("interconnects", Namespace="")]
+        public NumaInterconnects Interconnects {
+            get {
+                return this.interconnects;
+            }
+            set {
+                this.interconnects = value;
+            }
+        }
+    }
+    
+    [System.Xml.Serialization.XmlTypeAttribute("topology", Namespace="")]
+    public partial class CpuTopology {
+        
+        private ulong sockets;
+        
+        private ulong dies;
+        
+        private bool diesSpecified;
+        
+        private ulong cores;
+        
+        private ulong threads;
+        
+        [System.Xml.Serialization.XmlAttributeAttribute("sockets")]
+        public ulong Sockets {
+            get {
+                return this.sockets;
+            }
+            set {
+                this.sockets = value;
+            }
+        }
+        
+        [System.Xml.Serialization.XmlAttributeAttribute("dies")]
+        public ulong Dies {
+            get {
+                return this.dies;
+            }
+            set {
+                this.dies = value;
+            }
+        }
+        
+        [System.Xml.Serialization.XmlIgnoreAttribute()]
+        public bool DiesSpecified {
+            get {
+                return this.diesSpecified;
+            }
+            set {
+                this.diesSpecified = value;
+            }
+        }
+        
+        [System.Xml.Serialization.XmlAttributeAttribute("cores")]
+        public ulong Cores {
+            get {
+                return this.cores;
+            }
+            set {
+                this.cores = value;
+            }
+        }
+        
+        [System.Xml.Serialization.XmlAttributeAttribute("threads")]
+        public ulong Threads {
+            get {
+                return this.threads;
+            }
+            set {
+                this.threads = value;
+            }
+        }
+    }
+    
     [System.Xml.Serialization.XmlTypeAttribute("device", Namespace="")]
     public partial class Device {
         
@@ -7734,6 +8085,629 @@ namespace Libvirt.Model {
         }
     }
     
+    [System.Xml.Serialization.XmlTypeAttribute("cpu", Namespace="")]
+    public partial class Guestcpu {
+        
+        private CpuMode mode;
+        
+        private bool modeSpecified;
+        
+        private CpuMatch match;
+        
+        private bool matchSpecified;
+        
+        private CpuCheck check;
+        
+        private bool checkSpecified;
+        
+        private VirOnOff migratable;
+        
+        private bool migratableSpecified;
+        
+        private CpuModel model;
+        
+        private string vendor;
+        
+        private CpuTopology topology;
+        
+        private CpuFeature[] feature;
+        
+        private CpuNuma numa;
+        
+        private CpuCache cache;
+        
+        private CpuMaxPhysAddr maxphysaddr;
+        
+        [System.Xml.Serialization.XmlAttributeAttribute("mode")]
+        public CpuMode Mode {
+            get {
+                return this.mode;
+            }
+            set {
+                this.mode = value;
+            }
+        }
+        
+        [System.Xml.Serialization.XmlIgnoreAttribute()]
+        public bool ModeSpecified {
+            get {
+                return this.modeSpecified;
+            }
+            set {
+                this.modeSpecified = value;
+            }
+        }
+        
+        [System.Xml.Serialization.XmlAttributeAttribute("match")]
+        public CpuMatch Match {
+            get {
+                return this.match;
+            }
+            set {
+                this.match = value;
+            }
+        }
+        
+        [System.Xml.Serialization.XmlIgnoreAttribute()]
+        public bool MatchSpecified {
+            get {
+                return this.matchSpecified;
+            }
+            set {
+                this.matchSpecified = value;
+            }
+        }
+        
+        [System.Xml.Serialization.XmlAttributeAttribute("check")]
+        public CpuCheck Check {
+            get {
+                return this.check;
+            }
+            set {
+                this.check = value;
+            }
+        }
+        
+        [System.Xml.Serialization.XmlIgnoreAttribute()]
+        public bool CheckSpecified {
+            get {
+                return this.checkSpecified;
+            }
+            set {
+                this.checkSpecified = value;
+            }
+        }
+        
+        [System.Xml.Serialization.XmlAttributeAttribute("migratable")]
+        public VirOnOff Migratable {
+            get {
+                return this.migratable;
+            }
+            set {
+                this.migratable = value;
+            }
+        }
+        
+        [System.Xml.Serialization.XmlIgnoreAttribute()]
+        public bool MigratableSpecified {
+            get {
+                return this.migratableSpecified;
+            }
+            set {
+                this.migratableSpecified = value;
+            }
+        }
+        
+        [System.Xml.Serialization.XmlElementAttribute("model", Namespace="")]
+        public CpuModel Model {
+            get {
+                return this.model;
+            }
+            set {
+                this.model = value;
+            }
+        }
+        
+        [System.Xml.Serialization.XmlElementAttribute("vendor", Namespace="")]
+        public string Vendor {
+            get {
+                return this.vendor;
+            }
+            set {
+                this.vendor = value;
+            }
+        }
+        
+        [System.Xml.Serialization.XmlElementAttribute("topology", Namespace="")]
+        public CpuTopology Topology {
+            get {
+                return this.topology;
+            }
+            set {
+                this.topology = value;
+            }
+        }
+        
+        [System.Xml.Serialization.XmlElementAttribute("feature", Namespace="")]
+        public CpuFeature[] Feature {
+            get {
+                return this.feature;
+            }
+            set {
+                this.feature = value;
+            }
+        }
+        
+        [System.Xml.Serialization.XmlElementAttribute("numa", Namespace="")]
+        public CpuNuma Numa {
+            get {
+                return this.numa;
+            }
+            set {
+                this.numa = value;
+            }
+        }
+        
+        [System.Xml.Serialization.XmlElementAttribute("cache", Namespace="")]
+        public CpuCache Cache {
+            get {
+                return this.cache;
+            }
+            set {
+                this.cache = value;
+            }
+        }
+        
+        [System.Xml.Serialization.XmlElementAttribute("maxphysaddr", Namespace="")]
+        public CpuMaxPhysAddr Maxphysaddr {
+            get {
+                return this.maxphysaddr;
+            }
+            set {
+                this.maxphysaddr = value;
+            }
+        }
+    }
+    
+    [System.Xml.Serialization.XmlTypeAttribute("cpu", Namespace="")]
+    public partial class Hostcpu {
+        
+        private HostcpuArch arch;
+        
+        private HostcpuFeatures features;
+        
+        private string model;
+        
+        private string vendor;
+        
+        private HostcpuMicrocode microcode;
+        
+        private HostcpuSignature signature;
+        
+        private HostcpuCounter counter;
+        
+        private CpuTopology topology;
+        
+        private CpuMaxPhysAddr maxphysaddr;
+        
+        private HostcpuFeature[] feature;
+        
+        private HostcpuPages[] pages;
+        
+        [System.Xml.Serialization.XmlElementAttribute("arch", Namespace="")]
+        public HostcpuArch Arch {
+            get {
+                return this.arch;
+            }
+            set {
+                this.arch = value;
+            }
+        }
+        
+        [System.Xml.Serialization.XmlElementAttribute("features", Namespace="")]
+        public HostcpuFeatures Features {
+            get {
+                return this.features;
+            }
+            set {
+                this.features = value;
+            }
+        }
+        
+        [System.Xml.Serialization.XmlElementAttribute("model", Namespace="")]
+        public string Model {
+            get {
+                return this.model;
+            }
+            set {
+                this.model = value;
+            }
+        }
+        
+        [System.Xml.Serialization.XmlElementAttribute("vendor", Namespace="")]
+        public string Vendor {
+            get {
+                return this.vendor;
+            }
+            set {
+                this.vendor = value;
+            }
+        }
+        
+        [System.Xml.Serialization.XmlElementAttribute("microcode", Namespace="")]
+        public HostcpuMicrocode Microcode {
+            get {
+                return this.microcode;
+            }
+            set {
+                this.microcode = value;
+            }
+        }
+        
+        [System.Xml.Serialization.XmlElementAttribute("signature", Namespace="")]
+        public HostcpuSignature Signature {
+            get {
+                return this.signature;
+            }
+            set {
+                this.signature = value;
+            }
+        }
+        
+        [System.Xml.Serialization.XmlElementAttribute("counter", Namespace="")]
+        public HostcpuCounter Counter {
+            get {
+                return this.counter;
+            }
+            set {
+                this.counter = value;
+            }
+        }
+        
+        [System.Xml.Serialization.XmlElementAttribute("topology", Namespace="")]
+        public CpuTopology Topology {
+            get {
+                return this.topology;
+            }
+            set {
+                this.topology = value;
+            }
+        }
+        
+        [System.Xml.Serialization.XmlElementAttribute("maxphysaddr", Namespace="")]
+        public CpuMaxPhysAddr Maxphysaddr {
+            get {
+                return this.maxphysaddr;
+            }
+            set {
+                this.maxphysaddr = value;
+            }
+        }
+        
+        [System.Xml.Serialization.XmlElementAttribute("feature", Namespace="")]
+        public HostcpuFeature[] Feature {
+            get {
+                return this.feature;
+            }
+            set {
+                this.feature = value;
+            }
+        }
+        
+        [System.Xml.Serialization.XmlElementAttribute("pages", Namespace="")]
+        public HostcpuPages[] Pages {
+            get {
+                return this.pages;
+            }
+            set {
+                this.pages = value;
+            }
+        }
+    }
+    
+    public enum HostcpuArch {
+        
+        [System.Xml.Serialization.XmlEnumAttribute(Name="aarch64")]
+        Aarch64,
+        
+        [System.Xml.Serialization.XmlEnumAttribute(Name="alpha")]
+        Alpha,
+        
+        [System.Xml.Serialization.XmlEnumAttribute(Name="armv6l")]
+        Armv6l,
+        
+        [System.Xml.Serialization.XmlEnumAttribute(Name="armv7l")]
+        Armv7l,
+        
+        [System.Xml.Serialization.XmlEnumAttribute(Name="cris")]
+        Cris,
+        
+        [System.Xml.Serialization.XmlEnumAttribute(Name="i686")]
+        I686,
+        
+        [System.Xml.Serialization.XmlEnumAttribute(Name="ia64")]
+        Ia64,
+        
+        [System.Xml.Serialization.XmlEnumAttribute(Name="lm32")]
+        Lm32,
+        
+        [System.Xml.Serialization.XmlEnumAttribute(Name="m68k")]
+        M68k,
+        
+        [System.Xml.Serialization.XmlEnumAttribute(Name="microblaze")]
+        Microblaze,
+        
+        [System.Xml.Serialization.XmlEnumAttribute(Name="microblazeel")]
+        Microblazeel,
+        
+        [System.Xml.Serialization.XmlEnumAttribute(Name="mips")]
+        Mips,
+        
+        [System.Xml.Serialization.XmlEnumAttribute(Name="mipsel")]
+        Mipsel,
+        
+        [System.Xml.Serialization.XmlEnumAttribute(Name="mips64")]
+        Mips64,
+        
+        [System.Xml.Serialization.XmlEnumAttribute(Name="mips64el")]
+        Mips64el,
+        
+        [System.Xml.Serialization.XmlEnumAttribute(Name="openrisc")]
+        Openrisc,
+        
+        [System.Xml.Serialization.XmlEnumAttribute(Name="parisc")]
+        Parisc,
+        
+        [System.Xml.Serialization.XmlEnumAttribute(Name="parisc64")]
+        Parisc64,
+        
+        [System.Xml.Serialization.XmlEnumAttribute(Name="ppc")]
+        Ppc,
+        
+        [System.Xml.Serialization.XmlEnumAttribute(Name="ppc64")]
+        Ppc64,
+        
+        [System.Xml.Serialization.XmlEnumAttribute(Name="ppc64le")]
+        Ppc64le,
+        
+        [System.Xml.Serialization.XmlEnumAttribute(Name="ppcemb")]
+        Ppcemb,
+        
+        [System.Xml.Serialization.XmlEnumAttribute(Name="riscv32")]
+        Riscv32,
+        
+        [System.Xml.Serialization.XmlEnumAttribute(Name="riscv64")]
+        Riscv64,
+        
+        [System.Xml.Serialization.XmlEnumAttribute(Name="s390")]
+        S390,
+        
+        [System.Xml.Serialization.XmlEnumAttribute(Name="s390x")]
+        S390x,
+        
+        [System.Xml.Serialization.XmlEnumAttribute(Name="sh4")]
+        Sh4,
+        
+        [System.Xml.Serialization.XmlEnumAttribute(Name="sh4eb")]
+        Sh4eb,
+        
+        [System.Xml.Serialization.XmlEnumAttribute(Name="sparc")]
+        Sparc,
+        
+        [System.Xml.Serialization.XmlEnumAttribute(Name="sparc64")]
+        Sparc64,
+        
+        [System.Xml.Serialization.XmlEnumAttribute(Name="unicore32")]
+        Unicore32,
+        
+        [System.Xml.Serialization.XmlEnumAttribute(Name="x86_64")]
+        X8664,
+        
+        [System.Xml.Serialization.XmlEnumAttribute(Name="xtensa")]
+        Xtensa,
+        
+        [System.Xml.Serialization.XmlEnumAttribute(Name="xtensaeb")]
+        Xtensaeb,
+    }
+    
+    public partial class HostcpuCounter {
+        
+        private string name;
+        
+        private ulong frequency;
+        
+        private VirYesNo scaling;
+        
+        [System.Xml.Serialization.XmlAttributeAttribute("name")]
+        public string Name {
+            get {
+                return this.name;
+            }
+            set {
+                this.name = value;
+            }
+        }
+        
+        [System.Xml.Serialization.XmlAttributeAttribute("frequency")]
+        public ulong Frequency {
+            get {
+                return this.frequency;
+            }
+            set {
+                this.frequency = value;
+            }
+        }
+        
+        [System.Xml.Serialization.XmlAttributeAttribute("scaling")]
+        public VirYesNo Scaling {
+            get {
+                return this.scaling;
+            }
+            set {
+                this.scaling = value;
+            }
+        }
+    }
+    
+    public partial class HostcpuFeature {
+        
+        private string name;
+        
+        [System.Xml.Serialization.XmlAttributeAttribute("name")]
+        public string Name {
+            get {
+                return this.name;
+            }
+            set {
+                this.name = value;
+            }
+        }
+    }
+    
+    public partial class HostcpuFeatures {
+        
+        private HostcpuFeaturesPae pae;
+        
+        private HostcpuFeaturesNonpae nonpae;
+        
+        private HostcpuFeaturesVmx vmx;
+        
+        private HostcpuFeaturesSvm svm;
+        
+        [System.Xml.Serialization.XmlElementAttribute("pae", Namespace="")]
+        public HostcpuFeaturesPae Pae {
+            get {
+                return this.pae;
+            }
+            set {
+                this.pae = value;
+            }
+        }
+        
+        [System.Xml.Serialization.XmlElementAttribute("nonpae", Namespace="")]
+        public HostcpuFeaturesNonpae Nonpae {
+            get {
+                return this.nonpae;
+            }
+            set {
+                this.nonpae = value;
+            }
+        }
+        
+        [System.Xml.Serialization.XmlElementAttribute("vmx", Namespace="")]
+        public HostcpuFeaturesVmx Vmx {
+            get {
+                return this.vmx;
+            }
+            set {
+                this.vmx = value;
+            }
+        }
+        
+        [System.Xml.Serialization.XmlElementAttribute("svm", Namespace="")]
+        public HostcpuFeaturesSvm Svm {
+            get {
+                return this.svm;
+            }
+            set {
+                this.svm = value;
+            }
+        }
+    }
+    
+    public partial class HostcpuFeaturesNonpae {
+    }
+    
+    public partial class HostcpuFeaturesPae {
+    }
+    
+    public partial class HostcpuFeaturesSvm {
+    }
+    
+    public partial class HostcpuFeaturesVmx {
+    }
+    
+    public partial class HostcpuMicrocode {
+        
+        private ulong version;
+        
+        [System.Xml.Serialization.XmlAttributeAttribute("version")]
+        public ulong Version {
+            get {
+                return this.version;
+            }
+            set {
+                this.version = value;
+            }
+        }
+    }
+    
+    public partial class HostcpuPages {
+        
+        private string unit;
+        
+        private uint size;
+        
+        [System.Xml.Serialization.XmlAttributeAttribute("unit")]
+        public string Unit {
+            get {
+                return this.unit;
+            }
+            set {
+                this.unit = value;
+            }
+        }
+        
+        [System.Xml.Serialization.XmlAttributeAttribute("size")]
+        public uint Size {
+            get {
+                return this.size;
+            }
+            set {
+                this.size = value;
+            }
+        }
+    }
+    
+    public partial class HostcpuSignature {
+        
+        private ulong family;
+        
+        private uint model;
+        
+        private uint stepping;
+        
+        [System.Xml.Serialization.XmlAttributeAttribute("family")]
+        public ulong Family {
+            get {
+                return this.family;
+            }
+            set {
+                this.family = value;
+            }
+        }
+        
+        [System.Xml.Serialization.XmlAttributeAttribute("model")]
+        public uint Model {
+            get {
+                return this.model;
+            }
+            set {
+                this.model = value;
+            }
+        }
+        
+        [System.Xml.Serialization.XmlAttributeAttribute("stepping")]
+        public uint Stepping {
+            get {
+                return this.stepping;
+            }
+            set {
+                this.stepping = value;
+            }
+        }
+    }
+    
     public enum LeaseUnit {
         
         [System.Xml.Serialization.XmlEnumAttribute(Name="seconds")]
@@ -9937,6 +10911,549 @@ namespace Libvirt.Model {
                 this.trustGuest = value;
             }
         }
+    }
+    
+    public partial class NumaCache {
+        
+        private uint level;
+        
+        private NumaCacheAssociativity associativity;
+        
+        private NumaCachePolicy policy;
+        
+        private NumaCacheSize size;
+        
+        private NumaCacheLine line;
+        
+        [System.Xml.Serialization.XmlAttributeAttribute("level")]
+        public uint Level {
+            get {
+                return this.level;
+            }
+            set {
+                this.level = value;
+            }
+        }
+        
+        [System.Xml.Serialization.XmlAttributeAttribute("associativity")]
+        public NumaCacheAssociativity Associativity {
+            get {
+                return this.associativity;
+            }
+            set {
+                this.associativity = value;
+            }
+        }
+        
+        [System.Xml.Serialization.XmlAttributeAttribute("policy")]
+        public NumaCachePolicy Policy {
+            get {
+                return this.policy;
+            }
+            set {
+                this.policy = value;
+            }
+        }
+        
+        [System.Xml.Serialization.XmlElementAttribute("size", Namespace="")]
+        public NumaCacheSize Size {
+            get {
+                return this.size;
+            }
+            set {
+                this.size = value;
+            }
+        }
+        
+        [System.Xml.Serialization.XmlElementAttribute("line", Namespace="")]
+        public NumaCacheLine Line {
+            get {
+                return this.line;
+            }
+            set {
+                this.line = value;
+            }
+        }
+    }
+    
+    public enum NumaCacheAssociativity {
+        
+        [System.Xml.Serialization.XmlEnumAttribute(Name="none")]
+        None,
+        
+        [System.Xml.Serialization.XmlEnumAttribute(Name="direct")]
+        Direct,
+        
+        [System.Xml.Serialization.XmlEnumAttribute(Name="full")]
+        Full,
+    }
+    
+    public partial class NumaCacheLine {
+        
+        private uint value;
+        
+        private string unit;
+        
+        [System.Xml.Serialization.XmlAttributeAttribute("value")]
+        public uint Value {
+            get {
+                return this.value;
+            }
+            set {
+                this.value = value;
+            }
+        }
+        
+        [System.Xml.Serialization.XmlAttributeAttribute("unit")]
+        public string Unit {
+            get {
+                return this.unit;
+            }
+            set {
+                this.unit = value;
+            }
+        }
+    }
+    
+    public enum NumaCachePolicy {
+        
+        [System.Xml.Serialization.XmlEnumAttribute(Name="none")]
+        None,
+        
+        [System.Xml.Serialization.XmlEnumAttribute(Name="writeback")]
+        Writeback,
+        
+        [System.Xml.Serialization.XmlEnumAttribute(Name="writethrough")]
+        Writethrough,
+    }
+    
+    public partial class NumaCacheSize {
+        
+        private uint value;
+        
+        private string unit;
+        
+        [System.Xml.Serialization.XmlAttributeAttribute("value")]
+        public uint Value {
+            get {
+                return this.value;
+            }
+            set {
+                this.value = value;
+            }
+        }
+        
+        [System.Xml.Serialization.XmlAttributeAttribute("unit")]
+        public string Unit {
+            get {
+                return this.unit;
+            }
+            set {
+                this.unit = value;
+            }
+        }
+    }
+    
+    [System.Xml.Serialization.XmlTypeAttribute("cell", Namespace="")]
+    public partial class NumaCell {
+        
+        private uint id;
+        
+        private bool idSpecified;
+        
+        private string cpus;
+        
+        private ulong memory;
+        
+        private string unit;
+        
+        private NumaCellMemAccess memAccess;
+        
+        private bool memAccessSpecified;
+        
+        private VirYesNo discard;
+        
+        private bool discardSpecified;
+        
+        private NumaCellDistances distances;
+        
+        private NumaCache[] cache;
+        
+        [System.Xml.Serialization.XmlAttributeAttribute("id")]
+        public uint Id {
+            get {
+                return this.id;
+            }
+            set {
+                this.id = value;
+            }
+        }
+        
+        [System.Xml.Serialization.XmlIgnoreAttribute()]
+        public bool IdSpecified {
+            get {
+                return this.idSpecified;
+            }
+            set {
+                this.idSpecified = value;
+            }
+        }
+        
+        [System.Xml.Serialization.XmlAttributeAttribute("cpus")]
+        public string Cpus {
+            get {
+                return this.cpus;
+            }
+            set {
+                this.cpus = value;
+            }
+        }
+        
+        [System.Xml.Serialization.XmlAttributeAttribute("memory")]
+        public ulong Memory {
+            get {
+                return this.memory;
+            }
+            set {
+                this.memory = value;
+            }
+        }
+        
+        [System.Xml.Serialization.XmlAttributeAttribute("unit")]
+        public string Unit {
+            get {
+                return this.unit;
+            }
+            set {
+                this.unit = value;
+            }
+        }
+        
+        [System.Xml.Serialization.XmlAttributeAttribute("memAccess")]
+        public NumaCellMemAccess MemAccess {
+            get {
+                return this.memAccess;
+            }
+            set {
+                this.memAccess = value;
+            }
+        }
+        
+        [System.Xml.Serialization.XmlIgnoreAttribute()]
+        public bool MemAccessSpecified {
+            get {
+                return this.memAccessSpecified;
+            }
+            set {
+                this.memAccessSpecified = value;
+            }
+        }
+        
+        [System.Xml.Serialization.XmlAttributeAttribute("discard")]
+        public VirYesNo Discard {
+            get {
+                return this.discard;
+            }
+            set {
+                this.discard = value;
+            }
+        }
+        
+        [System.Xml.Serialization.XmlIgnoreAttribute()]
+        public bool DiscardSpecified {
+            get {
+                return this.discardSpecified;
+            }
+            set {
+                this.discardSpecified = value;
+            }
+        }
+        
+        [System.Xml.Serialization.XmlElementAttribute("distances", Namespace="")]
+        public NumaCellDistances Distances {
+            get {
+                return this.distances;
+            }
+            set {
+                this.distances = value;
+            }
+        }
+        
+        [System.Xml.Serialization.XmlElementAttribute("cache", Namespace="")]
+        public NumaCache[] Cache {
+            get {
+                return this.cache;
+            }
+            set {
+                this.cache = value;
+            }
+        }
+    }
+    
+    public partial class NumaCellDistances {
+        
+        private NumaDistance[] sibling;
+        
+        [System.Xml.Serialization.XmlElementAttribute("sibling", Namespace="")]
+        public NumaDistance[] Sibling {
+            get {
+                return this.sibling;
+            }
+            set {
+                this.sibling = value;
+            }
+        }
+    }
+    
+    public enum NumaCellMemAccess {
+        
+        [System.Xml.Serialization.XmlEnumAttribute(Name="shared")]
+        Shared,
+        
+        [System.Xml.Serialization.XmlEnumAttribute(Name="private")]
+        Private,
+    }
+    
+    [System.Xml.Serialization.XmlTypeAttribute("sibling", Namespace="")]
+    public partial class NumaDistance {
+        
+        private uint id;
+        
+        private uint value;
+        
+        [System.Xml.Serialization.XmlAttributeAttribute("id")]
+        public uint Id {
+            get {
+                return this.id;
+            }
+            set {
+                this.id = value;
+            }
+        }
+        
+        [System.Xml.Serialization.XmlAttributeAttribute("value")]
+        public uint Value {
+            get {
+                return this.value;
+            }
+            set {
+                this.value = value;
+            }
+        }
+    }
+    
+    [System.Xml.Serialization.XmlTypeAttribute("interconnects", Namespace="")]
+    public partial class NumaInterconnects {
+        
+        private NumaInterconnectsLatency[] latency;
+        
+        private NumaInterconnectsBandwidth[] bandwidth;
+        
+        [System.Xml.Serialization.XmlElementAttribute("latency", Namespace="")]
+        public NumaInterconnectsLatency[] Latency {
+            get {
+                return this.latency;
+            }
+            set {
+                this.latency = value;
+            }
+        }
+        
+        [System.Xml.Serialization.XmlElementAttribute("bandwidth", Namespace="")]
+        public NumaInterconnectsBandwidth[] Bandwidth {
+            get {
+                return this.bandwidth;
+            }
+            set {
+                this.bandwidth = value;
+            }
+        }
+    }
+    
+    public partial class NumaInterconnectsBandwidth {
+        
+        private uint initiator;
+        
+        private uint target;
+        
+        private uint cache;
+        
+        private bool cacheSpecified;
+        
+        private NumaInterconnectsBandwidthType type;
+        
+        private uint value;
+        
+        private string unit;
+        
+        [System.Xml.Serialization.XmlAttributeAttribute("initiator")]
+        public uint Initiator {
+            get {
+                return this.initiator;
+            }
+            set {
+                this.initiator = value;
+            }
+        }
+        
+        [System.Xml.Serialization.XmlAttributeAttribute("target")]
+        public uint Target {
+            get {
+                return this.target;
+            }
+            set {
+                this.target = value;
+            }
+        }
+        
+        [System.Xml.Serialization.XmlAttributeAttribute("cache")]
+        public uint Cache {
+            get {
+                return this.cache;
+            }
+            set {
+                this.cache = value;
+            }
+        }
+        
+        [System.Xml.Serialization.XmlIgnoreAttribute()]
+        public bool CacheSpecified {
+            get {
+                return this.cacheSpecified;
+            }
+            set {
+                this.cacheSpecified = value;
+            }
+        }
+        
+        [System.Xml.Serialization.XmlAttributeAttribute("type")]
+        public NumaInterconnectsBandwidthType Type {
+            get {
+                return this.type;
+            }
+            set {
+                this.type = value;
+            }
+        }
+        
+        [System.Xml.Serialization.XmlAttributeAttribute("value")]
+        public uint Value {
+            get {
+                return this.value;
+            }
+            set {
+                this.value = value;
+            }
+        }
+        
+        [System.Xml.Serialization.XmlAttributeAttribute("unit")]
+        public string Unit {
+            get {
+                return this.unit;
+            }
+            set {
+                this.unit = value;
+            }
+        }
+    }
+    
+    public enum NumaInterconnectsBandwidthType {
+        
+        [System.Xml.Serialization.XmlEnumAttribute(Name="access")]
+        Access,
+        
+        [System.Xml.Serialization.XmlEnumAttribute(Name="read")]
+        Read,
+        
+        [System.Xml.Serialization.XmlEnumAttribute(Name="write")]
+        Write,
+    }
+    
+    public partial class NumaInterconnectsLatency {
+        
+        private uint initiator;
+        
+        private uint target;
+        
+        private uint cache;
+        
+        private bool cacheSpecified;
+        
+        private NumaInterconnectsLatencyType type;
+        
+        private uint value;
+        
+        [System.Xml.Serialization.XmlAttributeAttribute("initiator")]
+        public uint Initiator {
+            get {
+                return this.initiator;
+            }
+            set {
+                this.initiator = value;
+            }
+        }
+        
+        [System.Xml.Serialization.XmlAttributeAttribute("target")]
+        public uint Target {
+            get {
+                return this.target;
+            }
+            set {
+                this.target = value;
+            }
+        }
+        
+        [System.Xml.Serialization.XmlAttributeAttribute("cache")]
+        public uint Cache {
+            get {
+                return this.cache;
+            }
+            set {
+                this.cache = value;
+            }
+        }
+        
+        [System.Xml.Serialization.XmlIgnoreAttribute()]
+        public bool CacheSpecified {
+            get {
+                return this.cacheSpecified;
+            }
+            set {
+                this.cacheSpecified = value;
+            }
+        }
+        
+        [System.Xml.Serialization.XmlAttributeAttribute("type")]
+        public NumaInterconnectsLatencyType Type {
+            get {
+                return this.type;
+            }
+            set {
+                this.type = value;
+            }
+        }
+        
+        [System.Xml.Serialization.XmlAttributeAttribute("value")]
+        public uint Value {
+            get {
+                return this.value;
+            }
+            set {
+                this.value = value;
+            }
+        }
+    }
+    
+    public enum NumaInterconnectsLatencyType {
+        
+        [System.Xml.Serialization.XmlEnumAttribute(Name="access")]
+        Access,
+        
+        [System.Xml.Serialization.XmlEnumAttribute(Name="read")]
+        Read,
+        
+        [System.Xml.Serialization.XmlEnumAttribute(Name="write")]
+        Write,
     }
     
     public enum Plugdirect {

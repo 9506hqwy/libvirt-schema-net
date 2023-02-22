@@ -1,0 +1,5 @@
+<cpu>
+  <arch>aarch64</arch>
+  <feature name="name" />
+  <pages size="1" />
+</cpu>

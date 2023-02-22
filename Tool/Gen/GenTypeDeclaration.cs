@@ -54,16 +54,17 @@ internal class GenTypeDeclaration
 
     internal void Gen(CodeContext context)
     {
-        var cls = this.GenClass();
+        var cls = this.GenClass(context);
         this.GenProperty(context, cls);
         this.Type = cls;
     }
 
-    private CodeTypeDeclaration GenClass()
+    private CodeTypeDeclaration GenClass(CodeContext context)
     {
         if (this.isClass)
         {
-            Code.ConvertForType(this.className, this.elementName!, this.ns, this.xmlModifier, this.isAbstract, out var type);
+            var xmlModifier = this.xmlModifier && !context.ExcludeTypeAttrs.Contains(this.className);
+            Code.ConvertForType(this.className, this.elementName!, this.ns, xmlModifier, this.isAbstract, out var type);
 
             if (this.BaseType is not null)
             {

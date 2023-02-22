@@ -24,6 +24,7 @@ internal class CodeContext
 
         this.ClassNamePrefix = new Dictionary<string, string>();
         this.ExcludeDefines = new List<string>();
+        this.ExcludeTypeAttrs = new List<string>();
     }
 
     internal Dictionary<string, string> ClassNamePrefix { get; }
@@ -39,6 +40,8 @@ internal class CodeContext
     internal RngFile EntryFile => this.callerNode.Last().File;
 
     internal List<string> ExcludeDefines { get; }
+
+    internal List<string> ExcludeTypeAttrs { get; }
 
     internal string[] Warnings => this.warnings.ToArray();
 

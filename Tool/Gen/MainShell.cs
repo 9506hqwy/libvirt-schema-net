@@ -38,9 +38,14 @@ internal class MainShell
         context.ExcludeDefines.Add("capdrm"); // Attribute と Element が同じ名前
         context.ExcludeDefines.Add("capmdev"); // Attribute と Element が同じ名前
         context.ExcludeDefines.Add("mdev_types"); // Attribute と Element が同じ名前
+        context.ExcludeTypeAttrs.Add("CapabilitiesCpu");
+        context.ExcludeTypeAttrs.Add("CapabilitiesTopology");
         context.ExcludeTypeAttrs.Add("NumaCache");
 
         var schema = new Schema();
+
+        // capability.rng
+        this.Parse(schema, files["capability.rng"]).CollectType(context);
 
         // cpu.rng
         this.Parse(schema, files["cpu.rng"]).CollectType(context);

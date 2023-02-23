@@ -1,0 +1,24 @@
+<capabilities>
+  <host>
+    <cpu>
+      <arch>aarch64</arch>
+      <feature name="name" />
+      <pages size="1" />
+    </cpu>
+    <secmodel>
+      <model>model</model>
+      <doi>doi</doi>
+      <baselabel type="type">label</baselabel>
+    </secmodel>
+  </host>
+  <guest>
+    <os_type>linux</os_type>
+    <arch name="aarch64">
+      <wordsize>32</wordsize>
+      <machine>machine1</machine>
+      <domain type="qemu">
+        <machine>machine2</machine>
+      </domain>
+    </arch>
+  </guest>
+</capabilities>

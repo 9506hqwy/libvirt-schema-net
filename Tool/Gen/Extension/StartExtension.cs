@@ -33,17 +33,9 @@ internal static class StartExtension
 
                 foreach (var define in baseElement.Children.SelectMany(c => c.RetrieveDefine(context)))
                 {
-                    context.EnterNode(define);
-                    try
-                    {
-                        var className = context.GetClassName(null, out var xmlModifier);
-                        var elementName = baseElement.Name.GetName();
-                        context.AddType(className, define, xmlModifier, baseType, elementName);
-                    }
-                    finally
-                    {
-                        context.ExitNode();
-                    }
+                    var className = context.GetClassName(null, out var xmlModifier);
+                    var elementName = baseElement.Name.GetName();
+                    context.AddType(className, define, xmlModifier, baseType, elementName);
                 }
             }
             finally

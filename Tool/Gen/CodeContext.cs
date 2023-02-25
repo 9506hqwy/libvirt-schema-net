@@ -127,9 +127,20 @@ internal class CodeContext
         return this.items.Select(c => c.Type!).OrderBy(t => t.Name);
     }
 
-    internal void EnterNode(INode define)
+    internal void EnterNode(INode node)
     {
-        this.callerNode.Push(define);
+        if (node is Define define &&
+            this.callerNode.OfType<Define>().Any(d => d.Name == define.Name && d.File.Info.Name == define.File.Info.Name))
+        {
+            foreach (var caller in this.callerNode.OfType<Define>())
+            {
+                Console.Error.WriteLine($"{caller.Name} in {caller.File.Info.Name}");
+            }
+
+            throw new InvalidOperationException($"Detect recursive reference `{define.Name}` in `{node.File.Info.Name}`.");
+        }
+
+        this.callerNode.Push(node);
     }
 
     internal void EnterProperty(IHasName property)

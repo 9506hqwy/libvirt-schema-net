@@ -47,7 +47,7 @@ internal static class INodeExtension
         }
         else
         {
-            throw new InvalidProgramException($"Unexpected format `{context.CurrentProperty.Name.GetName()}` in {self.File.Info.Name}.");
+            throw new InvalidProgramException($"Unexpected `{self.GetType().Name}` format at `{context.CurrentProperty.Name.GetName()}` in {self.File.Info.Name}.");
         }
     }
 

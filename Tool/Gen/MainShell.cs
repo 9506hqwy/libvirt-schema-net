@@ -32,14 +32,54 @@ internal class MainShell
             f => f);
 
         var context = new CodeContext();
+        context.ClassNamePrefix.Add("domaincommon.rng", "domain");
         context.ClassNamePrefix.Add("storagecommon.rng", "storage");
         context.ExcludeDefines.Add("customElement");
+        context.ExcludeDefines.Add("privateDataStorageSource");
+        context.ExcludeDefines.Add("privateDataDeviceDisk");
+        context.ExcludeDefines.Add("diskBackingChain"); // 再帰的参照
+        context.ExcludeDefines.Add("oshvm"); // string と enum の choice
+        context.ExcludeDefines.Add("rng-backend"); // string と enum の choice
         context.ExcludeDefines.Add("capscsi"); // Attribute と Element が同じ名前
         context.ExcludeDefines.Add("capdrm"); // Attribute と Element が同じ名前
         context.ExcludeDefines.Add("capmdev"); // Attribute と Element が同じ名前
         context.ExcludeDefines.Add("mdev_types"); // Attribute と Element が同じ名前
         context.ExcludeTypeAttrs.Add("CapabilitiesCpu");
         context.ExcludeTypeAttrs.Add("CapabilitiesTopology");
+        context.ExcludeTypeAttrs.Add("DomainDevSeclabel");
+        context.ExcludeTypeAttrs.Add("DomainDiskAuthSecret");
+        context.ExcludeTypeAttrs.Add("DomainDiskSourceBlock");
+        context.ExcludeTypeAttrs.Add("DomainDiskSourceDir");
+        context.ExcludeTypeAttrs.Add("DomainDiskSourceFile");
+        context.ExcludeTypeAttrs.Add("DomainDiskSourceNetworkProtocolFtps");
+        context.ExcludeTypeAttrs.Add("DomainDiskSourceNetworkProtocolGluster");
+        context.ExcludeTypeAttrs.Add("DomainDiskSourceNetworkProtocolHttp");
+        context.ExcludeTypeAttrs.Add("DomainDiskSourceNetworkProtocolHttps");
+        context.ExcludeTypeAttrs.Add("DomainDiskSourceNetworkProtocolIscsi");
+        context.ExcludeTypeAttrs.Add("DomainDiskSourceNetworkProtocolNbd");
+        context.ExcludeTypeAttrs.Add("DomainDiskSourceNetworkProtocolNfs");
+        context.ExcludeTypeAttrs.Add("DomainDiskSourceNetworkProtocolRbd");
+        context.ExcludeTypeAttrs.Add("DomainDiskSourceNetworkProtocolSimple");
+        context.ExcludeTypeAttrs.Add("DomainDiskSourceNetworkProtocolVxHs");
+        context.ExcludeTypeAttrs.Add("DomainDiskSourceNvme");
+        context.ExcludeTypeAttrs.Add("DomainDiskSourceVhostUser");
+        context.ExcludeTypeAttrs.Add("DomainDiskSourceVolume");
+        context.ExcludeTypeAttrs.Add("DomainFsDriver");
+        context.ExcludeTypeAttrs.Add("DomainGuestfwdTarget");
+        context.ExcludeTypeAttrs.Add("DomainHostdevcapsmisc");
+        context.ExcludeTypeAttrs.Add("DomainHostdevcapsstorage");
+        context.ExcludeTypeAttrs.Add("DomainHostdevsubsyshost");
+        context.ExcludeTypeAttrs.Add("DomainHostdevsubsysmdev");
+        context.ExcludeTypeAttrs.Add("DomainHostdevsubsysscsi");
+        context.ExcludeTypeAttrs.Add("DomainHostdevsubsysusb");
+        context.ExcludeTypeAttrs.Add("DomainMemorydevSource");
+        context.ExcludeTypeAttrs.Add("DomainMemorydevTarget");
+        context.ExcludeTypeAttrs.Add("DomainQemucdevTgtDef");
+        context.ExcludeTypeAttrs.Add("DomainQemucdevSerialTgtModel");
+        context.ExcludeTypeAttrs.Add("DomainTpmBackendEmulatorEncryption");
+        context.ExcludeTypeAttrs.Add("DomainTpmExternalSource");
+        context.ExcludeTypeAttrs.Add("DomainVirtioTarget");
+        context.ExcludeTypeAttrs.Add("DomainXenTarget");
         context.ExcludeTypeAttrs.Add("NumaCache");
 
         var schema = new Schema();
@@ -49,6 +89,9 @@ internal class MainShell
 
         // cpu.rng
         this.Parse(schema, files["cpu.rng"]).CollectType(context);
+
+        // domain.rng
+        this.Parse(schema, files["domain.rng"]).CollectType(context);
 
         // network.rng
         this.Parse(schema, files["network.rng"]).CollectType(context);

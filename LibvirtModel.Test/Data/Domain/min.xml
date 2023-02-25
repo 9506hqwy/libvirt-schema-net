@@ -1,0 +1,6 @@
+<domain type="qemu">
+  <name>name</name>
+  <os>
+    <type>hvm</type>
+  </os>
+</domain>

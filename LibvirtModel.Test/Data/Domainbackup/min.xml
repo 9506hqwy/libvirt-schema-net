@@ -1,0 +1,3 @@
+<domainbackup mode="pull">
+  <server transport="unix" socket="/path/to/backup" />
+</domainbackup>

@@ -93,6 +93,9 @@ internal class MainShell
         // domain.rng
         this.Parse(schema, files["domain.rng"]).CollectType(context);
 
+        // domainbackup.rng
+        this.Parse(schema, files["domainbackup.rng"]).CollectType(context);
+
         // network.rng
         this.Parse(schema, files["network.rng"]).CollectType(context);
 

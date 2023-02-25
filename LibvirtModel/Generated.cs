@@ -133,6 +133,12 @@ namespace Libvirt.Model {
         Xtensaeb,
     }
     
+    public enum BackupAttr {
+        
+        [System.Xml.Serialization.XmlEnumAttribute(Name="yes")]
+        Yes,
+    }
+    
     [System.Xml.Serialization.XmlTypeAttribute("bandwidth", Namespace="")]
     public partial class Bandwidth {
         
@@ -5694,6 +5700,675 @@ namespace Libvirt.Model {
         
         [System.Xml.Serialization.XmlEnumAttribute(Name="oss")]
         Oss,
+    }
+    
+    [System.Xml.Serialization.XmlTypeAttribute("domainbackup", Namespace="")]
+    public partial class Domainbackup {
+        
+        private string incremental;
+        
+        private string mode;
+        
+        private DomainbackupBackupDisksPush disks;
+        
+        private DomainbackupServer server;
+        
+        [System.Xml.Serialization.XmlElementAttribute("incremental", Namespace="")]
+        public string Incremental {
+            get {
+                return this.incremental;
+            }
+            set {
+                this.incremental = value;
+            }
+        }
+        
+        [System.Xml.Serialization.XmlAttributeAttribute("mode")]
+        public string Mode {
+            get {
+                return this.mode;
+            }
+            set {
+                this.mode = value;
+            }
+        }
+        
+        [System.Xml.Serialization.XmlElementAttribute("disks", Namespace="")]
+        public DomainbackupBackupDisksPush Disks {
+            get {
+                return this.disks;
+            }
+            set {
+                this.disks = value;
+            }
+        }
+        
+        [System.Xml.Serialization.XmlElementAttribute("server", Namespace="")]
+        public DomainbackupServer Server {
+            get {
+                return this.server;
+            }
+            set {
+                this.server = value;
+            }
+        }
+    }
+    
+    [System.Xml.Serialization.XmlTypeAttribute("disks", Namespace="")]
+    public partial class DomainbackupBackupDisksPull {
+        
+        private DomainbackupBackupDisksPullDisk[] disk;
+        
+        [System.Xml.Serialization.XmlElementAttribute("disk", Namespace="")]
+        public DomainbackupBackupDisksPullDisk[] Disk {
+            get {
+                return this.disk;
+            }
+            set {
+                this.disk = value;
+            }
+        }
+    }
+    
+    public partial class DomainbackupBackupDisksPullDisk {
+        
+        private string name;
+        
+        private string backupmode;
+        
+        private string incremental;
+        
+        private string exportname;
+        
+        private string exportbitmap;
+        
+        private BackupAttr backup;
+        
+        private bool backupSpecified;
+        
+        private string type;
+        
+        private DomainbackupBackupDisksPullDiskScratch scratch;
+        
+        private DomainbackupBackupPullDriver driver;
+        
+        [System.Xml.Serialization.XmlAttributeAttribute("name")]
+        public string Name {
+            get {
+                return this.name;
+            }
+            set {
+                this.name = value;
+            }
+        }
+        
+        [System.Xml.Serialization.XmlAttributeAttribute("backupmode")]
+        public string Backupmode {
+            get {
+                return this.backupmode;
+            }
+            set {
+                this.backupmode = value;
+            }
+        }
+        
+        [System.Xml.Serialization.XmlAttributeAttribute("incremental")]
+        public string Incremental {
+            get {
+                return this.incremental;
+            }
+            set {
+                this.incremental = value;
+            }
+        }
+        
+        [System.Xml.Serialization.XmlAttributeAttribute("exportname")]
+        public string Exportname {
+            get {
+                return this.exportname;
+            }
+            set {
+                this.exportname = value;
+            }
+        }
+        
+        [System.Xml.Serialization.XmlAttributeAttribute("exportbitmap")]
+        public string Exportbitmap {
+            get {
+                return this.exportbitmap;
+            }
+            set {
+                this.exportbitmap = value;
+            }
+        }
+        
+        [System.Xml.Serialization.XmlAttributeAttribute("backup")]
+        public BackupAttr Backup {
+            get {
+                return this.backup;
+            }
+            set {
+                this.backup = value;
+            }
+        }
+        
+        [System.Xml.Serialization.XmlIgnoreAttribute()]
+        public bool BackupSpecified {
+            get {
+                return this.backupSpecified;
+            }
+            set {
+                this.backupSpecified = value;
+            }
+        }
+        
+        [System.Xml.Serialization.XmlAttributeAttribute("type")]
+        public string Type {
+            get {
+                return this.type;
+            }
+            set {
+                this.type = value;
+            }
+        }
+        
+        [System.Xml.Serialization.XmlElementAttribute("scratch", Namespace="")]
+        public DomainbackupBackupDisksPullDiskScratch Scratch {
+            get {
+                return this.scratch;
+            }
+            set {
+                this.scratch = value;
+            }
+        }
+        
+        [System.Xml.Serialization.XmlElementAttribute("driver", Namespace="")]
+        public DomainbackupBackupPullDriver Driver {
+            get {
+                return this.driver;
+            }
+            set {
+                this.driver = value;
+            }
+        }
+    }
+    
+    public partial class DomainbackupBackupDisksPullDiskScratch {
+        
+        private string file;
+        
+        private DomainDevSeclabel[] seclabel;
+        
+        private DomainbackupBackupEncryption encryption;
+        
+        [System.Xml.Serialization.XmlAttributeAttribute("file")]
+        public string File {
+            get {
+                return this.file;
+            }
+            set {
+                this.file = value;
+            }
+        }
+        
+        [System.Xml.Serialization.XmlElementAttribute("seclabel", Namespace="")]
+        public DomainDevSeclabel[] Seclabel {
+            get {
+                return this.seclabel;
+            }
+            set {
+                this.seclabel = value;
+            }
+        }
+        
+        [System.Xml.Serialization.XmlElementAttribute("encryption", Namespace="")]
+        public DomainbackupBackupEncryption Encryption {
+            get {
+                return this.encryption;
+            }
+            set {
+                this.encryption = value;
+            }
+        }
+    }
+    
+    [System.Xml.Serialization.XmlTypeAttribute("disks", Namespace="")]
+    public partial class DomainbackupBackupDisksPush {
+        
+        private DomainbackupBackupDisksPushDisk[] disk;
+        
+        [System.Xml.Serialization.XmlElementAttribute("disk", Namespace="")]
+        public DomainbackupBackupDisksPushDisk[] Disk {
+            get {
+                return this.disk;
+            }
+            set {
+                this.disk = value;
+            }
+        }
+    }
+    
+    public partial class DomainbackupBackupDisksPushDisk {
+        
+        private string name;
+        
+        private string backupmode;
+        
+        private string incremental;
+        
+        private BackupAttr backup;
+        
+        private bool backupSpecified;
+        
+        private string type;
+        
+        private DomainbackupBackupDisksPushDiskTarget target;
+        
+        private DomainbackupBackupPushDriver driver;
+        
+        [System.Xml.Serialization.XmlAttributeAttribute("name")]
+        public string Name {
+            get {
+                return this.name;
+            }
+            set {
+                this.name = value;
+            }
+        }
+        
+        [System.Xml.Serialization.XmlAttributeAttribute("backupmode")]
+        public string Backupmode {
+            get {
+                return this.backupmode;
+            }
+            set {
+                this.backupmode = value;
+            }
+        }
+        
+        [System.Xml.Serialization.XmlAttributeAttribute("incremental")]
+        public string Incremental {
+            get {
+                return this.incremental;
+            }
+            set {
+                this.incremental = value;
+            }
+        }
+        
+        [System.Xml.Serialization.XmlAttributeAttribute("backup")]
+        public BackupAttr Backup {
+            get {
+                return this.backup;
+            }
+            set {
+                this.backup = value;
+            }
+        }
+        
+        [System.Xml.Serialization.XmlIgnoreAttribute()]
+        public bool BackupSpecified {
+            get {
+                return this.backupSpecified;
+            }
+            set {
+                this.backupSpecified = value;
+            }
+        }
+        
+        [System.Xml.Serialization.XmlAttributeAttribute("type")]
+        public string Type {
+            get {
+                return this.type;
+            }
+            set {
+                this.type = value;
+            }
+        }
+        
+        [System.Xml.Serialization.XmlElementAttribute("target", Namespace="")]
+        public DomainbackupBackupDisksPushDiskTarget Target {
+            get {
+                return this.target;
+            }
+            set {
+                this.target = value;
+            }
+        }
+        
+        [System.Xml.Serialization.XmlElementAttribute("driver", Namespace="")]
+        public DomainbackupBackupPushDriver Driver {
+            get {
+                return this.driver;
+            }
+            set {
+                this.driver = value;
+            }
+        }
+    }
+    
+    public partial class DomainbackupBackupDisksPushDiskTarget {
+        
+        private string file;
+        
+        private DomainDevSeclabel[] seclabel;
+        
+        private DomainbackupBackupEncryption encryption;
+        
+        [System.Xml.Serialization.XmlAttributeAttribute("file")]
+        public string File {
+            get {
+                return this.file;
+            }
+            set {
+                this.file = value;
+            }
+        }
+        
+        [System.Xml.Serialization.XmlElementAttribute("seclabel", Namespace="")]
+        public DomainDevSeclabel[] Seclabel {
+            get {
+                return this.seclabel;
+            }
+            set {
+                this.seclabel = value;
+            }
+        }
+        
+        [System.Xml.Serialization.XmlElementAttribute("encryption", Namespace="")]
+        public DomainbackupBackupEncryption Encryption {
+            get {
+                return this.encryption;
+            }
+            set {
+                this.encryption = value;
+            }
+        }
+    }
+    
+    [System.Xml.Serialization.XmlTypeAttribute("encryption", Namespace="")]
+    public partial class DomainbackupBackupEncryption {
+        
+        private DomainbackupBackupEncryptionFormat format;
+        
+        private DomainbackupBackupEncryptionEngine engine;
+        
+        private bool engineSpecified;
+        
+        private StorageSecret secret;
+        
+        private DomainbackupBackupEncryptionCipher cipher;
+        
+        private DomainbackupBackupEncryptionIvgen ivgen;
+        
+        [System.Xml.Serialization.XmlAttributeAttribute("format")]
+        public DomainbackupBackupEncryptionFormat Format {
+            get {
+                return this.format;
+            }
+            set {
+                this.format = value;
+            }
+        }
+        
+        [System.Xml.Serialization.XmlAttributeAttribute("engine")]
+        public DomainbackupBackupEncryptionEngine Engine {
+            get {
+                return this.engine;
+            }
+            set {
+                this.engine = value;
+            }
+        }
+        
+        [System.Xml.Serialization.XmlIgnoreAttribute()]
+        public bool EngineSpecified {
+            get {
+                return this.engineSpecified;
+            }
+            set {
+                this.engineSpecified = value;
+            }
+        }
+        
+        [System.Xml.Serialization.XmlElementAttribute("secret", Namespace="")]
+        public StorageSecret Secret {
+            get {
+                return this.secret;
+            }
+            set {
+                this.secret = value;
+            }
+        }
+        
+        [System.Xml.Serialization.XmlElementAttribute("cipher", Namespace="")]
+        public DomainbackupBackupEncryptionCipher Cipher {
+            get {
+                return this.cipher;
+            }
+            set {
+                this.cipher = value;
+            }
+        }
+        
+        [System.Xml.Serialization.XmlElementAttribute("ivgen", Namespace="")]
+        public DomainbackupBackupEncryptionIvgen Ivgen {
+            get {
+                return this.ivgen;
+            }
+            set {
+                this.ivgen = value;
+            }
+        }
+    }
+    
+    public partial class DomainbackupBackupEncryptionCipher {
+        
+        private string name;
+        
+        private uint size;
+        
+        private string mode;
+        
+        private string hash;
+        
+        [System.Xml.Serialization.XmlAttributeAttribute("name")]
+        public string Name {
+            get {
+                return this.name;
+            }
+            set {
+                this.name = value;
+            }
+        }
+        
+        [System.Xml.Serialization.XmlAttributeAttribute("size")]
+        public uint Size {
+            get {
+                return this.size;
+            }
+            set {
+                this.size = value;
+            }
+        }
+        
+        [System.Xml.Serialization.XmlAttributeAttribute("mode")]
+        public string Mode {
+            get {
+                return this.mode;
+            }
+            set {
+                this.mode = value;
+            }
+        }
+        
+        [System.Xml.Serialization.XmlAttributeAttribute("hash")]
+        public string Hash {
+            get {
+                return this.hash;
+            }
+            set {
+                this.hash = value;
+            }
+        }
+    }
+    
+    public enum DomainbackupBackupEncryptionEngine {
+        
+        [System.Xml.Serialization.XmlEnumAttribute(Name="qemu")]
+        Qemu,
+    }
+    
+    public enum DomainbackupBackupEncryptionFormat {
+        
+        [System.Xml.Serialization.XmlEnumAttribute(Name="luks")]
+        Luks,
+    }
+    
+    public partial class DomainbackupBackupEncryptionIvgen {
+        
+        private string name;
+        
+        private string hash;
+        
+        [System.Xml.Serialization.XmlAttributeAttribute("name")]
+        public string Name {
+            get {
+                return this.name;
+            }
+            set {
+                this.name = value;
+            }
+        }
+        
+        [System.Xml.Serialization.XmlAttributeAttribute("hash")]
+        public string Hash {
+            get {
+                return this.hash;
+            }
+            set {
+                this.hash = value;
+            }
+        }
+    }
+    
+    [System.Xml.Serialization.XmlTypeAttribute("driver", Namespace="")]
+    public partial class DomainbackupBackupPullDriver {
+        
+        private string type;
+        
+        [System.Xml.Serialization.XmlAttributeAttribute("type")]
+        public string Type {
+            get {
+                return this.type;
+            }
+            set {
+                this.type = value;
+            }
+        }
+    }
+    
+    [System.Xml.Serialization.XmlTypeAttribute("driver", Namespace="")]
+    public partial class DomainbackupBackupPushDriver {
+        
+        private StorageFormat type;
+        
+        [System.Xml.Serialization.XmlAttributeAttribute("type")]
+        public StorageFormat Type {
+            get {
+                return this.type;
+            }
+            set {
+                this.type = value;
+            }
+        }
+    }
+    
+    public partial class DomainbackupServer {
+        
+        private VirYesNo tls;
+        
+        private bool tlsSpecified;
+        
+        private string transport;
+        
+        private string name;
+        
+        private uint port;
+        
+        private bool portSpecified;
+        
+        private string socket;
+        
+        [System.Xml.Serialization.XmlAttributeAttribute("tls")]
+        public VirYesNo Tls {
+            get {
+                return this.tls;
+            }
+            set {
+                this.tls = value;
+            }
+        }
+        
+        [System.Xml.Serialization.XmlIgnoreAttribute()]
+        public bool TlsSpecified {
+            get {
+                return this.tlsSpecified;
+            }
+            set {
+                this.tlsSpecified = value;
+            }
+        }
+        
+        [System.Xml.Serialization.XmlAttributeAttribute("transport")]
+        public string Transport {
+            get {
+                return this.transport;
+            }
+            set {
+                this.transport = value;
+            }
+        }
+        
+        [System.Xml.Serialization.XmlAttributeAttribute("name")]
+        public string Name {
+            get {
+                return this.name;
+            }
+            set {
+                this.name = value;
+            }
+        }
+        
+        [System.Xml.Serialization.XmlAttributeAttribute("port")]
+        public uint Port {
+            get {
+                return this.port;
+            }
+            set {
+                this.port = value;
+            }
+        }
+        
+        [System.Xml.Serialization.XmlIgnoreAttribute()]
+        public bool PortSpecified {
+            get {
+                return this.portSpecified;
+            }
+            set {
+                this.portSpecified = value;
+            }
+        }
+        
+        [System.Xml.Serialization.XmlAttributeAttribute("socket")]
+        public string Socket {
+            get {
+                return this.socket;
+            }
+            set {
+                this.socket = value;
+            }
+        }
     }
     
     [System.Xml.Serialization.XmlTypeAttribute("commandline", Namespace="http://libvirt.org/schemas/domain/bhyve/1.0")]

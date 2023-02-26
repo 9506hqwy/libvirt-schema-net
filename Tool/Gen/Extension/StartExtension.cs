@@ -11,7 +11,7 @@ internal static class StartExtension
         {
             foreach (var element in self.Child.RetrieveElement(context))
             {
-                var className = context.GetClassName(element, out var xmlModifier);
+                var className = Utility.ToClassName(context.GetClassName(element, out var xmlModifier));
                 context.AddType(className, element, xmlModifier, null, null);
             }
         }
@@ -33,7 +33,7 @@ internal static class StartExtension
 
                 foreach (var define in baseElement.Children.SelectMany(c => c.RetrieveDefine(context)))
                 {
-                    var className = context.GetClassName(null, out var xmlModifier);
+                    var className = Utility.ToClassName(context.GetClassName(null, out var xmlModifier));
                     var elementName = baseElement.Name.GetName();
                     context.AddType(className, define, xmlModifier, baseType, elementName);
                 }

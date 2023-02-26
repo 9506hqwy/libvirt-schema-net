@@ -146,6 +146,20 @@ internal class GenTypeMember
         }
     }
 
+    internal GenTypeMember ToStringType()
+    {
+        var spec = new TypeSpec(typeof(string));
+        return new GenTypeMember(
+            spec,
+            this.Name,
+            this.ns,
+            this.isAttribute,
+            this.isElement,
+            false,
+            false,
+            this.status);
+    }
+
     private CodeTypeReference GetMemberType()
     {
         if (this.isAttribute)

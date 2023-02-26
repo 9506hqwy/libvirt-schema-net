@@ -43,7 +43,7 @@ internal class GenTypeDeclaration
 
     internal CodeTypeReference? BaseType { get; set; }
 
-    internal string Name => Utility.ToClassName(this.className);
+    internal string Name => this.className;
 
     internal CodeTypeDeclaration? Type { get; private set; }
 
@@ -171,6 +171,12 @@ internal class GenTypeDeclaration
         foreach (var member in members)
         {
             var type = member.GetMemberType(context);
+            if (mergedType.isEnum && type.Name == "System.String")
+            {
+                merged = merged.ToStringType();
+                mergedType = merged.GetMemberType(context);
+            }
+
             foreach (var memMember in type.members)
             {
                 var found = mergedType.members.FirstOrDefault(m => m.Name == memMember.Name);

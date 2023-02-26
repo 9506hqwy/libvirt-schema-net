@@ -45,6 +45,10 @@ internal static class INodeExtension
                 child.AddProperty(context, cls, filter, (PropertyState)status.Clone());
             }
         }
+        else if (self is Grammar)
+        {
+            context.AddWarning($"Not supported. Skip grammer in `{self.File.Info.Name}`.");
+        }
         else
         {
             throw new InvalidProgramException($"Unexpected `{self.GetType().Name}` format at `{context.CurrentProperty.Name.GetName()}` in {self.File.Info.Name}.");

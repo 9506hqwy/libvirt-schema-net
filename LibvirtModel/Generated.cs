@@ -7720,6 +7720,176 @@ namespace Libvirt.Model {
         }
     }
     
+    [System.Xml.Serialization.XmlTypeAttribute("domaincheckpoint", Namespace="")]
+    public partial class Domaincheckpoint {
+        
+        private string name;
+        
+        private string description;
+        
+        private ulong creationTime;
+        
+        private bool creationTimeSpecified;
+        
+        private DomaincheckpointDisks disks;
+        
+        private DomaincheckpointParent parent;
+        
+        [System.Xml.Serialization.XmlElementAttribute("name", Namespace="")]
+        public string Name {
+            get {
+                return this.name;
+            }
+            set {
+                this.name = value;
+            }
+        }
+        
+        [System.Xml.Serialization.XmlElementAttribute("description", Namespace="")]
+        public string Description {
+            get {
+                return this.description;
+            }
+            set {
+                this.description = value;
+            }
+        }
+        
+        [System.Xml.Serialization.XmlElementAttribute("creationTime", Namespace="")]
+        public ulong CreationTime {
+            get {
+                return this.creationTime;
+            }
+            set {
+                this.creationTime = value;
+            }
+        }
+        
+        [System.Xml.Serialization.XmlIgnoreAttribute()]
+        public bool CreationTimeSpecified {
+            get {
+                return this.creationTimeSpecified;
+            }
+            set {
+                this.creationTimeSpecified = value;
+            }
+        }
+        
+        [System.Xml.Serialization.XmlElementAttribute("disks", Namespace="")]
+        public DomaincheckpointDisks Disks {
+            get {
+                return this.disks;
+            }
+            set {
+                this.disks = value;
+            }
+        }
+        
+        [System.Xml.Serialization.XmlElementAttribute("parent", Namespace="")]
+        public DomaincheckpointParent Parent {
+            get {
+                return this.parent;
+            }
+            set {
+                this.parent = value;
+            }
+        }
+    }
+    
+    [System.Xml.Serialization.XmlTypeAttribute("disk", Namespace="")]
+    public partial class DomaincheckpointDiskcheckpoint {
+        
+        private string name;
+        
+        private string checkpoint;
+        
+        private string bitmap;
+        
+        private ulong size;
+        
+        private bool sizeSpecified;
+        
+        [System.Xml.Serialization.XmlAttributeAttribute("name")]
+        public string Name {
+            get {
+                return this.name;
+            }
+            set {
+                this.name = value;
+            }
+        }
+        
+        [System.Xml.Serialization.XmlAttributeAttribute("checkpoint")]
+        public string Checkpoint {
+            get {
+                return this.checkpoint;
+            }
+            set {
+                this.checkpoint = value;
+            }
+        }
+        
+        [System.Xml.Serialization.XmlAttributeAttribute("bitmap")]
+        public string Bitmap {
+            get {
+                return this.bitmap;
+            }
+            set {
+                this.bitmap = value;
+            }
+        }
+        
+        [System.Xml.Serialization.XmlAttributeAttribute("size")]
+        public ulong Size {
+            get {
+                return this.size;
+            }
+            set {
+                this.size = value;
+            }
+        }
+        
+        [System.Xml.Serialization.XmlIgnoreAttribute()]
+        public bool SizeSpecified {
+            get {
+                return this.sizeSpecified;
+            }
+            set {
+                this.sizeSpecified = value;
+            }
+        }
+    }
+    
+    public partial class DomaincheckpointDisks {
+        
+        private DomaincheckpointDiskcheckpoint[] disk;
+        
+        [System.Xml.Serialization.XmlElementAttribute("disk", Namespace="")]
+        public DomaincheckpointDiskcheckpoint[] Disk {
+            get {
+                return this.disk;
+            }
+            set {
+                this.disk = value;
+            }
+        }
+    }
+    
+    public partial class DomaincheckpointParent {
+        
+        private string name;
+        
+        [System.Xml.Serialization.XmlElementAttribute("name", Namespace="")]
+        public string Name {
+            get {
+                return this.name;
+            }
+            set {
+                this.name = value;
+            }
+        }
+    }
+    
     [System.Xml.Serialization.XmlTypeAttribute("clipboard", Namespace="")]
     public partial class DomainClipboard {
         

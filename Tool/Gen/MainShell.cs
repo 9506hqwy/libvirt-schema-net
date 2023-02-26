@@ -96,6 +96,9 @@ internal class MainShell
         // domainbackup.rng
         this.Parse(schema, files["domainbackup.rng"]).CollectType(context);
 
+        // domaincheckpoint.rng
+        this.Parse(schema, files["domaincheckpoint.rng"]).CollectType(context);
+
         // network.rng
         this.Parse(schema, files["network.rng"]).CollectType(context);
 

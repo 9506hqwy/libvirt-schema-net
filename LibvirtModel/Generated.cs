@@ -38679,6 +38679,12 @@ namespace Libvirt.Model {
         
         [System.Xml.Serialization.XmlEnumAttribute(Name="nfs")]
         Nfs,
+        
+        [System.Xml.Serialization.XmlEnumAttribute(Name="cifs")]
+        Cifs,
+        
+        [System.Xml.Serialization.XmlEnumAttribute(Name="glusterfs")]
+        Glusterfs,
     }
     
     [System.Xml.Serialization.XmlTypeAttribute("source", Namespace="")]

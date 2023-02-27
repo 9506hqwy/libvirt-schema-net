@@ -170,6 +170,11 @@ internal class GenTypeDeclaration
 
         foreach (var member in members)
         {
+            if (merged == member)
+            {
+                continue;
+            }
+
             var type = member.GetMemberType(context);
             if (mergedType.isEnum && type.Name == "System.String")
             {
@@ -187,11 +192,26 @@ internal class GenTypeDeclaration
                     continue;
                 }
 
-                if (found.Type.BaseType != memMember.Type.BaseType)
+                if (found.Type.BaseType == memMember.Type.BaseType)
                 {
-                    context.AddWarning($"Not supported. Differenct type at {member.Type.BaseType}.{memMember.Name} ({cls.Name})");
-                    return true;
+                    continue;
                 }
+
+                var memMemberType = memMember.GetMemberType(context);
+                var foundType = found.GetMemberType(context);
+
+                if (memMemberType.isEnum && foundType.isEnum)
+                {
+                    foreach (var f in memMemberType.members)
+                    {
+                        foundType.Add(f);
+                    }
+
+                    continue;
+                }
+
+                context.AddWarning($"Not supported. Differenct type at {member.Type.BaseType}.{memMember.Name} ({cls.Name})");
+                return true;
             }
         }
 

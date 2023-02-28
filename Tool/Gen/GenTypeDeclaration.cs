@@ -200,7 +200,8 @@ internal class GenTypeDeclaration
                 var memMemberType = memMember.GetMemberType(context);
                 var foundType = found.GetMemberType(context);
 
-                if (memMemberType.isEnum && foundType.isEnum)
+                if ((memMemberType.isEnum && foundType.isEnum) ||
+                    (memMemberType.isClass && foundType.isClass))
                 {
                     foreach (var f in memMemberType.members)
                     {

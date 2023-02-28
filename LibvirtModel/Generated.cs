@@ -5940,6 +5940,12 @@ namespace Libvirt.Model {
         
         private DomainbackupBackupPushDriver driver;
         
+        private string exportname;
+        
+        private string exportbitmap;
+        
+        private DomainbackupBackupDisksPullDiskScratch scratch;
+        
         [System.Xml.Serialization.XmlAttributeAttribute("name")]
         public string Name {
             get {
@@ -6007,6 +6013,36 @@ namespace Libvirt.Model {
             }
             set {
                 this.driver = value;
+            }
+        }
+        
+        [System.Xml.Serialization.XmlAttributeAttribute("exportname")]
+        public string Exportname {
+            get {
+                return this.exportname;
+            }
+            set {
+                this.exportname = value;
+            }
+        }
+        
+        [System.Xml.Serialization.XmlAttributeAttribute("exportbitmap")]
+        public string Exportbitmap {
+            get {
+                return this.exportbitmap;
+            }
+            set {
+                this.exportbitmap = value;
+            }
+        }
+        
+        [System.Xml.Serialization.XmlElementAttribute("scratch", Namespace="")]
+        public DomainbackupBackupDisksPullDiskScratch Scratch {
+            get {
+                return this.scratch;
+            }
+            set {
+                this.scratch = value;
             }
         }
     }
@@ -6237,6 +6273,8 @@ namespace Libvirt.Model {
         
         private StorageFormat type;
         
+        private bool typeSpecified;
+        
         [System.Xml.Serialization.XmlAttributeAttribute("type")]
         public StorageFormat Type {
             get {
@@ -6244,6 +6282,16 @@ namespace Libvirt.Model {
             }
             set {
                 this.type = value;
+            }
+        }
+        
+        [System.Xml.Serialization.XmlIgnoreAttribute()]
+        public bool TypeSpecified {
+            get {
+                return this.typeSpecified;
+            }
+            set {
+                this.typeSpecified = value;
             }
         }
     }
@@ -17214,6 +17262,22 @@ namespace Libvirt.Model {
         
         private bool writeFilteringSpecified;
         
+        private DomainHostdevsubsysusbGuestReset guestReset;
+        
+        private bool guestResetSpecified;
+        
+        private DomainUsbproductVendor vendor;
+        
+        private DomainUsbproductProduct product;
+        
+        private string wwpn;
+        
+        private string block;
+        
+        private string @char;
+        
+        private string @interface;
+        
         [System.Xml.Serialization.XmlAttributeAttribute("protocol")]
         public string Protocol {
             get {
@@ -17323,6 +17387,86 @@ namespace Libvirt.Model {
                 this.writeFilteringSpecified = value;
             }
         }
+        
+        [System.Xml.Serialization.XmlAttributeAttribute("guestReset")]
+        public DomainHostdevsubsysusbGuestReset GuestReset {
+            get {
+                return this.guestReset;
+            }
+            set {
+                this.guestReset = value;
+            }
+        }
+        
+        [System.Xml.Serialization.XmlIgnoreAttribute()]
+        public bool GuestResetSpecified {
+            get {
+                return this.guestResetSpecified;
+            }
+            set {
+                this.guestResetSpecified = value;
+            }
+        }
+        
+        [System.Xml.Serialization.XmlElementAttribute("vendor", Namespace="")]
+        public DomainUsbproductVendor Vendor {
+            get {
+                return this.vendor;
+            }
+            set {
+                this.vendor = value;
+            }
+        }
+        
+        [System.Xml.Serialization.XmlElementAttribute("product", Namespace="")]
+        public DomainUsbproductProduct Product {
+            get {
+                return this.product;
+            }
+            set {
+                this.product = value;
+            }
+        }
+        
+        [System.Xml.Serialization.XmlAttributeAttribute("wwpn")]
+        public string Wwpn {
+            get {
+                return this.wwpn;
+            }
+            set {
+                this.wwpn = value;
+            }
+        }
+        
+        [System.Xml.Serialization.XmlElementAttribute("block", Namespace="")]
+        public string Block {
+            get {
+                return this.block;
+            }
+            set {
+                this.block = value;
+            }
+        }
+        
+        [System.Xml.Serialization.XmlElementAttribute("char", Namespace="")]
+        public string Char {
+            get {
+                return this.@char;
+            }
+            set {
+                this.@char = value;
+            }
+        }
+        
+        [System.Xml.Serialization.XmlElementAttribute("interface", Namespace="")]
+        public string Interface {
+            get {
+                return this.@interface;
+            }
+            set {
+                this.@interface = value;
+            }
+        }
     }
     
     public partial class DomainHostdevsubsysscsiAddress {
@@ -17332,6 +17476,20 @@ namespace Libvirt.Model {
         private string target;
         
         private string unit;
+        
+        private string domain;
+        
+        private string slot;
+        
+        private string function;
+        
+        private VirOnOff multifunction;
+        
+        private bool multifunctionSpecified;
+        
+        private string device;
+        
+        private string uuid;
         
         [System.Xml.Serialization.XmlAttributeAttribute("bus")]
         public string Bus {
@@ -17360,6 +17518,76 @@ namespace Libvirt.Model {
             }
             set {
                 this.unit = value;
+            }
+        }
+        
+        [System.Xml.Serialization.XmlAttributeAttribute("domain")]
+        public string Domain {
+            get {
+                return this.domain;
+            }
+            set {
+                this.domain = value;
+            }
+        }
+        
+        [System.Xml.Serialization.XmlAttributeAttribute("slot")]
+        public string Slot {
+            get {
+                return this.slot;
+            }
+            set {
+                this.slot = value;
+            }
+        }
+        
+        [System.Xml.Serialization.XmlAttributeAttribute("function")]
+        public string Function {
+            get {
+                return this.function;
+            }
+            set {
+                this.function = value;
+            }
+        }
+        
+        [System.Xml.Serialization.XmlAttributeAttribute("multifunction")]
+        public VirOnOff Multifunction {
+            get {
+                return this.multifunction;
+            }
+            set {
+                this.multifunction = value;
+            }
+        }
+        
+        [System.Xml.Serialization.XmlIgnoreAttribute()]
+        public bool MultifunctionSpecified {
+            get {
+                return this.multifunctionSpecified;
+            }
+            set {
+                this.multifunctionSpecified = value;
+            }
+        }
+        
+        [System.Xml.Serialization.XmlAttributeAttribute("device")]
+        public string Device {
+            get {
+                return this.device;
+            }
+            set {
+                this.device = value;
+            }
+        }
+        
+        [System.Xml.Serialization.XmlAttributeAttribute("uuid")]
+        public string Uuid {
+            get {
+                return this.uuid;
+            }
+            set {
+                this.uuid = value;
             }
         }
     }

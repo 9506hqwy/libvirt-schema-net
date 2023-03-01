@@ -59,6 +59,17 @@ internal class GenTypeDeclaration
         this.Type = cls;
     }
 
+    internal bool Replace(GenTypeMember a, GenTypeMember b)
+    {
+        if (this.members.Remove(a))
+        {
+            this.members.Add(b);
+            return true;
+        }
+
+        return false;
+    }
+
     private CodeTypeDeclaration GenClass(CodeContext context)
     {
         if (this.isClass)
@@ -208,6 +219,15 @@ internal class GenTypeDeclaration
                         foundType.Add(f);
                     }
 
+                    continue;
+                }
+                else if (foundType.Name == "System.String" && memMemberType.isEnum)
+                {
+                    continue;
+                }
+                else if (foundType.isEnum && memMemberType.Name == "System.String")
+                {
+                    mergedType.Replace(found, found.ToStringType());
                     continue;
                 }
 

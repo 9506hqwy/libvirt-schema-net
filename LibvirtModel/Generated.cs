@@ -6271,27 +6271,15 @@ namespace Libvirt.Model {
     [System.Xml.Serialization.XmlTypeAttribute("driver", Namespace="")]
     public partial class DomainbackupBackupPushDriver {
         
-        private StorageFormat type;
-        
-        private bool typeSpecified;
+        private string type;
         
         [System.Xml.Serialization.XmlAttributeAttribute("type")]
-        public StorageFormat Type {
+        public string Type {
             get {
                 return this.type;
             }
             set {
                 this.type = value;
-            }
-        }
-        
-        [System.Xml.Serialization.XmlIgnoreAttribute()]
-        public bool TypeSpecified {
-            get {
-                return this.typeSpecified;
-            }
-            set {
-                this.typeSpecified = value;
             }
         }
     }
@@ -12650,10 +12638,6 @@ namespace Libvirt.Model {
     
     public partial class DomainDiskSourceNetworkProtocolHttps {
         
-        private DomainDiskSourceNetworkProtocolHttpsProtocol protocol;
-        
-        private bool protocolSpecified;
-        
         private string name;
         
         private string query;
@@ -12694,25 +12678,43 @@ namespace Libvirt.Model {
         
         private string dir;
         
-        [System.Xml.Serialization.XmlAttributeAttribute("protocol")]
-        public DomainDiskSourceNetworkProtocolHttpsProtocol Protocol {
-            get {
-                return this.protocol;
-            }
-            set {
-                this.protocol = value;
-            }
-        }
+        private string protocol;
         
-        [System.Xml.Serialization.XmlIgnoreAttribute()]
-        public bool ProtocolSpecified {
-            get {
-                return this.protocolSpecified;
-            }
-            set {
-                this.protocolSpecified = value;
-            }
-        }
+        private VirYesNo tls;
+        
+        private bool tlsSpecified;
+        
+        private string tlsHostname;
+        
+        private DomainDiskSourceNetworkProtocolRbdSnapshot snapshot;
+        
+        private DomainDiskSourceNetworkProtocolRbdConfig config;
+        
+        private StorageInitiatorinfo initiator;
+        
+        private DomainDiskSourceNetworkNfs identity;
+        
+        private string pool;
+        
+        private string volume;
+        
+        private DomainDiskSourceVolumeMode mode;
+        
+        private bool modeSpecified;
+        
+        private string type;
+        
+        private string @namespace;
+        
+        private VirYesNo managed;
+        
+        private bool managedSpecified;
+        
+        private DomainDiskSourceNvmeAddress address;
+        
+        private string path;
+        
+        private StorageReconnect reconnect;
         
         [System.Xml.Serialization.XmlAttributeAttribute("name")]
         public string Name {
@@ -12911,6 +12913,196 @@ namespace Libvirt.Model {
             }
             set {
                 this.dir = value;
+            }
+        }
+        
+        [System.Xml.Serialization.XmlAttributeAttribute("protocol")]
+        public string Protocol {
+            get {
+                return this.protocol;
+            }
+            set {
+                this.protocol = value;
+            }
+        }
+        
+        [System.Xml.Serialization.XmlAttributeAttribute("tls")]
+        public VirYesNo Tls {
+            get {
+                return this.tls;
+            }
+            set {
+                this.tls = value;
+            }
+        }
+        
+        [System.Xml.Serialization.XmlIgnoreAttribute()]
+        public bool TlsSpecified {
+            get {
+                return this.tlsSpecified;
+            }
+            set {
+                this.tlsSpecified = value;
+            }
+        }
+        
+        [System.Xml.Serialization.XmlAttributeAttribute("tlsHostname")]
+        public string TlsHostname {
+            get {
+                return this.tlsHostname;
+            }
+            set {
+                this.tlsHostname = value;
+            }
+        }
+        
+        [System.Xml.Serialization.XmlElementAttribute("snapshot", Namespace="")]
+        public DomainDiskSourceNetworkProtocolRbdSnapshot Snapshot {
+            get {
+                return this.snapshot;
+            }
+            set {
+                this.snapshot = value;
+            }
+        }
+        
+        [System.Xml.Serialization.XmlElementAttribute("config", Namespace="")]
+        public DomainDiskSourceNetworkProtocolRbdConfig Config {
+            get {
+                return this.config;
+            }
+            set {
+                this.config = value;
+            }
+        }
+        
+        [System.Xml.Serialization.XmlElementAttribute("initiator", Namespace="")]
+        public StorageInitiatorinfo Initiator {
+            get {
+                return this.initiator;
+            }
+            set {
+                this.initiator = value;
+            }
+        }
+        
+        [System.Xml.Serialization.XmlElementAttribute("identity", Namespace="")]
+        public DomainDiskSourceNetworkNfs Identity {
+            get {
+                return this.identity;
+            }
+            set {
+                this.identity = value;
+            }
+        }
+        
+        [System.Xml.Serialization.XmlAttributeAttribute("pool")]
+        public string Pool {
+            get {
+                return this.pool;
+            }
+            set {
+                this.pool = value;
+            }
+        }
+        
+        [System.Xml.Serialization.XmlAttributeAttribute("volume")]
+        public string Volume {
+            get {
+                return this.volume;
+            }
+            set {
+                this.volume = value;
+            }
+        }
+        
+        [System.Xml.Serialization.XmlAttributeAttribute("mode")]
+        public DomainDiskSourceVolumeMode Mode {
+            get {
+                return this.mode;
+            }
+            set {
+                this.mode = value;
+            }
+        }
+        
+        [System.Xml.Serialization.XmlIgnoreAttribute()]
+        public bool ModeSpecified {
+            get {
+                return this.modeSpecified;
+            }
+            set {
+                this.modeSpecified = value;
+            }
+        }
+        
+        [System.Xml.Serialization.XmlAttributeAttribute("type")]
+        public string Type {
+            get {
+                return this.type;
+            }
+            set {
+                this.type = value;
+            }
+        }
+        
+        [System.Xml.Serialization.XmlAttributeAttribute("namespace")]
+        public string Namespace {
+            get {
+                return this.@namespace;
+            }
+            set {
+                this.@namespace = value;
+            }
+        }
+        
+        [System.Xml.Serialization.XmlAttributeAttribute("managed")]
+        public VirYesNo Managed {
+            get {
+                return this.managed;
+            }
+            set {
+                this.managed = value;
+            }
+        }
+        
+        [System.Xml.Serialization.XmlIgnoreAttribute()]
+        public bool ManagedSpecified {
+            get {
+                return this.managedSpecified;
+            }
+            set {
+                this.managedSpecified = value;
+            }
+        }
+        
+        [System.Xml.Serialization.XmlElementAttribute("address", Namespace="")]
+        public DomainDiskSourceNvmeAddress Address {
+            get {
+                return this.address;
+            }
+            set {
+                this.address = value;
+            }
+        }
+        
+        [System.Xml.Serialization.XmlAttributeAttribute("path")]
+        public string Path {
+            get {
+                return this.path;
+            }
+            set {
+                this.path = value;
+            }
+        }
+        
+        [System.Xml.Serialization.XmlElementAttribute("reconnect", Namespace="")]
+        public StorageReconnect Reconnect {
+            get {
+                return this.reconnect;
+            }
+            set {
+                this.reconnect = value;
             }
         }
     }

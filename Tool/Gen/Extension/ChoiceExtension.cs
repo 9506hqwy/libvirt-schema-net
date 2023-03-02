@@ -85,7 +85,7 @@ internal static class ChoiceExtension
 
                 foreach (var value in children.Cast<Value>())
                 {
-                    cls.Add(new GenTypeMember(value.Val));
+                    cls.Add(new GenTypeMember(context, value.Val));
                 }
 
                 context.Add(cls);

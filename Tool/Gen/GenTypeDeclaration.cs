@@ -101,28 +101,29 @@ internal class GenTypeDeclaration
     {
         var addedNames = new List<string>();
 
-        var names = this.members.GroupBy(m => m.Name).ToDictionary(
+        var names = this.members.GroupBy(m => m.PropertyName).ToDictionary(
             g => g.Key,
             g => g.ToArray());
         var needMerge = names.Any(n => this.NeedMerge(n.Value));
 
         foreach (var member in this.members)
         {
-            if (addedNames.Contains(member.Name))
+            if (addedNames.Contains(member.PropertyName))
             {
                 continue;
             }
 
-            addedNames.Add(member.Name);
+            addedNames.Add(member.PropertyName);
 
-            var targets = this.members.Where(m => m.Name == member.Name).ToArray();
+            var targets = this.members.Where(m => m.PropertyName == member.PropertyName).ToArray();
 
             if (needMerge)
             {
                 Array.ForEach(targets, t => t.SetOptional());
             }
 
-            if (targets.Length == 1 || targets.All(t => t.Type.BaseType == targets[0].Type.BaseType))
+            if (targets.Length == 1 ||
+                targets.All(t => GenTypeMember.SameKind(t, targets[0]) && t.Type.BaseType == targets[0].Type.BaseType))
             {
                 foreach (var property in targets[0].Gen())
                 {
@@ -138,7 +139,7 @@ internal class GenTypeDeclaration
             }
             else
             {
-                context.AddWarning($"Not supported. Differenct type at {cls.Name}.{member.Name}");
+                context.AddWarning($"Not supported. Differenct type at {cls.Name}.{member.PropertyName}");
             }
         }
     }
@@ -195,7 +196,7 @@ internal class GenTypeDeclaration
 
             foreach (var memMember in type.members)
             {
-                var found = mergedType.members.FirstOrDefault(m => m.Name == memMember.Name);
+                var found = mergedType.members.FirstOrDefault(m => m.PropertyName == memMember.PropertyName);
                 if (found is null)
                 {
                     memMember.SetOptional();
@@ -231,7 +232,7 @@ internal class GenTypeDeclaration
                     continue;
                 }
 
-                context.AddWarning($"Not supported. Differenct type at {member.Type.BaseType}.{memMember.Name} ({cls.Name})");
+                context.AddWarning($"Not supported. Differenct type at {member.Type.BaseType}.{memMember.PropertyName} ({cls.Name})");
                 return true;
             }
         }

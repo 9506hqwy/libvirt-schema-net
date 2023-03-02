@@ -40,10 +40,6 @@ internal class MainShell
         context.ExcludeDefines.Add("diskBackingChain"); // 再帰的参照
         context.ExcludeDefines.Add("oshvm"); // string と enum の choice
         context.ExcludeDefines.Add("rng-backend"); // string と enum の choice
-        context.ExcludeDefines.Add("capscsi"); // Attribute と Element が同じ名前
-        context.ExcludeDefines.Add("capdrm"); // Attribute と Element が同じ名前
-        context.ExcludeDefines.Add("capmdev"); // Attribute と Element が同じ名前
-        context.ExcludeDefines.Add("mdev_types"); // Attribute と Element が同じ名前
         context.ExcludeTypeAttrs.Add("CapabilitiesCpu");
         context.ExcludeTypeAttrs.Add("CapabilitiesTopology");
         context.ExcludeTypeAttrs.Add("DomainDevSeclabel");
@@ -81,6 +77,10 @@ internal class MainShell
         context.ExcludeTypeAttrs.Add("DomainVirtioTarget");
         context.ExcludeTypeAttrs.Add("DomainXenTarget");
         context.ExcludeTypeAttrs.Add("NumaCache");
+        context.PropertyAliases.Add(new PropertyAlias("capscsi", "type", true, "type_ex"));
+        context.PropertyAliases.Add(new PropertyAlias("capdrm", "type", true, "type_ex"));
+        context.PropertyAliases.Add(new PropertyAlias("capmdev", "type", true, "type_ex"));
+        context.PropertyAliases.Add(new PropertyAlias("mdev_types", "type", true, "type_ex"));
 
         var schema = new Schema();
 

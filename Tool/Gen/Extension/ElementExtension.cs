@@ -16,7 +16,7 @@ internal static class ElementExtension
             // TODO: check interleave
             self.TryParseType(context, out var typeSpec);
 
-            var member = new GenTypeMember(typeSpec!, self.Name.GetName(), self.Namespace, status);
+            var member = new GenTypeMember(context, typeSpec!, self.Name.GetName(), self.Namespace, status);
             type.Add(member);
 
             return true;

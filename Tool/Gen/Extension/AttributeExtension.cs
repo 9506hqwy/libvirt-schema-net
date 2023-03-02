@@ -15,7 +15,7 @@ internal static class AttributeExtension
         {
             if (self.Child!.TryParseSimpleType(context, false, out var typeSpec))
             {
-                var member = new GenTypeMember(typeSpec!, self.Name.GetName(), status);
+                var member = new GenTypeMember(context, typeSpec!, self.Name.GetName(), status);
                 type.Add(member);
                 return true;
             }

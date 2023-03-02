@@ -24,12 +24,13 @@ internal static class Code
 
     internal static void ConvertForElement(
         CodeTypeReference type,
+        string propertyName,
         string elementName,
         string? ns,
         out CodeMemberField field,
         out CodeMemberProperty prop)
     {
-        Code.ToProperty(type, elementName, out field, out prop);
+        Code.ToProperty(type, propertyName, out field, out prop);
 
         var attrArgs = new List<CodeAttributeArgument>
         {

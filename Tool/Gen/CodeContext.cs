@@ -25,6 +25,7 @@ internal class CodeContext
         this.ClassNamePrefix = new Dictionary<string, string>();
         this.ExcludeDefines = new List<string>();
         this.ExcludeTypeAttrs = new List<string>();
+        this.PropertyAliases = new List<PropertyAlias>();
     }
 
     internal Dictionary<string, string> ClassNamePrefix { get; }
@@ -42,6 +43,8 @@ internal class CodeContext
     internal List<string> ExcludeDefines { get; }
 
     internal List<string> ExcludeTypeAttrs { get; }
+
+    internal List<PropertyAlias> PropertyAliases { get; }
 
     internal string[] Warnings => this.warnings.ToArray();
 
@@ -205,6 +208,31 @@ internal class CodeContext
         // TODO: add nested enum support.
         defineLevel = true;
         return this.CreateUnderscoredText(prefix, this.CurrentDefile.Name);
+    }
+
+    internal string GetPropertyName(string name, bool isElement)
+    {
+        foreach (var alias in this.PropertyAliases)
+        {
+            if (this.CurrentDefile.Name != alias.ClassName)
+            {
+                continue;
+            }
+
+            if (name != alias.PropertyName)
+            {
+                continue;
+            }
+
+            if (isElement != alias.IsElement)
+            {
+                continue;
+            }
+
+            return alias.NewPropertyName;
+        }
+
+        return name;
     }
 
     internal bool IsParsed(string className)

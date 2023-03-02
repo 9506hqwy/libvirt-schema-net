@@ -2609,6 +2609,12 @@ namespace Libvirt.Model {
         
         private string target;
         
+        private ulong lun;
+        
+        private bool lunSpecified;
+        
+        private string typeEx;
+        
         private string block;
         
         private string driveType;
@@ -2628,6 +2634,12 @@ namespace Libvirt.Model {
         private ulong numBlocks;
         
         private bool numBlocksSpecified;
+        
+        private string uuid;
+        
+        private string parentAddr;
+        
+        private DeviceCapmdevAttr[] attr;
         
         private string cssid;
         
@@ -3013,6 +3025,36 @@ namespace Libvirt.Model {
             }
         }
         
+        [System.Xml.Serialization.XmlElementAttribute("lun", Namespace="")]
+        public ulong Lun {
+            get {
+                return this.lun;
+            }
+            set {
+                this.lun = value;
+            }
+        }
+        
+        [System.Xml.Serialization.XmlIgnoreAttribute()]
+        public bool LunSpecified {
+            get {
+                return this.lunSpecified;
+            }
+            set {
+                this.lunSpecified = value;
+            }
+        }
+        
+        [System.Xml.Serialization.XmlElementAttribute("type", Namespace="")]
+        public string TypeEx {
+            get {
+                return this.typeEx;
+            }
+            set {
+                this.typeEx = value;
+            }
+        }
+        
         [System.Xml.Serialization.XmlElementAttribute("block", Namespace="")]
         public string Block {
             get {
@@ -3110,6 +3152,36 @@ namespace Libvirt.Model {
             }
             set {
                 this.numBlocksSpecified = value;
+            }
+        }
+        
+        [System.Xml.Serialization.XmlElementAttribute("uuid", Namespace="")]
+        public string Uuid {
+            get {
+                return this.uuid;
+            }
+            set {
+                this.uuid = value;
+            }
+        }
+        
+        [System.Xml.Serialization.XmlElementAttribute("parent_addr", Namespace="")]
+        public string ParentAddr {
+            get {
+                return this.parentAddr;
+            }
+            set {
+                this.parentAddr = value;
+            }
+        }
+        
+        [System.Xml.Serialization.XmlElementAttribute("attr", Namespace="")]
+        public DeviceCapmdevAttr[] Attr {
+            get {
+                return this.attr;
+            }
+            set {
+                this.attr = value;
             }
         }
         
@@ -3223,6 +3295,75 @@ namespace Libvirt.Model {
         }
     }
     
+    public enum DeviceCapdrm {
+        
+        [System.Xml.Serialization.XmlEnumAttribute(Name="primary")]
+        Primary,
+        
+        [System.Xml.Serialization.XmlEnumAttribute(Name="control")]
+        Control,
+        
+        [System.Xml.Serialization.XmlEnumAttribute(Name="render")]
+        Render,
+    }
+    
+    public partial class DeviceCapmdevAttr {
+        
+        private string name;
+        
+        private string value;
+        
+        [System.Xml.Serialization.XmlAttributeAttribute("name")]
+        public string Name {
+            get {
+                return this.name;
+            }
+            set {
+                this.name = value;
+            }
+        }
+        
+        [System.Xml.Serialization.XmlAttributeAttribute("value")]
+        public string Value {
+            get {
+                return this.value;
+            }
+            set {
+                this.value = value;
+            }
+        }
+    }
+    
+    public partial class DeviceCapmdevIommuGroup {
+        
+        private uint number;
+        
+        [System.Xml.Serialization.XmlAttributeAttribute("number")]
+        public uint Number {
+            get {
+                return this.number;
+            }
+            set {
+                this.number = value;
+            }
+        }
+    }
+    
+    public partial class DeviceCapmdevType {
+        
+        private string id;
+        
+        [System.Xml.Serialization.XmlAttributeAttribute("id")]
+        public string Id {
+            get {
+                return this.id;
+            }
+            set {
+                this.id = value;
+            }
+        }
+    }
+    
     public partial class DeviceCapnetFeature {
         
         private string name;
@@ -3269,6 +3410,8 @@ namespace Libvirt.Model {
         
         private uint number;
         
+        private bool numberSpecified;
+        
         private DeviceAddress[] address;
         
         [System.Xml.Serialization.XmlAttributeAttribute("number")]
@@ -3278,6 +3421,16 @@ namespace Libvirt.Model {
             }
             set {
                 this.number = value;
+            }
+        }
+        
+        [System.Xml.Serialization.XmlIgnoreAttribute()]
+        public bool NumberSpecified {
+            get {
+                return this.numberSpecified;
+            }
+            set {
+                this.numberSpecified = value;
             }
         }
         
@@ -3480,6 +3633,8 @@ namespace Libvirt.Model {
         
         private DeviceAddress address;
         
+        private DeviceMdevTypesType[] typeEx;
+        
         private string name;
         
         private DeviceVpdFields fields;
@@ -3591,6 +3746,16 @@ namespace Libvirt.Model {
             }
             set {
                 this.address = value;
+            }
+        }
+        
+        [System.Xml.Serialization.XmlElementAttribute("type", Namespace="")]
+        public DeviceMdevTypesType[] TypeEx {
+            get {
+                return this.typeEx;
+            }
+            set {
+                this.typeEx = value;
             }
         }
         
@@ -4086,6 +4251,97 @@ namespace Libvirt.Model {
                 this.name = value;
             }
         }
+    }
+    
+    [System.Xml.Serialization.XmlTypeAttribute("capability", Namespace="")]
+    public partial class DeviceMdevTypes {
+        
+        private string type;
+        
+        private DeviceMdevTypesType[] typeEx;
+        
+        [System.Xml.Serialization.XmlAttributeAttribute("type")]
+        public string Type {
+            get {
+                return this.type;
+            }
+            set {
+                this.type = value;
+            }
+        }
+        
+        [System.Xml.Serialization.XmlElementAttribute("type", Namespace="")]
+        public DeviceMdevTypesType[] TypeEx {
+            get {
+                return this.typeEx;
+            }
+            set {
+                this.typeEx = value;
+            }
+        }
+    }
+    
+    public partial class DeviceMdevTypesType {
+        
+        private string id;
+        
+        private string name;
+        
+        private DeviceMdevTypesTypeDeviceApi deviceApi;
+        
+        private uint availableInstances;
+        
+        [System.Xml.Serialization.XmlAttributeAttribute("id")]
+        public string Id {
+            get {
+                return this.id;
+            }
+            set {
+                this.id = value;
+            }
+        }
+        
+        [System.Xml.Serialization.XmlElementAttribute("name", Namespace="")]
+        public string Name {
+            get {
+                return this.name;
+            }
+            set {
+                this.name = value;
+            }
+        }
+        
+        [System.Xml.Serialization.XmlElementAttribute("deviceAPI", Namespace="")]
+        public DeviceMdevTypesTypeDeviceApi DeviceApi {
+            get {
+                return this.deviceApi;
+            }
+            set {
+                this.deviceApi = value;
+            }
+        }
+        
+        [System.Xml.Serialization.XmlElementAttribute("availableInstances", Namespace="")]
+        public uint AvailableInstances {
+            get {
+                return this.availableInstances;
+            }
+            set {
+                this.availableInstances = value;
+            }
+        }
+    }
+    
+    public enum DeviceMdevTypesTypeDeviceApi {
+        
+        [System.Xml.Serialization.XmlEnumAttribute(Name="vfio-pci")]
+        VfioPci,
+        
+        [System.Xml.Serialization.XmlEnumAttribute(Name="vfio-ccw")]
+        VfioCcw,
+        
+        [System.Xml.Serialization.XmlEnumAttribute(Name="vfio-ap")]
+        VfioAp,
     }
     
     [System.Xml.Serialization.XmlTypeAttribute("parent", Namespace="")]
@@ -8237,10 +8493,6 @@ namespace Libvirt.Model {
         
         private string type;
         
-        private DomainControllerModel model;
-        
-        private bool modelSpecified;
-        
         private DomainUsbmaster master;
         
         private uint ports;
@@ -8322,26 +8574,6 @@ namespace Libvirt.Model {
             }
             set {
                 this.type = value;
-            }
-        }
-        
-        [System.Xml.Serialization.XmlAttributeAttribute("model")]
-        public DomainControllerModel Model {
-            get {
-                return this.model;
-            }
-            set {
-                this.model = value;
-            }
-        }
-        
-        [System.Xml.Serialization.XmlIgnoreAttribute()]
-        public bool ModelSpecified {
-            get {
-                return this.modelSpecified;
-            }
-            set {
-                this.modelSpecified = value;
             }
         }
         

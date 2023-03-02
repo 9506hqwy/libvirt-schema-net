@@ -17,28 +17,29 @@ internal class GenTypeMember
     private readonly TypeSpec? type;
 
     internal GenTypeMember()
-        : this(null, "value", null, false, false, false, true, null)
+        : this(null, "value", "value", null, false, false, false, true, null)
     {
     }
 
-    internal GenTypeMember(string name)
-        : this(null, name, null, false, false, true, false, null)
+    internal GenTypeMember(CodeContext context, string name)
+        : this(null, name, context.GetPropertyName(name, false), null, false, false, true, false, null)
     {
     }
 
-    internal GenTypeMember(TypeSpec type, string name, PropertyState status)
-        : this(type, name, null, true, false, false, false, status)
+    internal GenTypeMember(CodeContext context, TypeSpec type, string name, PropertyState status)
+        : this(type, name, context.GetPropertyName(name, false), null, true, false, false, false, status)
     {
     }
 
-    internal GenTypeMember(TypeSpec type, string name, string? ns, PropertyState status)
-        : this(type, name, ns, false, true, false, false, status)
+    internal GenTypeMember(CodeContext context, TypeSpec type, string name, string? ns, PropertyState status)
+        : this(type, name, context.GetPropertyName(name, true), ns, false, true, false, false, status)
     {
     }
 
     private GenTypeMember(
         TypeSpec? type,
         string name,
+        string propertyName,
         string? ns,
         bool isAttribute,
         bool isElement,
@@ -48,6 +49,7 @@ internal class GenTypeMember
     {
         this.type = type;
         this.Name = name;
+        this.PropertyName = propertyName;
         this.ns = ns;
         this.isAttribute = isAttribute;
         this.isElement = isElement;
@@ -57,6 +59,8 @@ internal class GenTypeMember
     }
 
     internal string Name { get; }
+
+    internal string PropertyName { get; }
 
     internal CodeTypeReference Type => this.GetMemberType();
 
@@ -80,7 +84,7 @@ internal class GenTypeMember
 
             if (this.status!.NeedSpecifiedFlag(this.type))
             {
-                Code.ConvertForSpecified(this.Name, out field, out prop);
+                Code.ConvertForSpecified(this.PropertyName, out field, out prop);
 
                 yield return field;
                 yield return prop;
@@ -90,6 +94,7 @@ internal class GenTypeMember
         {
             Code.ConvertForElement(
                 this.status!.ToType(this.type!),
+                this.PropertyName,
                 this.Name,
                 this.ns,
                 out var field,
@@ -100,7 +105,7 @@ internal class GenTypeMember
 
             if (this.status.NeedSpecifiedFlag(this.type!))
             {
-                Code.ConvertForSpecified(this.Name, out field, out prop);
+                Code.ConvertForSpecified(this.PropertyName, out field, out prop);
 
                 yield return field;
                 yield return prop;
@@ -152,6 +157,7 @@ internal class GenTypeMember
         return new GenTypeMember(
             spec,
             this.Name,
+            this.PropertyName,
             this.ns,
             this.isAttribute,
             this.isElement,

@@ -25949,6 +25949,492 @@ namespace Libvirt.Model {
         }
     }
     
+    [System.Xml.Serialization.XmlTypeAttribute("domainsnapshot", Namespace="")]
+    public partial class Domainsnapshot {
+        
+        private string name;
+        
+        private string description;
+        
+        private DomainsnapshotState state;
+        
+        private bool stateSpecified;
+        
+        private string creationTime;
+        
+        private DomainsnapshotMemory memory;
+        
+        private DomainsnapshotDisks disks;
+        
+        private DomainsnapshotActive active;
+        
+        private bool activeSpecified;
+        
+        private DomainsnapshotDomain domain;
+        
+        private DomainsnapshotParent parent;
+        
+        private DomainsnapshotCookie cookie;
+        
+        [System.Xml.Serialization.XmlElementAttribute("name", Namespace="")]
+        public string Name {
+            get {
+                return this.name;
+            }
+            set {
+                this.name = value;
+            }
+        }
+        
+        [System.Xml.Serialization.XmlElementAttribute("description", Namespace="")]
+        public string Description {
+            get {
+                return this.description;
+            }
+            set {
+                this.description = value;
+            }
+        }
+        
+        [System.Xml.Serialization.XmlElementAttribute("state", Namespace="")]
+        public DomainsnapshotState State {
+            get {
+                return this.state;
+            }
+            set {
+                this.state = value;
+            }
+        }
+        
+        [System.Xml.Serialization.XmlIgnoreAttribute()]
+        public bool StateSpecified {
+            get {
+                return this.stateSpecified;
+            }
+            set {
+                this.stateSpecified = value;
+            }
+        }
+        
+        [System.Xml.Serialization.XmlElementAttribute("creationTime", Namespace="")]
+        public string CreationTime {
+            get {
+                return this.creationTime;
+            }
+            set {
+                this.creationTime = value;
+            }
+        }
+        
+        [System.Xml.Serialization.XmlElementAttribute("memory", Namespace="")]
+        public DomainsnapshotMemory Memory {
+            get {
+                return this.memory;
+            }
+            set {
+                this.memory = value;
+            }
+        }
+        
+        [System.Xml.Serialization.XmlElementAttribute("disks", Namespace="")]
+        public DomainsnapshotDisks Disks {
+            get {
+                return this.disks;
+            }
+            set {
+                this.disks = value;
+            }
+        }
+        
+        [System.Xml.Serialization.XmlElementAttribute("active", Namespace="")]
+        public DomainsnapshotActive Active {
+            get {
+                return this.active;
+            }
+            set {
+                this.active = value;
+            }
+        }
+        
+        [System.Xml.Serialization.XmlIgnoreAttribute()]
+        public bool ActiveSpecified {
+            get {
+                return this.activeSpecified;
+            }
+            set {
+                this.activeSpecified = value;
+            }
+        }
+        
+        [System.Xml.Serialization.XmlElementAttribute("domain", Namespace="")]
+        public DomainsnapshotDomain Domain {
+            get {
+                return this.domain;
+            }
+            set {
+                this.domain = value;
+            }
+        }
+        
+        [System.Xml.Serialization.XmlElementAttribute("parent", Namespace="")]
+        public DomainsnapshotParent Parent {
+            get {
+                return this.parent;
+            }
+            set {
+                this.parent = value;
+            }
+        }
+        
+        [System.Xml.Serialization.XmlElementAttribute("cookie", Namespace="")]
+        public DomainsnapshotCookie Cookie {
+            get {
+                return this.cookie;
+            }
+            set {
+                this.cookie = value;
+            }
+        }
+    }
+    
+    public enum DomainsnapshotActive {
+        
+        [System.Xml.Serialization.XmlEnumAttribute(Name="0")]
+        N0,
+        
+        [System.Xml.Serialization.XmlEnumAttribute(Name="1")]
+        N1,
+    }
+    
+    public partial class DomainsnapshotCookie {
+    }
+    
+    public partial class DomainsnapshotDisks {
+        
+        private DomainsnapshotDisksnapshot[] disk;
+        
+        [System.Xml.Serialization.XmlElementAttribute("disk", Namespace="")]
+        public DomainsnapshotDisksnapshot[] Disk {
+            get {
+                return this.disk;
+            }
+            set {
+                this.disk = value;
+            }
+        }
+    }
+    
+    [System.Xml.Serialization.XmlTypeAttribute("disk", Namespace="")]
+    public partial class DomainsnapshotDisksnapshot {
+        
+        private string name;
+        
+        private string snapshot;
+        
+        private string type;
+        
+        private DomainDiskSourceNetworkProtocolHttps source;
+        
+        private DomainsnapshotDisksnapshotdriver driver;
+        
+        [System.Xml.Serialization.XmlAttributeAttribute("name")]
+        public string Name {
+            get {
+                return this.name;
+            }
+            set {
+                this.name = value;
+            }
+        }
+        
+        [System.Xml.Serialization.XmlAttributeAttribute("snapshot")]
+        public string Snapshot {
+            get {
+                return this.snapshot;
+            }
+            set {
+                this.snapshot = value;
+            }
+        }
+        
+        [System.Xml.Serialization.XmlAttributeAttribute("type")]
+        public string Type {
+            get {
+                return this.type;
+            }
+            set {
+                this.type = value;
+            }
+        }
+        
+        [System.Xml.Serialization.XmlElementAttribute("source", Namespace="")]
+        public DomainDiskSourceNetworkProtocolHttps Source {
+            get {
+                return this.source;
+            }
+            set {
+                this.source = value;
+            }
+        }
+        
+        [System.Xml.Serialization.XmlElementAttribute("driver", Namespace="")]
+        public DomainsnapshotDisksnapshotdriver Driver {
+            get {
+                return this.driver;
+            }
+            set {
+                this.driver = value;
+            }
+        }
+    }
+    
+    [System.Xml.Serialization.XmlTypeAttribute("driver", Namespace="")]
+    public partial class DomainsnapshotDisksnapshotdriver {
+        
+        private StorageFormatBacking type;
+        
+        private bool typeSpecified;
+        
+        private DomainsnapshotDisksnapshotdriverMetadataCache metadataCache;
+        
+        [System.Xml.Serialization.XmlAttributeAttribute("type")]
+        public StorageFormatBacking Type {
+            get {
+                return this.type;
+            }
+            set {
+                this.type = value;
+            }
+        }
+        
+        [System.Xml.Serialization.XmlIgnoreAttribute()]
+        public bool TypeSpecified {
+            get {
+                return this.typeSpecified;
+            }
+            set {
+                this.typeSpecified = value;
+            }
+        }
+        
+        [System.Xml.Serialization.XmlElementAttribute("metadata_cache", Namespace="")]
+        public DomainsnapshotDisksnapshotdriverMetadataCache MetadataCache {
+            get {
+                return this.metadataCache;
+            }
+            set {
+                this.metadataCache = value;
+            }
+        }
+    }
+    
+    public partial class DomainsnapshotDisksnapshotdriverMetadataCache {
+        
+        private DomainsnapshotDisksnapshotdriverMetadataCacheMaxSize maxSize;
+        
+        [System.Xml.Serialization.XmlElementAttribute("max_size", Namespace="")]
+        public DomainsnapshotDisksnapshotdriverMetadataCacheMaxSize MaxSize {
+            get {
+                return this.maxSize;
+            }
+            set {
+                this.maxSize = value;
+            }
+        }
+    }
+    
+    public partial class DomainsnapshotDisksnapshotdriverMetadataCacheMaxSize {
+        
+        private string value;
+        
+        private string unit;
+        
+        [System.Xml.Serialization.XmlTextAttribute()]
+        public string Value {
+            get {
+                return this.value;
+            }
+            set {
+                this.value = value;
+            }
+        }
+        
+        [System.Xml.Serialization.XmlAttributeAttribute("unit")]
+        public string Unit {
+            get {
+                return this.unit;
+            }
+            set {
+                this.unit = value;
+            }
+        }
+    }
+    
+    public partial class DomainsnapshotDisksnapshotSource {
+        
+        private string file;
+        
+        private DomainDevSeclabel[] seclabel;
+        
+        private ulong index;
+        
+        private bool indexSpecified;
+        
+        private DomainDiskSourceCommon slices;
+        
+        private StorageEncryption encryption;
+        
+        [System.Xml.Serialization.XmlAttributeAttribute("file")]
+        public string File {
+            get {
+                return this.file;
+            }
+            set {
+                this.file = value;
+            }
+        }
+        
+        [System.Xml.Serialization.XmlElementAttribute("seclabel", Namespace="")]
+        public DomainDevSeclabel[] Seclabel {
+            get {
+                return this.seclabel;
+            }
+            set {
+                this.seclabel = value;
+            }
+        }
+        
+        [System.Xml.Serialization.XmlAttributeAttribute("index")]
+        public ulong Index {
+            get {
+                return this.index;
+            }
+            set {
+                this.index = value;
+            }
+        }
+        
+        [System.Xml.Serialization.XmlIgnoreAttribute()]
+        public bool IndexSpecified {
+            get {
+                return this.indexSpecified;
+            }
+            set {
+                this.indexSpecified = value;
+            }
+        }
+        
+        [System.Xml.Serialization.XmlElementAttribute("slices", Namespace="")]
+        public DomainDiskSourceCommon Slices {
+            get {
+                return this.slices;
+            }
+            set {
+                this.slices = value;
+            }
+        }
+        
+        [System.Xml.Serialization.XmlElementAttribute("encryption", Namespace="")]
+        public StorageEncryption Encryption {
+            get {
+                return this.encryption;
+            }
+            set {
+                this.encryption = value;
+            }
+        }
+    }
+    
+    public partial class DomainsnapshotDomain {
+        
+        private string uuid;
+        
+        [System.Xml.Serialization.XmlElementAttribute("uuid", Namespace="")]
+        public string Uuid {
+            get {
+                return this.uuid;
+            }
+            set {
+                this.uuid = value;
+            }
+        }
+    }
+    
+    public partial class DomainsnapshotMemory {
+        
+        private string snapshot;
+        
+        private string file;
+        
+        [System.Xml.Serialization.XmlAttributeAttribute("snapshot")]
+        public string Snapshot {
+            get {
+                return this.snapshot;
+            }
+            set {
+                this.snapshot = value;
+            }
+        }
+        
+        [System.Xml.Serialization.XmlAttributeAttribute("file")]
+        public string File {
+            get {
+                return this.file;
+            }
+            set {
+                this.file = value;
+            }
+        }
+    }
+    
+    public enum DomainsnapshotMemorySnapshot {
+        
+        [System.Xml.Serialization.XmlEnumAttribute(Name="no")]
+        No,
+        
+        [System.Xml.Serialization.XmlEnumAttribute(Name="internal")]
+        Internal,
+    }
+    
+    public partial class DomainsnapshotParent {
+        
+        private string name;
+        
+        [System.Xml.Serialization.XmlElementAttribute("name", Namespace="")]
+        public string Name {
+            get {
+                return this.name;
+            }
+            set {
+                this.name = value;
+            }
+        }
+    }
+    
+    public enum DomainsnapshotState {
+        
+        [System.Xml.Serialization.XmlEnumAttribute(Name="running")]
+        Running,
+        
+        [System.Xml.Serialization.XmlEnumAttribute(Name="blocked")]
+        Blocked,
+        
+        [System.Xml.Serialization.XmlEnumAttribute(Name="paused")]
+        Paused,
+        
+        [System.Xml.Serialization.XmlEnumAttribute(Name="shutdown")]
+        Shutdown,
+        
+        [System.Xml.Serialization.XmlEnumAttribute(Name="shutoff")]
+        Shutoff,
+        
+        [System.Xml.Serialization.XmlEnumAttribute(Name="crashed")]
+        Crashed,
+        
+        [System.Xml.Serialization.XmlEnumAttribute(Name="disk-snapshot")]
+        DiskSnapshot,
+    }
+    
     [System.Xml.Serialization.XmlTypeAttribute("sound", Namespace="")]
     public partial class DomainSound {
         
@@ -41389,6 +41875,24 @@ namespace Libvirt.Model {
         
         [System.Xml.Serialization.XmlEnumAttribute(Name="luks")]
         Luks,
+        
+        [System.Xml.Serialization.XmlEnumAttribute(Name="cow")]
+        Cow,
+        
+        [System.Xml.Serialization.XmlEnumAttribute(Name="qcow")]
+        Qcow,
+        
+        [System.Xml.Serialization.XmlEnumAttribute(Name="qcow2")]
+        Qcow2,
+        
+        [System.Xml.Serialization.XmlEnumAttribute(Name="qed")]
+        Qed,
+        
+        [System.Xml.Serialization.XmlEnumAttribute(Name="vmdk")]
+        Vmdk,
+    }
+    
+    public enum StorageFormatBacking {
         
         [System.Xml.Serialization.XmlEnumAttribute(Name="cow")]
         Cow,

@@ -23,7 +23,7 @@ internal class CodeContext
         this.warnings = new List<string>();
 
         this.ClassNamePrefix = new Dictionary<string, string>();
-        this.ExcludeDefines = new List<string>();
+        this.ExcludeDefines = new List<ExcludeDefine>();
         this.ExcludeTypeAttrs = new List<string>();
         this.PropertyAliases = new List<PropertyAlias>();
     }
@@ -40,7 +40,7 @@ internal class CodeContext
 
     internal RngFile EntryFile => this.callerNode.Last().File;
 
-    internal List<string> ExcludeDefines { get; }
+    internal List<ExcludeDefine> ExcludeDefines { get; }
 
     internal List<string> ExcludeTypeAttrs { get; }
 
@@ -247,7 +247,8 @@ internal class CodeContext
 
     internal bool Skip(Define define)
     {
-        return this.ExcludeDefines.Any(name => name == define.Name);
+        return this.ExcludeDefines
+            .Any(d => d.DefineName == define.Name && d.FileName == define.File.Info.Name);
     }
 
     private string CreateUnderscoredText(string prefix, params string[] args)

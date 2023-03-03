@@ -34,12 +34,14 @@ internal class MainShell
         var context = new CodeContext();
         context.ClassNamePrefix.Add("domaincommon.rng", "domain");
         context.ClassNamePrefix.Add("storagecommon.rng", "storage");
-        context.ExcludeDefines.Add("customElement");
-        context.ExcludeDefines.Add("privateDataStorageSource");
-        context.ExcludeDefines.Add("privateDataDeviceDisk");
-        context.ExcludeDefines.Add("diskBackingChain"); // 再帰的参照
-        context.ExcludeDefines.Add("oshvm"); // string と enum の choice
-        context.ExcludeDefines.Add("rng-backend"); // string と enum の choice
+        context.ExcludeDefines.Add(new ExcludeDefine("customElement", "basictypes.rng"));
+        context.ExcludeDefines.Add(new ExcludeDefine("privateDataStorageSource", "privatedata.rng"));
+        context.ExcludeDefines.Add(new ExcludeDefine("privateDataDeviceDisk", "privatedata.rng"));
+        context.ExcludeDefines.Add(new ExcludeDefine("storageStartupPolicy", "storagecommon.rng"));
+        context.ExcludeDefines.Add(new ExcludeDefine("storageSourceExtra", "storagecommon.rng"));
+        context.ExcludeDefines.Add(new ExcludeDefine("diskBackingChain", "domaincommon.rng")); // 再帰的参照
+        context.ExcludeDefines.Add(new ExcludeDefine("oshvm", "domaincommon.rng")); // string と enum の choice
+        context.ExcludeDefines.Add(new ExcludeDefine("rng-backend", "domaincommon.rng")); // string と enum の choice
         context.ExcludeTypeAttrs.Add("CapabilitiesCpu");
         context.ExcludeTypeAttrs.Add("CapabilitiesTopology");
         context.ExcludeTypeAttrs.Add("DomainDevSeclabel");
@@ -98,6 +100,9 @@ internal class MainShell
 
         // domaincheckpoint.rng
         this.Parse(schema, files["domaincheckpoint.rng"]).CollectType(context);
+
+        // domainsnapshot.rng
+        this.Parse(schema, files["domainsnapshot.rng"]).CollectType(context);
 
         // network.rng
         this.Parse(schema, files["network.rng"]).CollectType(context);

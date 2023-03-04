@@ -104,6 +104,9 @@ internal class MainShell
         // domainsnapshot.rng
         this.Parse(schema, files["domainsnapshot.rng"]).CollectType(context);
 
+        // inactiveDomain.rng
+        this.Parse(schema, files["inactiveDomain.rng"]).CollectType(context);
+
         // network.rng
         this.Parse(schema, files["network.rng"]).CollectType(context);
 

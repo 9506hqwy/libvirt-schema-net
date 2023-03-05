@@ -1,0 +1,5 @@
+<interface type="vlan">
+  <vlan tag="1">
+    <interface name="name" />
+  </vlan>
+</interface>

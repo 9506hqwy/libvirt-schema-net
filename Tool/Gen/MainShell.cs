@@ -42,6 +42,10 @@ internal class MainShell
         context.ExcludeDefines.Add(new ExcludeDefine("diskBackingChain", "domaincommon.rng")); // 再帰的参照
         context.ExcludeDefines.Add(new ExcludeDefine("oshvm", "domaincommon.rng")); // string と enum の choice
         context.ExcludeDefines.Add(new ExcludeDefine("rng-backend", "domaincommon.rng")); // string と enum の choice
+        context.ExcludeTypeAttrs.Add("BondInterfaceBareEthernetInterface");
+        context.ExcludeTypeAttrs.Add("BridgeInterfaceBareBondInterface");
+        context.ExcludeTypeAttrs.Add("BridgeInterfaceBareEthernetInterface");
+        context.ExcludeTypeAttrs.Add("BridgeInterfaceBareVlanInterface");
         context.ExcludeTypeAttrs.Add("CapabilitiesCpu");
         context.ExcludeTypeAttrs.Add("CapabilitiesTopology");
         context.ExcludeTypeAttrs.Add("DomainDevSeclabel");
@@ -106,6 +110,9 @@ internal class MainShell
 
         // inactiveDomain.rng
         this.Parse(schema, files["inactiveDomain.rng"]).CollectType(context);
+
+        // interface.rng
+        this.Parse(schema, files["interface.rng"]).CollectType(context);
 
         // network.rng
         this.Parse(schema, files["network.rng"]).CollectType(context);

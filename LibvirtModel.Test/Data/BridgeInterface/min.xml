@@ -1,0 +1,5 @@
+<interface type="bridge" name="name1">
+  <bridge>
+    <interface type="ethernet" name="name2" />
+  </bridge>
+</interface>

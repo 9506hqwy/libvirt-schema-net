@@ -389,6 +389,709 @@ namespace Libvirt.Model {
         }
     }
     
+    [System.Xml.Serialization.XmlTypeAttribute("interface", Namespace="")]
+    public partial class BondInterface {
+        
+        private string type;
+        
+        private string name;
+        
+        private LinkSpeedState link;
+        
+        private BondInterfaceStartmode start;
+        
+        private BondInterfaceMtu mtu;
+        
+        private BondInterfaceProtocolIpv6 protocol;
+        
+        private BondInterfaceBondElement bond;
+        
+        [System.Xml.Serialization.XmlAttributeAttribute("type")]
+        public string Type {
+            get {
+                return this.type;
+            }
+            set {
+                this.type = value;
+            }
+        }
+        
+        [System.Xml.Serialization.XmlAttributeAttribute("name")]
+        public string Name {
+            get {
+                return this.name;
+            }
+            set {
+                this.name = value;
+            }
+        }
+        
+        [System.Xml.Serialization.XmlElementAttribute("link", Namespace="")]
+        public LinkSpeedState Link {
+            get {
+                return this.link;
+            }
+            set {
+                this.link = value;
+            }
+        }
+        
+        [System.Xml.Serialization.XmlElementAttribute("start", Namespace="")]
+        public BondInterfaceStartmode Start {
+            get {
+                return this.start;
+            }
+            set {
+                this.start = value;
+            }
+        }
+        
+        [System.Xml.Serialization.XmlElementAttribute("mtu", Namespace="")]
+        public BondInterfaceMtu Mtu {
+            get {
+                return this.mtu;
+            }
+            set {
+                this.mtu = value;
+            }
+        }
+        
+        [System.Xml.Serialization.XmlElementAttribute("protocol", Namespace="")]
+        public BondInterfaceProtocolIpv6 Protocol {
+            get {
+                return this.protocol;
+            }
+            set {
+                this.protocol = value;
+            }
+        }
+        
+        [System.Xml.Serialization.XmlElementAttribute("bond", Namespace="")]
+        public BondInterfaceBondElement Bond {
+            get {
+                return this.bond;
+            }
+            set {
+                this.bond = value;
+            }
+        }
+    }
+    
+    public partial class BondInterfaceBareEthernetInterface {
+        
+        private string type;
+        
+        private string name;
+        
+        private BondInterfaceBasicEthernetContentMac mac;
+        
+        private LinkSpeedState link;
+        
+        [System.Xml.Serialization.XmlAttributeAttribute("type")]
+        public string Type {
+            get {
+                return this.type;
+            }
+            set {
+                this.type = value;
+            }
+        }
+        
+        [System.Xml.Serialization.XmlAttributeAttribute("name")]
+        public string Name {
+            get {
+                return this.name;
+            }
+            set {
+                this.name = value;
+            }
+        }
+        
+        [System.Xml.Serialization.XmlElementAttribute("mac", Namespace="")]
+        public BondInterfaceBasicEthernetContentMac Mac {
+            get {
+                return this.mac;
+            }
+            set {
+                this.mac = value;
+            }
+        }
+        
+        [System.Xml.Serialization.XmlElementAttribute("link", Namespace="")]
+        public LinkSpeedState Link {
+            get {
+                return this.link;
+            }
+            set {
+                this.link = value;
+            }
+        }
+    }
+    
+    public partial class BondInterfaceBasicEthernetContentMac {
+        
+        private string address;
+        
+        [System.Xml.Serialization.XmlAttributeAttribute("address")]
+        public string Address {
+            get {
+                return this.address;
+            }
+            set {
+                this.address = value;
+            }
+        }
+    }
+    
+    [System.Xml.Serialization.XmlTypeAttribute("bond", Namespace="")]
+    public partial class BondInterfaceBondElement {
+        
+        private BondInterfaceBondElementMode mode;
+        
+        private bool modeSpecified;
+        
+        private BondInterfaceBondInterfaceBondElementMiimon miimon;
+        
+        private BondInterfaceBondInterfaceBondElementArpmon arpmon;
+        
+        private BondInterfaceBareEthernetInterface[] @interface;
+        
+        [System.Xml.Serialization.XmlAttributeAttribute("mode")]
+        public BondInterfaceBondElementMode Mode {
+            get {
+                return this.mode;
+            }
+            set {
+                this.mode = value;
+            }
+        }
+        
+        [System.Xml.Serialization.XmlIgnoreAttribute()]
+        public bool ModeSpecified {
+            get {
+                return this.modeSpecified;
+            }
+            set {
+                this.modeSpecified = value;
+            }
+        }
+        
+        [System.Xml.Serialization.XmlElementAttribute("miimon", Namespace="")]
+        public BondInterfaceBondInterfaceBondElementMiimon Miimon {
+            get {
+                return this.miimon;
+            }
+            set {
+                this.miimon = value;
+            }
+        }
+        
+        [System.Xml.Serialization.XmlElementAttribute("arpmon", Namespace="")]
+        public BondInterfaceBondInterfaceBondElementArpmon Arpmon {
+            get {
+                return this.arpmon;
+            }
+            set {
+                this.arpmon = value;
+            }
+        }
+        
+        [System.Xml.Serialization.XmlElementAttribute("interface", Namespace="")]
+        public BondInterfaceBareEthernetInterface[] Interface {
+            get {
+                return this.@interface;
+            }
+            set {
+                this.@interface = value;
+            }
+        }
+    }
+    
+    public enum BondInterfaceBondElementMode {
+        
+        [System.Xml.Serialization.XmlEnumAttribute(Name="balance-rr")]
+        BalanceRr,
+        
+        [System.Xml.Serialization.XmlEnumAttribute(Name="active-backup")]
+        ActiveBackup,
+        
+        [System.Xml.Serialization.XmlEnumAttribute(Name="balance-xor")]
+        BalanceXor,
+        
+        [System.Xml.Serialization.XmlEnumAttribute(Name="broadcast")]
+        Broadcast,
+        
+        [System.Xml.Serialization.XmlEnumAttribute(Name="802.3ad")]
+        N802o3ad,
+        
+        [System.Xml.Serialization.XmlEnumAttribute(Name="balance-tlb")]
+        BalanceTlb,
+        
+        [System.Xml.Serialization.XmlEnumAttribute(Name="balance-alb")]
+        BalanceAlb,
+    }
+    
+    public partial class BondInterfaceBondInterfaceBondElementArpmon {
+        
+        private uint interval;
+        
+        private string target;
+        
+        private BondInterfaceBondInterfaceBondElementArpmonValidate validate;
+        
+        private bool validateSpecified;
+        
+        [System.Xml.Serialization.XmlAttributeAttribute("interval")]
+        public uint Interval {
+            get {
+                return this.interval;
+            }
+            set {
+                this.interval = value;
+            }
+        }
+        
+        [System.Xml.Serialization.XmlAttributeAttribute("target")]
+        public string Target {
+            get {
+                return this.target;
+            }
+            set {
+                this.target = value;
+            }
+        }
+        
+        [System.Xml.Serialization.XmlAttributeAttribute("validate")]
+        public BondInterfaceBondInterfaceBondElementArpmonValidate Validate {
+            get {
+                return this.validate;
+            }
+            set {
+                this.validate = value;
+            }
+        }
+        
+        [System.Xml.Serialization.XmlIgnoreAttribute()]
+        public bool ValidateSpecified {
+            get {
+                return this.validateSpecified;
+            }
+            set {
+                this.validateSpecified = value;
+            }
+        }
+    }
+    
+    public enum BondInterfaceBondInterfaceBondElementArpmonValidate {
+        
+        [System.Xml.Serialization.XmlEnumAttribute(Name="none")]
+        None,
+        
+        [System.Xml.Serialization.XmlEnumAttribute(Name="active")]
+        Active,
+        
+        [System.Xml.Serialization.XmlEnumAttribute(Name="backup")]
+        Backup,
+        
+        [System.Xml.Serialization.XmlEnumAttribute(Name="all")]
+        All,
+    }
+    
+    public partial class BondInterfaceBondInterfaceBondElementMiimon {
+        
+        private uint freq;
+        
+        private uint downdelay;
+        
+        private bool downdelaySpecified;
+        
+        private uint updelay;
+        
+        private bool updelaySpecified;
+        
+        private BondInterfaceBondInterfaceBondElementMiimonCarrier carrier;
+        
+        private bool carrierSpecified;
+        
+        [System.Xml.Serialization.XmlAttributeAttribute("freq")]
+        public uint Freq {
+            get {
+                return this.freq;
+            }
+            set {
+                this.freq = value;
+            }
+        }
+        
+        [System.Xml.Serialization.XmlAttributeAttribute("downdelay")]
+        public uint Downdelay {
+            get {
+                return this.downdelay;
+            }
+            set {
+                this.downdelay = value;
+            }
+        }
+        
+        [System.Xml.Serialization.XmlIgnoreAttribute()]
+        public bool DowndelaySpecified {
+            get {
+                return this.downdelaySpecified;
+            }
+            set {
+                this.downdelaySpecified = value;
+            }
+        }
+        
+        [System.Xml.Serialization.XmlAttributeAttribute("updelay")]
+        public uint Updelay {
+            get {
+                return this.updelay;
+            }
+            set {
+                this.updelay = value;
+            }
+        }
+        
+        [System.Xml.Serialization.XmlIgnoreAttribute()]
+        public bool UpdelaySpecified {
+            get {
+                return this.updelaySpecified;
+            }
+            set {
+                this.updelaySpecified = value;
+            }
+        }
+        
+        [System.Xml.Serialization.XmlAttributeAttribute("carrier")]
+        public BondInterfaceBondInterfaceBondElementMiimonCarrier Carrier {
+            get {
+                return this.carrier;
+            }
+            set {
+                this.carrier = value;
+            }
+        }
+        
+        [System.Xml.Serialization.XmlIgnoreAttribute()]
+        public bool CarrierSpecified {
+            get {
+                return this.carrierSpecified;
+            }
+            set {
+                this.carrierSpecified = value;
+            }
+        }
+    }
+    
+    public enum BondInterfaceBondInterfaceBondElementMiimonCarrier {
+        
+        [System.Xml.Serialization.XmlEnumAttribute(Name="ioctl")]
+        Ioctl,
+        
+        [System.Xml.Serialization.XmlEnumAttribute(Name="netif")]
+        Netif,
+    }
+    
+    public partial class BondInterfaceBondInterfaceProtocolIpv4Ip {
+        
+        private string address;
+        
+        private uint prefix;
+        
+        private bool prefixSpecified;
+        
+        [System.Xml.Serialization.XmlAttributeAttribute("address")]
+        public string Address {
+            get {
+                return this.address;
+            }
+            set {
+                this.address = value;
+            }
+        }
+        
+        [System.Xml.Serialization.XmlAttributeAttribute("prefix")]
+        public uint Prefix {
+            get {
+                return this.prefix;
+            }
+            set {
+                this.prefix = value;
+            }
+        }
+        
+        [System.Xml.Serialization.XmlIgnoreAttribute()]
+        public bool PrefixSpecified {
+            get {
+                return this.prefixSpecified;
+            }
+            set {
+                this.prefixSpecified = value;
+            }
+        }
+    }
+    
+    public partial class BondInterfaceBondInterfaceProtocolIpv4Route {
+        
+        private string gateway;
+        
+        [System.Xml.Serialization.XmlAttributeAttribute("gateway")]
+        public string Gateway {
+            get {
+                return this.gateway;
+            }
+            set {
+                this.gateway = value;
+            }
+        }
+    }
+    
+    public partial class BondInterfaceBondInterfaceProtocolIpv6Autoconf {
+    }
+    
+    public partial class BondInterfaceBondInterfaceProtocolIpv6Ip {
+        
+        private string address;
+        
+        private uint prefix;
+        
+        private bool prefixSpecified;
+        
+        [System.Xml.Serialization.XmlAttributeAttribute("address")]
+        public string Address {
+            get {
+                return this.address;
+            }
+            set {
+                this.address = value;
+            }
+        }
+        
+        [System.Xml.Serialization.XmlAttributeAttribute("prefix")]
+        public uint Prefix {
+            get {
+                return this.prefix;
+            }
+            set {
+                this.prefix = value;
+            }
+        }
+        
+        [System.Xml.Serialization.XmlIgnoreAttribute()]
+        public bool PrefixSpecified {
+            get {
+                return this.prefixSpecified;
+            }
+            set {
+                this.prefixSpecified = value;
+            }
+        }
+    }
+    
+    public partial class BondInterfaceBondInterfaceProtocolIpv6Route {
+        
+        private string gateway;
+        
+        [System.Xml.Serialization.XmlAttributeAttribute("gateway")]
+        public string Gateway {
+            get {
+                return this.gateway;
+            }
+            set {
+                this.gateway = value;
+            }
+        }
+    }
+    
+    [System.Xml.Serialization.XmlTypeAttribute("dhcp", Namespace="")]
+    public partial class BondInterfaceDhcpElement {
+        
+        private VirYesNo peerdns;
+        
+        private bool peerdnsSpecified;
+        
+        [System.Xml.Serialization.XmlAttributeAttribute("peerdns")]
+        public VirYesNo Peerdns {
+            get {
+                return this.peerdns;
+            }
+            set {
+                this.peerdns = value;
+            }
+        }
+        
+        [System.Xml.Serialization.XmlIgnoreAttribute()]
+        public bool PeerdnsSpecified {
+            get {
+                return this.peerdnsSpecified;
+            }
+            set {
+                this.peerdnsSpecified = value;
+            }
+        }
+    }
+    
+    [System.Xml.Serialization.XmlTypeAttribute("mtu", Namespace="")]
+    public partial class BondInterfaceMtu {
+        
+        private uint size;
+        
+        [System.Xml.Serialization.XmlAttributeAttribute("size")]
+        public uint Size {
+            get {
+                return this.size;
+            }
+            set {
+                this.size = value;
+            }
+        }
+    }
+    
+    [System.Xml.Serialization.XmlTypeAttribute("protocol", Namespace="")]
+    public partial class BondInterfaceProtocolIpv4 {
+        
+        private string family;
+        
+        private BondInterfaceDhcpElement dhcp;
+        
+        private BondInterfaceBondInterfaceProtocolIpv4Ip[] ip;
+        
+        private BondInterfaceBondInterfaceProtocolIpv4Route route;
+        
+        [System.Xml.Serialization.XmlAttributeAttribute("family")]
+        public string Family {
+            get {
+                return this.family;
+            }
+            set {
+                this.family = value;
+            }
+        }
+        
+        [System.Xml.Serialization.XmlElementAttribute("dhcp", Namespace="")]
+        public BondInterfaceDhcpElement Dhcp {
+            get {
+                return this.dhcp;
+            }
+            set {
+                this.dhcp = value;
+            }
+        }
+        
+        [System.Xml.Serialization.XmlElementAttribute("ip", Namespace="")]
+        public BondInterfaceBondInterfaceProtocolIpv4Ip[] Ip {
+            get {
+                return this.ip;
+            }
+            set {
+                this.ip = value;
+            }
+        }
+        
+        [System.Xml.Serialization.XmlElementAttribute("route", Namespace="")]
+        public BondInterfaceBondInterfaceProtocolIpv4Route Route {
+            get {
+                return this.route;
+            }
+            set {
+                this.route = value;
+            }
+        }
+    }
+    
+    [System.Xml.Serialization.XmlTypeAttribute("protocol", Namespace="")]
+    public partial class BondInterfaceProtocolIpv6 {
+        
+        private string family;
+        
+        private BondInterfaceBondInterfaceProtocolIpv6Autoconf autoconf;
+        
+        private BondInterfaceDhcpElement dhcp;
+        
+        private BondInterfaceBondInterfaceProtocolIpv6Ip[] ip;
+        
+        private BondInterfaceBondInterfaceProtocolIpv6Route route;
+        
+        [System.Xml.Serialization.XmlAttributeAttribute("family")]
+        public string Family {
+            get {
+                return this.family;
+            }
+            set {
+                this.family = value;
+            }
+        }
+        
+        [System.Xml.Serialization.XmlElementAttribute("autoconf", Namespace="")]
+        public BondInterfaceBondInterfaceProtocolIpv6Autoconf Autoconf {
+            get {
+                return this.autoconf;
+            }
+            set {
+                this.autoconf = value;
+            }
+        }
+        
+        [System.Xml.Serialization.XmlElementAttribute("dhcp", Namespace="")]
+        public BondInterfaceDhcpElement Dhcp {
+            get {
+                return this.dhcp;
+            }
+            set {
+                this.dhcp = value;
+            }
+        }
+        
+        [System.Xml.Serialization.XmlElementAttribute("ip", Namespace="")]
+        public BondInterfaceBondInterfaceProtocolIpv6Ip[] Ip {
+            get {
+                return this.ip;
+            }
+            set {
+                this.ip = value;
+            }
+        }
+        
+        [System.Xml.Serialization.XmlElementAttribute("route", Namespace="")]
+        public BondInterfaceBondInterfaceProtocolIpv6Route Route {
+            get {
+                return this.route;
+            }
+            set {
+                this.route = value;
+            }
+        }
+    }
+    
+    [System.Xml.Serialization.XmlTypeAttribute("start", Namespace="")]
+    public partial class BondInterfaceStartmode {
+        
+        private BondInterfaceStartmodeMode mode;
+        
+        [System.Xml.Serialization.XmlAttributeAttribute("mode")]
+        public BondInterfaceStartmodeMode Mode {
+            get {
+                return this.mode;
+            }
+            set {
+                this.mode = value;
+            }
+        }
+    }
+    
+    public enum BondInterfaceStartmodeMode {
+        
+        [System.Xml.Serialization.XmlEnumAttribute(Name="onboot")]
+        Onboot,
+        
+        [System.Xml.Serialization.XmlEnumAttribute(Name="none")]
+        None,
+        
+        [System.Xml.Serialization.XmlEnumAttribute(Name="hotplug")]
+        Hotplug,
+    }
+    
     public enum Boolean {
         
         [System.Xml.Serialization.XmlEnumAttribute(Name="yes")]
@@ -408,6 +1111,929 @@ namespace Libvirt.Model {
         
         [System.Xml.Serialization.XmlEnumAttribute(Name="0")]
         N0,
+    }
+    
+    [System.Xml.Serialization.XmlTypeAttribute("interface", Namespace="")]
+    public partial class BridgeInterface {
+        
+        private string type;
+        
+        private string name;
+        
+        private BridgeInterfaceStartmode start;
+        
+        private BridgeInterfaceMtu mtu;
+        
+        private BridgeInterfaceProtocolIpv6 protocol;
+        
+        private BridgeInterfaceBridgeInterfaceBridge bridge;
+        
+        [System.Xml.Serialization.XmlAttributeAttribute("type")]
+        public string Type {
+            get {
+                return this.type;
+            }
+            set {
+                this.type = value;
+            }
+        }
+        
+        [System.Xml.Serialization.XmlAttributeAttribute("name")]
+        public string Name {
+            get {
+                return this.name;
+            }
+            set {
+                this.name = value;
+            }
+        }
+        
+        [System.Xml.Serialization.XmlElementAttribute("start", Namespace="")]
+        public BridgeInterfaceStartmode Start {
+            get {
+                return this.start;
+            }
+            set {
+                this.start = value;
+            }
+        }
+        
+        [System.Xml.Serialization.XmlElementAttribute("mtu", Namespace="")]
+        public BridgeInterfaceMtu Mtu {
+            get {
+                return this.mtu;
+            }
+            set {
+                this.mtu = value;
+            }
+        }
+        
+        [System.Xml.Serialization.XmlElementAttribute("protocol", Namespace="")]
+        public BridgeInterfaceProtocolIpv6 Protocol {
+            get {
+                return this.protocol;
+            }
+            set {
+                this.protocol = value;
+            }
+        }
+        
+        [System.Xml.Serialization.XmlElementAttribute("bridge", Namespace="")]
+        public BridgeInterfaceBridgeInterfaceBridge Bridge {
+            get {
+                return this.bridge;
+            }
+            set {
+                this.bridge = value;
+            }
+        }
+    }
+    
+    public partial class BridgeInterfaceBareBondInterface {
+        
+        private string type;
+        
+        private string name;
+        
+        private LinkSpeedState link;
+        
+        private BridgeInterfaceBondElement bond;
+        
+        [System.Xml.Serialization.XmlAttributeAttribute("type")]
+        public string Type {
+            get {
+                return this.type;
+            }
+            set {
+                this.type = value;
+            }
+        }
+        
+        [System.Xml.Serialization.XmlAttributeAttribute("name")]
+        public string Name {
+            get {
+                return this.name;
+            }
+            set {
+                this.name = value;
+            }
+        }
+        
+        [System.Xml.Serialization.XmlElementAttribute("link", Namespace="")]
+        public LinkSpeedState Link {
+            get {
+                return this.link;
+            }
+            set {
+                this.link = value;
+            }
+        }
+        
+        [System.Xml.Serialization.XmlElementAttribute("bond", Namespace="")]
+        public BridgeInterfaceBondElement Bond {
+            get {
+                return this.bond;
+            }
+            set {
+                this.bond = value;
+            }
+        }
+    }
+    
+    public partial class BridgeInterfaceBareEthernetInterface {
+        
+        private string type;
+        
+        private string name;
+        
+        private BridgeInterfaceBasicEthernetContentMac mac;
+        
+        private LinkSpeedState link;
+        
+        private BridgeInterfaceVlanDevice vlan;
+        
+        private BridgeInterfaceBondElement bond;
+        
+        [System.Xml.Serialization.XmlAttributeAttribute("type")]
+        public string Type {
+            get {
+                return this.type;
+            }
+            set {
+                this.type = value;
+            }
+        }
+        
+        [System.Xml.Serialization.XmlAttributeAttribute("name")]
+        public string Name {
+            get {
+                return this.name;
+            }
+            set {
+                this.name = value;
+            }
+        }
+        
+        [System.Xml.Serialization.XmlElementAttribute("mac", Namespace="")]
+        public BridgeInterfaceBasicEthernetContentMac Mac {
+            get {
+                return this.mac;
+            }
+            set {
+                this.mac = value;
+            }
+        }
+        
+        [System.Xml.Serialization.XmlElementAttribute("link", Namespace="")]
+        public LinkSpeedState Link {
+            get {
+                return this.link;
+            }
+            set {
+                this.link = value;
+            }
+        }
+        
+        [System.Xml.Serialization.XmlElementAttribute("vlan", Namespace="")]
+        public BridgeInterfaceVlanDevice Vlan {
+            get {
+                return this.vlan;
+            }
+            set {
+                this.vlan = value;
+            }
+        }
+        
+        [System.Xml.Serialization.XmlElementAttribute("bond", Namespace="")]
+        public BridgeInterfaceBondElement Bond {
+            get {
+                return this.bond;
+            }
+            set {
+                this.bond = value;
+            }
+        }
+    }
+    
+    public partial class BridgeInterfaceBareVlanInterface {
+        
+        private string type;
+        
+        private string name;
+        
+        private LinkSpeedState link;
+        
+        private BridgeInterfaceVlanDevice vlan;
+        
+        [System.Xml.Serialization.XmlAttributeAttribute("type")]
+        public string Type {
+            get {
+                return this.type;
+            }
+            set {
+                this.type = value;
+            }
+        }
+        
+        [System.Xml.Serialization.XmlAttributeAttribute("name")]
+        public string Name {
+            get {
+                return this.name;
+            }
+            set {
+                this.name = value;
+            }
+        }
+        
+        [System.Xml.Serialization.XmlElementAttribute("link", Namespace="")]
+        public LinkSpeedState Link {
+            get {
+                return this.link;
+            }
+            set {
+                this.link = value;
+            }
+        }
+        
+        [System.Xml.Serialization.XmlElementAttribute("vlan", Namespace="")]
+        public BridgeInterfaceVlanDevice Vlan {
+            get {
+                return this.vlan;
+            }
+            set {
+                this.vlan = value;
+            }
+        }
+    }
+    
+    public partial class BridgeInterfaceBasicEthernetContentMac {
+        
+        private string address;
+        
+        [System.Xml.Serialization.XmlAttributeAttribute("address")]
+        public string Address {
+            get {
+                return this.address;
+            }
+            set {
+                this.address = value;
+            }
+        }
+    }
+    
+    [System.Xml.Serialization.XmlTypeAttribute("bond", Namespace="")]
+    public partial class BridgeInterfaceBondElement {
+        
+        private BridgeInterfaceBondElementMode mode;
+        
+        private bool modeSpecified;
+        
+        private BridgeInterfaceBridgeInterfaceBondElementMiimon miimon;
+        
+        private BridgeInterfaceBridgeInterfaceBondElementArpmon arpmon;
+        
+        private BridgeInterfaceBareEthernetInterface[] @interface;
+        
+        [System.Xml.Serialization.XmlAttributeAttribute("mode")]
+        public BridgeInterfaceBondElementMode Mode {
+            get {
+                return this.mode;
+            }
+            set {
+                this.mode = value;
+            }
+        }
+        
+        [System.Xml.Serialization.XmlIgnoreAttribute()]
+        public bool ModeSpecified {
+            get {
+                return this.modeSpecified;
+            }
+            set {
+                this.modeSpecified = value;
+            }
+        }
+        
+        [System.Xml.Serialization.XmlElementAttribute("miimon", Namespace="")]
+        public BridgeInterfaceBridgeInterfaceBondElementMiimon Miimon {
+            get {
+                return this.miimon;
+            }
+            set {
+                this.miimon = value;
+            }
+        }
+        
+        [System.Xml.Serialization.XmlElementAttribute("arpmon", Namespace="")]
+        public BridgeInterfaceBridgeInterfaceBondElementArpmon Arpmon {
+            get {
+                return this.arpmon;
+            }
+            set {
+                this.arpmon = value;
+            }
+        }
+        
+        [System.Xml.Serialization.XmlElementAttribute("interface", Namespace="")]
+        public BridgeInterfaceBareEthernetInterface[] Interface {
+            get {
+                return this.@interface;
+            }
+            set {
+                this.@interface = value;
+            }
+        }
+    }
+    
+    public enum BridgeInterfaceBondElementMode {
+        
+        [System.Xml.Serialization.XmlEnumAttribute(Name="balance-rr")]
+        BalanceRr,
+        
+        [System.Xml.Serialization.XmlEnumAttribute(Name="active-backup")]
+        ActiveBackup,
+        
+        [System.Xml.Serialization.XmlEnumAttribute(Name="balance-xor")]
+        BalanceXor,
+        
+        [System.Xml.Serialization.XmlEnumAttribute(Name="broadcast")]
+        Broadcast,
+        
+        [System.Xml.Serialization.XmlEnumAttribute(Name="802.3ad")]
+        N802o3ad,
+        
+        [System.Xml.Serialization.XmlEnumAttribute(Name="balance-tlb")]
+        BalanceTlb,
+        
+        [System.Xml.Serialization.XmlEnumAttribute(Name="balance-alb")]
+        BalanceAlb,
+    }
+    
+    public partial class BridgeInterfaceBridgeInterfaceBondElementArpmon {
+        
+        private uint interval;
+        
+        private string target;
+        
+        private BridgeInterfaceBridgeInterfaceBondElementArpmonValidate validate;
+        
+        private bool validateSpecified;
+        
+        [System.Xml.Serialization.XmlAttributeAttribute("interval")]
+        public uint Interval {
+            get {
+                return this.interval;
+            }
+            set {
+                this.interval = value;
+            }
+        }
+        
+        [System.Xml.Serialization.XmlAttributeAttribute("target")]
+        public string Target {
+            get {
+                return this.target;
+            }
+            set {
+                this.target = value;
+            }
+        }
+        
+        [System.Xml.Serialization.XmlAttributeAttribute("validate")]
+        public BridgeInterfaceBridgeInterfaceBondElementArpmonValidate Validate {
+            get {
+                return this.validate;
+            }
+            set {
+                this.validate = value;
+            }
+        }
+        
+        [System.Xml.Serialization.XmlIgnoreAttribute()]
+        public bool ValidateSpecified {
+            get {
+                return this.validateSpecified;
+            }
+            set {
+                this.validateSpecified = value;
+            }
+        }
+    }
+    
+    public enum BridgeInterfaceBridgeInterfaceBondElementArpmonValidate {
+        
+        [System.Xml.Serialization.XmlEnumAttribute(Name="none")]
+        None,
+        
+        [System.Xml.Serialization.XmlEnumAttribute(Name="active")]
+        Active,
+        
+        [System.Xml.Serialization.XmlEnumAttribute(Name="backup")]
+        Backup,
+        
+        [System.Xml.Serialization.XmlEnumAttribute(Name="all")]
+        All,
+    }
+    
+    public partial class BridgeInterfaceBridgeInterfaceBondElementMiimon {
+        
+        private uint freq;
+        
+        private uint downdelay;
+        
+        private bool downdelaySpecified;
+        
+        private uint updelay;
+        
+        private bool updelaySpecified;
+        
+        private BridgeInterfaceBridgeInterfaceBondElementMiimonCarrier carrier;
+        
+        private bool carrierSpecified;
+        
+        [System.Xml.Serialization.XmlAttributeAttribute("freq")]
+        public uint Freq {
+            get {
+                return this.freq;
+            }
+            set {
+                this.freq = value;
+            }
+        }
+        
+        [System.Xml.Serialization.XmlAttributeAttribute("downdelay")]
+        public uint Downdelay {
+            get {
+                return this.downdelay;
+            }
+            set {
+                this.downdelay = value;
+            }
+        }
+        
+        [System.Xml.Serialization.XmlIgnoreAttribute()]
+        public bool DowndelaySpecified {
+            get {
+                return this.downdelaySpecified;
+            }
+            set {
+                this.downdelaySpecified = value;
+            }
+        }
+        
+        [System.Xml.Serialization.XmlAttributeAttribute("updelay")]
+        public uint Updelay {
+            get {
+                return this.updelay;
+            }
+            set {
+                this.updelay = value;
+            }
+        }
+        
+        [System.Xml.Serialization.XmlIgnoreAttribute()]
+        public bool UpdelaySpecified {
+            get {
+                return this.updelaySpecified;
+            }
+            set {
+                this.updelaySpecified = value;
+            }
+        }
+        
+        [System.Xml.Serialization.XmlAttributeAttribute("carrier")]
+        public BridgeInterfaceBridgeInterfaceBondElementMiimonCarrier Carrier {
+            get {
+                return this.carrier;
+            }
+            set {
+                this.carrier = value;
+            }
+        }
+        
+        [System.Xml.Serialization.XmlIgnoreAttribute()]
+        public bool CarrierSpecified {
+            get {
+                return this.carrierSpecified;
+            }
+            set {
+                this.carrierSpecified = value;
+            }
+        }
+    }
+    
+    public enum BridgeInterfaceBridgeInterfaceBondElementMiimonCarrier {
+        
+        [System.Xml.Serialization.XmlEnumAttribute(Name="ioctl")]
+        Ioctl,
+        
+        [System.Xml.Serialization.XmlEnumAttribute(Name="netif")]
+        Netif,
+    }
+    
+    public partial class BridgeInterfaceBridgeInterfaceBridge {
+        
+        private VirOnOff stp;
+        
+        private bool stpSpecified;
+        
+        private double delay;
+        
+        private bool delaySpecified;
+        
+        private BridgeInterfaceBareEthernetInterface[] @interface;
+        
+        [System.Xml.Serialization.XmlAttributeAttribute("stp")]
+        public VirOnOff Stp {
+            get {
+                return this.stp;
+            }
+            set {
+                this.stp = value;
+            }
+        }
+        
+        [System.Xml.Serialization.XmlIgnoreAttribute()]
+        public bool StpSpecified {
+            get {
+                return this.stpSpecified;
+            }
+            set {
+                this.stpSpecified = value;
+            }
+        }
+        
+        [System.Xml.Serialization.XmlAttributeAttribute("delay")]
+        public double Delay {
+            get {
+                return this.delay;
+            }
+            set {
+                this.delay = value;
+            }
+        }
+        
+        [System.Xml.Serialization.XmlIgnoreAttribute()]
+        public bool DelaySpecified {
+            get {
+                return this.delaySpecified;
+            }
+            set {
+                this.delaySpecified = value;
+            }
+        }
+        
+        [System.Xml.Serialization.XmlElementAttribute("interface", Namespace="")]
+        public BridgeInterfaceBareEthernetInterface[] Interface {
+            get {
+                return this.@interface;
+            }
+            set {
+                this.@interface = value;
+            }
+        }
+    }
+    
+    public partial class BridgeInterfaceBridgeInterfaceProtocolIpv4Ip {
+        
+        private string address;
+        
+        private uint prefix;
+        
+        private bool prefixSpecified;
+        
+        [System.Xml.Serialization.XmlAttributeAttribute("address")]
+        public string Address {
+            get {
+                return this.address;
+            }
+            set {
+                this.address = value;
+            }
+        }
+        
+        [System.Xml.Serialization.XmlAttributeAttribute("prefix")]
+        public uint Prefix {
+            get {
+                return this.prefix;
+            }
+            set {
+                this.prefix = value;
+            }
+        }
+        
+        [System.Xml.Serialization.XmlIgnoreAttribute()]
+        public bool PrefixSpecified {
+            get {
+                return this.prefixSpecified;
+            }
+            set {
+                this.prefixSpecified = value;
+            }
+        }
+    }
+    
+    public partial class BridgeInterfaceBridgeInterfaceProtocolIpv4Route {
+        
+        private string gateway;
+        
+        [System.Xml.Serialization.XmlAttributeAttribute("gateway")]
+        public string Gateway {
+            get {
+                return this.gateway;
+            }
+            set {
+                this.gateway = value;
+            }
+        }
+    }
+    
+    public partial class BridgeInterfaceBridgeInterfaceProtocolIpv6Autoconf {
+    }
+    
+    public partial class BridgeInterfaceBridgeInterfaceProtocolIpv6Ip {
+        
+        private string address;
+        
+        private uint prefix;
+        
+        private bool prefixSpecified;
+        
+        [System.Xml.Serialization.XmlAttributeAttribute("address")]
+        public string Address {
+            get {
+                return this.address;
+            }
+            set {
+                this.address = value;
+            }
+        }
+        
+        [System.Xml.Serialization.XmlAttributeAttribute("prefix")]
+        public uint Prefix {
+            get {
+                return this.prefix;
+            }
+            set {
+                this.prefix = value;
+            }
+        }
+        
+        [System.Xml.Serialization.XmlIgnoreAttribute()]
+        public bool PrefixSpecified {
+            get {
+                return this.prefixSpecified;
+            }
+            set {
+                this.prefixSpecified = value;
+            }
+        }
+    }
+    
+    public partial class BridgeInterfaceBridgeInterfaceProtocolIpv6Route {
+        
+        private string gateway;
+        
+        [System.Xml.Serialization.XmlAttributeAttribute("gateway")]
+        public string Gateway {
+            get {
+                return this.gateway;
+            }
+            set {
+                this.gateway = value;
+            }
+        }
+    }
+    
+    public partial class BridgeInterfaceBridgeInterfaceVlanDeviceInterface {
+        
+        private string name;
+        
+        [System.Xml.Serialization.XmlAttributeAttribute("name")]
+        public string Name {
+            get {
+                return this.name;
+            }
+            set {
+                this.name = value;
+            }
+        }
+    }
+    
+    [System.Xml.Serialization.XmlTypeAttribute("dhcp", Namespace="")]
+    public partial class BridgeInterfaceDhcpElement {
+        
+        private VirYesNo peerdns;
+        
+        private bool peerdnsSpecified;
+        
+        [System.Xml.Serialization.XmlAttributeAttribute("peerdns")]
+        public VirYesNo Peerdns {
+            get {
+                return this.peerdns;
+            }
+            set {
+                this.peerdns = value;
+            }
+        }
+        
+        [System.Xml.Serialization.XmlIgnoreAttribute()]
+        public bool PeerdnsSpecified {
+            get {
+                return this.peerdnsSpecified;
+            }
+            set {
+                this.peerdnsSpecified = value;
+            }
+        }
+    }
+    
+    [System.Xml.Serialization.XmlTypeAttribute("mtu", Namespace="")]
+    public partial class BridgeInterfaceMtu {
+        
+        private uint size;
+        
+        [System.Xml.Serialization.XmlAttributeAttribute("size")]
+        public uint Size {
+            get {
+                return this.size;
+            }
+            set {
+                this.size = value;
+            }
+        }
+    }
+    
+    [System.Xml.Serialization.XmlTypeAttribute("protocol", Namespace="")]
+    public partial class BridgeInterfaceProtocolIpv4 {
+        
+        private string family;
+        
+        private BridgeInterfaceDhcpElement dhcp;
+        
+        private BridgeInterfaceBridgeInterfaceProtocolIpv4Ip[] ip;
+        
+        private BridgeInterfaceBridgeInterfaceProtocolIpv4Route route;
+        
+        [System.Xml.Serialization.XmlAttributeAttribute("family")]
+        public string Family {
+            get {
+                return this.family;
+            }
+            set {
+                this.family = value;
+            }
+        }
+        
+        [System.Xml.Serialization.XmlElementAttribute("dhcp", Namespace="")]
+        public BridgeInterfaceDhcpElement Dhcp {
+            get {
+                return this.dhcp;
+            }
+            set {
+                this.dhcp = value;
+            }
+        }
+        
+        [System.Xml.Serialization.XmlElementAttribute("ip", Namespace="")]
+        public BridgeInterfaceBridgeInterfaceProtocolIpv4Ip[] Ip {
+            get {
+                return this.ip;
+            }
+            set {
+                this.ip = value;
+            }
+        }
+        
+        [System.Xml.Serialization.XmlElementAttribute("route", Namespace="")]
+        public BridgeInterfaceBridgeInterfaceProtocolIpv4Route Route {
+            get {
+                return this.route;
+            }
+            set {
+                this.route = value;
+            }
+        }
+    }
+    
+    [System.Xml.Serialization.XmlTypeAttribute("protocol", Namespace="")]
+    public partial class BridgeInterfaceProtocolIpv6 {
+        
+        private string family;
+        
+        private BridgeInterfaceBridgeInterfaceProtocolIpv6Autoconf autoconf;
+        
+        private BridgeInterfaceDhcpElement dhcp;
+        
+        private BridgeInterfaceBridgeInterfaceProtocolIpv6Ip[] ip;
+        
+        private BridgeInterfaceBridgeInterfaceProtocolIpv6Route route;
+        
+        [System.Xml.Serialization.XmlAttributeAttribute("family")]
+        public string Family {
+            get {
+                return this.family;
+            }
+            set {
+                this.family = value;
+            }
+        }
+        
+        [System.Xml.Serialization.XmlElementAttribute("autoconf", Namespace="")]
+        public BridgeInterfaceBridgeInterfaceProtocolIpv6Autoconf Autoconf {
+            get {
+                return this.autoconf;
+            }
+            set {
+                this.autoconf = value;
+            }
+        }
+        
+        [System.Xml.Serialization.XmlElementAttribute("dhcp", Namespace="")]
+        public BridgeInterfaceDhcpElement Dhcp {
+            get {
+                return this.dhcp;
+            }
+            set {
+                this.dhcp = value;
+            }
+        }
+        
+        [System.Xml.Serialization.XmlElementAttribute("ip", Namespace="")]
+        public BridgeInterfaceBridgeInterfaceProtocolIpv6Ip[] Ip {
+            get {
+                return this.ip;
+            }
+            set {
+                this.ip = value;
+            }
+        }
+        
+        [System.Xml.Serialization.XmlElementAttribute("route", Namespace="")]
+        public BridgeInterfaceBridgeInterfaceProtocolIpv6Route Route {
+            get {
+                return this.route;
+            }
+            set {
+                this.route = value;
+            }
+        }
+    }
+    
+    [System.Xml.Serialization.XmlTypeAttribute("start", Namespace="")]
+    public partial class BridgeInterfaceStartmode {
+        
+        private BridgeInterfaceStartmodeMode mode;
+        
+        [System.Xml.Serialization.XmlAttributeAttribute("mode")]
+        public BridgeInterfaceStartmodeMode Mode {
+            get {
+                return this.mode;
+            }
+            set {
+                this.mode = value;
+            }
+        }
+    }
+    
+    public enum BridgeInterfaceStartmodeMode {
+        
+        [System.Xml.Serialization.XmlEnumAttribute(Name="onboot")]
+        Onboot,
+        
+        [System.Xml.Serialization.XmlEnumAttribute(Name="none")]
+        None,
+        
+        [System.Xml.Serialization.XmlEnumAttribute(Name="hotplug")]
+        Hotplug,
+    }
+    
+    [System.Xml.Serialization.XmlTypeAttribute("vlan", Namespace="")]
+    public partial class BridgeInterfaceVlanDevice {
+        
+        private uint tag;
+        
+        private BridgeInterfaceBridgeInterfaceVlanDeviceInterface @interface;
+        
+        [System.Xml.Serialization.XmlAttributeAttribute("tag")]
+        public uint Tag {
+            get {
+                return this.tag;
+            }
+            set {
+                this.tag = value;
+            }
+        }
+        
+        [System.Xml.Serialization.XmlElementAttribute("interface", Namespace="")]
+        public BridgeInterfaceBridgeInterfaceVlanDeviceInterface Interface {
+            get {
+                return this.@interface;
+            }
+            set {
+                this.@interface = value;
+            }
+        }
     }
     
     public enum CacheType {
@@ -29549,6 +31175,408 @@ namespace Libvirt.Model {
         Ignore,
     }
     
+    [System.Xml.Serialization.XmlTypeAttribute("interface", Namespace="")]
+    public partial class EthernetInterface {
+        
+        private EthernetInterfaceStartmode start;
+        
+        private string type;
+        
+        private string name;
+        
+        private EthernetInterfaceBasicEthernetContentMac mac;
+        
+        private LinkSpeedState link;
+        
+        private EthernetInterfaceMtu mtu;
+        
+        private EthernetInterfaceProtocolIpv6 protocol;
+        
+        [System.Xml.Serialization.XmlElementAttribute("start", Namespace="")]
+        public EthernetInterfaceStartmode Start {
+            get {
+                return this.start;
+            }
+            set {
+                this.start = value;
+            }
+        }
+        
+        [System.Xml.Serialization.XmlAttributeAttribute("type")]
+        public string Type {
+            get {
+                return this.type;
+            }
+            set {
+                this.type = value;
+            }
+        }
+        
+        [System.Xml.Serialization.XmlAttributeAttribute("name")]
+        public string Name {
+            get {
+                return this.name;
+            }
+            set {
+                this.name = value;
+            }
+        }
+        
+        [System.Xml.Serialization.XmlElementAttribute("mac", Namespace="")]
+        public EthernetInterfaceBasicEthernetContentMac Mac {
+            get {
+                return this.mac;
+            }
+            set {
+                this.mac = value;
+            }
+        }
+        
+        [System.Xml.Serialization.XmlElementAttribute("link", Namespace="")]
+        public LinkSpeedState Link {
+            get {
+                return this.link;
+            }
+            set {
+                this.link = value;
+            }
+        }
+        
+        [System.Xml.Serialization.XmlElementAttribute("mtu", Namespace="")]
+        public EthernetInterfaceMtu Mtu {
+            get {
+                return this.mtu;
+            }
+            set {
+                this.mtu = value;
+            }
+        }
+        
+        [System.Xml.Serialization.XmlElementAttribute("protocol", Namespace="")]
+        public EthernetInterfaceProtocolIpv6 Protocol {
+            get {
+                return this.protocol;
+            }
+            set {
+                this.protocol = value;
+            }
+        }
+    }
+    
+    public partial class EthernetInterfaceBasicEthernetContentMac {
+        
+        private string address;
+        
+        [System.Xml.Serialization.XmlAttributeAttribute("address")]
+        public string Address {
+            get {
+                return this.address;
+            }
+            set {
+                this.address = value;
+            }
+        }
+    }
+    
+    [System.Xml.Serialization.XmlTypeAttribute("dhcp", Namespace="")]
+    public partial class EthernetInterfaceDhcpElement {
+        
+        private VirYesNo peerdns;
+        
+        private bool peerdnsSpecified;
+        
+        [System.Xml.Serialization.XmlAttributeAttribute("peerdns")]
+        public VirYesNo Peerdns {
+            get {
+                return this.peerdns;
+            }
+            set {
+                this.peerdns = value;
+            }
+        }
+        
+        [System.Xml.Serialization.XmlIgnoreAttribute()]
+        public bool PeerdnsSpecified {
+            get {
+                return this.peerdnsSpecified;
+            }
+            set {
+                this.peerdnsSpecified = value;
+            }
+        }
+    }
+    
+    public partial class EthernetInterfaceEthernetInterfaceProtocolIpv4Ip {
+        
+        private string address;
+        
+        private uint prefix;
+        
+        private bool prefixSpecified;
+        
+        [System.Xml.Serialization.XmlAttributeAttribute("address")]
+        public string Address {
+            get {
+                return this.address;
+            }
+            set {
+                this.address = value;
+            }
+        }
+        
+        [System.Xml.Serialization.XmlAttributeAttribute("prefix")]
+        public uint Prefix {
+            get {
+                return this.prefix;
+            }
+            set {
+                this.prefix = value;
+            }
+        }
+        
+        [System.Xml.Serialization.XmlIgnoreAttribute()]
+        public bool PrefixSpecified {
+            get {
+                return this.prefixSpecified;
+            }
+            set {
+                this.prefixSpecified = value;
+            }
+        }
+    }
+    
+    public partial class EthernetInterfaceEthernetInterfaceProtocolIpv4Route {
+        
+        private string gateway;
+        
+        [System.Xml.Serialization.XmlAttributeAttribute("gateway")]
+        public string Gateway {
+            get {
+                return this.gateway;
+            }
+            set {
+                this.gateway = value;
+            }
+        }
+    }
+    
+    public partial class EthernetInterfaceEthernetInterfaceProtocolIpv6Autoconf {
+    }
+    
+    public partial class EthernetInterfaceEthernetInterfaceProtocolIpv6Ip {
+        
+        private string address;
+        
+        private uint prefix;
+        
+        private bool prefixSpecified;
+        
+        [System.Xml.Serialization.XmlAttributeAttribute("address")]
+        public string Address {
+            get {
+                return this.address;
+            }
+            set {
+                this.address = value;
+            }
+        }
+        
+        [System.Xml.Serialization.XmlAttributeAttribute("prefix")]
+        public uint Prefix {
+            get {
+                return this.prefix;
+            }
+            set {
+                this.prefix = value;
+            }
+        }
+        
+        [System.Xml.Serialization.XmlIgnoreAttribute()]
+        public bool PrefixSpecified {
+            get {
+                return this.prefixSpecified;
+            }
+            set {
+                this.prefixSpecified = value;
+            }
+        }
+    }
+    
+    public partial class EthernetInterfaceEthernetInterfaceProtocolIpv6Route {
+        
+        private string gateway;
+        
+        [System.Xml.Serialization.XmlAttributeAttribute("gateway")]
+        public string Gateway {
+            get {
+                return this.gateway;
+            }
+            set {
+                this.gateway = value;
+            }
+        }
+    }
+    
+    [System.Xml.Serialization.XmlTypeAttribute("mtu", Namespace="")]
+    public partial class EthernetInterfaceMtu {
+        
+        private uint size;
+        
+        [System.Xml.Serialization.XmlAttributeAttribute("size")]
+        public uint Size {
+            get {
+                return this.size;
+            }
+            set {
+                this.size = value;
+            }
+        }
+    }
+    
+    [System.Xml.Serialization.XmlTypeAttribute("protocol", Namespace="")]
+    public partial class EthernetInterfaceProtocolIpv4 {
+        
+        private string family;
+        
+        private EthernetInterfaceDhcpElement dhcp;
+        
+        private EthernetInterfaceEthernetInterfaceProtocolIpv4Ip[] ip;
+        
+        private EthernetInterfaceEthernetInterfaceProtocolIpv4Route route;
+        
+        [System.Xml.Serialization.XmlAttributeAttribute("family")]
+        public string Family {
+            get {
+                return this.family;
+            }
+            set {
+                this.family = value;
+            }
+        }
+        
+        [System.Xml.Serialization.XmlElementAttribute("dhcp", Namespace="")]
+        public EthernetInterfaceDhcpElement Dhcp {
+            get {
+                return this.dhcp;
+            }
+            set {
+                this.dhcp = value;
+            }
+        }
+        
+        [System.Xml.Serialization.XmlElementAttribute("ip", Namespace="")]
+        public EthernetInterfaceEthernetInterfaceProtocolIpv4Ip[] Ip {
+            get {
+                return this.ip;
+            }
+            set {
+                this.ip = value;
+            }
+        }
+        
+        [System.Xml.Serialization.XmlElementAttribute("route", Namespace="")]
+        public EthernetInterfaceEthernetInterfaceProtocolIpv4Route Route {
+            get {
+                return this.route;
+            }
+            set {
+                this.route = value;
+            }
+        }
+    }
+    
+    [System.Xml.Serialization.XmlTypeAttribute("protocol", Namespace="")]
+    public partial class EthernetInterfaceProtocolIpv6 {
+        
+        private string family;
+        
+        private EthernetInterfaceEthernetInterfaceProtocolIpv6Autoconf autoconf;
+        
+        private EthernetInterfaceDhcpElement dhcp;
+        
+        private EthernetInterfaceEthernetInterfaceProtocolIpv6Ip[] ip;
+        
+        private EthernetInterfaceEthernetInterfaceProtocolIpv6Route route;
+        
+        [System.Xml.Serialization.XmlAttributeAttribute("family")]
+        public string Family {
+            get {
+                return this.family;
+            }
+            set {
+                this.family = value;
+            }
+        }
+        
+        [System.Xml.Serialization.XmlElementAttribute("autoconf", Namespace="")]
+        public EthernetInterfaceEthernetInterfaceProtocolIpv6Autoconf Autoconf {
+            get {
+                return this.autoconf;
+            }
+            set {
+                this.autoconf = value;
+            }
+        }
+        
+        [System.Xml.Serialization.XmlElementAttribute("dhcp", Namespace="")]
+        public EthernetInterfaceDhcpElement Dhcp {
+            get {
+                return this.dhcp;
+            }
+            set {
+                this.dhcp = value;
+            }
+        }
+        
+        [System.Xml.Serialization.XmlElementAttribute("ip", Namespace="")]
+        public EthernetInterfaceEthernetInterfaceProtocolIpv6Ip[] Ip {
+            get {
+                return this.ip;
+            }
+            set {
+                this.ip = value;
+            }
+        }
+        
+        [System.Xml.Serialization.XmlElementAttribute("route", Namespace="")]
+        public EthernetInterfaceEthernetInterfaceProtocolIpv6Route Route {
+            get {
+                return this.route;
+            }
+            set {
+                this.route = value;
+            }
+        }
+    }
+    
+    [System.Xml.Serialization.XmlTypeAttribute("start", Namespace="")]
+    public partial class EthernetInterfaceStartmode {
+        
+        private EthernetInterfaceStartmodeMode mode;
+        
+        [System.Xml.Serialization.XmlAttributeAttribute("mode")]
+        public EthernetInterfaceStartmodeMode Mode {
+            get {
+                return this.mode;
+            }
+            set {
+                this.mode = value;
+            }
+        }
+    }
+    
+    public enum EthernetInterfaceStartmodeMode {
+        
+        [System.Xml.Serialization.XmlEnumAttribute(Name="onboot")]
+        Onboot,
+        
+        [System.Xml.Serialization.XmlEnumAttribute(Name="none")]
+        None,
+        
+        [System.Xml.Serialization.XmlEnumAttribute(Name="hotplug")]
+        Hotplug,
+    }
+    
     public enum FilesystemCommon {
         
         [System.Xml.Serialization.XmlEnumAttribute(Name="passthrough")]
@@ -43228,6 +45256,436 @@ namespace Libvirt.Model {
             }
             set {
                 this.tag = value;
+            }
+        }
+    }
+    
+    [System.Xml.Serialization.XmlTypeAttribute("interface", Namespace="")]
+    public partial class VlanInterface {
+        
+        private string type;
+        
+        private string name;
+        
+        private LinkSpeedState link;
+        
+        private VlanInterfaceStartmode start;
+        
+        private VlanInterfaceMtu mtu;
+        
+        private VlanInterfaceProtocolIpv6 protocol;
+        
+        private VlanInterfaceVlanDevice vlan;
+        
+        [System.Xml.Serialization.XmlAttributeAttribute("type")]
+        public string Type {
+            get {
+                return this.type;
+            }
+            set {
+                this.type = value;
+            }
+        }
+        
+        [System.Xml.Serialization.XmlAttributeAttribute("name")]
+        public string Name {
+            get {
+                return this.name;
+            }
+            set {
+                this.name = value;
+            }
+        }
+        
+        [System.Xml.Serialization.XmlElementAttribute("link", Namespace="")]
+        public LinkSpeedState Link {
+            get {
+                return this.link;
+            }
+            set {
+                this.link = value;
+            }
+        }
+        
+        [System.Xml.Serialization.XmlElementAttribute("start", Namespace="")]
+        public VlanInterfaceStartmode Start {
+            get {
+                return this.start;
+            }
+            set {
+                this.start = value;
+            }
+        }
+        
+        [System.Xml.Serialization.XmlElementAttribute("mtu", Namespace="")]
+        public VlanInterfaceMtu Mtu {
+            get {
+                return this.mtu;
+            }
+            set {
+                this.mtu = value;
+            }
+        }
+        
+        [System.Xml.Serialization.XmlElementAttribute("protocol", Namespace="")]
+        public VlanInterfaceProtocolIpv6 Protocol {
+            get {
+                return this.protocol;
+            }
+            set {
+                this.protocol = value;
+            }
+        }
+        
+        [System.Xml.Serialization.XmlElementAttribute("vlan", Namespace="")]
+        public VlanInterfaceVlanDevice Vlan {
+            get {
+                return this.vlan;
+            }
+            set {
+                this.vlan = value;
+            }
+        }
+    }
+    
+    [System.Xml.Serialization.XmlTypeAttribute("dhcp", Namespace="")]
+    public partial class VlanInterfaceDhcpElement {
+        
+        private VirYesNo peerdns;
+        
+        private bool peerdnsSpecified;
+        
+        [System.Xml.Serialization.XmlAttributeAttribute("peerdns")]
+        public VirYesNo Peerdns {
+            get {
+                return this.peerdns;
+            }
+            set {
+                this.peerdns = value;
+            }
+        }
+        
+        [System.Xml.Serialization.XmlIgnoreAttribute()]
+        public bool PeerdnsSpecified {
+            get {
+                return this.peerdnsSpecified;
+            }
+            set {
+                this.peerdnsSpecified = value;
+            }
+        }
+    }
+    
+    [System.Xml.Serialization.XmlTypeAttribute("mtu", Namespace="")]
+    public partial class VlanInterfaceMtu {
+        
+        private uint size;
+        
+        [System.Xml.Serialization.XmlAttributeAttribute("size")]
+        public uint Size {
+            get {
+                return this.size;
+            }
+            set {
+                this.size = value;
+            }
+        }
+    }
+    
+    [System.Xml.Serialization.XmlTypeAttribute("protocol", Namespace="")]
+    public partial class VlanInterfaceProtocolIpv4 {
+        
+        private string family;
+        
+        private VlanInterfaceDhcpElement dhcp;
+        
+        private VlanInterfaceVlanInterfaceProtocolIpv4Ip[] ip;
+        
+        private VlanInterfaceVlanInterfaceProtocolIpv4Route route;
+        
+        [System.Xml.Serialization.XmlAttributeAttribute("family")]
+        public string Family {
+            get {
+                return this.family;
+            }
+            set {
+                this.family = value;
+            }
+        }
+        
+        [System.Xml.Serialization.XmlElementAttribute("dhcp", Namespace="")]
+        public VlanInterfaceDhcpElement Dhcp {
+            get {
+                return this.dhcp;
+            }
+            set {
+                this.dhcp = value;
+            }
+        }
+        
+        [System.Xml.Serialization.XmlElementAttribute("ip", Namespace="")]
+        public VlanInterfaceVlanInterfaceProtocolIpv4Ip[] Ip {
+            get {
+                return this.ip;
+            }
+            set {
+                this.ip = value;
+            }
+        }
+        
+        [System.Xml.Serialization.XmlElementAttribute("route", Namespace="")]
+        public VlanInterfaceVlanInterfaceProtocolIpv4Route Route {
+            get {
+                return this.route;
+            }
+            set {
+                this.route = value;
+            }
+        }
+    }
+    
+    [System.Xml.Serialization.XmlTypeAttribute("protocol", Namespace="")]
+    public partial class VlanInterfaceProtocolIpv6 {
+        
+        private string family;
+        
+        private VlanInterfaceVlanInterfaceProtocolIpv6Autoconf autoconf;
+        
+        private VlanInterfaceDhcpElement dhcp;
+        
+        private VlanInterfaceVlanInterfaceProtocolIpv6Ip[] ip;
+        
+        private VlanInterfaceVlanInterfaceProtocolIpv6Route route;
+        
+        [System.Xml.Serialization.XmlAttributeAttribute("family")]
+        public string Family {
+            get {
+                return this.family;
+            }
+            set {
+                this.family = value;
+            }
+        }
+        
+        [System.Xml.Serialization.XmlElementAttribute("autoconf", Namespace="")]
+        public VlanInterfaceVlanInterfaceProtocolIpv6Autoconf Autoconf {
+            get {
+                return this.autoconf;
+            }
+            set {
+                this.autoconf = value;
+            }
+        }
+        
+        [System.Xml.Serialization.XmlElementAttribute("dhcp", Namespace="")]
+        public VlanInterfaceDhcpElement Dhcp {
+            get {
+                return this.dhcp;
+            }
+            set {
+                this.dhcp = value;
+            }
+        }
+        
+        [System.Xml.Serialization.XmlElementAttribute("ip", Namespace="")]
+        public VlanInterfaceVlanInterfaceProtocolIpv6Ip[] Ip {
+            get {
+                return this.ip;
+            }
+            set {
+                this.ip = value;
+            }
+        }
+        
+        [System.Xml.Serialization.XmlElementAttribute("route", Namespace="")]
+        public VlanInterfaceVlanInterfaceProtocolIpv6Route Route {
+            get {
+                return this.route;
+            }
+            set {
+                this.route = value;
+            }
+        }
+    }
+    
+    [System.Xml.Serialization.XmlTypeAttribute("start", Namespace="")]
+    public partial class VlanInterfaceStartmode {
+        
+        private VlanInterfaceStartmodeMode mode;
+        
+        [System.Xml.Serialization.XmlAttributeAttribute("mode")]
+        public VlanInterfaceStartmodeMode Mode {
+            get {
+                return this.mode;
+            }
+            set {
+                this.mode = value;
+            }
+        }
+    }
+    
+    public enum VlanInterfaceStartmodeMode {
+        
+        [System.Xml.Serialization.XmlEnumAttribute(Name="onboot")]
+        Onboot,
+        
+        [System.Xml.Serialization.XmlEnumAttribute(Name="none")]
+        None,
+        
+        [System.Xml.Serialization.XmlEnumAttribute(Name="hotplug")]
+        Hotplug,
+    }
+    
+    [System.Xml.Serialization.XmlTypeAttribute("vlan", Namespace="")]
+    public partial class VlanInterfaceVlanDevice {
+        
+        private uint tag;
+        
+        private VlanInterfaceVlanInterfaceVlanDeviceInterface @interface;
+        
+        [System.Xml.Serialization.XmlAttributeAttribute("tag")]
+        public uint Tag {
+            get {
+                return this.tag;
+            }
+            set {
+                this.tag = value;
+            }
+        }
+        
+        [System.Xml.Serialization.XmlElementAttribute("interface", Namespace="")]
+        public VlanInterfaceVlanInterfaceVlanDeviceInterface Interface {
+            get {
+                return this.@interface;
+            }
+            set {
+                this.@interface = value;
+            }
+        }
+    }
+    
+    public partial class VlanInterfaceVlanInterfaceProtocolIpv4Ip {
+        
+        private string address;
+        
+        private uint prefix;
+        
+        private bool prefixSpecified;
+        
+        [System.Xml.Serialization.XmlAttributeAttribute("address")]
+        public string Address {
+            get {
+                return this.address;
+            }
+            set {
+                this.address = value;
+            }
+        }
+        
+        [System.Xml.Serialization.XmlAttributeAttribute("prefix")]
+        public uint Prefix {
+            get {
+                return this.prefix;
+            }
+            set {
+                this.prefix = value;
+            }
+        }
+        
+        [System.Xml.Serialization.XmlIgnoreAttribute()]
+        public bool PrefixSpecified {
+            get {
+                return this.prefixSpecified;
+            }
+            set {
+                this.prefixSpecified = value;
+            }
+        }
+    }
+    
+    public partial class VlanInterfaceVlanInterfaceProtocolIpv4Route {
+        
+        private string gateway;
+        
+        [System.Xml.Serialization.XmlAttributeAttribute("gateway")]
+        public string Gateway {
+            get {
+                return this.gateway;
+            }
+            set {
+                this.gateway = value;
+            }
+        }
+    }
+    
+    public partial class VlanInterfaceVlanInterfaceProtocolIpv6Autoconf {
+    }
+    
+    public partial class VlanInterfaceVlanInterfaceProtocolIpv6Ip {
+        
+        private string address;
+        
+        private uint prefix;
+        
+        private bool prefixSpecified;
+        
+        [System.Xml.Serialization.XmlAttributeAttribute("address")]
+        public string Address {
+            get {
+                return this.address;
+            }
+            set {
+                this.address = value;
+            }
+        }
+        
+        [System.Xml.Serialization.XmlAttributeAttribute("prefix")]
+        public uint Prefix {
+            get {
+                return this.prefix;
+            }
+            set {
+                this.prefix = value;
+            }
+        }
+        
+        [System.Xml.Serialization.XmlIgnoreAttribute()]
+        public bool PrefixSpecified {
+            get {
+                return this.prefixSpecified;
+            }
+            set {
+                this.prefixSpecified = value;
+            }
+        }
+    }
+    
+    public partial class VlanInterfaceVlanInterfaceProtocolIpv6Route {
+        
+        private string gateway;
+        
+        [System.Xml.Serialization.XmlAttributeAttribute("gateway")]
+        public string Gateway {
+            get {
+                return this.gateway;
+            }
+            set {
+                this.gateway = value;
+            }
+        }
+    }
+    
+    public partial class VlanInterfaceVlanInterfaceVlanDeviceInterface {
+        
+        private string name;
+        
+        [System.Xml.Serialization.XmlAttributeAttribute("name")]
+        public string Name {
+            get {
+                return this.name;
+            }
+            set {
+                this.name = value;
             }
         }
     }

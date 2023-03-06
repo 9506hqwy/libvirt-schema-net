@@ -32,6 +32,7 @@ internal class MainShell
             f => f);
 
         var context = new CodeContext();
+        context.ClassNamePrefix.Add("domaincaps.rng", "domainCaps");
         context.ClassNamePrefix.Add("domaincommon.rng", "domain");
         context.ClassNamePrefix.Add("storagecommon.rng", "storage");
         context.ExcludeDefines.Add(new ExcludeDefine("customElement", "basictypes.rng"));
@@ -101,6 +102,9 @@ internal class MainShell
 
         // domainbackup.rng
         this.Parse(schema, files["domainbackup.rng"]).CollectType(context);
+
+        // domaincaps.rng
+        this.Parse(schema, files["domaincaps.rng"]).CollectType(context);
 
         // domaincheckpoint.rng
         this.Parse(schema, files["domaincheckpoint.rng"]).CollectType(context);

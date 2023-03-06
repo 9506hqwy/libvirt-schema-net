@@ -9474,6 +9474,1553 @@ namespace Libvirt.Model {
         }
     }
     
+    [System.Xml.Serialization.XmlTypeAttribute("backingStoreInput", Namespace="")]
+    public partial class DomainCapsBackingStoreInput {
+        
+        private VirYesNo supported;
+        
+        [System.Xml.Serialization.XmlAttributeAttribute("supported")]
+        public VirYesNo Supported {
+            get {
+                return this.supported;
+            }
+            set {
+                this.supported = value;
+            }
+        }
+    }
+    
+    [System.Xml.Serialization.XmlTypeAttribute("backup", Namespace="")]
+    public partial class DomainCapsBackup {
+        
+        private VirYesNo supported;
+        
+        [System.Xml.Serialization.XmlAttributeAttribute("supported")]
+        public VirYesNo Supported {
+            get {
+                return this.supported;
+            }
+            set {
+                this.supported = value;
+            }
+        }
+    }
+    
+    [System.Xml.Serialization.XmlTypeAttribute("channel", Namespace="")]
+    public partial class DomainCapsChannel {
+        
+        private VirYesNo supported;
+        
+        private DomainCapsEnum[] @enum;
+        
+        [System.Xml.Serialization.XmlAttributeAttribute("supported")]
+        public VirYesNo Supported {
+            get {
+                return this.supported;
+            }
+            set {
+                this.supported = value;
+            }
+        }
+        
+        [System.Xml.Serialization.XmlElementAttribute("enum", Namespace="")]
+        public DomainCapsEnum[] Enum {
+            get {
+                return this.@enum;
+            }
+            set {
+                this.@enum = value;
+            }
+        }
+    }
+    
+    [System.Xml.Serialization.XmlTypeAttribute("cpu", Namespace="")]
+    public partial class DomainCapsCpu {
+        
+        private DomainCapsCpuHostModel mode;
+        
+        [System.Xml.Serialization.XmlElementAttribute("mode", Namespace="")]
+        public DomainCapsCpuHostModel Mode {
+            get {
+                return this.mode;
+            }
+            set {
+                this.mode = value;
+            }
+        }
+    }
+    
+    [System.Xml.Serialization.XmlTypeAttribute("mode", Namespace="")]
+    public partial class DomainCapsCpuCustom {
+        
+        private string name;
+        
+        private VirYesNo supported;
+        
+        private DomainCapsCpuCustomModel[] model;
+        
+        [System.Xml.Serialization.XmlAttributeAttribute("name")]
+        public string Name {
+            get {
+                return this.name;
+            }
+            set {
+                this.name = value;
+            }
+        }
+        
+        [System.Xml.Serialization.XmlAttributeAttribute("supported")]
+        public VirYesNo Supported {
+            get {
+                return this.supported;
+            }
+            set {
+                this.supported = value;
+            }
+        }
+        
+        [System.Xml.Serialization.XmlElementAttribute("model", Namespace="")]
+        public DomainCapsCpuCustomModel[] Model {
+            get {
+                return this.model;
+            }
+            set {
+                this.model = value;
+            }
+        }
+    }
+    
+    public partial class DomainCapsCpuCustomModel {
+        
+        private string value;
+        
+        private DomainCapsCpuCustomModelUsable usable;
+        
+        private VirYesNo deprecated;
+        
+        private bool deprecatedSpecified;
+        
+        private string vendor;
+        
+        [System.Xml.Serialization.XmlTextAttribute()]
+        public string Value {
+            get {
+                return this.value;
+            }
+            set {
+                this.value = value;
+            }
+        }
+        
+        [System.Xml.Serialization.XmlAttributeAttribute("usable")]
+        public DomainCapsCpuCustomModelUsable Usable {
+            get {
+                return this.usable;
+            }
+            set {
+                this.usable = value;
+            }
+        }
+        
+        [System.Xml.Serialization.XmlAttributeAttribute("deprecated")]
+        public VirYesNo Deprecated {
+            get {
+                return this.deprecated;
+            }
+            set {
+                this.deprecated = value;
+            }
+        }
+        
+        [System.Xml.Serialization.XmlIgnoreAttribute()]
+        public bool DeprecatedSpecified {
+            get {
+                return this.deprecatedSpecified;
+            }
+            set {
+                this.deprecatedSpecified = value;
+            }
+        }
+        
+        [System.Xml.Serialization.XmlAttributeAttribute("vendor")]
+        public string Vendor {
+            get {
+                return this.vendor;
+            }
+            set {
+                this.vendor = value;
+            }
+        }
+    }
+    
+    public enum DomainCapsCpuCustomModelUsable {
+        
+        [System.Xml.Serialization.XmlEnumAttribute(Name="yes")]
+        Yes,
+        
+        [System.Xml.Serialization.XmlEnumAttribute(Name="no")]
+        No,
+        
+        [System.Xml.Serialization.XmlEnumAttribute(Name="unknown")]
+        Unknown,
+    }
+    
+    [System.Xml.Serialization.XmlTypeAttribute("mode", Namespace="")]
+    public partial class DomainCapsCpuHost {
+        
+        private string name;
+        
+        private VirYesNo supported;
+        
+        private DomainCapsEnum[] @enum;
+        
+        [System.Xml.Serialization.XmlAttributeAttribute("name")]
+        public string Name {
+            get {
+                return this.name;
+            }
+            set {
+                this.name = value;
+            }
+        }
+        
+        [System.Xml.Serialization.XmlAttributeAttribute("supported")]
+        public VirYesNo Supported {
+            get {
+                return this.supported;
+            }
+            set {
+                this.supported = value;
+            }
+        }
+        
+        [System.Xml.Serialization.XmlElementAttribute("enum", Namespace="")]
+        public DomainCapsEnum[] Enum {
+            get {
+                return this.@enum;
+            }
+            set {
+                this.@enum = value;
+            }
+        }
+    }
+    
+    [System.Xml.Serialization.XmlTypeAttribute("mode", Namespace="")]
+    public partial class DomainCapsCpuHostModel {
+        
+        private string name;
+        
+        private VirYesNo supported;
+        
+        private bool supportedSpecified;
+        
+        private CpuModel model;
+        
+        private string vendor;
+        
+        private CpuFeature[] feature;
+        
+        private DomainCapsEnum[] @enum;
+        
+        [System.Xml.Serialization.XmlAttributeAttribute("name")]
+        public string Name {
+            get {
+                return this.name;
+            }
+            set {
+                this.name = value;
+            }
+        }
+        
+        [System.Xml.Serialization.XmlAttributeAttribute("supported")]
+        public VirYesNo Supported {
+            get {
+                return this.supported;
+            }
+            set {
+                this.supported = value;
+            }
+        }
+        
+        [System.Xml.Serialization.XmlIgnoreAttribute()]
+        public bool SupportedSpecified {
+            get {
+                return this.supportedSpecified;
+            }
+            set {
+                this.supportedSpecified = value;
+            }
+        }
+        
+        [System.Xml.Serialization.XmlElementAttribute("model", Namespace="")]
+        public CpuModel Model {
+            get {
+                return this.model;
+            }
+            set {
+                this.model = value;
+            }
+        }
+        
+        [System.Xml.Serialization.XmlElementAttribute("vendor", Namespace="")]
+        public string Vendor {
+            get {
+                return this.vendor;
+            }
+            set {
+                this.vendor = value;
+            }
+        }
+        
+        [System.Xml.Serialization.XmlElementAttribute("feature", Namespace="")]
+        public CpuFeature[] Feature {
+            get {
+                return this.feature;
+            }
+            set {
+                this.feature = value;
+            }
+        }
+        
+        [System.Xml.Serialization.XmlElementAttribute("enum", Namespace="")]
+        public DomainCapsEnum[] Enum {
+            get {
+                return this.@enum;
+            }
+            set {
+                this.@enum = value;
+            }
+        }
+    }
+    
+    [System.Xml.Serialization.XmlTypeAttribute("mode", Namespace="")]
+    public partial class DomainCapsCpuMax {
+        
+        private string name;
+        
+        private VirYesNo supported;
+        
+        private DomainCapsEnum[] @enum;
+        
+        [System.Xml.Serialization.XmlAttributeAttribute("name")]
+        public string Name {
+            get {
+                return this.name;
+            }
+            set {
+                this.name = value;
+            }
+        }
+        
+        [System.Xml.Serialization.XmlAttributeAttribute("supported")]
+        public VirYesNo Supported {
+            get {
+                return this.supported;
+            }
+            set {
+                this.supported = value;
+            }
+        }
+        
+        [System.Xml.Serialization.XmlElementAttribute("enum", Namespace="")]
+        public DomainCapsEnum[] Enum {
+            get {
+                return this.@enum;
+            }
+            set {
+                this.@enum = value;
+            }
+        }
+    }
+    
+    [System.Xml.Serialization.XmlTypeAttribute("devices", Namespace="")]
+    public partial class DomainCapsDevices {
+        
+        private DomainCapsDisk disk;
+        
+        private DomainCapsGraphics graphics;
+        
+        private DomainCapsVideo video;
+        
+        private DomainCapsHostdev hostdev;
+        
+        private DomainCapsRng rng;
+        
+        private DomainCapsFilesystem filesystem;
+        
+        private DomainCapsTpm tpm;
+        
+        private DomainCapsRedirdev redirdev;
+        
+        private DomainCapsChannel channel;
+        
+        [System.Xml.Serialization.XmlElementAttribute("disk", Namespace="")]
+        public DomainCapsDisk Disk {
+            get {
+                return this.disk;
+            }
+            set {
+                this.disk = value;
+            }
+        }
+        
+        [System.Xml.Serialization.XmlElementAttribute("graphics", Namespace="")]
+        public DomainCapsGraphics Graphics {
+            get {
+                return this.graphics;
+            }
+            set {
+                this.graphics = value;
+            }
+        }
+        
+        [System.Xml.Serialization.XmlElementAttribute("video", Namespace="")]
+        public DomainCapsVideo Video {
+            get {
+                return this.video;
+            }
+            set {
+                this.video = value;
+            }
+        }
+        
+        [System.Xml.Serialization.XmlElementAttribute("hostdev", Namespace="")]
+        public DomainCapsHostdev Hostdev {
+            get {
+                return this.hostdev;
+            }
+            set {
+                this.hostdev = value;
+            }
+        }
+        
+        [System.Xml.Serialization.XmlElementAttribute("rng", Namespace="")]
+        public DomainCapsRng Rng {
+            get {
+                return this.rng;
+            }
+            set {
+                this.rng = value;
+            }
+        }
+        
+        [System.Xml.Serialization.XmlElementAttribute("filesystem", Namespace="")]
+        public DomainCapsFilesystem Filesystem {
+            get {
+                return this.filesystem;
+            }
+            set {
+                this.filesystem = value;
+            }
+        }
+        
+        [System.Xml.Serialization.XmlElementAttribute("tpm", Namespace="")]
+        public DomainCapsTpm Tpm {
+            get {
+                return this.tpm;
+            }
+            set {
+                this.tpm = value;
+            }
+        }
+        
+        [System.Xml.Serialization.XmlElementAttribute("redirdev", Namespace="")]
+        public DomainCapsRedirdev Redirdev {
+            get {
+                return this.redirdev;
+            }
+            set {
+                this.redirdev = value;
+            }
+        }
+        
+        [System.Xml.Serialization.XmlElementAttribute("channel", Namespace="")]
+        public DomainCapsChannel Channel {
+            get {
+                return this.channel;
+            }
+            set {
+                this.channel = value;
+            }
+        }
+    }
+    
+    [System.Xml.Serialization.XmlTypeAttribute("disk", Namespace="")]
+    public partial class DomainCapsDisk {
+        
+        private VirYesNo supported;
+        
+        private DomainCapsEnum[] @enum;
+        
+        [System.Xml.Serialization.XmlAttributeAttribute("supported")]
+        public VirYesNo Supported {
+            get {
+                return this.supported;
+            }
+            set {
+                this.supported = value;
+            }
+        }
+        
+        [System.Xml.Serialization.XmlElementAttribute("enum", Namespace="")]
+        public DomainCapsEnum[] Enum {
+            get {
+                return this.@enum;
+            }
+            set {
+                this.@enum = value;
+            }
+        }
+    }
+    
+    [System.Xml.Serialization.XmlTypeAttribute("domainCapabilities", Namespace="")]
+    public partial class DomainCapsDomainCapabilities {
+        
+        private string path;
+        
+        private string domain;
+        
+        private string machine;
+        
+        private string arch;
+        
+        private DomainCapsVcpu vcpu;
+        
+        private DomainCapsIothreads iothreads;
+        
+        private DomainCapsOs os;
+        
+        private DomainCapsCpu cpu;
+        
+        private DomainCapsMemoryBacking memoryBacking;
+        
+        private DomainCapsDevices devices;
+        
+        private DomainCapsFeatures features;
+        
+        [System.Xml.Serialization.XmlElementAttribute("path", Namespace="")]
+        public string Path {
+            get {
+                return this.path;
+            }
+            set {
+                this.path = value;
+            }
+        }
+        
+        [System.Xml.Serialization.XmlElementAttribute("domain", Namespace="")]
+        public string Domain {
+            get {
+                return this.domain;
+            }
+            set {
+                this.domain = value;
+            }
+        }
+        
+        [System.Xml.Serialization.XmlElementAttribute("machine", Namespace="")]
+        public string Machine {
+            get {
+                return this.machine;
+            }
+            set {
+                this.machine = value;
+            }
+        }
+        
+        [System.Xml.Serialization.XmlElementAttribute("arch", Namespace="")]
+        public string Arch {
+            get {
+                return this.arch;
+            }
+            set {
+                this.arch = value;
+            }
+        }
+        
+        [System.Xml.Serialization.XmlElementAttribute("vcpu", Namespace="")]
+        public DomainCapsVcpu Vcpu {
+            get {
+                return this.vcpu;
+            }
+            set {
+                this.vcpu = value;
+            }
+        }
+        
+        [System.Xml.Serialization.XmlElementAttribute("iothreads", Namespace="")]
+        public DomainCapsIothreads Iothreads {
+            get {
+                return this.iothreads;
+            }
+            set {
+                this.iothreads = value;
+            }
+        }
+        
+        [System.Xml.Serialization.XmlElementAttribute("os", Namespace="")]
+        public DomainCapsOs Os {
+            get {
+                return this.os;
+            }
+            set {
+                this.os = value;
+            }
+        }
+        
+        [System.Xml.Serialization.XmlElementAttribute("cpu", Namespace="")]
+        public DomainCapsCpu Cpu {
+            get {
+                return this.cpu;
+            }
+            set {
+                this.cpu = value;
+            }
+        }
+        
+        [System.Xml.Serialization.XmlElementAttribute("memoryBacking", Namespace="")]
+        public DomainCapsMemoryBacking MemoryBacking {
+            get {
+                return this.memoryBacking;
+            }
+            set {
+                this.memoryBacking = value;
+            }
+        }
+        
+        [System.Xml.Serialization.XmlElementAttribute("devices", Namespace="")]
+        public DomainCapsDevices Devices {
+            get {
+                return this.devices;
+            }
+            set {
+                this.devices = value;
+            }
+        }
+        
+        [System.Xml.Serialization.XmlElementAttribute("features", Namespace="")]
+        public DomainCapsFeatures Features {
+            get {
+                return this.features;
+            }
+            set {
+                this.features = value;
+            }
+        }
+    }
+    
+    [System.Xml.Serialization.XmlTypeAttribute("enum", Namespace="")]
+    public partial class DomainCapsEnum {
+        
+        private string name;
+        
+        private string[] value;
+        
+        [System.Xml.Serialization.XmlAttributeAttribute("name")]
+        public string Name {
+            get {
+                return this.name;
+            }
+            set {
+                this.name = value;
+            }
+        }
+        
+        [System.Xml.Serialization.XmlElementAttribute("value", Namespace="")]
+        public string[] Value {
+            get {
+                return this.value;
+            }
+            set {
+                this.value = value;
+            }
+        }
+    }
+    
+    [System.Xml.Serialization.XmlTypeAttribute("features", Namespace="")]
+    public partial class DomainCapsFeatures {
+        
+        private DomainCapsGic gic;
+        
+        private DomainCapsVmcoreinfo vmcoreinfo;
+        
+        private DomainCapsVmgenid genid;
+        
+        private DomainCapsBackingStoreInput backingStoreInput;
+        
+        private DomainCapsBackup backup;
+        
+        private DomainCapsS390Pv s390Pv;
+        
+        private DomainCapsSev sev;
+        
+        private DomainCapsSgx sgx;
+        
+        private DomainCapsHyperv hyperv;
+        
+        [System.Xml.Serialization.XmlElementAttribute("gic", Namespace="")]
+        public DomainCapsGic Gic {
+            get {
+                return this.gic;
+            }
+            set {
+                this.gic = value;
+            }
+        }
+        
+        [System.Xml.Serialization.XmlElementAttribute("vmcoreinfo", Namespace="")]
+        public DomainCapsVmcoreinfo Vmcoreinfo {
+            get {
+                return this.vmcoreinfo;
+            }
+            set {
+                this.vmcoreinfo = value;
+            }
+        }
+        
+        [System.Xml.Serialization.XmlElementAttribute("genid", Namespace="")]
+        public DomainCapsVmgenid Genid {
+            get {
+                return this.genid;
+            }
+            set {
+                this.genid = value;
+            }
+        }
+        
+        [System.Xml.Serialization.XmlElementAttribute("backingStoreInput", Namespace="")]
+        public DomainCapsBackingStoreInput BackingStoreInput {
+            get {
+                return this.backingStoreInput;
+            }
+            set {
+                this.backingStoreInput = value;
+            }
+        }
+        
+        [System.Xml.Serialization.XmlElementAttribute("backup", Namespace="")]
+        public DomainCapsBackup Backup {
+            get {
+                return this.backup;
+            }
+            set {
+                this.backup = value;
+            }
+        }
+        
+        [System.Xml.Serialization.XmlElementAttribute("s390-pv", Namespace="")]
+        public DomainCapsS390Pv S390Pv {
+            get {
+                return this.s390Pv;
+            }
+            set {
+                this.s390Pv = value;
+            }
+        }
+        
+        [System.Xml.Serialization.XmlElementAttribute("sev", Namespace="")]
+        public DomainCapsSev Sev {
+            get {
+                return this.sev;
+            }
+            set {
+                this.sev = value;
+            }
+        }
+        
+        [System.Xml.Serialization.XmlElementAttribute("sgx", Namespace="")]
+        public DomainCapsSgx Sgx {
+            get {
+                return this.sgx;
+            }
+            set {
+                this.sgx = value;
+            }
+        }
+        
+        [System.Xml.Serialization.XmlElementAttribute("hyperv", Namespace="")]
+        public DomainCapsHyperv Hyperv {
+            get {
+                return this.hyperv;
+            }
+            set {
+                this.hyperv = value;
+            }
+        }
+    }
+    
+    [System.Xml.Serialization.XmlTypeAttribute("filesystem", Namespace="")]
+    public partial class DomainCapsFilesystem {
+        
+        private VirYesNo supported;
+        
+        private DomainCapsEnum[] @enum;
+        
+        [System.Xml.Serialization.XmlAttributeAttribute("supported")]
+        public VirYesNo Supported {
+            get {
+                return this.supported;
+            }
+            set {
+                this.supported = value;
+            }
+        }
+        
+        [System.Xml.Serialization.XmlElementAttribute("enum", Namespace="")]
+        public DomainCapsEnum[] Enum {
+            get {
+                return this.@enum;
+            }
+            set {
+                this.@enum = value;
+            }
+        }
+    }
+    
+    [System.Xml.Serialization.XmlTypeAttribute("gic", Namespace="")]
+    public partial class DomainCapsGic {
+        
+        private VirYesNo supported;
+        
+        private DomainCapsEnum[] @enum;
+        
+        [System.Xml.Serialization.XmlAttributeAttribute("supported")]
+        public VirYesNo Supported {
+            get {
+                return this.supported;
+            }
+            set {
+                this.supported = value;
+            }
+        }
+        
+        [System.Xml.Serialization.XmlElementAttribute("enum", Namespace="")]
+        public DomainCapsEnum[] Enum {
+            get {
+                return this.@enum;
+            }
+            set {
+                this.@enum = value;
+            }
+        }
+    }
+    
+    [System.Xml.Serialization.XmlTypeAttribute("graphics", Namespace="")]
+    public partial class DomainCapsGraphics {
+        
+        private VirYesNo supported;
+        
+        private DomainCapsEnum[] @enum;
+        
+        [System.Xml.Serialization.XmlAttributeAttribute("supported")]
+        public VirYesNo Supported {
+            get {
+                return this.supported;
+            }
+            set {
+                this.supported = value;
+            }
+        }
+        
+        [System.Xml.Serialization.XmlElementAttribute("enum", Namespace="")]
+        public DomainCapsEnum[] Enum {
+            get {
+                return this.@enum;
+            }
+            set {
+                this.@enum = value;
+            }
+        }
+    }
+    
+    [System.Xml.Serialization.XmlTypeAttribute("hostdev", Namespace="")]
+    public partial class DomainCapsHostdev {
+        
+        private VirYesNo supported;
+        
+        private DomainCapsEnum[] @enum;
+        
+        [System.Xml.Serialization.XmlAttributeAttribute("supported")]
+        public VirYesNo Supported {
+            get {
+                return this.supported;
+            }
+            set {
+                this.supported = value;
+            }
+        }
+        
+        [System.Xml.Serialization.XmlElementAttribute("enum", Namespace="")]
+        public DomainCapsEnum[] Enum {
+            get {
+                return this.@enum;
+            }
+            set {
+                this.@enum = value;
+            }
+        }
+    }
+    
+    [System.Xml.Serialization.XmlTypeAttribute("hyperv", Namespace="")]
+    public partial class DomainCapsHyperv {
+        
+        private VirYesNo supported;
+        
+        private DomainCapsEnum[] @enum;
+        
+        [System.Xml.Serialization.XmlAttributeAttribute("supported")]
+        public VirYesNo Supported {
+            get {
+                return this.supported;
+            }
+            set {
+                this.supported = value;
+            }
+        }
+        
+        [System.Xml.Serialization.XmlElementAttribute("enum", Namespace="")]
+        public DomainCapsEnum[] Enum {
+            get {
+                return this.@enum;
+            }
+            set {
+                this.@enum = value;
+            }
+        }
+    }
+    
+    [System.Xml.Serialization.XmlTypeAttribute("iothreads", Namespace="")]
+    public partial class DomainCapsIothreads {
+        
+        private VirYesNo supported;
+        
+        [System.Xml.Serialization.XmlAttributeAttribute("supported")]
+        public VirYesNo Supported {
+            get {
+                return this.supported;
+            }
+            set {
+                this.supported = value;
+            }
+        }
+    }
+    
+    [System.Xml.Serialization.XmlTypeAttribute("loader", Namespace="")]
+    public partial class DomainCapsLoader {
+        
+        private VirYesNo supported;
+        
+        private string[] value;
+        
+        private DomainCapsEnum[] @enum;
+        
+        [System.Xml.Serialization.XmlAttributeAttribute("supported")]
+        public VirYesNo Supported {
+            get {
+                return this.supported;
+            }
+            set {
+                this.supported = value;
+            }
+        }
+        
+        [System.Xml.Serialization.XmlElementAttribute("value", Namespace="")]
+        public string[] Value {
+            get {
+                return this.value;
+            }
+            set {
+                this.value = value;
+            }
+        }
+        
+        [System.Xml.Serialization.XmlElementAttribute("enum", Namespace="")]
+        public DomainCapsEnum[] Enum {
+            get {
+                return this.@enum;
+            }
+            set {
+                this.@enum = value;
+            }
+        }
+    }
+    
+    [System.Xml.Serialization.XmlTypeAttribute("memoryBacking", Namespace="")]
+    public partial class DomainCapsMemoryBacking {
+        
+        private VirYesNo supported;
+        
+        private DomainCapsEnum[] @enum;
+        
+        [System.Xml.Serialization.XmlAttributeAttribute("supported")]
+        public VirYesNo Supported {
+            get {
+                return this.supported;
+            }
+            set {
+                this.supported = value;
+            }
+        }
+        
+        [System.Xml.Serialization.XmlElementAttribute("enum", Namespace="")]
+        public DomainCapsEnum[] Enum {
+            get {
+                return this.@enum;
+            }
+            set {
+                this.@enum = value;
+            }
+        }
+    }
+    
+    [System.Xml.Serialization.XmlTypeAttribute("os", Namespace="")]
+    public partial class DomainCapsOs {
+        
+        private VirYesNo supported;
+        
+        private DomainCapsEnum[] @enum;
+        
+        private DomainCapsLoader loader;
+        
+        [System.Xml.Serialization.XmlAttributeAttribute("supported")]
+        public VirYesNo Supported {
+            get {
+                return this.supported;
+            }
+            set {
+                this.supported = value;
+            }
+        }
+        
+        [System.Xml.Serialization.XmlElementAttribute("enum", Namespace="")]
+        public DomainCapsEnum[] Enum {
+            get {
+                return this.@enum;
+            }
+            set {
+                this.@enum = value;
+            }
+        }
+        
+        [System.Xml.Serialization.XmlElementAttribute("loader", Namespace="")]
+        public DomainCapsLoader Loader {
+            get {
+                return this.loader;
+            }
+            set {
+                this.loader = value;
+            }
+        }
+    }
+    
+    [System.Xml.Serialization.XmlTypeAttribute("redirdev", Namespace="")]
+    public partial class DomainCapsRedirdev {
+        
+        private VirYesNo supported;
+        
+        private DomainCapsEnum[] @enum;
+        
+        [System.Xml.Serialization.XmlAttributeAttribute("supported")]
+        public VirYesNo Supported {
+            get {
+                return this.supported;
+            }
+            set {
+                this.supported = value;
+            }
+        }
+        
+        [System.Xml.Serialization.XmlElementAttribute("enum", Namespace="")]
+        public DomainCapsEnum[] Enum {
+            get {
+                return this.@enum;
+            }
+            set {
+                this.@enum = value;
+            }
+        }
+    }
+    
+    [System.Xml.Serialization.XmlTypeAttribute("rng", Namespace="")]
+    public partial class DomainCapsRng {
+        
+        private VirYesNo supported;
+        
+        private DomainCapsEnum[] @enum;
+        
+        [System.Xml.Serialization.XmlAttributeAttribute("supported")]
+        public VirYesNo Supported {
+            get {
+                return this.supported;
+            }
+            set {
+                this.supported = value;
+            }
+        }
+        
+        [System.Xml.Serialization.XmlElementAttribute("enum", Namespace="")]
+        public DomainCapsEnum[] Enum {
+            get {
+                return this.@enum;
+            }
+            set {
+                this.@enum = value;
+            }
+        }
+    }
+    
+    [System.Xml.Serialization.XmlTypeAttribute("s390-pv", Namespace="")]
+    public partial class DomainCapsS390Pv {
+        
+        private VirYesNo supported;
+        
+        [System.Xml.Serialization.XmlAttributeAttribute("supported")]
+        public VirYesNo Supported {
+            get {
+                return this.supported;
+            }
+            set {
+                this.supported = value;
+            }
+        }
+    }
+    
+    [System.Xml.Serialization.XmlTypeAttribute("sev", Namespace="")]
+    public partial class DomainCapsSev {
+        
+        private VirYesNo supported;
+        
+        private uint cbitpos;
+        
+        private bool cbitposSpecified;
+        
+        private uint reducedPhysBits;
+        
+        private bool reducedPhysBitsSpecified;
+        
+        private uint maxGuests;
+        
+        private bool maxGuestsSpecified;
+        
+        private uint maxEsguests;
+        
+        private bool maxEsguestsSpecified;
+        
+        [System.Xml.Serialization.XmlAttributeAttribute("supported")]
+        public VirYesNo Supported {
+            get {
+                return this.supported;
+            }
+            set {
+                this.supported = value;
+            }
+        }
+        
+        [System.Xml.Serialization.XmlElementAttribute("cbitpos", Namespace="")]
+        public uint Cbitpos {
+            get {
+                return this.cbitpos;
+            }
+            set {
+                this.cbitpos = value;
+            }
+        }
+        
+        [System.Xml.Serialization.XmlIgnoreAttribute()]
+        public bool CbitposSpecified {
+            get {
+                return this.cbitposSpecified;
+            }
+            set {
+                this.cbitposSpecified = value;
+            }
+        }
+        
+        [System.Xml.Serialization.XmlElementAttribute("reducedPhysBits", Namespace="")]
+        public uint ReducedPhysBits {
+            get {
+                return this.reducedPhysBits;
+            }
+            set {
+                this.reducedPhysBits = value;
+            }
+        }
+        
+        [System.Xml.Serialization.XmlIgnoreAttribute()]
+        public bool ReducedPhysBitsSpecified {
+            get {
+                return this.reducedPhysBitsSpecified;
+            }
+            set {
+                this.reducedPhysBitsSpecified = value;
+            }
+        }
+        
+        [System.Xml.Serialization.XmlElementAttribute("maxGuests", Namespace="")]
+        public uint MaxGuests {
+            get {
+                return this.maxGuests;
+            }
+            set {
+                this.maxGuests = value;
+            }
+        }
+        
+        [System.Xml.Serialization.XmlIgnoreAttribute()]
+        public bool MaxGuestsSpecified {
+            get {
+                return this.maxGuestsSpecified;
+            }
+            set {
+                this.maxGuestsSpecified = value;
+            }
+        }
+        
+        [System.Xml.Serialization.XmlElementAttribute("maxESGuests", Namespace="")]
+        public uint MaxEsguests {
+            get {
+                return this.maxEsguests;
+            }
+            set {
+                this.maxEsguests = value;
+            }
+        }
+        
+        [System.Xml.Serialization.XmlIgnoreAttribute()]
+        public bool MaxEsguestsSpecified {
+            get {
+                return this.maxEsguestsSpecified;
+            }
+            set {
+                this.maxEsguestsSpecified = value;
+            }
+        }
+    }
+    
+    [System.Xml.Serialization.XmlTypeAttribute("sgx", Namespace="")]
+    public partial class DomainCapsSgx {
+        
+        private VirYesNo supported;
+        
+        private DomainCapsSgxFlc flc;
+        
+        private bool flcSpecified;
+        
+        private DomainCapsSgxSgx1 sgx1;
+        
+        private bool sgx1Specified;
+        
+        private DomainCapsSgxSgx2 sgx2;
+        
+        private bool sgx2Specified;
+        
+        private DomainCapsSgxSectionSize sectionSize;
+        
+        private DomainCapsSgxSections sections;
+        
+        [System.Xml.Serialization.XmlAttributeAttribute("supported")]
+        public VirYesNo Supported {
+            get {
+                return this.supported;
+            }
+            set {
+                this.supported = value;
+            }
+        }
+        
+        [System.Xml.Serialization.XmlElementAttribute("flc", Namespace="")]
+        public DomainCapsSgxFlc Flc {
+            get {
+                return this.flc;
+            }
+            set {
+                this.flc = value;
+            }
+        }
+        
+        [System.Xml.Serialization.XmlIgnoreAttribute()]
+        public bool FlcSpecified {
+            get {
+                return this.flcSpecified;
+            }
+            set {
+                this.flcSpecified = value;
+            }
+        }
+        
+        [System.Xml.Serialization.XmlElementAttribute("sgx1", Namespace="")]
+        public DomainCapsSgxSgx1 Sgx1 {
+            get {
+                return this.sgx1;
+            }
+            set {
+                this.sgx1 = value;
+            }
+        }
+        
+        [System.Xml.Serialization.XmlIgnoreAttribute()]
+        public bool Sgx1Specified {
+            get {
+                return this.sgx1Specified;
+            }
+            set {
+                this.sgx1Specified = value;
+            }
+        }
+        
+        [System.Xml.Serialization.XmlElementAttribute("sgx2", Namespace="")]
+        public DomainCapsSgxSgx2 Sgx2 {
+            get {
+                return this.sgx2;
+            }
+            set {
+                this.sgx2 = value;
+            }
+        }
+        
+        [System.Xml.Serialization.XmlIgnoreAttribute()]
+        public bool Sgx2Specified {
+            get {
+                return this.sgx2Specified;
+            }
+            set {
+                this.sgx2Specified = value;
+            }
+        }
+        
+        [System.Xml.Serialization.XmlElementAttribute("section_size", Namespace="")]
+        public DomainCapsSgxSectionSize SectionSize {
+            get {
+                return this.sectionSize;
+            }
+            set {
+                this.sectionSize = value;
+            }
+        }
+        
+        [System.Xml.Serialization.XmlElementAttribute("sections", Namespace="")]
+        public DomainCapsSgxSections Sections {
+            get {
+                return this.sections;
+            }
+            set {
+                this.sections = value;
+            }
+        }
+    }
+    
+    public enum DomainCapsSgxFlc {
+        
+        [System.Xml.Serialization.XmlEnumAttribute(Name="yes")]
+        Yes,
+        
+        [System.Xml.Serialization.XmlEnumAttribute(Name="no")]
+        No,
+    }
+    
+    public partial class DomainCapsSgxSections {
+        
+        private DomainCapsSgxSectionsSection[] section;
+        
+        [System.Xml.Serialization.XmlElementAttribute("section", Namespace="")]
+        public DomainCapsSgxSectionsSection[] Section {
+            get {
+                return this.section;
+            }
+            set {
+                this.section = value;
+            }
+        }
+    }
+    
+    public partial class DomainCapsSgxSectionSize {
+        
+        private string value;
+        
+        private string unit;
+        
+        [System.Xml.Serialization.XmlTextAttribute()]
+        public string Value {
+            get {
+                return this.value;
+            }
+            set {
+                this.value = value;
+            }
+        }
+        
+        [System.Xml.Serialization.XmlAttributeAttribute("unit")]
+        public string Unit {
+            get {
+                return this.unit;
+            }
+            set {
+                this.unit = value;
+            }
+        }
+    }
+    
+    public partial class DomainCapsSgxSectionsSection {
+        
+        private uint node;
+        
+        private ulong size;
+        
+        private string unit;
+        
+        [System.Xml.Serialization.XmlAttributeAttribute("node")]
+        public uint Node {
+            get {
+                return this.node;
+            }
+            set {
+                this.node = value;
+            }
+        }
+        
+        [System.Xml.Serialization.XmlAttributeAttribute("size")]
+        public ulong Size {
+            get {
+                return this.size;
+            }
+            set {
+                this.size = value;
+            }
+        }
+        
+        [System.Xml.Serialization.XmlAttributeAttribute("unit")]
+        public string Unit {
+            get {
+                return this.unit;
+            }
+            set {
+                this.unit = value;
+            }
+        }
+    }
+    
+    public enum DomainCapsSgxSgx1 {
+        
+        [System.Xml.Serialization.XmlEnumAttribute(Name="yes")]
+        Yes,
+        
+        [System.Xml.Serialization.XmlEnumAttribute(Name="no")]
+        No,
+    }
+    
+    public enum DomainCapsSgxSgx2 {
+        
+        [System.Xml.Serialization.XmlEnumAttribute(Name="yes")]
+        Yes,
+        
+        [System.Xml.Serialization.XmlEnumAttribute(Name="no")]
+        No,
+    }
+    
+    [System.Xml.Serialization.XmlTypeAttribute("tpm", Namespace="")]
+    public partial class DomainCapsTpm {
+        
+        private VirYesNo supported;
+        
+        private DomainCapsEnum[] @enum;
+        
+        [System.Xml.Serialization.XmlAttributeAttribute("supported")]
+        public VirYesNo Supported {
+            get {
+                return this.supported;
+            }
+            set {
+                this.supported = value;
+            }
+        }
+        
+        [System.Xml.Serialization.XmlElementAttribute("enum", Namespace="")]
+        public DomainCapsEnum[] Enum {
+            get {
+                return this.@enum;
+            }
+            set {
+                this.@enum = value;
+            }
+        }
+    }
+    
+    [System.Xml.Serialization.XmlTypeAttribute("vcpu", Namespace="")]
+    public partial class DomainCapsVcpu {
+        
+        private uint max;
+        
+        [System.Xml.Serialization.XmlAttributeAttribute("max")]
+        public uint Max {
+            get {
+                return this.max;
+            }
+            set {
+                this.max = value;
+            }
+        }
+    }
+    
+    [System.Xml.Serialization.XmlTypeAttribute("video", Namespace="")]
+    public partial class DomainCapsVideo {
+        
+        private VirYesNo supported;
+        
+        private DomainCapsEnum[] @enum;
+        
+        [System.Xml.Serialization.XmlAttributeAttribute("supported")]
+        public VirYesNo Supported {
+            get {
+                return this.supported;
+            }
+            set {
+                this.supported = value;
+            }
+        }
+        
+        [System.Xml.Serialization.XmlElementAttribute("enum", Namespace="")]
+        public DomainCapsEnum[] Enum {
+            get {
+                return this.@enum;
+            }
+            set {
+                this.@enum = value;
+            }
+        }
+    }
+    
+    [System.Xml.Serialization.XmlTypeAttribute("vmcoreinfo", Namespace="")]
+    public partial class DomainCapsVmcoreinfo {
+        
+        private VirYesNo supported;
+        
+        [System.Xml.Serialization.XmlAttributeAttribute("supported")]
+        public VirYesNo Supported {
+            get {
+                return this.supported;
+            }
+            set {
+                this.supported = value;
+            }
+        }
+    }
+    
+    [System.Xml.Serialization.XmlTypeAttribute("genid", Namespace="")]
+    public partial class DomainCapsVmgenid {
+        
+        private VirYesNo supported;
+        
+        [System.Xml.Serialization.XmlAttributeAttribute("supported")]
+        public VirYesNo Supported {
+            get {
+                return this.supported;
+            }
+            set {
+                this.supported = value;
+            }
+        }
+    }
+    
     [System.Xml.Serialization.XmlTypeAttribute("cfpc", Namespace="")]
     public partial class DomainCfpc {
         

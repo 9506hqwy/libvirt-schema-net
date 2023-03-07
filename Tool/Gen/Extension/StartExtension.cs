@@ -6,6 +6,8 @@ internal static class StartExtension
 {
     internal static void CollectType(this Start self, CodeContext context)
     {
+        context.Add(self);
+
         context.EnterNode(self);
         try
         {
@@ -23,6 +25,8 @@ internal static class StartExtension
 
     internal static void CollectInheritedType(this Start self, CodeContext context, Define baseDefine)
     {
+        context.Add(self);
+
         context.EnterNode(self);
         try
         {

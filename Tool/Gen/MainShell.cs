@@ -49,6 +49,7 @@ internal class MainShell
         context.ExcludeTypeAttrs.Add("BridgeInterfaceBareVlanInterface");
         context.ExcludeTypeAttrs.Add("CapabilitiesCpu");
         context.ExcludeTypeAttrs.Add("CapabilitiesTopology");
+        context.ExcludeTypeAttrs.Add("DomaincheckpointDiskcheckpoint");
         context.ExcludeTypeAttrs.Add("DomainDevSeclabel");
         context.ExcludeTypeAttrs.Add("DomainDiskAuthSecret");
         context.ExcludeTypeAttrs.Add("DomainDiskSourceBlock");
@@ -79,6 +80,8 @@ internal class MainShell
         context.ExcludeTypeAttrs.Add("DomainMemorydevTarget");
         context.ExcludeTypeAttrs.Add("DomainQemucdevTgtDef");
         context.ExcludeTypeAttrs.Add("DomainQemucdevSerialTgtModel");
+        context.ExcludeTypeAttrs.Add("DomainsnapshotDisksnapshot");
+        context.ExcludeTypeAttrs.Add("DomainsnapshotDisksnapshotdriver");
         context.ExcludeTypeAttrs.Add("DomainTpmBackendEmulatorEncryption");
         context.ExcludeTypeAttrs.Add("DomainTpmExternalSource");
         context.ExcludeTypeAttrs.Add("DomainVirtioTarget");
@@ -100,6 +103,9 @@ internal class MainShell
         // domain.rng
         this.Parse(schema, files["domain.rng"]).CollectType(context);
 
+        // inactiveDomain.rng
+        this.Parse(schema, files["inactiveDomain.rng"]).CollectType(context);
+
         // domainbackup.rng
         this.Parse(schema, files["domainbackup.rng"]).CollectType(context);
 
@@ -111,9 +117,6 @@ internal class MainShell
 
         // domainsnapshot.rng
         this.Parse(schema, files["domainsnapshot.rng"]).CollectType(context);
-
-        // inactiveDomain.rng
-        this.Parse(schema, files["inactiveDomain.rng"]).CollectType(context);
 
         // interface.rng
         this.Parse(schema, files["interface.rng"]).CollectType(context);

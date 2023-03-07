@@ -45,9 +45,28 @@ internal static class INodeExtension
                 child.AddProperty(context, cls, filter, (PropertyState)status.Clone());
             }
         }
-        else if (self is Grammar)
+        else if (self is Grammar grammar)
         {
-            context.AddWarning($"Not supported. Skip grammer in `{self.File.Info.Name}`.");
+            if (grammar.Contents[0].Inner is Include incl)
+            {
+                var start = context.GetStart(incl.Href);
+                context.EnterNode(start);
+                try
+                {
+                    foreach (var child in start.Child.RetrieveElement(context))
+                    {
+                        child.AddProperty(context, cls, filter, (PropertyState)status.Clone());
+                    }
+                }
+                finally
+                {
+                    context.ExitNode();
+                }
+            }
+            else
+            {
+                context.AddWarning($"Not supported. Skip grammer in `{self.File.Info.Name}`.");
+            }
         }
         else
         {

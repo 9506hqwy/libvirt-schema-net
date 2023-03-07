@@ -11162,6 +11162,8 @@ namespace Libvirt.Model {
         
         private DomaincheckpointDisks disks;
         
+        private Domain domain;
+        
         private DomaincheckpointParent parent;
         
         [System.Xml.Serialization.XmlElementAttribute("name", Namespace="")]
@@ -11214,6 +11216,16 @@ namespace Libvirt.Model {
             }
         }
         
+        [System.Xml.Serialization.XmlElementAttribute("domain", Namespace="")]
+        public Domain Domain {
+            get {
+                return this.domain;
+            }
+            set {
+                this.domain = value;
+            }
+        }
+        
         [System.Xml.Serialization.XmlElementAttribute("parent", Namespace="")]
         public DomaincheckpointParent Parent {
             get {
@@ -11225,7 +11237,6 @@ namespace Libvirt.Model {
         }
     }
     
-    [System.Xml.Serialization.XmlTypeAttribute("disk", Namespace="")]
     public partial class DomaincheckpointDiskcheckpoint {
         
         private string name;
@@ -29783,7 +29794,9 @@ namespace Libvirt.Model {
         
         private bool activeSpecified;
         
-        private DomainsnapshotDomain domain;
+        private Domain domain;
+        
+        private DomainInactiveDomain inactiveDomain;
         
         private DomainsnapshotParent parent;
         
@@ -29880,12 +29893,22 @@ namespace Libvirt.Model {
         }
         
         [System.Xml.Serialization.XmlElementAttribute("domain", Namespace="")]
-        public DomainsnapshotDomain Domain {
+        public Domain Domain {
             get {
                 return this.domain;
             }
             set {
                 this.domain = value;
+            }
+        }
+        
+        [System.Xml.Serialization.XmlElementAttribute("inactiveDomain", Namespace="")]
+        public DomainInactiveDomain InactiveDomain {
+            get {
+                return this.inactiveDomain;
+            }
+            set {
+                this.inactiveDomain = value;
             }
         }
         
@@ -29937,7 +29960,6 @@ namespace Libvirt.Model {
         }
     }
     
-    [System.Xml.Serialization.XmlTypeAttribute("disk", Namespace="")]
     public partial class DomainsnapshotDisksnapshot {
         
         private string name;
@@ -30001,7 +30023,6 @@ namespace Libvirt.Model {
         }
     }
     
-    [System.Xml.Serialization.XmlTypeAttribute("driver", Namespace="")]
     public partial class DomainsnapshotDisksnapshotdriver {
         
         private StorageFormatBacking type;

@@ -12,6 +12,8 @@ internal class CodeContext
 
     private readonly List<CodeContextItem> items;
 
+    private readonly List<Start> starts;
+
     private readonly List<string> warnings;
 
     internal CodeContext()
@@ -20,6 +22,7 @@ internal class CodeContext
         this.callerProperty = new Stack<IHasName>();
         this.callerType = new Stack<CodeContextItem>();
         this.items = new List<CodeContextItem>();
+        this.starts = new List<Start>();
         this.warnings = new List<string>();
 
         this.ClassNamePrefix = new Dictionary<string, string>();
@@ -52,6 +55,11 @@ internal class CodeContext
     {
         var item = new CodeContextItem(this.CurrentDefile, type);
         this.items.Add(item);
+    }
+
+    internal void Add(Start start)
+    {
+        this.starts.Add(start);
     }
 
     internal void AddExtensionType(string className, Element element, bool xmlModifier)
@@ -170,6 +178,11 @@ internal class CodeContext
     internal GenTypeDeclaration ExitType()
     {
         return this.callerType.Pop().Type;
+    }
+
+    internal Start GetStart(string fileName)
+    {
+        return this.starts.First(s => s.File.Info.Name == fileName);
     }
 
     internal void Gen()

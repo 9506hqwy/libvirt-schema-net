@@ -6232,7 +6232,7 @@ namespace Libvirt.Model {
         
         private string bootloaderArgs;
         
-        private DomainOsexe os;
+        private DomainOshvmOs os;
         
         private DomainClock clock;
         
@@ -6451,7 +6451,7 @@ namespace Libvirt.Model {
         }
         
         [System.Xml.Serialization.XmlElementAttribute("os", Namespace="")]
-        public DomainOsexe Os {
+        public DomainOshvmOs Os {
             get {
                 return this.os;
             }
@@ -6865,6 +6865,48 @@ namespace Libvirt.Model {
             }
             set {
                 this.indexSpecified = value;
+            }
+        }
+    }
+    
+    public partial class DomainAcpiTable {
+        
+        private DomainAcpiTableTable[] table;
+        
+        [System.Xml.Serialization.XmlElementAttribute("table", Namespace="")]
+        public DomainAcpiTableTable[] Table {
+            get {
+                return this.table;
+            }
+            set {
+                this.table = value;
+            }
+        }
+    }
+    
+    public partial class DomainAcpiTableTable {
+        
+        private string value;
+        
+        private string type;
+        
+        [System.Xml.Serialization.XmlTextAttribute()]
+        public string Value {
+            get {
+                return this.value;
+            }
+            set {
+                this.value = value;
+            }
+        }
+        
+        [System.Xml.Serialization.XmlAttributeAttribute("type")]
+        public string Type {
+            get {
+                return this.type;
+            }
+            set {
+                this.type = value;
             }
         }
     }
@@ -8280,6 +8322,58 @@ namespace Libvirt.Model {
             }
             set {
                 this.value = value;
+            }
+        }
+    }
+    
+    [System.Xml.Serialization.XmlTypeAttribute("bios", Namespace="")]
+    public partial class DomainBios {
+        
+        private VirYesNo useserial;
+        
+        private bool useserialSpecified;
+        
+        private short rebootTimeout;
+        
+        private bool rebootTimeoutSpecified;
+        
+        [System.Xml.Serialization.XmlAttributeAttribute("useserial")]
+        public VirYesNo Useserial {
+            get {
+                return this.useserial;
+            }
+            set {
+                this.useserial = value;
+            }
+        }
+        
+        [System.Xml.Serialization.XmlIgnoreAttribute()]
+        public bool UseserialSpecified {
+            get {
+                return this.useserialSpecified;
+            }
+            set {
+                this.useserialSpecified = value;
+            }
+        }
+        
+        [System.Xml.Serialization.XmlAttributeAttribute("rebootTimeout")]
+        public short RebootTimeout {
+            get {
+                return this.rebootTimeout;
+            }
+            set {
+                this.rebootTimeout = value;
+            }
+        }
+        
+        [System.Xml.Serialization.XmlIgnoreAttribute()]
+        public bool RebootTimeoutSpecified {
+            get {
+                return this.rebootTimeoutSpecified;
+            }
+            set {
+                this.rebootTimeoutSpecified = value;
             }
         }
     }
@@ -22109,7 +22203,7 @@ namespace Libvirt.Model {
         
         private string bootloaderArgs;
         
-        private DomainOsexe os;
+        private DomainOshvmOs os;
         
         private DomainClock clock;
         
@@ -22328,7 +22422,7 @@ namespace Libvirt.Model {
         }
         
         [System.Xml.Serialization.XmlElementAttribute("os", Namespace="")]
-        public DomainOsexe Os {
+        public DomainOshvmOs Os {
             get {
                 return this.os;
             }
@@ -26763,6 +26857,36 @@ namespace Libvirt.Model {
         }
     }
     
+    public partial class DomainOsbootdev {
+        
+        private DomainOsbootdevDev dev;
+        
+        [System.Xml.Serialization.XmlAttributeAttribute("dev")]
+        public DomainOsbootdevDev Dev {
+            get {
+                return this.dev;
+            }
+            set {
+                this.dev = value;
+            }
+        }
+    }
+    
+    public enum DomainOsbootdevDev {
+        
+        [System.Xml.Serialization.XmlEnumAttribute(Name="hd")]
+        Hd,
+        
+        [System.Xml.Serialization.XmlEnumAttribute(Name="fd")]
+        Fd,
+        
+        [System.Xml.Serialization.XmlEnumAttribute(Name="cdrom")]
+        Cdrom,
+        
+        [System.Xml.Serialization.XmlEnumAttribute(Name="network")]
+        Network,
+    }
+    
     [System.Xml.Serialization.XmlTypeAttribute("os", Namespace="")]
     public partial class DomainOsexe {
         
@@ -26913,6 +27037,424 @@ namespace Libvirt.Model {
             }
             set {
                 this.archSpecified = value;
+            }
+        }
+    }
+    
+    public partial class DomainOshvmOs {
+        
+        private DomainOstypehvm type;
+        
+        private DomainOshvmOsLoader loader;
+        
+        private DomainOshvmOsNvram nvram;
+        
+        private string kernel;
+        
+        private string initrd;
+        
+        private string root;
+        
+        private string cmdline;
+        
+        private string dtb;
+        
+        private DomainOsbootdev[] boot;
+        
+        private DomainOshvmOsBootmenu bootmenu;
+        
+        private DomainSmbios smbios;
+        
+        private DomainBios bios;
+        
+        private DomainAcpiTable acpi;
+        
+        [System.Xml.Serialization.XmlElementAttribute("type", Namespace="")]
+        public DomainOstypehvm Type {
+            get {
+                return this.type;
+            }
+            set {
+                this.type = value;
+            }
+        }
+        
+        [System.Xml.Serialization.XmlElementAttribute("loader", Namespace="")]
+        public DomainOshvmOsLoader Loader {
+            get {
+                return this.loader;
+            }
+            set {
+                this.loader = value;
+            }
+        }
+        
+        [System.Xml.Serialization.XmlElementAttribute("nvram", Namespace="")]
+        public DomainOshvmOsNvram Nvram {
+            get {
+                return this.nvram;
+            }
+            set {
+                this.nvram = value;
+            }
+        }
+        
+        [System.Xml.Serialization.XmlElementAttribute("kernel", Namespace="")]
+        public string Kernel {
+            get {
+                return this.kernel;
+            }
+            set {
+                this.kernel = value;
+            }
+        }
+        
+        [System.Xml.Serialization.XmlElementAttribute("initrd", Namespace="")]
+        public string Initrd {
+            get {
+                return this.initrd;
+            }
+            set {
+                this.initrd = value;
+            }
+        }
+        
+        [System.Xml.Serialization.XmlElementAttribute("root", Namespace="")]
+        public string Root {
+            get {
+                return this.root;
+            }
+            set {
+                this.root = value;
+            }
+        }
+        
+        [System.Xml.Serialization.XmlElementAttribute("cmdline", Namespace="")]
+        public string Cmdline {
+            get {
+                return this.cmdline;
+            }
+            set {
+                this.cmdline = value;
+            }
+        }
+        
+        [System.Xml.Serialization.XmlElementAttribute("dtb", Namespace="")]
+        public string Dtb {
+            get {
+                return this.dtb;
+            }
+            set {
+                this.dtb = value;
+            }
+        }
+        
+        [System.Xml.Serialization.XmlElementAttribute("boot", Namespace="")]
+        public DomainOsbootdev[] Boot {
+            get {
+                return this.boot;
+            }
+            set {
+                this.boot = value;
+            }
+        }
+        
+        [System.Xml.Serialization.XmlElementAttribute("bootmenu", Namespace="")]
+        public DomainOshvmOsBootmenu Bootmenu {
+            get {
+                return this.bootmenu;
+            }
+            set {
+                this.bootmenu = value;
+            }
+        }
+        
+        [System.Xml.Serialization.XmlElementAttribute("smbios", Namespace="")]
+        public DomainSmbios Smbios {
+            get {
+                return this.smbios;
+            }
+            set {
+                this.smbios = value;
+            }
+        }
+        
+        [System.Xml.Serialization.XmlElementAttribute("bios", Namespace="")]
+        public DomainBios Bios {
+            get {
+                return this.bios;
+            }
+            set {
+                this.bios = value;
+            }
+        }
+        
+        [System.Xml.Serialization.XmlElementAttribute("acpi", Namespace="")]
+        public DomainAcpiTable Acpi {
+            get {
+                return this.acpi;
+            }
+            set {
+                this.acpi = value;
+            }
+        }
+    }
+    
+    public partial class DomainOshvmOsBootmenu {
+        
+        private VirYesNo enable;
+        
+        private long timeout;
+        
+        private bool timeoutSpecified;
+        
+        [System.Xml.Serialization.XmlAttributeAttribute("enable")]
+        public VirYesNo Enable {
+            get {
+                return this.enable;
+            }
+            set {
+                this.enable = value;
+            }
+        }
+        
+        [System.Xml.Serialization.XmlAttributeAttribute("timeout")]
+        public long Timeout {
+            get {
+                return this.timeout;
+            }
+            set {
+                this.timeout = value;
+            }
+        }
+        
+        [System.Xml.Serialization.XmlIgnoreAttribute()]
+        public bool TimeoutSpecified {
+            get {
+                return this.timeoutSpecified;
+            }
+            set {
+                this.timeoutSpecified = value;
+            }
+        }
+    }
+    
+    public enum DomainOshvmOsFirmware {
+        
+        [System.Xml.Serialization.XmlEnumAttribute(Name="bios")]
+        Bios,
+        
+        [System.Xml.Serialization.XmlEnumAttribute(Name="efi")]
+        Efi,
+    }
+    
+    public partial class DomainOshvmOsLoader {
+        
+        private string value;
+        
+        private VirYesNo @readonly;
+        
+        private bool readonlySpecified;
+        
+        private VirYesNo secure;
+        
+        private bool secureSpecified;
+        
+        private DomainOshvmOsLoaderType type;
+        
+        private bool typeSpecified;
+        
+        private VirYesNo stateless;
+        
+        private bool statelessSpecified;
+        
+        [System.Xml.Serialization.XmlTextAttribute()]
+        public string Value {
+            get {
+                return this.value;
+            }
+            set {
+                this.value = value;
+            }
+        }
+        
+        [System.Xml.Serialization.XmlAttributeAttribute("readonly")]
+        public VirYesNo Readonly {
+            get {
+                return this.@readonly;
+            }
+            set {
+                this.@readonly = value;
+            }
+        }
+        
+        [System.Xml.Serialization.XmlIgnoreAttribute()]
+        public bool ReadonlySpecified {
+            get {
+                return this.readonlySpecified;
+            }
+            set {
+                this.readonlySpecified = value;
+            }
+        }
+        
+        [System.Xml.Serialization.XmlAttributeAttribute("secure")]
+        public VirYesNo Secure {
+            get {
+                return this.secure;
+            }
+            set {
+                this.secure = value;
+            }
+        }
+        
+        [System.Xml.Serialization.XmlIgnoreAttribute()]
+        public bool SecureSpecified {
+            get {
+                return this.secureSpecified;
+            }
+            set {
+                this.secureSpecified = value;
+            }
+        }
+        
+        [System.Xml.Serialization.XmlAttributeAttribute("type")]
+        public DomainOshvmOsLoaderType Type {
+            get {
+                return this.type;
+            }
+            set {
+                this.type = value;
+            }
+        }
+        
+        [System.Xml.Serialization.XmlIgnoreAttribute()]
+        public bool TypeSpecified {
+            get {
+                return this.typeSpecified;
+            }
+            set {
+                this.typeSpecified = value;
+            }
+        }
+        
+        [System.Xml.Serialization.XmlAttributeAttribute("stateless")]
+        public VirYesNo Stateless {
+            get {
+                return this.stateless;
+            }
+            set {
+                this.stateless = value;
+            }
+        }
+        
+        [System.Xml.Serialization.XmlIgnoreAttribute()]
+        public bool StatelessSpecified {
+            get {
+                return this.statelessSpecified;
+            }
+            set {
+                this.statelessSpecified = value;
+            }
+        }
+    }
+    
+    public enum DomainOshvmOsLoaderType {
+        
+        [System.Xml.Serialization.XmlEnumAttribute(Name="rom")]
+        Rom,
+        
+        [System.Xml.Serialization.XmlEnumAttribute(Name="pflash")]
+        Pflash,
+    }
+    
+    public partial class DomainOshvmOsNvram {
+        
+        private string template;
+        
+        private string type;
+        
+        private DomainDiskSourceNetworkProtocolHttps source;
+        
+        [System.Xml.Serialization.XmlAttributeAttribute("template")]
+        public string Template {
+            get {
+                return this.template;
+            }
+            set {
+                this.template = value;
+            }
+        }
+        
+        [System.Xml.Serialization.XmlAttributeAttribute("type")]
+        public string Type {
+            get {
+                return this.type;
+            }
+            set {
+                this.type = value;
+            }
+        }
+        
+        [System.Xml.Serialization.XmlElementAttribute("source", Namespace="")]
+        public DomainDiskSourceNetworkProtocolHttps Source {
+            get {
+                return this.source;
+            }
+            set {
+                this.source = value;
+            }
+        }
+    }
+    
+    [System.Xml.Serialization.XmlTypeAttribute("type", Namespace="")]
+    public partial class DomainOstypehvm {
+        
+        private string value;
+        
+        private Archnames arch;
+        
+        private bool archSpecified;
+        
+        private string machine;
+        
+        [System.Xml.Serialization.XmlTextAttribute()]
+        public string Value {
+            get {
+                return this.value;
+            }
+            set {
+                this.value = value;
+            }
+        }
+        
+        [System.Xml.Serialization.XmlAttributeAttribute("arch")]
+        public Archnames Arch {
+            get {
+                return this.arch;
+            }
+            set {
+                this.arch = value;
+            }
+        }
+        
+        [System.Xml.Serialization.XmlIgnoreAttribute()]
+        public bool ArchSpecified {
+            get {
+                return this.archSpecified;
+            }
+            set {
+                this.archSpecified = value;
+            }
+        }
+        
+        [System.Xml.Serialization.XmlAttributeAttribute("machine")]
+        public string Machine {
+            get {
+                return this.machine;
+            }
+            set {
+                this.machine = value;
             }
         }
     }
@@ -28894,6 +29436,8 @@ namespace Libvirt.Model {
         
         private DomainRngModel model;
         
+        private DomainRngBackend backend;
+        
         private DomainRngDriver driver;
         
         private DomainRngRate rate;
@@ -28911,6 +29455,16 @@ namespace Libvirt.Model {
             }
             set {
                 this.model = value;
+            }
+        }
+        
+        [System.Xml.Serialization.XmlElementAttribute("backend", Namespace="")]
+        public DomainRngBackend Backend {
+            get {
+                return this.backend;
+            }
+            set {
+                this.backend = value;
             }
         }
         
@@ -28961,6 +29515,70 @@ namespace Libvirt.Model {
             }
             set {
                 this.address = value;
+            }
+        }
+    }
+    
+    [System.Xml.Serialization.XmlTypeAttribute("backend", Namespace="")]
+    public partial class DomainRngBackend {
+        
+        private string model;
+        
+        private QemucdevSrcTypeChoice type;
+        
+        private DomainQemucdevSrcDefSource[] source;
+        
+        private DomainQemucdevSrcDefProtocol protocol;
+        
+        private DomainQemucdevSrcDefLog log;
+        
+        [System.Xml.Serialization.XmlAttributeAttribute("model")]
+        public string Model {
+            get {
+                return this.model;
+            }
+            set {
+                this.model = value;
+            }
+        }
+        
+        [System.Xml.Serialization.XmlAttributeAttribute("type")]
+        public QemucdevSrcTypeChoice Type {
+            get {
+                return this.type;
+            }
+            set {
+                this.type = value;
+            }
+        }
+        
+        [System.Xml.Serialization.XmlElementAttribute("source", Namespace="")]
+        public DomainQemucdevSrcDefSource[] Source {
+            get {
+                return this.source;
+            }
+            set {
+                this.source = value;
+            }
+        }
+        
+        [System.Xml.Serialization.XmlElementAttribute("protocol", Namespace="")]
+        public DomainQemucdevSrcDefProtocol Protocol {
+            get {
+                return this.protocol;
+            }
+            set {
+                this.protocol = value;
+            }
+        }
+        
+        [System.Xml.Serialization.XmlElementAttribute("log", Namespace="")]
+        public DomainQemucdevSrcDefLog Log {
+            get {
+                return this.log;
+            }
+            set {
+                this.log = value;
             }
         }
     }
@@ -29771,6 +30389,34 @@ namespace Libvirt.Model {
                 this.address = value;
             }
         }
+    }
+    
+    [System.Xml.Serialization.XmlTypeAttribute("smbios", Namespace="")]
+    public partial class DomainSmbios {
+        
+        private DomainSmbiosMode mode;
+        
+        [System.Xml.Serialization.XmlAttributeAttribute("mode")]
+        public DomainSmbiosMode Mode {
+            get {
+                return this.mode;
+            }
+            set {
+                this.mode = value;
+            }
+        }
+    }
+    
+    public enum DomainSmbiosMode {
+        
+        [System.Xml.Serialization.XmlEnumAttribute(Name="emulate")]
+        Emulate,
+        
+        [System.Xml.Serialization.XmlEnumAttribute(Name="host")]
+        Host,
+        
+        [System.Xml.Serialization.XmlEnumAttribute(Name="sysinfo")]
+        Sysinfo,
     }
     
     [System.Xml.Serialization.XmlTypeAttribute("domainsnapshot", Namespace="")]
@@ -31102,7 +31748,6 @@ namespace Libvirt.Model {
         }
     }
     
-    [System.Xml.Serialization.XmlTypeAttribute("backend", Namespace="")]
     public partial class DomainTpmBackend {
         
         private string type;

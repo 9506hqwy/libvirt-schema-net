@@ -41,14 +41,13 @@ internal class MainShell
         context.ExcludeDefines.Add(new ExcludeDefine("storageStartupPolicy", "storagecommon.rng"));
         context.ExcludeDefines.Add(new ExcludeDefine("storageSourceExtra", "storagecommon.rng"));
         context.ExcludeDefines.Add(new ExcludeDefine("diskBackingChain", "domaincommon.rng")); // 再帰的参照
-        context.ExcludeDefines.Add(new ExcludeDefine("oshvm", "domaincommon.rng")); // string と enum の choice
-        context.ExcludeDefines.Add(new ExcludeDefine("rng-backend", "domaincommon.rng")); // string と enum の choice
         context.ExcludeTypeAttrs.Add("BondInterfaceBareEthernetInterface");
         context.ExcludeTypeAttrs.Add("BridgeInterfaceBareBondInterface");
         context.ExcludeTypeAttrs.Add("BridgeInterfaceBareEthernetInterface");
         context.ExcludeTypeAttrs.Add("BridgeInterfaceBareVlanInterface");
         context.ExcludeTypeAttrs.Add("CapabilitiesCpu");
         context.ExcludeTypeAttrs.Add("CapabilitiesTopology");
+        context.ExcludeTypeAttrs.Add("DomainAcpiTable");
         context.ExcludeTypeAttrs.Add("DomaincheckpointDiskcheckpoint");
         context.ExcludeTypeAttrs.Add("DomainDevSeclabel");
         context.ExcludeTypeAttrs.Add("DomainDiskAuthSecret");
@@ -78,10 +77,12 @@ internal class MainShell
         context.ExcludeTypeAttrs.Add("DomainHostdevsubsysusb");
         context.ExcludeTypeAttrs.Add("DomainMemorydevSource");
         context.ExcludeTypeAttrs.Add("DomainMemorydevTarget");
+        context.ExcludeTypeAttrs.Add("DomainOsbootdev");
         context.ExcludeTypeAttrs.Add("DomainQemucdevTgtDef");
         context.ExcludeTypeAttrs.Add("DomainQemucdevSerialTgtModel");
         context.ExcludeTypeAttrs.Add("DomainsnapshotDisksnapshot");
         context.ExcludeTypeAttrs.Add("DomainsnapshotDisksnapshotdriver");
+        context.ExcludeTypeAttrs.Add("DomainTpmBackend");
         context.ExcludeTypeAttrs.Add("DomainTpmBackendEmulatorEncryption");
         context.ExcludeTypeAttrs.Add("DomainTpmExternalSource");
         context.ExcludeTypeAttrs.Add("DomainVirtioTarget");

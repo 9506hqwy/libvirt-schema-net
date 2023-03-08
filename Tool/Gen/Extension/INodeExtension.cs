@@ -15,6 +15,10 @@ internal static class INodeExtension
         {
             // None
         }
+        else if (self is Data data)
+        {
+            context.AddWarning($"Not supported. Could not add text value in `{cls.Name}`.");
+        }
         else if (self is Element element && element.TryAddProperty(context, cls, status))
         {
             // None

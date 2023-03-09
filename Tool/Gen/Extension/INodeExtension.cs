@@ -29,14 +29,21 @@ internal static class INodeExtension
 
             if (!context.Skip(define))
             {
-                context.EnterNode(define);
                 try
                 {
-                    define.AddProperty(context, cls, filter, (PropertyState)status.Clone());
+                    context.EnterNode(define);
+                    try
+                    {
+                        define.AddProperty(context, cls, filter, (PropertyState)status.Clone());
+                    }
+                    finally
+                    {
+                        context.ExitNode();
+                    }
                 }
-                finally
+                catch (RecursiveDefineException e)
                 {
-                    context.ExitNode();
+                    context.AddWarning($"Not supported. {e.Message}");
                 }
             }
         }

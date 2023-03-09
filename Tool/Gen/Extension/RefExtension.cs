@@ -9,7 +9,15 @@ internal static class RefExtension
         var define = context.Resolve(self);
         if (!context.Skip(define))
         {
-            context.EnterNode(define);
+            try
+            {
+                context.EnterNode(define);
+            }
+            catch (RecursiveDefineException)
+            {
+                yield break;
+            }
+
             try
             {
                 // finally 句を実行させないため yield return で返却する。
@@ -27,7 +35,15 @@ internal static class RefExtension
         var define = context.Resolve(self);
         if (!context.Skip(define))
         {
-            context.EnterNode(define);
+            try
+            {
+                context.EnterNode(define);
+            }
+            catch (RecursiveDefineException)
+            {
+                yield break;
+            }
+
             try
             {
                 foreach (var item in define.Children.SelectMany(c => c.RetrievePattern(context, flattenChoice)))

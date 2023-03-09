@@ -40,7 +40,6 @@ internal class MainShell
         context.ExcludeDefines.Add(new ExcludeDefine("privateDataDeviceDisk", "privatedata.rng"));
         context.ExcludeDefines.Add(new ExcludeDefine("storageStartupPolicy", "storagecommon.rng"));
         context.ExcludeDefines.Add(new ExcludeDefine("storageSourceExtra", "storagecommon.rng"));
-        context.ExcludeDefines.Add(new ExcludeDefine("diskBackingChain", "domaincommon.rng")); // 再帰的参照
         context.ExcludeTypeAttrs.Add("BondInterfaceBareEthernetInterface");
         context.ExcludeTypeAttrs.Add("BridgeInterfaceBareBondInterface");
         context.ExcludeTypeAttrs.Add("BridgeInterfaceBareEthernetInterface");

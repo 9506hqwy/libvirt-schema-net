@@ -13603,6 +13603,8 @@ namespace Libvirt.Model {
         
         private string product;
         
+        private DomainDiskBackingStore backingStore;
+        
         private VirYesNo rawio;
         
         private bool rawioSpecified;
@@ -13849,6 +13851,16 @@ namespace Libvirt.Model {
             }
         }
         
+        [System.Xml.Serialization.XmlElementAttribute("backingStore", Namespace="")]
+        public DomainDiskBackingStore BackingStore {
+            get {
+                return this.backingStore;
+            }
+            set {
+                this.backingStore = value;
+            }
+        }
+        
         [System.Xml.Serialization.XmlAttributeAttribute("rawio")]
         public VirYesNo Rawio {
             get {
@@ -14004,6 +14016,74 @@ namespace Libvirt.Model {
         
         [System.Xml.Serialization.XmlEnumAttribute(Name="iscsi")]
         Iscsi,
+    }
+    
+    [System.Xml.Serialization.XmlTypeAttribute("backingStore", Namespace="")]
+    public partial class DomainDiskBackingStore {
+        
+        private ulong index;
+        
+        private bool indexSpecified;
+        
+        private string type;
+        
+        private DomainDiskSourceFile source;
+        
+        private DomainDiskFormat format;
+        
+        [System.Xml.Serialization.XmlAttributeAttribute("index")]
+        public ulong Index {
+            get {
+                return this.index;
+            }
+            set {
+                this.index = value;
+            }
+        }
+        
+        [System.Xml.Serialization.XmlIgnoreAttribute()]
+        public bool IndexSpecified {
+            get {
+                return this.indexSpecified;
+            }
+            set {
+                this.indexSpecified = value;
+            }
+        }
+        
+        [System.Xml.Serialization.XmlAttributeAttribute("type")]
+        public string Type {
+            get {
+                return this.type;
+            }
+            set {
+                this.type = value;
+            }
+        }
+        
+        [System.Xml.Serialization.XmlElementAttribute("source", Namespace="")]
+        public DomainDiskSourceFile Source {
+            get {
+                return this.source;
+            }
+            set {
+                this.source = value;
+            }
+        }
+        
+        [System.Xml.Serialization.XmlElementAttribute("format", Namespace="")]
+        public DomainDiskFormat Format {
+            get {
+                return this.format;
+            }
+            set {
+                this.format = value;
+            }
+        }
+    }
+    
+    [System.Xml.Serialization.XmlTypeAttribute("backingStore", Namespace="")]
+    public partial class DomainDiskBackingStoreLast {
     }
     
     [System.Xml.Serialization.XmlTypeAttribute("blockio", Namespace="")]
@@ -15027,11 +15107,13 @@ namespace Libvirt.Model {
         
         private string type;
         
-        private DomainDiskSourceNetworkProtocolHttps source;
+        private DomainDiskSourceFile source;
         
         private DomainDiskMirrorReady ready;
         
         private bool readySpecified;
+        
+        private DomainDiskBackingStore backingStore;
         
         [System.Xml.Serialization.XmlAttributeAttribute("file")]
         public string File {
@@ -15064,7 +15146,7 @@ namespace Libvirt.Model {
         }
         
         [System.Xml.Serialization.XmlElementAttribute("source", Namespace="")]
-        public DomainDiskSourceNetworkProtocolHttps Source {
+        public DomainDiskSourceFile Source {
             get {
                 return this.source;
             }
@@ -15090,6 +15172,16 @@ namespace Libvirt.Model {
             }
             set {
                 this.readySpecified = value;
+            }
+        }
+        
+        [System.Xml.Serialization.XmlElementAttribute("backingStore", Namespace="")]
+        public DomainDiskBackingStore BackingStore {
+            get {
+                return this.backingStore;
+            }
+            set {
+                this.backingStore = value;
             }
         }
     }

@@ -90,7 +90,11 @@ internal class MainShell
         context.PropertyAliases.Add(new PropertyAlias("capscsi", "type", true, "type_ex"));
         context.PropertyAliases.Add(new PropertyAlias("capdrm", "type", true, "type_ex"));
         context.PropertyAliases.Add(new PropertyAlias("capmdev", "type", true, "type_ex"));
+        context.PropertyAliases.Add(new PropertyAlias("controller", "model", true, "model_ex"));
+        context.PropertyAliases.Add(new PropertyAlias("diskMirror", "format", false, "format_ex"));
+        context.PropertyAliases.Add(new PropertyAlias("graphic", "listen", false, "listen_ex"));
         context.PropertyAliases.Add(new PropertyAlias("mdev_types", "type", true, "type_ex"));
+        context.PropertyAliases.Add(new PropertyAlias("oshvm", "firmware", true, "firmware_ex"));
 
         var schema = new Schema();
 

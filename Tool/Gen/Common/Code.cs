@@ -11,11 +11,12 @@ internal static class Code
 
     internal static void ConvertForAttribute(
         CodeTypeReference type,
+        string propertyName,
         string attrName,
         out CodeMemberField field,
         out CodeMemberProperty prop)
     {
-        Code.ToProperty(type, attrName, out field, out prop);
+        Code.ToProperty(type, propertyName, out field, out prop);
 
         prop.CustomAttributes.Add(new CodeAttributeDeclaration(
             new CodeTypeReference(typeof(XmlAttributeAttribute)),

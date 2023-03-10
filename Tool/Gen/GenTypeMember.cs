@@ -77,7 +77,12 @@ internal class GenTypeMember
     {
         if (this.isAttribute)
         {
-            Code.ConvertForAttribute(this.type!.Type, this.Name, out var field, out var prop);
+            Code.ConvertForAttribute(
+                this.type!.Type,
+                this.PropertyName,
+                this.Name,
+                out var field,
+                out var prop);
 
             yield return field;
             yield return prop;

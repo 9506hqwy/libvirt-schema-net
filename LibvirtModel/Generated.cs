@@ -11771,11 +11771,17 @@ namespace Libvirt.Model {
         
         private string type;
         
+        private DomainControllerModel model;
+        
+        private bool modelSpecified;
+        
         private DomainUsbmaster master;
         
         private uint ports;
         
         private bool portsSpecified;
+        
+        private DomainControllerModel modelEx;
         
         private DomainControllerTarget target;
         
@@ -11855,6 +11861,26 @@ namespace Libvirt.Model {
             }
         }
         
+        [System.Xml.Serialization.XmlAttributeAttribute("model")]
+        public DomainControllerModel Model {
+            get {
+                return this.model;
+            }
+            set {
+                this.model = value;
+            }
+        }
+        
+        [System.Xml.Serialization.XmlIgnoreAttribute()]
+        public bool ModelSpecified {
+            get {
+                return this.modelSpecified;
+            }
+            set {
+                this.modelSpecified = value;
+            }
+        }
+        
         [System.Xml.Serialization.XmlElementAttribute("master", Namespace="")]
         public DomainUsbmaster Master {
             get {
@@ -11882,6 +11908,16 @@ namespace Libvirt.Model {
             }
             set {
                 this.portsSpecified = value;
+            }
+        }
+        
+        [System.Xml.Serialization.XmlElementAttribute("model", Namespace="")]
+        public DomainControllerModel ModelEx {
+            get {
+                return this.modelEx;
+            }
+            set {
+                this.modelEx = value;
             }
         }
         
@@ -15103,11 +15139,17 @@ namespace Libvirt.Model {
         
         private string file;
         
+        private StorageFormat formatEx;
+        
+        private bool formatExSpecified;
+        
         private string job;
         
         private string type;
         
         private DomainDiskSourceFile source;
+        
+        private DomainDiskFormat format;
         
         private DomainDiskMirrorReady ready;
         
@@ -15122,6 +15164,26 @@ namespace Libvirt.Model {
             }
             set {
                 this.file = value;
+            }
+        }
+        
+        [System.Xml.Serialization.XmlAttributeAttribute("format")]
+        public StorageFormat FormatEx {
+            get {
+                return this.formatEx;
+            }
+            set {
+                this.formatEx = value;
+            }
+        }
+        
+        [System.Xml.Serialization.XmlIgnoreAttribute()]
+        public bool FormatExSpecified {
+            get {
+                return this.formatExSpecified;
+            }
+            set {
+                this.formatExSpecified = value;
             }
         }
         
@@ -15152,6 +15214,16 @@ namespace Libvirt.Model {
             }
             set {
                 this.source = value;
+            }
+        }
+        
+        [System.Xml.Serialization.XmlElementAttribute("format", Namespace="")]
+        public DomainDiskFormat Format {
+            get {
+                return this.format;
+            }
+            set {
+                this.format = value;
             }
         }
         
@@ -19623,6 +19695,8 @@ namespace Libvirt.Model {
         
         private bool websocketSpecified;
         
+        private string listenEx;
+        
         private DomainGraphicSharePolicy sharePolicy;
         
         private bool sharePolicySpecified;
@@ -19642,6 +19716,8 @@ namespace Libvirt.Model {
         private string connected;
         
         private DomainGraphicAudio audio;
+        
+        private DomainListenElements[] listen;
         
         private int tlsPort;
         
@@ -19803,6 +19879,16 @@ namespace Libvirt.Model {
             }
         }
         
+        [System.Xml.Serialization.XmlAttributeAttribute("listen")]
+        public string ListenEx {
+            get {
+                return this.listenEx;
+            }
+            set {
+                this.listenEx = value;
+            }
+        }
+        
         [System.Xml.Serialization.XmlAttributeAttribute("sharePolicy")]
         public DomainGraphicSharePolicy SharePolicy {
             get {
@@ -19900,6 +19986,16 @@ namespace Libvirt.Model {
             }
             set {
                 this.audio = value;
+            }
+        }
+        
+        [System.Xml.Serialization.XmlElementAttribute("listen", Namespace="")]
+        public DomainListenElements[] Listen {
+            get {
+                return this.listen;
+            }
+            set {
+                this.listen = value;
             }
         }
         
@@ -27135,7 +27231,13 @@ namespace Libvirt.Model {
     
     public partial class DomainOshvmOs {
         
+        private DomainOshvmOsFirmware firmware;
+        
+        private bool firmwareSpecified;
+        
         private DomainOstypehvm type;
+        
+        private DomainOshvmOsFirmware firmwareEx;
         
         private DomainOshvmOsLoader loader;
         
@@ -27161,6 +27263,26 @@ namespace Libvirt.Model {
         
         private DomainAcpiTable acpi;
         
+        [System.Xml.Serialization.XmlAttributeAttribute("firmware")]
+        public DomainOshvmOsFirmware Firmware {
+            get {
+                return this.firmware;
+            }
+            set {
+                this.firmware = value;
+            }
+        }
+        
+        [System.Xml.Serialization.XmlIgnoreAttribute()]
+        public bool FirmwareSpecified {
+            get {
+                return this.firmwareSpecified;
+            }
+            set {
+                this.firmwareSpecified = value;
+            }
+        }
+        
         [System.Xml.Serialization.XmlElementAttribute("type", Namespace="")]
         public DomainOstypehvm Type {
             get {
@@ -27168,6 +27290,16 @@ namespace Libvirt.Model {
             }
             set {
                 this.type = value;
+            }
+        }
+        
+        [System.Xml.Serialization.XmlElementAttribute("firmware", Namespace="")]
+        public DomainOshvmOsFirmware FirmwareEx {
+            get {
+                return this.firmwareEx;
+            }
+            set {
+                this.firmwareEx = value;
             }
         }
         

@@ -27263,6 +27263,18 @@ namespace Libvirt.Model {
         
         private DomainAcpiTable acpi;
         
+        private string init;
+        
+        private string[] initarg;
+        
+        private DomainOsexeInitenv[] initenv;
+        
+        private string initdir;
+        
+        private string inituser;
+        
+        private string initgroup;
+        
         [System.Xml.Serialization.XmlAttributeAttribute("firmware")]
         public DomainOshvmOsFirmware Firmware {
             get {
@@ -27420,6 +27432,66 @@ namespace Libvirt.Model {
             }
             set {
                 this.acpi = value;
+            }
+        }
+        
+        [System.Xml.Serialization.XmlElementAttribute("init", Namespace="")]
+        public string Init {
+            get {
+                return this.init;
+            }
+            set {
+                this.init = value;
+            }
+        }
+        
+        [System.Xml.Serialization.XmlElementAttribute("initarg", Namespace="")]
+        public string[] Initarg {
+            get {
+                return this.initarg;
+            }
+            set {
+                this.initarg = value;
+            }
+        }
+        
+        [System.Xml.Serialization.XmlElementAttribute("initenv", Namespace="")]
+        public DomainOsexeInitenv[] Initenv {
+            get {
+                return this.initenv;
+            }
+            set {
+                this.initenv = value;
+            }
+        }
+        
+        [System.Xml.Serialization.XmlElementAttribute("initdir", Namespace="")]
+        public string Initdir {
+            get {
+                return this.initdir;
+            }
+            set {
+                this.initdir = value;
+            }
+        }
+        
+        [System.Xml.Serialization.XmlElementAttribute("inituser", Namespace="")]
+        public string Inituser {
+            get {
+                return this.inituser;
+            }
+            set {
+                this.inituser = value;
+            }
+        }
+        
+        [System.Xml.Serialization.XmlElementAttribute("initgroup", Namespace="")]
+        public string Initgroup {
+            get {
+                return this.initgroup;
+            }
+            set {
+                this.initgroup = value;
             }
         }
     }

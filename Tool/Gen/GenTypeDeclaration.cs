@@ -231,9 +231,18 @@ internal class GenTypeDeclaration
                     mergedType.Replace(found, found.ToStringType());
                     continue;
                 }
+                else if (foundType.isClass && memMemberType.isEnum)
+                {
+                    var value = foundType.members.FirstOrDefault(m => m.PropertyName == "value");
+                    if (value is null)
+                    {
+                        foundType.Add(new GenTypeMember());
+                    }
+
+                    continue;
+                }
 
                 context.AddWarning($"Not supported. Differenct type at {member.Type.BaseType}.{memMember.PropertyName} ({cls.Name})");
-                return true;
             }
         }
 

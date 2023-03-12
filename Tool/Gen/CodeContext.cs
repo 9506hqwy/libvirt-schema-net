@@ -78,7 +78,7 @@ internal class CodeContext
 
             foreach (var property in element.Children.Where(this.FilterForAttribute))
             {
-                property.AddProperty(this, cls, this.FilterForAttribute, new PropertyState());
+                property.AddProperty(this, cls, this.FilterForAttribute, true, new PropertyState());
             }
         }
         finally
@@ -119,7 +119,7 @@ internal class CodeContext
         {
             foreach (var property in hasChildren.Children.Where(this.FilterForProperty))
             {
-                property.AddProperty(this, cls, this.FilterForProperty, new PropertyState());
+                property.AddProperty(this, cls, this.FilterForProperty, true, new PropertyState());
             }
         }
         finally
@@ -183,6 +183,11 @@ internal class CodeContext
     internal void Gen()
     {
         this.items.ForEach(i => i.Type.Gen(this));
+    }
+
+    internal GenTypeDeclaration GetCallerTypeByElementName(string elementName)
+    {
+        return this.callerType.First(t => t.Type.ElementName == elementName).Type;
     }
 
     internal string GetClassName(IHasName? hasName, out bool defineLevel)

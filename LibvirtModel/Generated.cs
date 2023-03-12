@@ -14065,6 +14065,8 @@ namespace Libvirt.Model {
         
         private DomainDiskSourceFile source;
         
+        private DomainDiskBackingStore backingStore;
+        
         private DomainDiskFormat format;
         
         [System.Xml.Serialization.XmlAttributeAttribute("index")]
@@ -14104,6 +14106,16 @@ namespace Libvirt.Model {
             }
             set {
                 this.source = value;
+            }
+        }
+        
+        [System.Xml.Serialization.XmlElementAttribute("backingStore", Namespace="")]
+        public DomainDiskBackingStore BackingStore {
+            get {
+                return this.backingStore;
+            }
+            set {
+                this.backingStore = value;
             }
         }
         

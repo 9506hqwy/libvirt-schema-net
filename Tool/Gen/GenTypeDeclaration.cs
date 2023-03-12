@@ -4,8 +4,6 @@ internal class GenTypeDeclaration
 {
     private readonly string className;
 
-    private readonly string? elementName;
-
     private readonly bool isAbstract;
 
     private readonly bool isClass;
@@ -31,7 +29,7 @@ internal class GenTypeDeclaration
     private GenTypeDeclaration(string className, string? elementName, string? ns, bool xmlModifier, bool isAbstract, bool isClass, bool isEnum)
     {
         this.className = className;
-        this.elementName = elementName;
+        this.ElementName = elementName;
         this.ns = ns;
         this.xmlModifier = xmlModifier;
         this.isAbstract = isAbstract;
@@ -42,6 +40,8 @@ internal class GenTypeDeclaration
     }
 
     internal CodeTypeReference? BaseType { get; set; }
+
+    internal string? ElementName { get; }
 
     internal string Name => this.className;
 
@@ -75,7 +75,7 @@ internal class GenTypeDeclaration
         if (this.isClass)
         {
             var xmlModifier = this.xmlModifier && !context.ExcludeTypeAttrs.Contains(this.className);
-            Code.ConvertForType(this.className, this.elementName!, this.ns, xmlModifier, this.isAbstract, out var type);
+            Code.ConvertForType(this.className, this.ElementName!, this.ns, xmlModifier, this.isAbstract, out var type);
 
             if (this.BaseType is not null)
             {

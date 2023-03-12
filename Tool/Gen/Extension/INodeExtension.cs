@@ -9,6 +9,7 @@ internal static class INodeExtension
         CodeContext context,
         GenTypeDeclaration cls,
         Func<IPattern, bool> filter,
+        bool referable,
         PropertyState status)
     {
         if (self is Attribute attr && attr.TryAddProperty(context, cls, status))
@@ -19,9 +20,17 @@ internal static class INodeExtension
         {
             cls.Add(new GenTypeMember());
         }
-        else if (self is Element element && element.TryAddProperty(context, cls, status))
+        else if (self is Element element1 && referable && element1.TryAddProperty(context, cls, status))
         {
             // None
+        }
+        else if (self is Element element2 && !referable)
+        {
+            var elementName = element2.Name.GetName();
+            var type = context.GetCallerTypeByElementName(elementName);
+            var typeSpec = new TypeSpec(new CodeTypeReference(type.Name), false);
+            var member = new GenTypeMember(context, typeSpec, elementName, element2.Namespace, status);
+            cls.Add(member);
         }
         else if (self is Ref r)
         {
@@ -34,16 +43,16 @@ internal static class INodeExtension
                     context.EnterNode(define);
                     try
                     {
-                        define.AddProperty(context, cls, filter, (PropertyState)status.Clone());
+                        define.AddProperty(context, cls, filter, referable, (PropertyState)status.Clone());
                     }
                     finally
                     {
                         context.ExitNode();
                     }
                 }
-                catch (RecursiveDefineException e)
+                catch (RecursiveDefineException)
                 {
-                    context.AddWarning($"Not supported. {e.Message}");
+                    define.AddProperty(context, cls, filter, false, (PropertyState)status.Clone());
                 }
             }
         }
@@ -53,7 +62,7 @@ internal static class INodeExtension
 
             foreach (var child in hasChildren.Children.Where(filter))
             {
-                child.AddProperty(context, cls, filter, (PropertyState)status.Clone());
+                child.AddProperty(context, cls, filter, referable, (PropertyState)status.Clone());
             }
         }
         else if (self is Grammar grammar)
@@ -66,7 +75,7 @@ internal static class INodeExtension
                 {
                     foreach (var child in start.Child.RetrieveElement(context))
                     {
-                        child.AddProperty(context, cls, filter, (PropertyState)status.Clone());
+                        child.AddProperty(context, cls, filter, referable, (PropertyState)status.Clone());
                     }
                 }
                 finally

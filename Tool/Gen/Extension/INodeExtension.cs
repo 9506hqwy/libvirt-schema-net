@@ -17,7 +17,7 @@ internal static class INodeExtension
         }
         else if (self is Data data)
         {
-            context.AddWarning($"Not supported. Could not add text value in `{cls.Name}`.");
+            cls.Add(new GenTypeMember());
         }
         else if (self is Element element && element.TryAddProperty(context, cls, status))
         {

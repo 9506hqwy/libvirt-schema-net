@@ -27668,6 +27668,8 @@ namespace Libvirt.Model {
         
         private string template;
         
+        private string value;
+        
         private string type;
         
         private DomainDiskSourceNetworkProtocolHttps source;
@@ -27679,6 +27681,16 @@ namespace Libvirt.Model {
             }
             set {
                 this.template = value;
+            }
+        }
+        
+        [System.Xml.Serialization.XmlTextAttribute()]
+        public string Value {
+            get {
+                return this.value;
+            }
+            set {
+                this.value = value;
             }
         }
         
@@ -29820,6 +29832,8 @@ namespace Libvirt.Model {
         
         private string model;
         
+        private string value;
+        
         private QemucdevSrcTypeChoice type;
         
         private DomainQemucdevSrcDefSource[] source;
@@ -29835,6 +29849,16 @@ namespace Libvirt.Model {
             }
             set {
                 this.model = value;
+            }
+        }
+        
+        [System.Xml.Serialization.XmlTextAttribute()]
+        public string Value {
+            get {
+                return this.value;
+            }
+            set {
+                this.value = value;
             }
         }
         

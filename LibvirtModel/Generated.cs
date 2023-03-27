@@ -12271,6 +12271,90 @@ namespace Libvirt.Model {
         
         [System.Xml.Serialization.XmlEnumAttribute(Name="am53c974")]
         Am53c974,
+        
+        [System.Xml.Serialization.XmlEnumAttribute(Name="piix3-uhci")]
+        Piix3Uhci,
+        
+        [System.Xml.Serialization.XmlEnumAttribute(Name="piix4-uhci")]
+        Piix4Uhci,
+        
+        [System.Xml.Serialization.XmlEnumAttribute(Name="ehci")]
+        Ehci,
+        
+        [System.Xml.Serialization.XmlEnumAttribute(Name="ich9-ehci1")]
+        Ich9Ehci1,
+        
+        [System.Xml.Serialization.XmlEnumAttribute(Name="ich9-uhci1")]
+        Ich9Uhci1,
+        
+        [System.Xml.Serialization.XmlEnumAttribute(Name="ich9-uhci2")]
+        Ich9Uhci2,
+        
+        [System.Xml.Serialization.XmlEnumAttribute(Name="ich9-uhci3")]
+        Ich9Uhci3,
+        
+        [System.Xml.Serialization.XmlEnumAttribute(Name="vt82c686b-uhci")]
+        Vt82c686bUhci,
+        
+        [System.Xml.Serialization.XmlEnumAttribute(Name="pci-ohci")]
+        PciOhci,
+        
+        [System.Xml.Serialization.XmlEnumAttribute(Name="nec-xhci")]
+        NecXhci,
+        
+        [System.Xml.Serialization.XmlEnumAttribute(Name="none")]
+        None,
+        
+        [System.Xml.Serialization.XmlEnumAttribute(Name="qusb1")]
+        Qusb1,
+        
+        [System.Xml.Serialization.XmlEnumAttribute(Name="qusb2")]
+        Qusb2,
+        
+        [System.Xml.Serialization.XmlEnumAttribute(Name="qemu-xhci")]
+        QemuXhci,
+        
+        [System.Xml.Serialization.XmlEnumAttribute(Name="piix3")]
+        Piix3,
+        
+        [System.Xml.Serialization.XmlEnumAttribute(Name="piix4")]
+        Piix4,
+        
+        [System.Xml.Serialization.XmlEnumAttribute(Name="ich6")]
+        Ich6,
+        
+        [System.Xml.Serialization.XmlEnumAttribute(Name="pci-root")]
+        PciRoot,
+        
+        [System.Xml.Serialization.XmlEnumAttribute(Name="pcie-root")]
+        PcieRoot,
+        
+        [System.Xml.Serialization.XmlEnumAttribute(Name="pci-bridge")]
+        PciBridge,
+        
+        [System.Xml.Serialization.XmlEnumAttribute(Name="dmi-to-pci-bridge")]
+        DmiToPciBridge,
+        
+        [System.Xml.Serialization.XmlEnumAttribute(Name="pcie-to-pci-bridge")]
+        PcieToPciBridge,
+        
+        [System.Xml.Serialization.XmlEnumAttribute(Name="pcie-root-port")]
+        PcieRootPort,
+        
+        [System.Xml.Serialization.XmlEnumAttribute(Name="pcie-switch-upstream-port")]
+        PcieSwitchUpstreamPort,
+        
+        [System.Xml.Serialization.XmlEnumAttribute(Name="pcie-switch-downstream-port")]
+        PcieSwitchDownstreamPort,
+        
+        [System.Xml.Serialization.XmlEnumAttribute(Name="pci-expander-bus")]
+        PciExpanderBus,
+        
+        [System.Xml.Serialization.XmlEnumAttribute(Name="pcie-expander-bus")]
+        PcieExpanderBus,
+        
+        [System.Xml.Serialization.XmlEnumAttribute(Name="virtio")]
+        Virtio,
     }
     
     public partial class DomainControllerPcihole64 {
@@ -24470,6 +24554,12 @@ namespace Libvirt.Model {
         
         [System.Xml.Serialization.XmlEnumAttribute(Name="xen")]
         Xen,
+        
+        [System.Xml.Serialization.XmlEnumAttribute(Name="qemu")]
+        Qemu,
+        
+        [System.Xml.Serialization.XmlEnumAttribute(Name="vhost")]
+        Vhost,
     }
     
     public enum DomainInterfaceOptionsDriverTxmode {
@@ -31999,6 +32089,21 @@ namespace Libvirt.Model {
         
         [System.Xml.Serialization.XmlEnumAttribute(Name="rtc")]
         Rtc,
+        
+        [System.Xml.Serialization.XmlEnumAttribute(Name="hpet")]
+        Hpet,
+        
+        [System.Xml.Serialization.XmlEnumAttribute(Name="pit")]
+        Pit,
+        
+        [System.Xml.Serialization.XmlEnumAttribute(Name="armvtimer")]
+        Armvtimer,
+        
+        [System.Xml.Serialization.XmlEnumAttribute(Name="kvmclock")]
+        Kvmclock,
+        
+        [System.Xml.Serialization.XmlEnumAttribute(Name="hypervclock")]
+        Hypervclock,
     }
     
     public enum DomainTimerTrack {
@@ -34132,6 +34237,18 @@ namespace Libvirt.Model {
         
         [System.Xml.Serialization.XmlEnumAttribute(Name="squash")]
         Squash,
+        
+        [System.Xml.Serialization.XmlEnumAttribute(Name="default")]
+        Default,
+        
+        [System.Xml.Serialization.XmlEnumAttribute(Name="remap")]
+        Remap,
+        
+        [System.Xml.Serialization.XmlEnumAttribute(Name="forbid")]
+        Forbid,
+        
+        [System.Xml.Serialization.XmlEnumAttribute(Name="warn")]
+        Warn,
     }
     
     [System.Xml.Serialization.XmlTypeAttribute("filter", Namespace="")]
@@ -46384,6 +46501,12 @@ namespace Libvirt.Model {
         
         [System.Xml.Serialization.XmlEnumAttribute(Name="idle")]
         Idle,
+        
+        [System.Xml.Serialization.XmlEnumAttribute(Name="fifo")]
+        Fifo,
+        
+        [System.Xml.Serialization.XmlEnumAttribute(Name="rr")]
+        Rr,
     }
     
     [System.Xml.Serialization.XmlTypeAttribute("secret", Namespace="")]

@@ -66,7 +66,7 @@ internal class CodeContext
     {
         var cls = new GenTypeDeclaration(className, element.Name.GetName(), null, xmlModifier, false);
 
-        if (!this.IsParsed(cls.Name))
+        if (!this.IsParsed(cls.Name, out var _))
         {
             this.Add(cls);
         }
@@ -109,7 +109,7 @@ internal class CodeContext
             cls.BaseType = new CodeTypeReference(baseType.Name);
         }
 
-        if (!this.IsParsed(cls.Name))
+        if (!this.IsParsed(cls.Name, out var _))
         {
             this.Add(cls);
         }
@@ -248,9 +248,10 @@ internal class CodeContext
         return name;
     }
 
-    internal bool IsParsed(string className)
+    internal bool IsParsed(string className, out GenTypeDeclaration? cls)
     {
-        return this.items.Any(c => this.MatchItem(c, className));
+        cls = this.items.FirstOrDefault(c => this.MatchItem(c, className))?.Type;
+        return cls is not null;
     }
 
     internal Define Resolve(Ref r)

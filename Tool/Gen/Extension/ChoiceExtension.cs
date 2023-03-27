@@ -79,7 +79,7 @@ internal static class ChoiceExtension
             var prop = context.CurrentProperty;
             var className = Utility.ToClassName(context.GetClassName(prop, out var _));
 
-            if (!context.IsParsed(className))
+            if (!context.IsParsed(className, out var parsedCls))
             {
                 var cls = new GenTypeDeclaration(className);
 
@@ -89,6 +89,16 @@ internal static class ChoiceExtension
                 }
 
                 context.Add(cls);
+            }
+            else
+            {
+                foreach (var value in children.Cast<Value>())
+                {
+                    if (!parsedCls!.Members.Any(m => m.Name == value.Val))
+                    {
+                        parsedCls.Add(new GenTypeMember(context, value.Val));
+                    }
+                }
             }
 
             type = new TypeSpec(new CodeTypeReference(className), true);

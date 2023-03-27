@@ -37,7 +37,7 @@ internal static class ElementExtension
         var className = Utility.ToClassName(context.GetClassName(self, out var xmlModifier));
         type = new TypeSpec(new CodeTypeReference(className), false);
 
-        if (!context.IsParsed(className))
+        if (!context.IsParsed(className, out var _))
         {
             if (((IHasChildren)self).TryParseSimpleType(context, true, out var _))
             {

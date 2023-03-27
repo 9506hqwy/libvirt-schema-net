@@ -43,6 +43,8 @@ internal class GenTypeDeclaration
 
     internal string? ElementName { get; }
 
+    internal GenTypeMember[] Members => this.members.ToArray();
+
     internal string Name => this.className;
 
     internal CodeTypeDeclaration? Type { get; private set; }

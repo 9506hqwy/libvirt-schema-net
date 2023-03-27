@@ -15,7 +15,7 @@ internal static class IHasChildrenExtension
         var className = Utility.ToClassName(context.GetClassName(null, out var _));
         var cls = new GenTypeDeclaration(className, null, null, false, true);
 
-        if (!context.IsParsed(cls.Name))
+        if (!context.IsParsed(cls.Name, out var _))
         {
             context.Add(cls);
         }

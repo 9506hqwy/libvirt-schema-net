@@ -210,12 +210,14 @@ internal class CodeContext
         var item = this.callerType.FirstOrDefault();
         if (item is not null && item.Define.Name == this.CurrentDefile.Name)
         {
-            return this.CreateUnderscoredText(prefix, item.Type.Name, hasName!.Name.GetName());
+            var propName = this.GetPropertyName(hasName!.Name.GetName(), hasName is Element);
+            return this.CreateUnderscoredText(prefix, item.Type.Name, propName);
         }
 
         if (hasName is Element && this.CurrentDefile.RetrieveElement(this).Count() != 1)
         {
-            return this.CreateUnderscoredText(prefix, this.CurrentDefile.Name, hasName.Name.GetName());
+            var propName = this.GetPropertyName(hasName!.Name.GetName(), hasName is Element);
+            return this.CreateUnderscoredText(prefix, this.CurrentDefile.Name, propName);
         }
 
         // TODO: add nested enum support.

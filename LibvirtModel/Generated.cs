@@ -4975,7 +4975,7 @@ namespace Libvirt.Model {
         }
     }
     
-    public partial class DeviceCapmdevType {
+    public partial class DeviceCapmdevTypeEx {
         
         private string id;
         
@@ -5259,7 +5259,7 @@ namespace Libvirt.Model {
         
         private DeviceAddress address;
         
-        private DeviceMdevTypesType[] typeEx;
+        private DeviceMdevTypesTypeEx[] typeEx;
         
         private string name;
         
@@ -5376,7 +5376,7 @@ namespace Libvirt.Model {
         }
         
         [System.Xml.Serialization.XmlElementAttribute("type", Namespace="")]
-        public DeviceMdevTypesType[] TypeEx {
+        public DeviceMdevTypesTypeEx[] TypeEx {
             get {
                 return this.typeEx;
             }
@@ -5884,7 +5884,7 @@ namespace Libvirt.Model {
         
         private string type;
         
-        private DeviceMdevTypesType[] typeEx;
+        private DeviceMdevTypesTypeEx[] typeEx;
         
         [System.Xml.Serialization.XmlAttributeAttribute("type")]
         public string Type {
@@ -5897,7 +5897,7 @@ namespace Libvirt.Model {
         }
         
         [System.Xml.Serialization.XmlElementAttribute("type", Namespace="")]
-        public DeviceMdevTypesType[] TypeEx {
+        public DeviceMdevTypesTypeEx[] TypeEx {
             get {
                 return this.typeEx;
             }
@@ -5907,13 +5907,13 @@ namespace Libvirt.Model {
         }
     }
     
-    public partial class DeviceMdevTypesType {
+    public partial class DeviceMdevTypesTypeEx {
         
         private string id;
         
         private string name;
         
-        private DeviceMdevTypesTypeDeviceApi deviceApi;
+        private DeviceMdevTypesTypeExDeviceApi deviceApi;
         
         private uint availableInstances;
         
@@ -5938,7 +5938,7 @@ namespace Libvirt.Model {
         }
         
         [System.Xml.Serialization.XmlElementAttribute("deviceAPI", Namespace="")]
-        public DeviceMdevTypesTypeDeviceApi DeviceApi {
+        public DeviceMdevTypesTypeExDeviceApi DeviceApi {
             get {
                 return this.deviceApi;
             }
@@ -5958,7 +5958,7 @@ namespace Libvirt.Model {
         }
     }
     
-    public enum DeviceMdevTypesTypeDeviceApi {
+    public enum DeviceMdevTypesTypeExDeviceApi {
         
         [System.Xml.Serialization.XmlEnumAttribute(Name="vfio-pci")]
         VfioPci,
@@ -11781,7 +11781,7 @@ namespace Libvirt.Model {
         
         private bool portsSpecified;
         
-        private DomainControllerModel modelEx;
+        private DomainControllerModelEx modelEx;
         
         private DomainControllerTarget target;
         
@@ -11912,7 +11912,7 @@ namespace Libvirt.Model {
         }
         
         [System.Xml.Serialization.XmlElementAttribute("model", Namespace="")]
-        public DomainControllerModel ModelEx {
+        public DomainControllerModelEx ModelEx {
             get {
                 return this.modelEx;
             }
@@ -12355,6 +12355,54 @@ namespace Libvirt.Model {
         
         [System.Xml.Serialization.XmlEnumAttribute(Name="virtio")]
         Virtio,
+    }
+    
+    public partial class DomainControllerModelEx {
+        
+        private DomainControllerModelExName name;
+        
+        [System.Xml.Serialization.XmlAttributeAttribute("name")]
+        public DomainControllerModelExName Name {
+            get {
+                return this.name;
+            }
+            set {
+                this.name = value;
+            }
+        }
+    }
+    
+    public enum DomainControllerModelExName {
+        
+        [System.Xml.Serialization.XmlEnumAttribute(Name="spapr-pci-host-bridge")]
+        SpaprPciHostBridge,
+        
+        [System.Xml.Serialization.XmlEnumAttribute(Name="pci-bridge")]
+        PciBridge,
+        
+        [System.Xml.Serialization.XmlEnumAttribute(Name="i82801b11-bridge")]
+        I82801b11Bridge,
+        
+        [System.Xml.Serialization.XmlEnumAttribute(Name="pcie-pci-bridge")]
+        PciePciBridge,
+        
+        [System.Xml.Serialization.XmlEnumAttribute(Name="ioh3420")]
+        Ioh3420,
+        
+        [System.Xml.Serialization.XmlEnumAttribute(Name="pcie-root-port")]
+        PcieRootPort,
+        
+        [System.Xml.Serialization.XmlEnumAttribute(Name="x3130-upstream")]
+        X3130Upstream,
+        
+        [System.Xml.Serialization.XmlEnumAttribute(Name="xio3130-downstream")]
+        Xio3130Downstream,
+        
+        [System.Xml.Serialization.XmlEnumAttribute(Name="pxb")]
+        Pxb,
+        
+        [System.Xml.Serialization.XmlEnumAttribute(Name="pxb-pcie")]
+        PxbPcie,
     }
     
     public partial class DomainControllerPcihole64 {
@@ -27339,7 +27387,7 @@ namespace Libvirt.Model {
         
         private DomainOstypehvm type;
         
-        private DomainOshvmOsFirmware firmwareEx;
+        private DomainOshvmOsFirmwareEx firmwareEx;
         
         private DomainOshvmOsLoader loader;
         
@@ -27408,7 +27456,7 @@ namespace Libvirt.Model {
         }
         
         [System.Xml.Serialization.XmlElementAttribute("firmware", Namespace="")]
-        public DomainOshvmOsFirmware FirmwareEx {
+        public DomainOshvmOsFirmwareEx FirmwareEx {
             get {
                 return this.firmwareEx;
             }
@@ -27644,6 +27692,57 @@ namespace Libvirt.Model {
         
         [System.Xml.Serialization.XmlEnumAttribute(Name="efi")]
         Efi,
+    }
+    
+    public partial class DomainOshvmOsFirmwareEx {
+        
+        private DomainOshvmOsFirmwareExFeature[] feature;
+        
+        [System.Xml.Serialization.XmlElementAttribute("feature", Namespace="")]
+        public DomainOshvmOsFirmwareExFeature[] Feature {
+            get {
+                return this.feature;
+            }
+            set {
+                this.feature = value;
+            }
+        }
+    }
+    
+    public partial class DomainOshvmOsFirmwareExFeature {
+        
+        private VirYesNo enabled;
+        
+        private DomainOshvmOsFirmwareExFeatureName name;
+        
+        [System.Xml.Serialization.XmlAttributeAttribute("enabled")]
+        public VirYesNo Enabled {
+            get {
+                return this.enabled;
+            }
+            set {
+                this.enabled = value;
+            }
+        }
+        
+        [System.Xml.Serialization.XmlAttributeAttribute("name")]
+        public DomainOshvmOsFirmwareExFeatureName Name {
+            get {
+                return this.name;
+            }
+            set {
+                this.name = value;
+            }
+        }
+    }
+    
+    public enum DomainOshvmOsFirmwareExFeatureName {
+        
+        [System.Xml.Serialization.XmlEnumAttribute(Name="enrolled-keys")]
+        EnrolledKeys,
+        
+        [System.Xml.Serialization.XmlEnumAttribute(Name="secure-boot")]
+        SecureBoot,
     }
     
     public partial class DomainOshvmOsLoader {

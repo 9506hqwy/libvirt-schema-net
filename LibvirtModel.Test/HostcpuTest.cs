@@ -8,7 +8,7 @@ public class HostcpuTest
     {
         var cpu = TestUtility.Deserialize<Hostcpu>("min.xml");
         Assert.IsNotNull(cpu);
-        Assert.AreEqual(HostcpuArch.Aarch64, cpu.Arch);
+        Assert.AreEqual(Archnames.Aarch64, cpu.Arch);
         Assert.AreEqual("name", cpu.Feature[0].Name);
         Assert.AreEqual(1u, cpu.Pages[0].Size);
 

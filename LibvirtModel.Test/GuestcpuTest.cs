@@ -8,7 +8,7 @@ public class GuestcpuTest
     {
         var cpu = TestUtility.Deserialize<Guestcpu>("min.xml");
         Assert.IsNotNull(cpu);
-        Assert.AreEqual(CpuFeaturePolicy.Force, cpu.Feature[0].Policy);
+        Assert.AreEqual(GuestcpuCpuFeaturePolicy.Force, cpu.Feature[0].Policy);
         Assert.AreEqual("name", cpu.Feature[0].Name);
 
         var xml = TestUtility.Serialize(cpu);

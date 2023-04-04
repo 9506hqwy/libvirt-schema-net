@@ -8,9 +8,9 @@ public class BondInterfaceTest
     {
         var intf = TestUtility.Deserialize<BondInterface>("min.xml");
         Assert.IsNotNull(intf);
-        Assert.AreEqual("bond", intf.Type);
+        Assert.AreEqual(BondInterfaceCommon.Bond, intf.Type);
         Assert.AreEqual("name1", intf.Name);
-        Assert.AreEqual("bond", intf.Bond.Interface[0].Type);
+        Assert.AreEqual(EthernetInterfaceType.Ethernet, intf.Bond.Interface[0].Type);
         Assert.AreEqual("name2", intf.Bond.Interface[0].Name);
 
         var xml = TestUtility.Serialize(intf);

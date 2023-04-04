@@ -8,7 +8,7 @@ public class EthernetInterfaceTest
     {
         var intf = TestUtility.Deserialize<EthernetInterface>("min.xml");
         Assert.IsNotNull(intf);
-        Assert.AreEqual("ethernet", intf.Type);
+        Assert.AreEqual(EthernetInterfaceType.Ethernet, intf.Type);
         Assert.AreEqual("name", intf.Name);
 
         var xml = TestUtility.Serialize(intf);

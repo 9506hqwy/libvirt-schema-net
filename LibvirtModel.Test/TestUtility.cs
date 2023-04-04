@@ -12,14 +12,6 @@ internal static class TestUtility
         return (T)ser.Deserialize(new StringReader(xml))!;
     }
 
-    internal static T Deserialize<B, T>(string filename)
-    {
-        var xml = TestUtility.GetTestData(typeof(B), filename);
-
-        var ser = new XmlSerializer(typeof(T));
-        return (T)ser.Deserialize(new StringReader(xml))!;
-    }
-
     internal static string GetTestData(Type type, string filename)
     {
         return File.ReadAllText(TestUtility.GetDataFilePath(type, filename));

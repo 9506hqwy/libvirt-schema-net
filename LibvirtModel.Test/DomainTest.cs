@@ -8,7 +8,7 @@ public class DomainTest
     {
         var dom = TestUtility.Deserialize<Domain>("min.xml");
         Assert.IsNotNull(dom);
-        Assert.AreEqual(Hvs.Qemu, dom.Type);
+        Assert.AreEqual(DomainHvs.Qemu, dom.Type);
         Assert.AreEqual("name", dom.Name);
         Assert.AreEqual("hvm", dom.Os.Type.Value);
 

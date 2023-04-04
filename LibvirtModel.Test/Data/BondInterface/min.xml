@@ -1,5 +1,5 @@
 <interface type="bond" name="name1">
   <bond>
-    <interface type="bond" name="name2" />
+    <interface type="ethernet" name="name2" />
   </bond>
 </interface>

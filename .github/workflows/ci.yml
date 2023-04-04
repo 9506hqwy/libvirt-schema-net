@@ -15,7 +15,7 @@ jobs:
     - name: Prepare
       run: |
         LOCALPKG=`mktemp -d`
-        wget -P "${LOCALPKG}" https://github.com/9506hqwy/relaxng-net/releases/download/0.1.0/RelaxNg.Schema.0.1.0.nupkg
+        wget -P "${LOCALPKG}" https://github.com/9506hqwy/relaxng-net/releases/download/0.2.0/RelaxNg.Schema.0.2.0.nupkg
         dotnet nuget add source --name local "${LOCALPKG}"
     - name: Build
       run: dotnet build

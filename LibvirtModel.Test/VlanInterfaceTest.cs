@@ -8,7 +8,7 @@ public class VlanInterfaceTest
     {
         var intf = TestUtility.Deserialize<VlanInterface>("min.xml");
         Assert.IsNotNull(intf);
-        Assert.AreEqual("vlan", intf.Type);
+        Assert.AreEqual(VlanInterfaceCommon.Vlan, intf.Type);
         Assert.AreEqual(1u, intf.Vlan.Tag);
         Assert.AreEqual("name", intf.Vlan.Interface.Name);
 

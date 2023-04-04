@@ -1,14 +1,14 @@
 ﻿namespace LibvirtModel.Test;
 
 [TestClass]
-public class DomainInactiveDomainTest
+public class InactiveDomainTest
 {
     [TestMethod]
     public void MinTest()
     {
-        var dom = TestUtility.Deserialize<DomainInactiveDomain>("min.xml");
+        var dom = TestUtility.Deserialize<InactiveDomain>("min.xml");
         Assert.IsNotNull(dom);
-        Assert.AreEqual(Hvs.Qemu, dom.Type);
+        Assert.AreEqual(DomainHvs.Qemu, dom.Type);
         Assert.AreEqual("name", dom.Name);
         Assert.AreEqual("hvm", dom.Os.Type.Value);
 

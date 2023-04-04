@@ -20,7 +20,7 @@ public class VolTest
         Assert.IsNotNull(vol.Target);
         Assert.IsNull(vol.Target.Path);
         Assert.IsNotNull(vol.Target.Format);
-        Assert.AreEqual(VolFormatType.Raw, vol.Target.Format.Type);
+        Assert.AreEqual(VolTargetFormatType.Raw, vol.Target.Format.Type);
         Assert.IsNull(vol.Target.Permissions);
         Assert.IsNull(vol.Target.Encryption);
         Assert.IsNull(vol.Target.Compat);
@@ -30,7 +30,7 @@ public class VolTest
         Assert.IsNotNull(vol.BackingStore);
         Assert.AreEqual("backing.qcow2", vol.BackingStore.Path);
         Assert.IsNotNull(vol.BackingStore.Format);
-        Assert.AreEqual(VolFormatType.Raw, vol.BackingStore.Format.Type);
+        Assert.AreEqual(VolTargetFormatType.Raw, vol.BackingStore.Format.Type);
         Assert.IsNull(vol.BackingStore.Permissions);
         Assert.IsNull(vol.BackingStore.Timestamps);
 

@@ -8,8 +8,8 @@ public class DomainbackupTest
     {
         var backup = TestUtility.Deserialize<Domainbackup>("min.xml");
         Assert.IsNotNull(backup);
-        Assert.AreEqual("pull", backup.Mode);
-        Assert.AreEqual("unix", backup.Server.Transport);
+        Assert.AreEqual(DomainbackupMode.Pull, backup.Mode);
+        Assert.AreEqual(DomainbackupServerTransport.Unix, backup.Server.Transport);
         Assert.AreEqual("/path/to/backup", backup.Server.Socket);
 
         var xml = TestUtility.Serialize(backup);

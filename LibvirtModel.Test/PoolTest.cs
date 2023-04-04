@@ -6,9 +6,9 @@ public class PoolTest
     [TestMethod]
     public void DirTest()
     {
-        var pool = TestUtility.Deserialize<Pool, Pooldir>("dir.xml");
+        var pool = TestUtility.Deserialize<Pool>("dir.xml");
         Assert.IsNotNull(pool);
-        Assert.AreEqual("dir", pool.Type);
+        Assert.AreEqual(PoolType.Dir, pool.Type);
         Assert.AreEqual("dir", pool.Name);
         Assert.AreEqual("DC7578D2-DC84-4ABE-8C12-1B05F683F82B", pool.Uuid);
         Assert.AreEqual("bytes", pool.Capacity.Unit);
@@ -37,9 +37,9 @@ public class PoolTest
     [TestMethod]
     public void DiskTest()
     {
-        var pool = TestUtility.Deserialize<Pool, Pooldisk>("disk.xml");
+        var pool = TestUtility.Deserialize<Pool>("disk.xml");
         Assert.IsNotNull(pool);
-        Assert.AreEqual("disk", pool.Type);
+        Assert.AreEqual(PoolType.Disk, pool.Type);
         Assert.AreEqual("physical", pool.Name);
         Assert.AreEqual("5F762D24-A648-43DB-BB4A-B1FE9770BD6B", pool.Uuid);
         Assert.AreEqual("bytes", pool.Capacity.Unit);
@@ -50,11 +50,11 @@ public class PoolTest
         Assert.AreEqual("21474802176", pool.Available.Value);
         Assert.IsNull(pool.Features);
         Assert.IsNotNull(pool.Source);
-        Assert.AreEqual("/dev/nvme0n1", pool.Source.Device.Path);
-        Assert.IsFalse(pool.Source.Device.PartSeparatorSpecified);
-        Assert.AreEqual(17408UL, pool.Source.Device.FreeExtent[0].Start);
-        Assert.AreEqual(21474819584UL, pool.Source.Device.FreeExtent[0].End);
-        Assert.AreEqual(PoolSourcefmtdiskType.Gpt, pool.Source.Format.Type);
+        Assert.AreEqual("/dev/nvme0n1", pool.Source.Device[0].Path);
+        Assert.IsFalse(pool.Source.Device[0].PartSeparatorSpecified);
+        Assert.AreEqual(17408UL, pool.Source.Device[0].FreeExtent[0].Start);
+        Assert.AreEqual(21474819584UL, pool.Source.Device[0].FreeExtent[0].End);
+        Assert.AreEqual(PoolSourceFormatType.Gpt, pool.Source.Format.Type);
         Assert.IsNotNull(pool.Target);
         Assert.AreEqual("/mnt/physical", pool.Target.Path);
         Assert.IsNull(pool.Target.Permissions);
@@ -66,9 +66,9 @@ public class PoolTest
     [TestMethod]
     public void LogicalTest()
     {
-        var pool = TestUtility.Deserialize<Pool, Poollogical>("logical.xml");
+        var pool = TestUtility.Deserialize<Pool>("logical.xml");
         Assert.IsNotNull(pool);
-        Assert.AreEqual("logical", pool.Type);
+        Assert.AreEqual(PoolType.Logical, pool.Type);
         Assert.AreEqual("lvm", pool.Name);
         Assert.AreEqual("1F675256-55F9-4799-A4F2-214331BC1E3F", pool.Uuid);
         Assert.AreEqual("bytes", pool.Capacity.Unit);
@@ -80,7 +80,7 @@ public class PoolTest
         Assert.IsNull(pool.Features);
         Assert.IsNotNull(pool.Source);
         Assert.AreEqual("vgpool", pool.Source.Name[0]);
-        Assert.AreEqual(PoolSourcefmtlogicalType.Lvm2, pool.Source.Format.Type);
+        Assert.AreEqual(PoolSourceFormatType.Lvm2, pool.Source.Format.Type);
         Assert.IsNotNull(pool.Target);
         Assert.AreEqual("/dev/vgpool", pool.Target.Path);
         Assert.IsNull(pool.Target.Permissions);
@@ -92,9 +92,9 @@ public class PoolTest
     [TestMethod]
     public void NetfsTest()
     {
-        var pool = TestUtility.Deserialize<Pool, Poolnetfs>("netfs.xml");
+        var pool = TestUtility.Deserialize<Pool>("netfs.xml");
         Assert.IsNotNull(pool);
-        Assert.AreEqual("netfs", pool.Type);
+        Assert.AreEqual(PoolType.Netfs, pool.Type);
         Assert.AreEqual("nfs", pool.Name);
         Assert.AreEqual("52956CC1-310A-42DD-AB29-DD5EA69DF6F8", pool.Uuid);
         Assert.AreEqual("bytes", pool.Capacity.Unit);
@@ -107,7 +107,7 @@ public class PoolTest
         Assert.IsNotNull(pool.Source);
         Assert.AreEqual("192.168.0.1", pool.Source.Host[0].Name);
         Assert.AreEqual("/mnt/exports", pool.Source.Dir.Path);
-        Assert.AreEqual(PoolSourcefmtnetfsType.Auto, pool.Source.Format.Type);
+        Assert.AreEqual(PoolSourceFormatType.Auto, pool.Source.Format.Type);
         Assert.IsNotNull(pool.Target);
         Assert.AreEqual("/mnt/exports", pool.Target.Path);
         Assert.AreEqual(777u, pool.Target.Permissions.Mode);

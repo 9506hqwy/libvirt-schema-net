@@ -9,7 +9,7 @@ public class DeviceTest
         var dev = TestUtility.Deserialize<Device>("capsystem.xml");
         Assert.IsNotNull(dev);
         Assert.AreEqual("name", dev.Name);
-        Assert.AreEqual("system", dev.Capability[0].Type);
+        Assert.AreEqual(DeviceCapabilityTypeAttr.System, dev.Capability[0].TypeAttr);
         Assert.IsNotNull(dev.Capability[0].Hardware);
         Assert.IsNotNull(dev.Capability[0].Firmware);
 

@@ -9,7 +9,7 @@ internal static class INameExtension
         return self switch
         {
             _ when self is Name n => n.Val,
-            _ => throw new NotSupportedException($"Not supported tag `{self.GetType().Name}`."),
+            _ => throw new NotSupportedException($"Not supported tag `{self.GetType().Name}` at {self.Position}."),
         };
     }
 }

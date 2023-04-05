@@ -115,6 +115,35 @@ internal class AstBuilder
         }
     }
 
+    private bool IsMandatoryValue(AstTypeFragment[] values)
+    {
+        var choice = values[0].Stack.Reverse().FirstOrDefault(n => n is Choice);
+        if (choice is null)
+        {
+            return false;
+        }
+
+        if (choice.ChildNodes.Count() != values.Length)
+        {
+            return false;
+        }
+
+        foreach (var value in values)
+        {
+            var optional = value.Stack
+                .Reverse()
+                .TakeWhile(n => !n.Position.Equals(choice.Position))
+                .Reverse()
+                .FirstOrDefault(n => n is Optional);
+            if (optional is not null)
+            {
+                return false;
+            }
+        }
+
+        return true;
+    }
+
     private void MergeFragment(AstTypeDeclarationBase type, AstTypeMember member)
     {
         if (member.Fragments.Length == 1)
@@ -265,7 +294,7 @@ internal class AstBuilder
             return;
         }
 
-        var optional = values.Any(v => v.Optional);
+        var optional = values.Any(v => v.Optional) && !this.IsMandatoryValue(values);
         var isArray = values.Any(v => v.IsArray);
 
         if (values.Any(v => v.Type!.ValueType!.IsString))

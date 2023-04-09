@@ -363,7 +363,11 @@ internal class AstBuilder
     {
         if (type.Members.Length == 0 && type.Values.Length == 0)
         {
-            type.ValueType = new AstTypeReference(typeof(string), true, false);
+            if (!type.IsEmpty)
+            {
+                type.ValueType = new AstTypeReference(typeof(string), true, false);
+            }
+
             return;
         }
         else if (type.Values.Length == 0)

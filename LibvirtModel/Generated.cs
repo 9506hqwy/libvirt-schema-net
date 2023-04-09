@@ -383,7 +383,7 @@ namespace Libvirt.Model {
         
         private BondInterfaceProtocolRoute route;
         
-        private string autoconf;
+        private EthernetInterfaceProtocolIpv6Autoconf autoconf;
         
         [System.Xml.Serialization.XmlAttributeAttribute("family")]
         public BondInterfaceProtocolFamily Family {
@@ -426,7 +426,7 @@ namespace Libvirt.Model {
         }
         
         [System.Xml.Serialization.XmlElementAttribute("autoconf", Namespace="")]
-        public string Autoconf {
+        public EthernetInterfaceProtocolIpv6Autoconf Autoconf {
             get {
                 return this.autoconf;
             }
@@ -996,7 +996,7 @@ namespace Libvirt.Model {
         
         private BridgeInterfaceProtocolRoute route;
         
-        private string autoconf;
+        private EthernetInterfaceProtocolIpv6Autoconf autoconf;
         
         [System.Xml.Serialization.XmlAttributeAttribute("family")]
         public BridgeInterfaceProtocolFamily Family {
@@ -1039,7 +1039,7 @@ namespace Libvirt.Model {
         }
         
         [System.Xml.Serialization.XmlElementAttribute("autoconf", Namespace="")]
-        public string Autoconf {
+        public EthernetInterfaceProtocolIpv6Autoconf Autoconf {
             get {
                 return this.autoconf;
             }
@@ -1406,26 +1406,26 @@ namespace Libvirt.Model {
     [System.Xml.Serialization.XmlTypeAttribute("features", Namespace="")]
     public partial class CapabilitiesGuestcapsFeatures {
         
-        private string pae;
+        private CapabilitiesGuestcapsFeaturesPae pae;
         
-        private string nonpae;
+        private CapabilitiesGuestcapsFeaturesNonpae nonpae;
         
-        private string ia64Be;
+        private CapabilitiesGuestcapsFeaturesIa64Be ia64Be;
         
         private CapabilitiesGuestcapsFeaturesAcpi acpi;
         
         private CapabilitiesGuestcapsFeaturesApic apic;
         
-        private string cpuselection;
+        private CapabilitiesGuestcapsFeaturesCpuselection cpuselection;
         
-        private string deviceboot;
+        private CapabilitiesGuestcapsFeaturesDeviceboot deviceboot;
         
         private CapabilitiesGuestcapsFeaturesDisksnapshot disksnapshot;
         
         private CapabilitiesGuestcapsFeaturesHap hap;
         
         [System.Xml.Serialization.XmlElementAttribute("pae", Namespace="")]
-        public string Pae {
+        public CapabilitiesGuestcapsFeaturesPae Pae {
             get {
                 return this.pae;
             }
@@ -1435,7 +1435,7 @@ namespace Libvirt.Model {
         }
         
         [System.Xml.Serialization.XmlElementAttribute("nonpae", Namespace="")]
-        public string Nonpae {
+        public CapabilitiesGuestcapsFeaturesNonpae Nonpae {
             get {
                 return this.nonpae;
             }
@@ -1445,7 +1445,7 @@ namespace Libvirt.Model {
         }
         
         [System.Xml.Serialization.XmlElementAttribute("ia64_be", Namespace="")]
-        public string Ia64Be {
+        public CapabilitiesGuestcapsFeaturesIa64Be Ia64Be {
             get {
                 return this.ia64Be;
             }
@@ -1475,7 +1475,7 @@ namespace Libvirt.Model {
         }
         
         [System.Xml.Serialization.XmlElementAttribute("cpuselection", Namespace="")]
-        public string Cpuselection {
+        public CapabilitiesGuestcapsFeaturesCpuselection Cpuselection {
             get {
                 return this.cpuselection;
             }
@@ -1485,7 +1485,7 @@ namespace Libvirt.Model {
         }
         
         [System.Xml.Serialization.XmlElementAttribute("deviceboot", Namespace="")]
-        public string Deviceboot {
+        public CapabilitiesGuestcapsFeaturesDeviceboot Deviceboot {
             get {
                 return this.deviceboot;
             }
@@ -1569,6 +1569,12 @@ namespace Libvirt.Model {
         }
     }
     
+    public partial class CapabilitiesGuestcapsFeaturesCpuselection {
+    }
+    
+    public partial class CapabilitiesGuestcapsFeaturesDeviceboot {
+    }
+    
     public partial class CapabilitiesGuestcapsFeaturesDisksnapshot {
         
         private VirYesNo toggle;
@@ -1621,6 +1627,15 @@ namespace Libvirt.Model {
                 this.@default = value;
             }
         }
+    }
+    
+    public partial class CapabilitiesGuestcapsFeaturesIa64Be {
+    }
+    
+    public partial class CapabilitiesGuestcapsFeaturesNonpae {
+    }
+    
+    public partial class CapabilitiesGuestcapsFeaturesPae {
     }
     
     public enum CapabilitiesGuestcapsOstype {
@@ -2110,16 +2125,16 @@ namespace Libvirt.Model {
     
     public partial class CapabilitiesHostcapsHostcpuFeatures {
         
-        private string pae;
+        private CapabilitiesHostcapsHostcpuFeaturesPae pae;
         
-        private string nonpae;
+        private CapabilitiesHostcapsHostcpuFeaturesNonpae nonpae;
         
-        private string vmx;
+        private CapabilitiesHostcapsHostcpuFeaturesVmx vmx;
         
-        private string svm;
+        private CapabilitiesHostcapsHostcpuFeaturesSvm svm;
         
         [System.Xml.Serialization.XmlElementAttribute("pae", Namespace="")]
-        public string Pae {
+        public CapabilitiesHostcapsHostcpuFeaturesPae Pae {
             get {
                 return this.pae;
             }
@@ -2129,7 +2144,7 @@ namespace Libvirt.Model {
         }
         
         [System.Xml.Serialization.XmlElementAttribute("nonpae", Namespace="")]
-        public string Nonpae {
+        public CapabilitiesHostcapsHostcpuFeaturesNonpae Nonpae {
             get {
                 return this.nonpae;
             }
@@ -2139,7 +2154,7 @@ namespace Libvirt.Model {
         }
         
         [System.Xml.Serialization.XmlElementAttribute("vmx", Namespace="")]
-        public string Vmx {
+        public CapabilitiesHostcapsHostcpuFeaturesVmx Vmx {
             get {
                 return this.vmx;
             }
@@ -2149,7 +2164,7 @@ namespace Libvirt.Model {
         }
         
         [System.Xml.Serialization.XmlElementAttribute("svm", Namespace="")]
-        public string Svm {
+        public CapabilitiesHostcapsHostcpuFeaturesSvm Svm {
             get {
                 return this.svm;
             }
@@ -2157,6 +2172,18 @@ namespace Libvirt.Model {
                 this.svm = value;
             }
         }
+    }
+    
+    public partial class CapabilitiesHostcapsHostcpuFeaturesNonpae {
+    }
+    
+    public partial class CapabilitiesHostcapsHostcpuFeaturesPae {
+    }
+    
+    public partial class CapabilitiesHostcapsHostcpuFeaturesSvm {
+    }
+    
+    public partial class CapabilitiesHostcapsHostcpuFeaturesVmx {
     }
     
     public partial class CapabilitiesHostcapsHostcpuMicrocode {
@@ -2389,12 +2416,12 @@ namespace Libvirt.Model {
     [System.Xml.Serialization.XmlTypeAttribute("migration_features", Namespace="")]
     public partial class CapabilitiesHostcapsMigration {
         
-        private string live;
+        private CapabilitiesHostcapsMigrationLive live;
         
         private CapabilitiesHostcapsMigrationUriTransports uriTransports;
         
         [System.Xml.Serialization.XmlElementAttribute("live", Namespace="")]
-        public string Live {
+        public CapabilitiesHostcapsMigrationLive Live {
             get {
                 return this.live;
             }
@@ -2412,6 +2439,9 @@ namespace Libvirt.Model {
                 this.uriTransports = value;
             }
         }
+    }
+    
+    public partial class CapabilitiesHostcapsMigrationLive {
     }
     
     public partial class CapabilitiesHostcapsMigrationUriTransports {
@@ -2447,14 +2477,14 @@ namespace Libvirt.Model {
     [System.Xml.Serialization.XmlTypeAttribute("power_management", Namespace="")]
     public partial class CapabilitiesHostcapsPowerManagement {
         
-        private string suspendMem;
+        private CapabilitiesHostcapsPowerManagementSuspendMem suspendMem;
         
-        private string suspendDisk;
+        private CapabilitiesHostcapsPowerManagementSuspendDisk suspendDisk;
         
-        private string suspendHybrid;
+        private CapabilitiesHostcapsPowerManagementSuspendHybrid suspendHybrid;
         
         [System.Xml.Serialization.XmlElementAttribute("suspend_mem", Namespace="")]
-        public string SuspendMem {
+        public CapabilitiesHostcapsPowerManagementSuspendMem SuspendMem {
             get {
                 return this.suspendMem;
             }
@@ -2464,7 +2494,7 @@ namespace Libvirt.Model {
         }
         
         [System.Xml.Serialization.XmlElementAttribute("suspend_disk", Namespace="")]
-        public string SuspendDisk {
+        public CapabilitiesHostcapsPowerManagementSuspendDisk SuspendDisk {
             get {
                 return this.suspendDisk;
             }
@@ -2474,7 +2504,7 @@ namespace Libvirt.Model {
         }
         
         [System.Xml.Serialization.XmlElementAttribute("suspend_hybrid", Namespace="")]
-        public string SuspendHybrid {
+        public CapabilitiesHostcapsPowerManagementSuspendHybrid SuspendHybrid {
             get {
                 return this.suspendHybrid;
             }
@@ -2482,6 +2512,15 @@ namespace Libvirt.Model {
                 this.suspendHybrid = value;
             }
         }
+    }
+    
+    public partial class CapabilitiesHostcapsPowerManagementSuspendDisk {
+    }
+    
+    public partial class CapabilitiesHostcapsPowerManagementSuspendHybrid {
+    }
+    
+    public partial class CapabilitiesHostcapsPowerManagementSuspendMem {
     }
     
     [System.Xml.Serialization.XmlTypeAttribute("secmodel", Namespace="")]
@@ -12453,9 +12492,9 @@ namespace Libvirt.Model {
         
         private DomainDevicesDiskBackenddomain backenddomain;
         
-        private string @readonly;
+        private DomainDevicesDiskReadonly @readonly;
         
-        private string shareable;
+        private DomainDevicesDiskShareable shareable;
         
         private DomainDevicesDiskTransient transient;
         
@@ -12610,7 +12649,7 @@ namespace Libvirt.Model {
         }
         
         [System.Xml.Serialization.XmlElementAttribute("readonly", Namespace="")]
-        public string Readonly {
+        public DomainDevicesDiskReadonly Readonly {
             get {
                 return this.@readonly;
             }
@@ -12620,7 +12659,7 @@ namespace Libvirt.Model {
         }
         
         [System.Xml.Serialization.XmlElementAttribute("shareable", Namespace="")]
-        public string Shareable {
+        public DomainDevicesDiskShareable Shareable {
             get {
                 return this.shareable;
             }
@@ -16455,6 +16494,9 @@ namespace Libvirt.Model {
         VirtioTransitional,
     }
     
+    public partial class DomainDevicesDiskReadonly {
+    }
+    
     public enum DomainDevicesDiskSgIo {
         
         [System.Xml.Serialization.XmlEnumAttribute(Name="filtered")]
@@ -16462,6 +16504,9 @@ namespace Libvirt.Model {
         
         [System.Xml.Serialization.XmlEnumAttribute(Name="unfiltered")]
         Unfiltered,
+    }
+    
+    public partial class DomainDevicesDiskShareable {
     }
     
     public enum DomainDevicesDiskSnapshot {
@@ -17096,7 +17141,7 @@ namespace Libvirt.Model {
         
         private uint dmode;
         
-        private string @readonly;
+        private DomainDevicesFilesystemReadonly @readonly;
         
         private DomainDevicesHostdevDeviceBoot boot;
         
@@ -17243,7 +17288,7 @@ namespace Libvirt.Model {
         }
         
         [System.Xml.Serialization.XmlElementAttribute("readonly", Namespace="")]
-        public string Readonly {
+        public DomainDevicesFilesystemReadonly Readonly {
             get {
                 return this.@readonly;
             }
@@ -17909,6 +17954,9 @@ namespace Libvirt.Model {
         
         [System.Xml.Serialization.XmlEnumAttribute(Name="warn")]
         Warn,
+    }
+    
+    public partial class DomainDevicesFilesystemReadonly {
     }
     
     public partial class DomainDevicesFilesystemSource {
@@ -19122,9 +19170,9 @@ namespace Libvirt.Model {
         
         private DomainDevicesNvramAddress address;
         
-        private string @readonly;
+        private DomainDevicesHostdevReadonly @readonly;
         
-        private string shareable;
+        private DomainDevicesHostdevShareable shareable;
         
         [System.Xml.Serialization.XmlAttributeAttribute("mode")]
         public DomainDevicesHostdevMode Mode {
@@ -19387,7 +19435,7 @@ namespace Libvirt.Model {
         }
         
         [System.Xml.Serialization.XmlElementAttribute("readonly", Namespace="")]
-        public string Readonly {
+        public DomainDevicesHostdevReadonly Readonly {
             get {
                 return this.@readonly;
             }
@@ -19397,7 +19445,7 @@ namespace Libvirt.Model {
         }
         
         [System.Xml.Serialization.XmlElementAttribute("shareable", Namespace="")]
-        public string Shareable {
+        public DomainDevicesHostdevShareable Shareable {
             get {
                 return this.shareable;
             }
@@ -19491,6 +19539,9 @@ namespace Libvirt.Model {
         VirtioTransitional,
     }
     
+    public partial class DomainDevicesHostdevReadonly {
+    }
+    
     public partial class DomainDevicesHostdevRom {
         
         private VirYesNo enabled;
@@ -19552,6 +19603,9 @@ namespace Libvirt.Model {
                 this.file = value;
             }
         }
+    }
+    
+    public partial class DomainDevicesHostdevShareable {
     }
     
     public partial class DomainDevicesHostdevSource {
@@ -23906,7 +23960,7 @@ namespace Libvirt.Model {
         
         private DomainDevicesMemorydevMemorydevSourceAlignsize alignsize;
         
-        private string pmem;
+        private DomainDevicesMemorydevMemorydevSourcePmem pmem;
         
         [System.Xml.Serialization.XmlElementAttribute("pagesize", Namespace="")]
         public DomainDevicesMemorydevMemorydevSourcePagesize Pagesize {
@@ -23949,7 +24003,7 @@ namespace Libvirt.Model {
         }
         
         [System.Xml.Serialization.XmlElementAttribute("pmem", Namespace="")]
-        public string Pmem {
+        public DomainDevicesMemorydevMemorydevSourcePmem Pmem {
             get {
                 return this.pmem;
             }
@@ -24013,6 +24067,9 @@ namespace Libvirt.Model {
         }
     }
     
+    public partial class DomainDevicesMemorydevMemorydevSourcePmem {
+    }
+    
     public partial class DomainDevicesMemorydevMemorydevTarget {
         
         private DomainDevicesMemorydevMemorydevTargetSize size;
@@ -24029,7 +24086,7 @@ namespace Libvirt.Model {
         
         private DomainDevicesMemorydevMemorydevTargetLabel label;
         
-        private string @readonly;
+        private DomainDevicesMemorydevMemorydevTargetReadonly @readonly;
         
         [System.Xml.Serialization.XmlElementAttribute("size", Namespace="")]
         public DomainDevicesMemorydevMemorydevTargetSize Size {
@@ -24102,7 +24159,7 @@ namespace Libvirt.Model {
         }
         
         [System.Xml.Serialization.XmlElementAttribute("readonly", Namespace="")]
-        public string Readonly {
+        public DomainDevicesMemorydevMemorydevTargetReadonly Readonly {
             get {
                 return this.@readonly;
             }
@@ -24206,6 +24263,9 @@ namespace Libvirt.Model {
                 this.value = value;
             }
         }
+    }
+    
+    public partial class DomainDevicesMemorydevMemorydevTargetReadonly {
     }
     
     public partial class DomainDevicesMemorydevMemorydevTargetRequested {
@@ -26240,16 +26300,16 @@ namespace Libvirt.Model {
     
     public partial class DomainDevicesTpmTpmBackendActivePcrBanks {
         
-        private string sha1;
+        private DomainDevicesTpmTpmBackendActivePcrBanksSha1 sha1;
         
-        private string sha256;
+        private DomainDevicesTpmTpmBackendActivePcrBanksSha256 sha256;
         
-        private string sha384;
+        private DomainDevicesTpmTpmBackendActivePcrBanksSha384 sha384;
         
-        private string sha512;
+        private DomainDevicesTpmTpmBackendActivePcrBanksSha512 sha512;
         
         [System.Xml.Serialization.XmlElementAttribute("sha1", Namespace="")]
-        public string Sha1 {
+        public DomainDevicesTpmTpmBackendActivePcrBanksSha1 Sha1 {
             get {
                 return this.sha1;
             }
@@ -26259,7 +26319,7 @@ namespace Libvirt.Model {
         }
         
         [System.Xml.Serialization.XmlElementAttribute("sha256", Namespace="")]
-        public string Sha256 {
+        public DomainDevicesTpmTpmBackendActivePcrBanksSha256 Sha256 {
             get {
                 return this.sha256;
             }
@@ -26269,7 +26329,7 @@ namespace Libvirt.Model {
         }
         
         [System.Xml.Serialization.XmlElementAttribute("sha384", Namespace="")]
-        public string Sha384 {
+        public DomainDevicesTpmTpmBackendActivePcrBanksSha384 Sha384 {
             get {
                 return this.sha384;
             }
@@ -26279,7 +26339,7 @@ namespace Libvirt.Model {
         }
         
         [System.Xml.Serialization.XmlElementAttribute("sha512", Namespace="")]
-        public string Sha512 {
+        public DomainDevicesTpmTpmBackendActivePcrBanksSha512 Sha512 {
             get {
                 return this.sha512;
             }
@@ -26287,6 +26347,18 @@ namespace Libvirt.Model {
                 this.sha512 = value;
             }
         }
+    }
+    
+    public partial class DomainDevicesTpmTpmBackendActivePcrBanksSha1 {
+    }
+    
+    public partial class DomainDevicesTpmTpmBackendActivePcrBanksSha256 {
+    }
+    
+    public partial class DomainDevicesTpmTpmBackendActivePcrBanksSha384 {
+    }
+    
+    public partial class DomainDevicesTpmTpmBackendActivePcrBanksSha512 {
     }
     
     public partial class DomainDevicesTpmTpmBackendDevice {
@@ -27311,23 +27383,23 @@ namespace Libvirt.Model {
     
     public partial class DomainFeatures {
         
-        private string pae;
+        private DomainFeaturesPae pae;
         
         private DomainFeaturesApic apic;
         
-        private string acpi;
+        private DomainFeaturesAcpi acpi;
         
         private DomainFeaturesHap hap;
         
         private DomainFeaturesHyperv hyperv;
         
-        private string viridian;
+        private DomainFeaturesViridian viridian;
         
         private DomainFeaturesKvm kvm;
         
         private DomainFeaturesXen xen;
         
-        private string privnet;
+        private DomainFeaturesPrivnet privnet;
         
         private DomainFeaturesPvspinlock pvspinlock;
         
@@ -27364,7 +27436,7 @@ namespace Libvirt.Model {
         private DomainFeaturesTcgfeatures tcg;
         
         [System.Xml.Serialization.XmlElementAttribute("pae", Namespace="")]
-        public string Pae {
+        public DomainFeaturesPae Pae {
             get {
                 return this.pae;
             }
@@ -27384,7 +27456,7 @@ namespace Libvirt.Model {
         }
         
         [System.Xml.Serialization.XmlElementAttribute("acpi", Namespace="")]
-        public string Acpi {
+        public DomainFeaturesAcpi Acpi {
             get {
                 return this.acpi;
             }
@@ -27414,7 +27486,7 @@ namespace Libvirt.Model {
         }
         
         [System.Xml.Serialization.XmlElementAttribute("viridian", Namespace="")]
-        public string Viridian {
+        public DomainFeaturesViridian Viridian {
             get {
                 return this.viridian;
             }
@@ -27444,7 +27516,7 @@ namespace Libvirt.Model {
         }
         
         [System.Xml.Serialization.XmlElementAttribute("privnet", Namespace="")]
-        public string Privnet {
+        public DomainFeaturesPrivnet Privnet {
             get {
                 return this.privnet;
             }
@@ -27622,6 +27694,9 @@ namespace Libvirt.Model {
                 this.tcg = value;
             }
         }
+    }
+    
+    public partial class DomainFeaturesAcpi {
     }
     
     public partial class DomainFeaturesApic {
@@ -29660,6 +29735,9 @@ namespace Libvirt.Model {
         }
     }
     
+    public partial class DomainFeaturesPae {
+    }
+    
     [System.Xml.Serialization.XmlTypeAttribute("pmu", Namespace="")]
     public partial class DomainFeaturesPmu {
         
@@ -29686,6 +29764,9 @@ namespace Libvirt.Model {
                 this.stateSpecified = value;
             }
         }
+    }
+    
+    public partial class DomainFeaturesPrivnet {
     }
     
     public partial class DomainFeaturesPvspinlock {
@@ -29850,6 +29931,9 @@ namespace Libvirt.Model {
                 this.value = value;
             }
         }
+    }
+    
+    public partial class DomainFeaturesViridian {
     }
     
     [System.Xml.Serialization.XmlTypeAttribute("vmcoreinfo", Namespace="")]
@@ -30542,9 +30626,9 @@ namespace Libvirt.Model {
         
         private DomainMemoryBackingHugepages hugepages;
         
-        private string nosharepages;
+        private DomainMemoryBackingNosharepages nosharepages;
         
-        private string locked;
+        private DomainMemoryBackingLocked locked;
         
         private DomainMemoryBackingSource source;
         
@@ -30552,7 +30636,7 @@ namespace Libvirt.Model {
         
         private DomainMemoryBackingAllocation allocation;
         
-        private string discard;
+        private DomainMemoryBackingDiscard discard;
         
         [System.Xml.Serialization.XmlElementAttribute("hugepages", Namespace="")]
         public DomainMemoryBackingHugepages Hugepages {
@@ -30565,7 +30649,7 @@ namespace Libvirt.Model {
         }
         
         [System.Xml.Serialization.XmlElementAttribute("nosharepages", Namespace="")]
-        public string Nosharepages {
+        public DomainMemoryBackingNosharepages Nosharepages {
             get {
                 return this.nosharepages;
             }
@@ -30575,7 +30659,7 @@ namespace Libvirt.Model {
         }
         
         [System.Xml.Serialization.XmlElementAttribute("locked", Namespace="")]
-        public string Locked {
+        public DomainMemoryBackingLocked Locked {
             get {
                 return this.locked;
             }
@@ -30615,7 +30699,7 @@ namespace Libvirt.Model {
         }
         
         [System.Xml.Serialization.XmlElementAttribute("discard", Namespace="")]
-        public string Discard {
+        public DomainMemoryBackingDiscard Discard {
             get {
                 return this.discard;
             }
@@ -30709,6 +30793,9 @@ namespace Libvirt.Model {
         Ondemand,
     }
     
+    public partial class DomainMemoryBackingDiscard {
+    }
+    
     public partial class DomainMemoryBackingHugepages {
         
         private DomainMemoryBackingHugepagesPage[] page;
@@ -30761,6 +30848,12 @@ namespace Libvirt.Model {
                 this.nodeset = value;
             }
         }
+    }
+    
+    public partial class DomainMemoryBackingLocked {
+    }
+    
+    public partial class DomainMemoryBackingNosharepages {
     }
     
     public partial class DomainMemoryBackingSource {
@@ -36163,7 +36256,7 @@ namespace Libvirt.Model {
         
         private EthernetInterfaceProtocolRoute route;
         
-        private string autoconf;
+        private EthernetInterfaceProtocolIpv6Autoconf autoconf;
         
         [System.Xml.Serialization.XmlAttributeAttribute("family")]
         public EthernetInterfaceProtocolFamily Family {
@@ -36206,7 +36299,7 @@ namespace Libvirt.Model {
         }
         
         [System.Xml.Serialization.XmlElementAttribute("autoconf", Namespace="")]
-        public string Autoconf {
+        public EthernetInterfaceProtocolIpv6Autoconf Autoconf {
             get {
                 return this.autoconf;
             }
@@ -36278,6 +36371,9 @@ namespace Libvirt.Model {
                 this.peerdnsSpecified = value;
             }
         }
+    }
+    
+    public partial class EthernetInterfaceProtocolIpv6Autoconf {
     }
     
     public partial class EthernetInterfaceProtocolRoute {
@@ -48627,7 +48723,7 @@ namespace Libvirt.Model {
         
         private VlanInterfaceProtocolRoute route;
         
-        private string autoconf;
+        private EthernetInterfaceProtocolIpv6Autoconf autoconf;
         
         [System.Xml.Serialization.XmlAttributeAttribute("family")]
         public VlanInterfaceProtocolFamily Family {
@@ -48670,7 +48766,7 @@ namespace Libvirt.Model {
         }
         
         [System.Xml.Serialization.XmlElementAttribute("autoconf", Namespace="")]
-        public string Autoconf {
+        public EthernetInterfaceProtocolIpv6Autoconf Autoconf {
             get {
                 return this.autoconf;
             }
@@ -49102,7 +49198,7 @@ namespace Libvirt.Model {
         
         private string compat;
         
-        private string nocow;
+        private VolTargetNocow nocow;
         
         private VolTargetClusterSize clusterSize;
         
@@ -49169,7 +49265,7 @@ namespace Libvirt.Model {
         }
         
         [System.Xml.Serialization.XmlElementAttribute("nocow", Namespace="")]
-        public string Nocow {
+        public VolTargetNocow Nocow {
             get {
                 return this.nocow;
             }
@@ -49306,12 +49402,12 @@ namespace Libvirt.Model {
     [System.Xml.Serialization.XmlTypeAttribute("features", Namespace="")]
     public partial class VolTargetFileFormatFeatures {
         
-        private string lazyRefcounts;
+        private VolTargetFileFormatFeaturesLazyRefcounts lazyRefcounts;
         
-        private string extendedL2;
+        private VolTargetFileFormatFeaturesExtendedL2 extendedL2;
         
         [System.Xml.Serialization.XmlElementAttribute("lazy_refcounts", Namespace="")]
-        public string LazyRefcounts {
+        public VolTargetFileFormatFeaturesLazyRefcounts LazyRefcounts {
             get {
                 return this.lazyRefcounts;
             }
@@ -49321,7 +49417,7 @@ namespace Libvirt.Model {
         }
         
         [System.Xml.Serialization.XmlElementAttribute("extended_l2", Namespace="")]
-        public string ExtendedL2 {
+        public VolTargetFileFormatFeaturesExtendedL2 ExtendedL2 {
             get {
                 return this.extendedL2;
             }
@@ -49329,6 +49425,12 @@ namespace Libvirt.Model {
                 this.extendedL2 = value;
             }
         }
+    }
+    
+    public partial class VolTargetFileFormatFeaturesExtendedL2 {
+    }
+    
+    public partial class VolTargetFileFormatFeaturesLazyRefcounts {
     }
     
     public partial class VolTargetFormat {
@@ -49467,6 +49569,9 @@ namespace Libvirt.Model {
         
         [System.Xml.Serialization.XmlEnumAttribute(Name="xfs")]
         Xfs,
+    }
+    
+    public partial class VolTargetNocow {
     }
     
     public partial class VolTargetPermissions {

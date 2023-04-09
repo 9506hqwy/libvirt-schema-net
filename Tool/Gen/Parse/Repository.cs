@@ -112,7 +112,7 @@ internal class Repository
                     }
                     else
                     {
-                        throw new Exception($"Not supported. Unknown grammer syntax in `{content.Position}`.");
+                        throw new Exception($"Not supported. Unknown grammar syntax in `{content.Position}`.");
                     }
                 }
 

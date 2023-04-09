@@ -11,8 +11,9 @@ internal class AstTypeDeclaration : AstTypeDeclarationBase
         AstTypeMember[] members,
         AstTypeFragment[] values,
         bool isEmpty,
+        bool isRawXml,
         INode[] statck)
-        : base(members, values, isEmpty)
+        : base(members, values, isEmpty, isRawXml)
     {
         this.node = node;
         this.Stack = statck;

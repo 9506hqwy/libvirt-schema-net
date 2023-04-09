@@ -2,6 +2,7 @@
 
 using Microsoft.CSharp;
 using System.CodeDom.Compiler;
+using System.Xml;
 using System.Xml.Serialization;
 
 internal static class Code
@@ -20,6 +21,16 @@ internal static class Code
         prop.CustomAttributes.Add(new CodeAttributeDeclaration(
             new CodeTypeReference(typeof(XmlAttributeAttribute)),
             new CodeAttributeArgument(new CodePrimitiveExpression(attrName))));
+    }
+
+    internal static void ConvertForElement(
+        out CodeMemberField field,
+        out CodeMemberProperty prop)
+    {
+        Code.ToProperty(new CodeTypeReference(typeof(XmlElement[])), "elements", out field, out prop);
+
+        prop.CustomAttributes.Add(new CodeAttributeDeclaration(
+            new CodeTypeReference(typeof(XmlAnyElementAttribute))));
     }
 
     internal static void ConvertForElement(

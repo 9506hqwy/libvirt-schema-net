@@ -217,7 +217,7 @@ internal class Generator
         }
         else
         {
-            var xmlModifier = !exceptTypeAttr.Contains(className) && this.WithXmlModifier(type);
+            var xmlModifier = !this.exceptTypeAttr.Contains(className) && this.WithXmlModifier(type);
             Code.ConvertForType(className, type.ElementName, type.FindNamespace(), xmlModifier, out cls);
 
             foreach (var member in type.Members)
@@ -229,6 +229,13 @@ internal class Generator
             if (type.ValueType is not null)
             {
                 Code.ConvertForExtension(out var field, out var prop);
+                cls.Members.Add(field);
+                cls.Members.Add(prop);
+            }
+
+            if (type.IsRawXml)
+            {
+                Code.ConvertForElement(out var field, out var prop);
                 cls.Members.Add(field);
                 cls.Members.Add(prop);
             }

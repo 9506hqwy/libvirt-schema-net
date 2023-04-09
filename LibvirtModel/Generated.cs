@@ -5326,7 +5326,7 @@ namespace Libvirt.Model {
         
         private string description;
         
-        private string metadata;
+        private NetworkMetadata metadata;
         
         private Guestcpu cpu;
         
@@ -5499,7 +5499,7 @@ namespace Libvirt.Model {
         }
         
         [System.Xml.Serialization.XmlElementAttribute("metadata", Namespace="")]
-        public string Metadata {
+        public NetworkMetadata Metadata {
             get {
                 return this.metadata;
             }
@@ -34489,7 +34489,7 @@ namespace Libvirt.Model {
         
         private string description;
         
-        private string metadata;
+        private NetworkMetadata metadata;
         
         private Guestcpu cpu;
         
@@ -34662,7 +34662,7 @@ namespace Libvirt.Model {
         }
         
         [System.Xml.Serialization.XmlElementAttribute("metadata", Namespace="")]
-        public string Metadata {
+        public NetworkMetadata Metadata {
             get {
                 return this.metadata;
             }
@@ -42824,7 +42824,7 @@ namespace Libvirt.Model {
         
         private string description;
         
-        private string metadata;
+        private NetworkMetadata metadata;
         
         private Guestcpu cpu;
         
@@ -42997,7 +42997,7 @@ namespace Libvirt.Model {
         }
         
         [System.Xml.Serialization.XmlElementAttribute("metadata", Namespace="")]
-        public string Metadata {
+        public NetworkMetadata Metadata {
             get {
                 return this.metadata;
             }
@@ -44054,7 +44054,7 @@ namespace Libvirt.Model {
         
         private string name;
         
-        private string metadata;
+        private NetworkMetadata metadata;
         
         private string uuid;
         
@@ -44157,7 +44157,7 @@ namespace Libvirt.Model {
         }
         
         [System.Xml.Serialization.XmlElementAttribute("metadata", Namespace="")]
-        public string Metadata {
+        public NetworkMetadata Metadata {
             get {
                 return this.metadata;
             }
@@ -45643,6 +45643,22 @@ namespace Libvirt.Model {
             }
             set {
                 this.address = value;
+            }
+        }
+    }
+    
+    [System.Xml.Serialization.XmlTypeAttribute("metadata", Namespace="")]
+    public partial class NetworkMetadata {
+        
+        private System.Xml.XmlElement[] elements;
+        
+        [System.Xml.Serialization.XmlAnyElementAttribute()]
+        public System.Xml.XmlElement[] Elements {
+            get {
+                return this.elements;
+            }
+            set {
+                this.elements = value;
             }
         }
     }

@@ -8,7 +8,7 @@ internal class AstMergedTypeDeclaration : AstTypeDeclarationBase
         AstTypeFragment[] values,
         bool isEmpty,
         AstTypeDeclarationBase parent)
-        : base(members, values, isEmpty)
+        : base(members, values, isEmpty, false)
     {
         this.ElementName = typeName;
         this.Parent = parent;

@@ -5,11 +5,13 @@ internal abstract class AstTypeDeclarationBase
     internal AstTypeDeclarationBase(
         AstTypeMember[] members,
         AstTypeFragment[] values,
-        bool isEmpty)
+        bool isEmpty,
+        bool isRawXml)
     {
         this.Members = members;
         this.Values = values;
         this.IsEmpty = isEmpty;
+        this.IsRawXml = isRawXml;
     }
 
     internal abstract int Depth { get; }
@@ -19,6 +21,8 @@ internal abstract class AstTypeDeclarationBase
     internal bool FundamentalType => this.ValueType?.Type is not null;
 
     internal bool IsEmpty { get; }
+
+    internal bool IsRawXml { get; }
 
     internal AstTypeMember[] Members { get; }
 

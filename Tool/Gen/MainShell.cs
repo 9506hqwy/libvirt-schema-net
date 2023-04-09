@@ -35,6 +35,11 @@ internal class MainShell
             new ExcludeDefine("storageSourceExtra", "storagecommon.rng"),
         };
 
+        var rawDefines = new[]
+        {
+            new RawXmlDefine("metadata", "basictypes.rng"),
+        };
+
         var exceptTypeAttr = new[]
         {
             "bridge-interface_bridge_bare-ethernet-interface",
@@ -49,7 +54,7 @@ internal class MainShell
             f => f);
 
         var repository = new Repository(files.Values.ToArray(), execludedDefines);
-        var builder = new AstBuilder(repository);
+        var builder = new AstBuilder(repository, rawDefines);
         var types = builder.Types
             .Where(t => !t.FundamentalType)
             .OfType<AstTypeDeclarationBase>()

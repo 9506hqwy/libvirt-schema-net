@@ -106,7 +106,7 @@ internal class Repository
                         {
                             foreach (var start in root.DescendantNodes.OfType<Start>())
                             {
-                                this.ParseStart(parent, start, stack.Copy());
+                                this.ParseStart(parent, start, childStack.Copy());
                             }
                         }
                     }

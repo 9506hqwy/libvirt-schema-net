@@ -7274,6 +7274,8 @@ namespace Libvirt.Model {
         
         private DomainCapabilitiesDevicesChannel channel;
         
+        private DomainCapabilitiesDevicesCrypto crypto;
+        
         [System.Xml.Serialization.XmlElementAttribute("disk", Namespace="")]
         public DomainCapabilitiesDevicesDisk Disk {
             get {
@@ -7363,10 +7365,48 @@ namespace Libvirt.Model {
                 this.channel = value;
             }
         }
+        
+        [System.Xml.Serialization.XmlElementAttribute("crypto", Namespace="")]
+        public DomainCapabilitiesDevicesCrypto Crypto {
+            get {
+                return this.crypto;
+            }
+            set {
+                this.crypto = value;
+            }
+        }
     }
     
     [System.Xml.Serialization.XmlTypeAttribute("channel", Namespace="")]
     public partial class DomainCapabilitiesDevicesChannel {
+        
+        private VirYesNo supported;
+        
+        private DomainCapabilitiesMemoryBackingEnum[] @enum;
+        
+        [System.Xml.Serialization.XmlAttributeAttribute("supported")]
+        public VirYesNo Supported {
+            get {
+                return this.supported;
+            }
+            set {
+                this.supported = value;
+            }
+        }
+        
+        [System.Xml.Serialization.XmlElementAttribute("enum", Namespace="")]
+        public DomainCapabilitiesMemoryBackingEnum[] Enum {
+            get {
+                return this.@enum;
+            }
+            set {
+                this.@enum = value;
+            }
+        }
+    }
+    
+    [System.Xml.Serialization.XmlTypeAttribute("crypto", Namespace="")]
+    public partial class DomainCapabilitiesDevicesCrypto {
         
         private VirYesNo supported;
         
@@ -9909,7 +9949,9 @@ namespace Libvirt.Model {
         
         private DomainDevicesMemorydev[] memory;
         
-        private DomainDevicesWatchdog watchdog;
+        private DomainDevicesCrypto[] crypto;
+        
+        private DomainDevicesWatchdog[] watchdog;
         
         private DomainDevicesMemballoon memballoon;
         
@@ -10161,8 +10203,18 @@ namespace Libvirt.Model {
             }
         }
         
+        [System.Xml.Serialization.XmlElementAttribute("crypto", Namespace="")]
+        public DomainDevicesCrypto[] Crypto {
+            get {
+                return this.crypto;
+            }
+            set {
+                this.crypto = value;
+            }
+        }
+        
         [System.Xml.Serialization.XmlElementAttribute("watchdog", Namespace="")]
-        public DomainDevicesWatchdog Watchdog {
+        public DomainDevicesWatchdog[] Watchdog {
             get {
                 return this.watchdog;
             }
@@ -11479,7 +11531,7 @@ namespace Libvirt.Model {
         
         private DomainDevicesWatchdogAlias alias;
         
-        private DomainDevicesSmartcardAcpi acpi;
+        private DomainDevicesWatchdogAcpi acpi;
         
         private DomainDevicesNvramAddress address;
         
@@ -11564,7 +11616,7 @@ namespace Libvirt.Model {
         }
         
         [System.Xml.Serialization.XmlElementAttribute("acpi", Namespace="")]
-        public DomainDevicesSmartcardAcpi Acpi {
+        public DomainDevicesWatchdogAcpi Acpi {
             get {
                 return this.acpi;
             }
@@ -11653,7 +11705,7 @@ namespace Libvirt.Model {
         
         private DomainDevicesWatchdogAlias alias;
         
-        private DomainDevicesSmartcardAcpi acpi;
+        private DomainDevicesWatchdogAcpi acpi;
         
         private DomainDevicesNvramAddress address;
         
@@ -11718,7 +11770,7 @@ namespace Libvirt.Model {
         }
         
         [System.Xml.Serialization.XmlElementAttribute("acpi", Namespace="")]
-        public DomainDevicesSmartcardAcpi Acpi {
+        public DomainDevicesWatchdogAcpi Acpi {
             get {
                 return this.acpi;
             }
@@ -12467,6 +12519,229 @@ namespace Libvirt.Model {
         }
     }
     
+    [System.Xml.Serialization.XmlTypeAttribute("crypto", Namespace="")]
+    public partial class DomainDevicesCrypto {
+        
+        private DomainDevicesCryptoModel model;
+        
+        private DomainDevicesCryptoType type;
+        
+        private DomainDevicesCryptoCryptoBackend backend;
+        
+        private DomainDevicesCryptoDriver driver;
+        
+        private DomainDevicesWatchdogAlias alias;
+        
+        private DomainDevicesNvramAddress address;
+        
+        [System.Xml.Serialization.XmlAttributeAttribute("model")]
+        public DomainDevicesCryptoModel Model {
+            get {
+                return this.model;
+            }
+            set {
+                this.model = value;
+            }
+        }
+        
+        [System.Xml.Serialization.XmlAttributeAttribute("type")]
+        public DomainDevicesCryptoType Type {
+            get {
+                return this.type;
+            }
+            set {
+                this.type = value;
+            }
+        }
+        
+        [System.Xml.Serialization.XmlElementAttribute("backend", Namespace="")]
+        public DomainDevicesCryptoCryptoBackend Backend {
+            get {
+                return this.backend;
+            }
+            set {
+                this.backend = value;
+            }
+        }
+        
+        [System.Xml.Serialization.XmlElementAttribute("driver", Namespace="")]
+        public DomainDevicesCryptoDriver Driver {
+            get {
+                return this.driver;
+            }
+            set {
+                this.driver = value;
+            }
+        }
+        
+        [System.Xml.Serialization.XmlElementAttribute("alias", Namespace="")]
+        public DomainDevicesWatchdogAlias Alias {
+            get {
+                return this.alias;
+            }
+            set {
+                this.alias = value;
+            }
+        }
+        
+        [System.Xml.Serialization.XmlElementAttribute("address", Namespace="")]
+        public DomainDevicesNvramAddress Address {
+            get {
+                return this.address;
+            }
+            set {
+                this.address = value;
+            }
+        }
+    }
+    
+    public partial class DomainDevicesCryptoCryptoBackend {
+        
+        private DomainDevicesCryptoCryptoBackendModel model;
+        
+        private ulong queues;
+        
+        [System.Xml.Serialization.XmlAttributeAttribute("model")]
+        public DomainDevicesCryptoCryptoBackendModel Model {
+            get {
+                return this.model;
+            }
+            set {
+                this.model = value;
+            }
+        }
+        
+        [System.Xml.Serialization.XmlAttributeAttribute("queues")]
+        public ulong Queues {
+            get {
+                return this.queues;
+            }
+            set {
+                this.queues = value;
+            }
+        }
+    }
+    
+    public enum DomainDevicesCryptoCryptoBackendModel {
+        
+        [System.Xml.Serialization.XmlEnumAttribute(Name="builtin")]
+        Builtin,
+        
+        [System.Xml.Serialization.XmlEnumAttribute(Name="lkcf")]
+        Lkcf,
+    }
+    
+    public partial class DomainDevicesCryptoDriver {
+        
+        private VirOnOff iommu;
+        
+        private bool iommuSpecified;
+        
+        private VirOnOff ats;
+        
+        private bool atsSpecified;
+        
+        private VirOnOff packed;
+        
+        private bool packedSpecified;
+        
+        private VirOnOff pagePerVq;
+        
+        private bool pagePerVqSpecified;
+        
+        [System.Xml.Serialization.XmlAttributeAttribute("iommu")]
+        public VirOnOff Iommu {
+            get {
+                return this.iommu;
+            }
+            set {
+                this.iommu = value;
+            }
+        }
+        
+        [System.Xml.Serialization.XmlIgnoreAttribute()]
+        public bool IommuSpecified {
+            get {
+                return this.iommuSpecified;
+            }
+            set {
+                this.iommuSpecified = value;
+            }
+        }
+        
+        [System.Xml.Serialization.XmlAttributeAttribute("ats")]
+        public VirOnOff Ats {
+            get {
+                return this.ats;
+            }
+            set {
+                this.ats = value;
+            }
+        }
+        
+        [System.Xml.Serialization.XmlIgnoreAttribute()]
+        public bool AtsSpecified {
+            get {
+                return this.atsSpecified;
+            }
+            set {
+                this.atsSpecified = value;
+            }
+        }
+        
+        [System.Xml.Serialization.XmlAttributeAttribute("packed")]
+        public VirOnOff Packed {
+            get {
+                return this.packed;
+            }
+            set {
+                this.packed = value;
+            }
+        }
+        
+        [System.Xml.Serialization.XmlIgnoreAttribute()]
+        public bool PackedSpecified {
+            get {
+                return this.packedSpecified;
+            }
+            set {
+                this.packedSpecified = value;
+            }
+        }
+        
+        [System.Xml.Serialization.XmlAttributeAttribute("page_per_vq")]
+        public VirOnOff PagePerVq {
+            get {
+                return this.pagePerVq;
+            }
+            set {
+                this.pagePerVq = value;
+            }
+        }
+        
+        [System.Xml.Serialization.XmlIgnoreAttribute()]
+        public bool PagePerVqSpecified {
+            get {
+                return this.pagePerVqSpecified;
+            }
+            set {
+                this.pagePerVqSpecified = value;
+            }
+        }
+    }
+    
+    public enum DomainDevicesCryptoModel {
+        
+        [System.Xml.Serialization.XmlEnumAttribute(Name="virtio")]
+        Virtio,
+    }
+    
+    public enum DomainDevicesCryptoType {
+        
+        [System.Xml.Serialization.XmlEnumAttribute(Name="qemu")]
+        Qemu,
+    }
+    
     [System.Xml.Serialization.XmlTypeAttribute("disk", Namespace="")]
     public partial class DomainDevicesDisk {
         
@@ -12506,7 +12781,7 @@ namespace Libvirt.Model {
         
         private DomainDevicesWatchdogAlias alias;
         
-        private DomainDevicesSmartcardAcpi acpi;
+        private DomainDevicesWatchdogAcpi acpi;
         
         private DomainDevicesNvramAddress address;
         
@@ -12719,7 +12994,7 @@ namespace Libvirt.Model {
         }
         
         [System.Xml.Serialization.XmlElementAttribute("acpi", Namespace="")]
-        public DomainDevicesSmartcardAcpi Acpi {
+        public DomainDevicesWatchdogAcpi Acpi {
             get {
                 return this.acpi;
             }
@@ -13020,6 +13295,8 @@ namespace Libvirt.Model {
         
         private DomainOsNvramDiskSourceNetworkProtocolNbdDiskSourceNetworkHost[] host;
         
+        private DomainOsNvramSourceReconnect reconnect;
+        
         private DomainOsNvramDiskSourceNetworkProtocolRbdSnapshot snapshot;
         
         private DomainOsNvramDiskSourceNetworkProtocolRbdConfig config;
@@ -13059,8 +13336,6 @@ namespace Libvirt.Model {
         private DomainOsNvramSourceAddress address;
         
         private string path;
-        
-        private DomainOsNvramSourceReconnect reconnect;
         
         [System.Xml.Serialization.XmlAttributeAttribute("file")]
         public string File {
@@ -13229,6 +13504,16 @@ namespace Libvirt.Model {
             }
             set {
                 this.host = value;
+            }
+        }
+        
+        [System.Xml.Serialization.XmlElementAttribute("reconnect", Namespace="")]
+        public DomainOsNvramSourceReconnect Reconnect {
+            get {
+                return this.reconnect;
+            }
+            set {
+                this.reconnect = value;
             }
         }
         
@@ -13429,16 +13714,6 @@ namespace Libvirt.Model {
             }
             set {
                 this.path = value;
-            }
-        }
-        
-        [System.Xml.Serialization.XmlElementAttribute("reconnect", Namespace="")]
-        public DomainOsNvramSourceReconnect Reconnect {
-            get {
-                return this.reconnect;
-            }
-            set {
-                this.reconnect = value;
             }
         }
     }
@@ -14991,6 +15266,8 @@ namespace Libvirt.Model {
         
         private DomainOsNvramDiskSourceNetworkProtocolNbdDiskSourceNetworkHost[] host;
         
+        private DomainOsNvramSourceReconnect reconnect;
+        
         private DomainOsNvramDiskSourceNetworkProtocolRbdSnapshot snapshot;
         
         private DomainOsNvramDiskSourceNetworkProtocolRbdConfig config;
@@ -15030,8 +15307,6 @@ namespace Libvirt.Model {
         private DomainOsNvramSourceAddress address;
         
         private string path;
-        
-        private DomainOsNvramSourceReconnect reconnect;
         
         [System.Xml.Serialization.XmlAttributeAttribute("file")]
         public string File {
@@ -15200,6 +15475,16 @@ namespace Libvirt.Model {
             }
             set {
                 this.host = value;
+            }
+        }
+        
+        [System.Xml.Serialization.XmlElementAttribute("reconnect", Namespace="")]
+        public DomainOsNvramSourceReconnect Reconnect {
+            get {
+                return this.reconnect;
+            }
+            set {
+                this.reconnect = value;
             }
         }
         
@@ -15400,16 +15685,6 @@ namespace Libvirt.Model {
             }
             set {
                 this.path = value;
-            }
-        }
-        
-        [System.Xml.Serialization.XmlElementAttribute("reconnect", Namespace="")]
-        public DomainOsNvramSourceReconnect Reconnect {
-            get {
-                return this.reconnect;
-            }
-            set {
-                this.reconnect = value;
             }
         }
     }
@@ -15741,6 +16016,8 @@ namespace Libvirt.Model {
         
         private DomainOsNvramDiskSourceNetworkProtocolNbdDiskSourceNetworkHost[] host;
         
+        private DomainOsNvramSourceReconnect reconnect;
+        
         private DomainOsNvramDiskSourceNetworkProtocolRbdSnapshot snapshot;
         
         private DomainOsNvramDiskSourceNetworkProtocolRbdConfig config;
@@ -15780,8 +16057,6 @@ namespace Libvirt.Model {
         private DomainOsNvramSourceAddress address;
         
         private string path;
-        
-        private DomainOsNvramSourceReconnect reconnect;
         
         [System.Xml.Serialization.XmlAttributeAttribute("file")]
         public string File {
@@ -15950,6 +16225,16 @@ namespace Libvirt.Model {
             }
             set {
                 this.host = value;
+            }
+        }
+        
+        [System.Xml.Serialization.XmlElementAttribute("reconnect", Namespace="")]
+        public DomainOsNvramSourceReconnect Reconnect {
+            get {
+                return this.reconnect;
+            }
+            set {
+                this.reconnect = value;
             }
         }
         
@@ -16150,16 +16435,6 @@ namespace Libvirt.Model {
             }
             set {
                 this.path = value;
-            }
-        }
-        
-        [System.Xml.Serialization.XmlElementAttribute("reconnect", Namespace="")]
-        public DomainOsNvramSourceReconnect Reconnect {
-            get {
-                return this.reconnect;
-            }
-            set {
-                this.reconnect = value;
             }
         }
     }
@@ -16560,6 +16835,8 @@ namespace Libvirt.Model {
         
         private DomainOsNvramDiskSourceNetworkProtocolNbdDiskSourceNetworkHost[] host;
         
+        private DomainOsNvramSourceReconnect reconnect;
+        
         private DomainOsNvramDiskSourceNetworkProtocolRbdSnapshot snapshot;
         
         private DomainOsNvramDiskSourceNetworkProtocolRbdConfig config;
@@ -16599,8 +16876,6 @@ namespace Libvirt.Model {
         private DomainOsNvramSourceAddress address;
         
         private string path;
-        
-        private DomainOsNvramSourceReconnect reconnect;
         
         [System.Xml.Serialization.XmlAttributeAttribute("file")]
         public string File {
@@ -16769,6 +17044,16 @@ namespace Libvirt.Model {
             }
             set {
                 this.host = value;
+            }
+        }
+        
+        [System.Xml.Serialization.XmlElementAttribute("reconnect", Namespace="")]
+        public DomainOsNvramSourceReconnect Reconnect {
+            get {
+                return this.reconnect;
+            }
+            set {
+                this.reconnect = value;
             }
         }
         
@@ -16971,16 +17256,6 @@ namespace Libvirt.Model {
                 this.path = value;
             }
         }
-        
-        [System.Xml.Serialization.XmlElementAttribute("reconnect", Namespace="")]
-        public DomainOsNvramSourceReconnect Reconnect {
-            get {
-                return this.reconnect;
-            }
-            set {
-                this.reconnect = value;
-            }
-        }
     }
     
     public enum DomainDevicesDiskSourceMode {
@@ -17147,7 +17422,7 @@ namespace Libvirt.Model {
         
         private DomainDevicesWatchdogAlias alias;
         
-        private DomainDevicesSmartcardAcpi acpi;
+        private DomainDevicesWatchdogAcpi acpi;
         
         private DomainDevicesNvramAddress address;
         
@@ -17318,7 +17593,7 @@ namespace Libvirt.Model {
         }
         
         [System.Xml.Serialization.XmlElementAttribute("acpi", Namespace="")]
-        public DomainDevicesSmartcardAcpi Acpi {
+        public DomainDevicesWatchdogAcpi Acpi {
             get {
                 return this.acpi;
             }
@@ -19162,7 +19437,7 @@ namespace Libvirt.Model {
         
         private DomainDevicesWatchdogAlias alias;
         
-        private DomainDevicesSmartcardAcpi acpi;
+        private DomainDevicesWatchdogAcpi acpi;
         
         private DomainDevicesHostdevDeviceBoot boot;
         
@@ -19395,7 +19670,7 @@ namespace Libvirt.Model {
         }
         
         [System.Xml.Serialization.XmlElementAttribute("acpi", Namespace="")]
-        public DomainDevicesSmartcardAcpi Acpi {
+        public DomainDevicesWatchdogAcpi Acpi {
             get {
                 return this.acpi;
             }
@@ -20255,7 +20530,7 @@ namespace Libvirt.Model {
         
         private DomainDevicesWatchdogAlias alias;
         
-        private DomainDevicesSmartcardAcpi acpi;
+        private DomainDevicesWatchdogAcpi acpi;
         
         private DomainDevicesNvramAddress address;
         
@@ -20340,7 +20615,7 @@ namespace Libvirt.Model {
         }
         
         [System.Xml.Serialization.XmlElementAttribute("acpi", Namespace="")]
-        public DomainDevicesSmartcardAcpi Acpi {
+        public DomainDevicesWatchdogAcpi Acpi {
             get {
                 return this.acpi;
             }
@@ -20671,7 +20946,7 @@ namespace Libvirt.Model {
         
         private DomainDevicesWatchdogAlias alias;
         
-        private DomainDevicesSmartcardAcpi acpi;
+        private DomainDevicesWatchdogAcpi acpi;
         
         private DomainDevicesNvramAddress address;
         
@@ -20890,7 +21165,7 @@ namespace Libvirt.Model {
         }
         
         [System.Xml.Serialization.XmlElementAttribute("acpi", Namespace="")]
-        public DomainDevicesSmartcardAcpi Acpi {
+        public DomainDevicesWatchdogAcpi Acpi {
             get {
                 return this.acpi;
             }
@@ -23290,7 +23565,7 @@ namespace Libvirt.Model {
         
         private DomainDevicesIommuDriver driver;
         
-        private DomainDevicesSmartcardAcpi acpi;
+        private DomainDevicesWatchdogAcpi acpi;
         
         private DomainDevicesNvramAddress address;
         
@@ -23317,7 +23592,7 @@ namespace Libvirt.Model {
         }
         
         [System.Xml.Serialization.XmlElementAttribute("acpi", Namespace="")]
-        public DomainDevicesSmartcardAcpi Acpi {
+        public DomainDevicesWatchdogAcpi Acpi {
             get {
                 return this.acpi;
             }
@@ -23564,7 +23839,7 @@ namespace Libvirt.Model {
         
         private DomainDevicesWatchdogAlias alias;
         
-        private DomainDevicesSmartcardAcpi acpi;
+        private DomainDevicesWatchdogAcpi acpi;
         
         private DomainDevicesNvramAddress address;
         
@@ -23633,7 +23908,7 @@ namespace Libvirt.Model {
         }
         
         [System.Xml.Serialization.XmlElementAttribute("acpi", Namespace="")]
-        public DomainDevicesSmartcardAcpi Acpi {
+        public DomainDevicesWatchdogAcpi Acpi {
             get {
                 return this.acpi;
             }
@@ -23828,7 +24103,7 @@ namespace Libvirt.Model {
         
         private DomainDevicesWatchdogAlias alias;
         
-        private DomainDevicesSmartcardAcpi acpi;
+        private DomainDevicesWatchdogAcpi acpi;
         
         [System.Xml.Serialization.XmlAttributeAttribute("model")]
         public DomainDevicesMemorydevModel Model {
@@ -23931,7 +24206,7 @@ namespace Libvirt.Model {
         }
         
         [System.Xml.Serialization.XmlElementAttribute("acpi", Namespace="")]
-        public DomainDevicesSmartcardAcpi Acpi {
+        public DomainDevicesWatchdogAcpi Acpi {
             get {
                 return this.acpi;
             }
@@ -24686,6 +24961,9 @@ namespace Libvirt.Model {
         [System.Xml.Serialization.XmlEnumAttribute(Name="pseries")]
         Pseries,
         
+        [System.Xml.Serialization.XmlEnumAttribute(Name="pvpanic")]
+        Pvpanic,
+        
         [System.Xml.Serialization.XmlEnumAttribute(Name="s390")]
         S390,
     }
@@ -24707,7 +24985,7 @@ namespace Libvirt.Model {
         
         private DomainDevicesWatchdogAlias alias;
         
-        private DomainDevicesSmartcardAcpi acpi;
+        private DomainDevicesWatchdogAcpi acpi;
         
         private DomainDevicesNvramAddress address;
         
@@ -24782,7 +25060,7 @@ namespace Libvirt.Model {
         }
         
         [System.Xml.Serialization.XmlElementAttribute("acpi", Namespace="")]
-        public DomainDevicesSmartcardAcpi Acpi {
+        public DomainDevicesWatchdogAcpi Acpi {
             get {
                 return this.acpi;
             }
@@ -25099,7 +25377,7 @@ namespace Libvirt.Model {
         
         private DomainDevicesWatchdogAlias alias;
         
-        private DomainDevicesSmartcardAcpi acpi;
+        private DomainDevicesWatchdogAcpi acpi;
         
         private DomainDevicesNvramAddress address;
         
@@ -25154,7 +25432,7 @@ namespace Libvirt.Model {
         }
         
         [System.Xml.Serialization.XmlElementAttribute("acpi", Namespace="")]
-        public DomainDevicesSmartcardAcpi Acpi {
+        public DomainDevicesWatchdogAcpi Acpi {
             get {
                 return this.acpi;
             }
@@ -25440,7 +25718,7 @@ namespace Libvirt.Model {
         
         private DomainDevicesWatchdogAlias alias;
         
-        private DomainDevicesSmartcardAcpi acpi;
+        private DomainDevicesWatchdogAcpi acpi;
         
         private DomainDevicesNvramAddress address;
         
@@ -25515,7 +25793,7 @@ namespace Libvirt.Model {
         }
         
         [System.Xml.Serialization.XmlElementAttribute("acpi", Namespace="")]
-        public DomainDevicesSmartcardAcpi Acpi {
+        public DomainDevicesWatchdogAcpi Acpi {
             get {
                 return this.acpi;
             }
@@ -25554,7 +25832,7 @@ namespace Libvirt.Model {
         
         private DomainDevicesWatchdogAlias alias;
         
-        private DomainDevicesSmartcardAcpi acpi;
+        private DomainDevicesWatchdogAcpi acpi;
         
         private DomainDevicesNvramAddress address;
         
@@ -25639,7 +25917,7 @@ namespace Libvirt.Model {
         }
         
         [System.Xml.Serialization.XmlElementAttribute("acpi", Namespace="")]
-        public DomainDevicesSmartcardAcpi Acpi {
+        public DomainDevicesWatchdogAcpi Acpi {
             get {
                 return this.acpi;
             }
@@ -25809,7 +26087,7 @@ namespace Libvirt.Model {
         
         private DomainDevicesParallelQemucdevTgtDef target;
         
-        private DomainDevicesSmartcardAcpi acpi;
+        private DomainDevicesWatchdogAcpi acpi;
         
         private DomainDevicesNvramAddress address;
         
@@ -25904,7 +26182,7 @@ namespace Libvirt.Model {
         }
         
         [System.Xml.Serialization.XmlElementAttribute("acpi", Namespace="")]
-        public DomainDevicesSmartcardAcpi Acpi {
+        public DomainDevicesWatchdogAcpi Acpi {
             get {
                 return this.acpi;
             }
@@ -25920,33 +26198,6 @@ namespace Libvirt.Model {
             }
             set {
                 this.address = value;
-            }
-        }
-    }
-    
-    public partial class DomainDevicesSmartcardAcpi {
-        
-        private uint index;
-        
-        private bool indexSpecified;
-        
-        [System.Xml.Serialization.XmlAttributeAttribute("index")]
-        public uint Index {
-            get {
-                return this.index;
-            }
-            set {
-                this.index = value;
-            }
-        }
-        
-        [System.Xml.Serialization.XmlIgnoreAttribute()]
-        public bool IndexSpecified {
-            get {
-                return this.indexSpecified;
-            }
-            set {
-                this.indexSpecified = value;
             }
         }
     }
@@ -25970,7 +26221,7 @@ namespace Libvirt.Model {
         
         private DomainDevicesWatchdogAlias alias;
         
-        private DomainDevicesSmartcardAcpi acpi;
+        private DomainDevicesWatchdogAcpi acpi;
         
         private DomainDevicesNvramAddress address;
         
@@ -25999,7 +26250,7 @@ namespace Libvirt.Model {
         }
         
         [System.Xml.Serialization.XmlElementAttribute("acpi", Namespace="")]
-        public DomainDevicesSmartcardAcpi Acpi {
+        public DomainDevicesWatchdogAcpi Acpi {
             get {
                 return this.acpi;
             }
@@ -26472,7 +26723,7 @@ namespace Libvirt.Model {
         
         private DomainDevicesWatchdogAlias alias;
         
-        private DomainDevicesSmartcardAcpi acpi;
+        private DomainDevicesWatchdogAcpi acpi;
         
         private DomainDevicesNvramAddress address;
         
@@ -26507,7 +26758,7 @@ namespace Libvirt.Model {
         }
         
         [System.Xml.Serialization.XmlElementAttribute("acpi", Namespace="")]
-        public DomainDevicesSmartcardAcpi Acpi {
+        public DomainDevicesWatchdogAcpi Acpi {
             get {
                 return this.acpi;
             }
@@ -26723,6 +26974,10 @@ namespace Libvirt.Model {
         
         private bool primarySpecified;
         
+        private VirOnOff blob;
+        
+        private bool blobSpecified;
+        
         private DomainDevicesVideoModelAcceleration acceleration;
         
         private DomainDevicesVideoModelResolution resolution;
@@ -26854,6 +27109,26 @@ namespace Libvirt.Model {
             }
             set {
                 this.primarySpecified = value;
+            }
+        }
+        
+        [System.Xml.Serialization.XmlAttributeAttribute("blob")]
+        public VirOnOff Blob {
+            get {
+                return this.blob;
+            }
+            set {
+                this.blob = value;
+            }
+        }
+        
+        [System.Xml.Serialization.XmlIgnoreAttribute()]
+        public bool BlobSpecified {
+            get {
+                return this.blobSpecified;
+            }
+            set {
+                this.blobSpecified = value;
             }
         }
         
@@ -27017,7 +27292,7 @@ namespace Libvirt.Model {
         
         private DomainDevicesWatchdogAlias alias;
         
-        private DomainDevicesSmartcardAcpi acpi;
+        private DomainDevicesWatchdogAcpi acpi;
         
         private DomainDevicesVsockDriver driver;
         
@@ -27072,7 +27347,7 @@ namespace Libvirt.Model {
         }
         
         [System.Xml.Serialization.XmlElementAttribute("acpi", Namespace="")]
-        public DomainDevicesSmartcardAcpi Acpi {
+        public DomainDevicesWatchdogAcpi Acpi {
             get {
                 return this.acpi;
             }
@@ -27265,7 +27540,7 @@ namespace Libvirt.Model {
         
         private DomainDevicesWatchdogAlias alias;
         
-        private DomainDevicesSmartcardAcpi acpi;
+        private DomainDevicesWatchdogAcpi acpi;
         
         private DomainDevicesNvramAddress address;
         
@@ -27310,7 +27585,7 @@ namespace Libvirt.Model {
         }
         
         [System.Xml.Serialization.XmlElementAttribute("acpi", Namespace="")]
-        public DomainDevicesSmartcardAcpi Acpi {
+        public DomainDevicesWatchdogAcpi Acpi {
             get {
                 return this.acpi;
             }
@@ -27326,6 +27601,33 @@ namespace Libvirt.Model {
             }
             set {
                 this.address = value;
+            }
+        }
+    }
+    
+    public partial class DomainDevicesWatchdogAcpi {
+        
+        private uint index;
+        
+        private bool indexSpecified;
+        
+        [System.Xml.Serialization.XmlAttributeAttribute("index")]
+        public uint Index {
+            get {
+                return this.index;
+            }
+            set {
+                this.index = value;
+            }
+        }
+        
+        [System.Xml.Serialization.XmlIgnoreAttribute()]
+        public bool IndexSpecified {
+            get {
+                return this.indexSpecified;
+            }
+            set {
+                this.indexSpecified = value;
             }
         }
     }
@@ -27379,6 +27681,9 @@ namespace Libvirt.Model {
         
         [System.Xml.Serialization.XmlEnumAttribute(Name="ib700")]
         Ib700,
+        
+        [System.Xml.Serialization.XmlEnumAttribute(Name="itco")]
+        Itco,
     }
     
     public partial class DomainFeatures {
@@ -31724,6 +32029,10 @@ namespace Libvirt.Model {
         
         private bool statelessSpecified;
         
+        private DomainOsLoaderPflashFormat format;
+        
+        private bool formatSpecified;
+        
         private string value;
         
         [System.Xml.Serialization.XmlAttributeAttribute("readonly")]
@@ -31806,6 +32115,26 @@ namespace Libvirt.Model {
             }
         }
         
+        [System.Xml.Serialization.XmlAttributeAttribute("format")]
+        public DomainOsLoaderPflashFormat Format {
+            get {
+                return this.format;
+            }
+            set {
+                this.format = value;
+            }
+        }
+        
+        [System.Xml.Serialization.XmlIgnoreAttribute()]
+        public bool FormatSpecified {
+            get {
+                return this.formatSpecified;
+            }
+            set {
+                this.formatSpecified = value;
+            }
+        }
+        
         [System.Xml.Serialization.XmlTextAttribute()]
         public string Value {
             get {
@@ -31815,6 +32144,15 @@ namespace Libvirt.Model {
                 this.value = value;
             }
         }
+    }
+    
+    public enum DomainOsLoaderPflashFormat {
+        
+        [System.Xml.Serialization.XmlEnumAttribute(Name="qcow2")]
+        Qcow2,
+        
+        [System.Xml.Serialization.XmlEnumAttribute(Name="raw")]
+        Raw,
     }
     
     public enum DomainOsLoaderType {
@@ -31829,6 +32167,10 @@ namespace Libvirt.Model {
     public partial class DomainOsNvram {
         
         private string template;
+        
+        private DomainOsLoaderPflashFormat format;
+        
+        private bool formatSpecified;
         
         private DomainOsNvramType type;
         
@@ -31845,6 +32187,26 @@ namespace Libvirt.Model {
             }
             set {
                 this.template = value;
+            }
+        }
+        
+        [System.Xml.Serialization.XmlAttributeAttribute("format")]
+        public DomainOsLoaderPflashFormat Format {
+            get {
+                return this.format;
+            }
+            set {
+                this.format = value;
+            }
+        }
+        
+        [System.Xml.Serialization.XmlIgnoreAttribute()]
+        public bool FormatSpecified {
+            get {
+                return this.formatSpecified;
+            }
+            set {
+                this.formatSpecified = value;
             }
         }
         
@@ -32219,6 +32581,8 @@ namespace Libvirt.Model {
         
         private DomainOsNvramDiskSourceNetworkProtocolNbdDiskSourceNetworkHost[] host;
         
+        private DomainOsNvramSourceReconnect reconnect;
+        
         private DomainOsNvramDiskSourceNetworkProtocolRbdSnapshot snapshot;
         
         private DomainOsNvramDiskSourceNetworkProtocolRbdConfig config;
@@ -32258,8 +32622,6 @@ namespace Libvirt.Model {
         private DomainOsNvramSourceAddress address;
         
         private string path;
-        
-        private DomainOsNvramSourceReconnect reconnect;
         
         [System.Xml.Serialization.XmlAttributeAttribute("file")]
         public string File {
@@ -32428,6 +32790,16 @@ namespace Libvirt.Model {
             }
             set {
                 this.host = value;
+            }
+        }
+        
+        [System.Xml.Serialization.XmlElementAttribute("reconnect", Namespace="")]
+        public DomainOsNvramSourceReconnect Reconnect {
+            get {
+                return this.reconnect;
+            }
+            set {
+                this.reconnect = value;
             }
         }
         
@@ -32630,16 +33002,6 @@ namespace Libvirt.Model {
                 this.path = value;
             }
         }
-        
-        [System.Xml.Serialization.XmlElementAttribute("reconnect", Namespace="")]
-        public DomainOsNvramSourceReconnect Reconnect {
-            get {
-                return this.reconnect;
-            }
-            set {
-                this.reconnect = value;
-            }
-        }
     }
     
     public partial class DomainOsNvramSourceAddress {
@@ -32791,6 +33153,9 @@ namespace Libvirt.Model {
         [System.Xml.Serialization.XmlEnumAttribute(Name="luks")]
         Luks,
         
+        [System.Xml.Serialization.XmlEnumAttribute(Name="luks-any")]
+        LuksAny,
+        
         [System.Xml.Serialization.XmlEnumAttribute(Name="luks2")]
         Luks2,
         
@@ -32883,9 +33248,15 @@ namespace Libvirt.Model {
         
         private VirYesNo enabled;
         
+        private bool enabledSpecified;
+        
         private uint timeout;
         
         private bool timeoutSpecified;
+        
+        private uint delay;
+        
+        private bool delaySpecified;
         
         [System.Xml.Serialization.XmlAttributeAttribute("enabled")]
         public VirYesNo Enabled {
@@ -32894,6 +33265,16 @@ namespace Libvirt.Model {
             }
             set {
                 this.enabled = value;
+            }
+        }
+        
+        [System.Xml.Serialization.XmlIgnoreAttribute()]
+        public bool EnabledSpecified {
+            get {
+                return this.enabledSpecified;
+            }
+            set {
+                this.enabledSpecified = value;
             }
         }
         
@@ -32914,6 +33295,26 @@ namespace Libvirt.Model {
             }
             set {
                 this.timeoutSpecified = value;
+            }
+        }
+        
+        [System.Xml.Serialization.XmlAttributeAttribute("delay")]
+        public uint Delay {
+            get {
+                return this.delay;
+            }
+            set {
+                this.delay = value;
+            }
+        }
+        
+        [System.Xml.Serialization.XmlIgnoreAttribute()]
+        public bool DelaySpecified {
+            get {
+                return this.delaySpecified;
+            }
+            set {
+                this.delaySpecified = value;
             }
         }
     }
@@ -33878,6 +34279,8 @@ namespace Libvirt.Model {
         
         private DomainsnapshotDisksDisksnapshotDriver driver;
         
+        private DomainsnapshotDisksDisksnapshotSnapshotDeleteInProgress snapshotDeleteInProgress;
+        
         [System.Xml.Serialization.XmlAttributeAttribute("name")]
         public string Name {
             get {
@@ -33945,6 +34348,16 @@ namespace Libvirt.Model {
             }
             set {
                 this.driver = value;
+            }
+        }
+        
+        [System.Xml.Serialization.XmlElementAttribute("snapshotDeleteInProgress", Namespace="")]
+        public DomainsnapshotDisksDisksnapshotSnapshotDeleteInProgress SnapshotDeleteInProgress {
+            get {
+                return this.snapshotDeleteInProgress;
+            }
+            set {
+                this.snapshotDeleteInProgress = value;
             }
         }
     }
@@ -34045,6 +34458,9 @@ namespace Libvirt.Model {
         No,
     }
     
+    public partial class DomainsnapshotDisksDisksnapshotSnapshotDeleteInProgress {
+    }
+    
     public partial class DomainsnapshotDisksDisksnapshotSource {
         
         private string file;
@@ -34070,6 +34486,8 @@ namespace Libvirt.Model {
         private string tlsHostname;
         
         private DomainOsNvramDiskSourceNetworkProtocolNbdDiskSourceNetworkHost[] host;
+        
+        private DomainOsNvramSourceReconnect reconnect;
         
         private DomainOsNvramDiskSourceNetworkProtocolRbdSnapshot snapshot;
         
@@ -34208,6 +34626,16 @@ namespace Libvirt.Model {
             }
             set {
                 this.host = value;
+            }
+        }
+        
+        [System.Xml.Serialization.XmlElementAttribute("reconnect", Namespace="")]
+        public DomainOsNvramSourceReconnect Reconnect {
+            get {
+                return this.reconnect;
+            }
+            set {
+                this.reconnect = value;
             }
         }
         
@@ -49348,7 +49776,7 @@ namespace Libvirt.Model {
         
         private bool engineSpecified;
         
-        private DomainbackupDisksDiskTargetBackupEncryptionSecret secret;
+        private DomainbackupDisksDiskTargetBackupEncryptionSecret[] secret;
         
         private DomainOsNvramSourceEncryptionCipher cipher;
         
@@ -49385,7 +49813,7 @@ namespace Libvirt.Model {
         }
         
         [System.Xml.Serialization.XmlElementAttribute("secret", Namespace="")]
-        public DomainbackupDisksDiskTargetBackupEncryptionSecret Secret {
+        public DomainbackupDisksDiskTargetBackupEncryptionSecret[] Secret {
             get {
                 return this.secret;
             }

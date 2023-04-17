@@ -76,7 +76,7 @@ internal class Generator
             type.Members.Add(field);
             type.Members.Add(prop);
 
-            if ((member.Type.IsEnum || member.Type.IsPrimitive) &&
+            if ((member.Type.IsDatetime || member.Type.IsEnum || member.Type.IsPrimitive) &&
                 member.Type.Optional &&
                 !member.Type.IsArray)
             {
@@ -99,7 +99,7 @@ internal class Generator
             type.Members.Add(field);
             type.Members.Add(prop);
 
-            if ((member.Type.IsEnum || member.Type.IsPrimitive) &&
+            if ((member.Type.IsDatetime || member.Type.IsEnum || member.Type.IsPrimitive) &&
                 member.Type.Optional &&
                 !member.Type.IsArray)
             {

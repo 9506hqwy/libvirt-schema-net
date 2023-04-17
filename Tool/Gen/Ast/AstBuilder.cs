@@ -225,6 +225,9 @@ internal class AstBuilder
                     fragments.AddRange(frag.Fragments);
                 }
 
+                var isOptional = !this.IsMandatoryValue(fragments.ToArray());
+                fragments.ForEach(f => f.SetOptional(isOptional));
+
                 members.Add(new AstTypeMember(nodes.First().Name, fragments.ToArray(), nodes.Key));
             }
         }
@@ -242,10 +245,10 @@ internal class AstBuilder
         member.Type = new AstTypeReference(mergedType, optional, isArray);
     }
 
-    private void MergeFragmentPrimitive(AstTypeMember member, AstTypeReference[] primitives)
+    private void MergeFragmentPrimitive(AstTypeMember member, AstTypeReference[] primitives, bool optional, bool isArray)
     {
-        var optional = primitives.Any(v => v.Optional);
-        var isArray = primitives[0].IsArray;
+        optional = optional || primitives.Any(v => v.Optional);
+        isArray = isArray || primitives[0].IsArray;
 
         if (primitives.Any(p => p.Type == typeof(double)))
         {
@@ -305,7 +308,7 @@ internal class AstBuilder
             return;
         }
 
-        var optional = values.Any(v => v.Optional) && !this.IsMandatoryValue(values);
+        var optional = !this.IsMandatoryValue(values);
         var isArray = values.Any(v => v.IsArray);
 
         if (values.Any(v => v.Type!.ValueType!.IsString))
@@ -329,7 +332,7 @@ internal class AstBuilder
 
         if (values.All(v => v.Type!.ValueType!.IsPrimitive))
         {
-            this.MergeFragmentPrimitive(member, values.Select(v => v.Type!.ValueType!).ToArray());
+            this.MergeFragmentPrimitive(member, values.Select(v => v.Type!.ValueType!).ToArray(), optional, isArray);
             return;
         }
 

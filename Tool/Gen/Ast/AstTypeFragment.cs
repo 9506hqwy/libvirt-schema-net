@@ -6,6 +6,8 @@ internal class AstTypeFragment
 {
     private readonly INode[] attributes;
 
+    private bool isOptional;
+
     internal AstTypeFragment(INode node, INode[] attribute, INode[] stack)
     {
         this.Node = node;
@@ -17,9 +19,14 @@ internal class AstTypeFragment
 
     internal INode Node { get; }
 
-    internal bool Optional => this.IsOptional();
+    internal bool Optional => this.isOptional || this.IsOptional();
 
     internal INode[] Stack { get; }
+
+    internal void SetOptional(bool isOptional)
+    {
+        this.isOptional = isOptional;
+    }
 
     internal AstTypeDeclaration? Type { get; set; }
 

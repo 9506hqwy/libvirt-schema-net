@@ -16,6 +16,8 @@ internal class ParsedNode
         this.Node = node;
     }
 
+    internal int BranchCount { get; set; }
+
     internal bool ChildParsed { get; set; }
 
     internal ParsedNode[] Children => this.childList.ToArray();
@@ -37,14 +39,15 @@ internal class ParsedNode
         this.childList.Add(child);
     }
 
-    internal void AddValue(IPattern value, ParsedStack stack)
+    internal void AddValue(IPattern value, ParsedStack stack, int branchCount)
     {
-        this.valueList.Add(new ParsedValue(value, stack));
+        this.valueList.Add(new ParsedValue(value, stack, branchCount));
     }
 
     internal ParsedNode Copy()
     {
         var node = new ParsedNode(this.Node);
+        node.BranchCount = this.BranchCount;
         this.childList.ForEach(c => node.childList.Add(c.Copy()));
         node.ChildParsed = this.ChildParsed;
         node.IsEmpty = this.IsEmpty;

@@ -377,8 +377,6 @@ namespace Libvirt.Model {
         
         private BondInterfaceProtocolFamily family;
         
-        private bool familySpecified;
-        
         private EthernetInterfaceProtocolIpv4DhcpElement dhcp;
         
         private BondInterfaceProtocolIp[] ip;
@@ -394,16 +392,6 @@ namespace Libvirt.Model {
             }
             set {
                 this.family = value;
-            }
-        }
-        
-        [System.Xml.Serialization.XmlIgnoreAttribute()]
-        public bool FamilySpecified {
-            get {
-                return this.familySpecified;
-            }
-            set {
-                this.familySpecified = value;
             }
         }
         
@@ -1014,8 +1002,6 @@ namespace Libvirt.Model {
         
         private BridgeInterfaceProtocolFamily family;
         
-        private bool familySpecified;
-        
         private EthernetInterfaceProtocolIpv4DhcpElement dhcp;
         
         private BridgeInterfaceProtocolIp[] ip;
@@ -1031,16 +1017,6 @@ namespace Libvirt.Model {
             }
             set {
                 this.family = value;
-            }
-        }
-        
-        [System.Xml.Serialization.XmlIgnoreAttribute()]
-        public bool FamilySpecified {
-            get {
-                return this.familySpecified;
-            }
-            set {
-                this.familySpecified = value;
             }
         }
         
@@ -3457,6 +3433,8 @@ namespace Libvirt.Model {
         
         private DeviceCapabilityTypeAttr typeAttr;
         
+        private bool typeAttrSpecified;
+        
         private DeviceCapabilityType type;
         
         private DeviceCapabilityProduct product;
@@ -3580,6 +3558,16 @@ namespace Libvirt.Model {
             }
             set {
                 this.typeAttr = value;
+            }
+        }
+        
+        [System.Xml.Serialization.XmlIgnoreAttribute()]
+        public bool TypeAttrSpecified {
+            get {
+                return this.typeAttrSpecified;
+            }
+            set {
+                this.typeAttrSpecified = value;
             }
         }
         
@@ -4549,8 +4537,6 @@ namespace Libvirt.Model {
         
         private DeviceCapabilityCapabilityFieldsAccess access;
         
-        private bool accessSpecified;
-        
         private string changeLevel;
         
         private string manufactureId;
@@ -4572,16 +4558,6 @@ namespace Libvirt.Model {
             }
             set {
                 this.access = value;
-            }
-        }
-        
-        [System.Xml.Serialization.XmlIgnoreAttribute()]
-        public bool AccessSpecified {
-            get {
-                return this.accessSpecified;
-            }
-            set {
-                this.accessSpecified = value;
             }
         }
         
@@ -4893,8 +4869,6 @@ namespace Libvirt.Model {
         
         private uint number;
         
-        private bool numberSpecified;
-        
         private DeviceCapabilityCapabilityAddress[] address;
         
         [System.Xml.Serialization.XmlAttributeAttribute("number")]
@@ -4904,16 +4878,6 @@ namespace Libvirt.Model {
             }
             set {
                 this.number = value;
-            }
-        }
-        
-        [System.Xml.Serialization.XmlIgnoreAttribute()]
-        public bool NumberSpecified {
-            get {
-                return this.numberSpecified;
-            }
-            set {
-                this.numberSpecified = value;
             }
         }
         
@@ -6327,8 +6291,6 @@ namespace Libvirt.Model {
         
         private DomainbackupDisksDiskDriverType type;
         
-        private bool typeSpecified;
-        
         [System.Xml.Serialization.XmlAttributeAttribute("type")]
         public DomainbackupDisksDiskDriverType Type {
             get {
@@ -6336,16 +6298,6 @@ namespace Libvirt.Model {
             }
             set {
                 this.type = value;
-            }
-        }
-        
-        [System.Xml.Serialization.XmlIgnoreAttribute()]
-        public bool TypeSpecified {
-            get {
-                return this.typeSpecified;
-            }
-            set {
-                this.typeSpecified = value;
             }
         }
     }
@@ -7179,11 +7131,7 @@ namespace Libvirt.Model {
         
         private DomainCapabilitiesCpuModeName name;
         
-        private bool nameSpecified;
-        
         private DomainCapabilitiesCpuModeSupported supported;
-        
-        private bool supportedSpecified;
         
         private DomainCapabilitiesMemoryBackingEnum[] @enum;
         
@@ -7203,16 +7151,6 @@ namespace Libvirt.Model {
             }
         }
         
-        [System.Xml.Serialization.XmlIgnoreAttribute()]
-        public bool NameSpecified {
-            get {
-                return this.nameSpecified;
-            }
-            set {
-                this.nameSpecified = value;
-            }
-        }
-        
         [System.Xml.Serialization.XmlAttributeAttribute("supported")]
         public DomainCapabilitiesCpuModeSupported Supported {
             get {
@@ -7220,16 +7158,6 @@ namespace Libvirt.Model {
             }
             set {
                 this.supported = value;
-            }
-        }
-        
-        [System.Xml.Serialization.XmlIgnoreAttribute()]
-        public bool SupportedSpecified {
-            get {
-                return this.supportedSpecified;
-            }
-            set {
-                this.supportedSpecified = value;
             }
         }
         
@@ -8751,6 +8679,8 @@ namespace Libvirt.Model {
         
         private DomainClockOffset offset;
         
+        private bool offsetSpecified;
+        
         private string adjustment;
         
         private string timezone;
@@ -8772,6 +8702,16 @@ namespace Libvirt.Model {
             }
             set {
                 this.offset = value;
+            }
+        }
+        
+        [System.Xml.Serialization.XmlIgnoreAttribute()]
+        public bool OffsetSpecified {
+            get {
+                return this.offsetSpecified;
+            }
+            set {
+                this.offsetSpecified = value;
             }
         }
         
@@ -8878,6 +8818,8 @@ namespace Libvirt.Model {
         
         private DomainClockTimerName name;
         
+        private bool nameSpecified;
+        
         private DomainClockTimerTrack track;
         
         private bool trackSpecified;
@@ -8907,6 +8849,16 @@ namespace Libvirt.Model {
             }
             set {
                 this.name = value;
+            }
+        }
+        
+        [System.Xml.Serialization.XmlIgnoreAttribute()]
+        public bool NameSpecified {
+            get {
+                return this.nameSpecified;
+            }
+            set {
+                this.nameSpecified = value;
             }
         }
         
@@ -9659,6 +9611,8 @@ namespace Libvirt.Model {
         
         private DomainCputuneEmulatorschedScheduler scheduler;
         
+        private bool schedulerSpecified;
+        
         private long priority;
         
         private bool prioritySpecified;
@@ -9670,6 +9624,16 @@ namespace Libvirt.Model {
             }
             set {
                 this.scheduler = value;
+            }
+        }
+        
+        [System.Xml.Serialization.XmlIgnoreAttribute()]
+        public bool SchedulerSpecified {
+            get {
+                return this.schedulerSpecified;
+            }
+            set {
+                this.schedulerSpecified = value;
             }
         }
         
@@ -9742,6 +9706,8 @@ namespace Libvirt.Model {
         
         private DomainCputuneIothreadschedScheduler scheduler;
         
+        private bool schedulerSpecified;
+        
         private long priority;
         
         private bool prioritySpecified;
@@ -9763,6 +9729,16 @@ namespace Libvirt.Model {
             }
             set {
                 this.scheduler = value;
+            }
+        }
+        
+        [System.Xml.Serialization.XmlIgnoreAttribute()]
+        public bool SchedulerSpecified {
+            get {
+                return this.schedulerSpecified;
+            }
+            set {
+                this.schedulerSpecified = value;
             }
         }
         
@@ -9916,6 +9892,8 @@ namespace Libvirt.Model {
         
         private DomainCputuneVcpuschedScheduler scheduler;
         
+        private bool schedulerSpecified;
+        
         private long priority;
         
         private bool prioritySpecified;
@@ -9937,6 +9915,16 @@ namespace Libvirt.Model {
             }
             set {
                 this.scheduler = value;
+            }
+        }
+        
+        [System.Xml.Serialization.XmlIgnoreAttribute()]
+        public bool SchedulerSpecified {
+            get {
+                return this.schedulerSpecified;
+            }
+            set {
+                this.schedulerSpecified = value;
             }
         }
         
@@ -10439,6 +10427,8 @@ namespace Libvirt.Model {
         
         private DomainDevicesAudioType type;
         
+        private bool typeSpecified;
+        
         private DomainDevicesAudioInput input;
         
         private DomainDevicesAudioOutput output;
@@ -10490,6 +10480,16 @@ namespace Libvirt.Model {
             }
             set {
                 this.type = value;
+            }
+        }
+        
+        [System.Xml.Serialization.XmlIgnoreAttribute()]
+        public bool TypeSpecified {
+            get {
+                return this.typeSpecified;
+            }
+            set {
+                this.typeSpecified = value;
             }
         }
         
@@ -11867,6 +11867,8 @@ namespace Libvirt.Model {
         
         private DomainDevicesControllerType type;
         
+        private bool typeSpecified;
+        
         private DomainDevicesControllerModelAttr modelAttr;
         
         private bool modelAttrSpecified;
@@ -11954,6 +11956,16 @@ namespace Libvirt.Model {
             }
             set {
                 this.type = value;
+            }
+        }
+        
+        [System.Xml.Serialization.XmlIgnoreAttribute()]
+        public bool TypeSpecified {
+            get {
+                return this.typeSpecified;
+            }
+            set {
+                this.typeSpecified = value;
             }
         }
         
@@ -12767,6 +12779,8 @@ namespace Libvirt.Model {
         
         private DomainDevicesCryptoCryptoBackendModel model;
         
+        private bool modelSpecified;
+        
         private ulong queues;
         
         private bool queuesSpecified;
@@ -12778,6 +12792,16 @@ namespace Libvirt.Model {
             }
             set {
                 this.model = value;
+            }
+        }
+        
+        [System.Xml.Serialization.XmlIgnoreAttribute()]
+        public bool ModelSpecified {
+            get {
+                return this.modelSpecified;
+            }
+            set {
+                this.modelSpecified = value;
             }
         }
         
@@ -15486,6 +15510,8 @@ namespace Libvirt.Model {
         
         private DomainDevicesDiskDiskMirrorBackingStoreSourceProtocol protocol;
         
+        private bool protocolSpecified;
+        
         private string name;
         
         private DomainDevicesDiskDiskMirrorBackingStoreSourceTls tls;
@@ -15667,6 +15693,16 @@ namespace Libvirt.Model {
             }
             set {
                 this.protocol = value;
+            }
+        }
+        
+        [System.Xml.Serialization.XmlIgnoreAttribute()]
+        public bool ProtocolSpecified {
+            get {
+                return this.protocolSpecified;
+            }
+            set {
+                this.protocolSpecified = value;
             }
         }
         
@@ -16260,6 +16296,8 @@ namespace Libvirt.Model {
         
         private DomainDevicesDiskDiskMirrorSourceProtocol protocol;
         
+        private bool protocolSpecified;
+        
         private string name;
         
         private DomainDevicesDiskDiskMirrorSourceTls tls;
@@ -16441,6 +16479,16 @@ namespace Libvirt.Model {
             }
             set {
                 this.protocol = value;
+            }
+        }
+        
+        [System.Xml.Serialization.XmlIgnoreAttribute()]
+        public bool ProtocolSpecified {
+            get {
+                return this.protocolSpecified;
+            }
+            set {
+                this.protocolSpecified = value;
             }
         }
         
@@ -18764,6 +18812,8 @@ namespace Libvirt.Model {
         
         private DomainDevicesGraphicType type;
         
+        private bool typeSpecified;
+        
         private string display;
         
         private string xauth;
@@ -18861,6 +18911,16 @@ namespace Libvirt.Model {
             }
             set {
                 this.type = value;
+            }
+        }
+        
+        [System.Xml.Serialization.XmlIgnoreAttribute()]
+        public bool TypeSpecified {
+            get {
+                return this.typeSpecified;
+            }
+            set {
+                this.typeSpecified = value;
             }
         }
         
@@ -19583,6 +19643,8 @@ namespace Libvirt.Model {
         
         private DomainDevicesGraphicListenType type;
         
+        private bool typeSpecified;
+        
         private string address;
         
         private string network;
@@ -19596,6 +19658,16 @@ namespace Libvirt.Model {
             }
             set {
                 this.type = value;
+            }
+        }
+        
+        [System.Xml.Serialization.XmlIgnoreAttribute()]
+        public bool TypeSpecified {
+            get {
+                return this.typeSpecified;
+            }
+            set {
+                this.typeSpecified = value;
             }
         }
         
@@ -20902,6 +20974,8 @@ namespace Libvirt.Model {
         
         private DomainDevicesInputType type;
         
+        private bool typeSpecified;
+        
         private DomainDevicesInputBus bus;
         
         private bool busSpecified;
@@ -20935,6 +21009,16 @@ namespace Libvirt.Model {
             }
             set {
                 this.type = value;
+            }
+        }
+        
+        [System.Xml.Serialization.XmlIgnoreAttribute()]
+        public bool TypeSpecified {
+            get {
+                return this.typeSpecified;
+            }
+            set {
+                this.typeSpecified = value;
             }
         }
         
@@ -21294,6 +21378,8 @@ namespace Libvirt.Model {
         
         private DomainDevicesInterfaceType type;
         
+        private bool typeSpecified;
+        
         private DomainDevicesInterfaceSource source;
         
         private DomainDevicesInterfaceVirtualport virtualport;
@@ -21365,6 +21451,16 @@ namespace Libvirt.Model {
             }
             set {
                 this.type = value;
+            }
+        }
+        
+        [System.Xml.Serialization.XmlIgnoreAttribute()]
+        public bool TypeSpecified {
+            get {
+                return this.typeSpecified;
+            }
+            set {
+                this.typeSpecified = value;
             }
         }
         
@@ -23377,6 +23473,8 @@ namespace Libvirt.Model {
         
         private DomainDevicesInterfaceSourceAddressType type;
         
+        private bool typeSpecified;
+        
         private string domain;
         
         private string slot;
@@ -23414,6 +23512,16 @@ namespace Libvirt.Model {
             }
             set {
                 this.type = value;
+            }
+        }
+        
+        [System.Xml.Serialization.XmlIgnoreAttribute()]
+        public bool TypeSpecified {
+            get {
+                return this.typeSpecified;
+            }
+            set {
+                this.typeSpecified = value;
             }
         }
         
@@ -23649,6 +23757,8 @@ namespace Libvirt.Model {
         
         private DomainDevicesInterfaceTeamingType type;
         
+        private bool typeSpecified;
+        
         private string persistent;
         
         [System.Xml.Serialization.XmlAttributeAttribute("type")]
@@ -23658,6 +23768,16 @@ namespace Libvirt.Model {
             }
             set {
                 this.type = value;
+            }
+        }
+        
+        [System.Xml.Serialization.XmlIgnoreAttribute()]
+        public bool TypeSpecified {
+            get {
+                return this.typeSpecified;
+            }
+            set {
+                this.typeSpecified = value;
             }
         }
         
@@ -25091,6 +25211,8 @@ namespace Libvirt.Model {
         
         private DomainDevicesNvramAddressType type;
         
+        private bool typeSpecified;
+        
         private string domain;
         
         private string bus;
@@ -25134,6 +25256,16 @@ namespace Libvirt.Model {
             }
             set {
                 this.type = value;
+            }
+        }
+        
+        [System.Xml.Serialization.XmlIgnoreAttribute()]
+        public bool TypeSpecified {
+            get {
+                return this.typeSpecified;
+            }
+            set {
+                this.typeSpecified = value;
             }
         }
         
@@ -26023,6 +26155,8 @@ namespace Libvirt.Model {
         
         private DomainDevicesRngRngBackendModel model;
         
+        private bool modelSpecified;
+        
         private QemucdevSrcTypeChoice type;
         
         private bool typeSpecified;
@@ -26042,6 +26176,16 @@ namespace Libvirt.Model {
             }
             set {
                 this.model = value;
+            }
+        }
+        
+        [System.Xml.Serialization.XmlIgnoreAttribute()]
+        public bool ModelSpecified {
+            get {
+                return this.modelSpecified;
+            }
+            set {
+                this.modelSpecified = value;
             }
         }
         
@@ -26527,6 +26671,8 @@ namespace Libvirt.Model {
         
         private DomainDevicesSmartcardMode mode;
         
+        private bool modeSpecified;
+        
         private string certificate;
         
         private string database;
@@ -26554,6 +26700,16 @@ namespace Libvirt.Model {
             }
             set {
                 this.mode = value;
+            }
+        }
+        
+        [System.Xml.Serialization.XmlIgnoreAttribute()]
+        public bool ModeSpecified {
+            get {
+                return this.modeSpecified;
+            }
+            set {
+                this.modeSpecified = value;
             }
         }
         
@@ -26898,6 +27054,8 @@ namespace Libvirt.Model {
         
         private DomainDevicesTpmTpmBackendType type;
         
+        private bool typeSpecified;
+        
         private DomainDevicesTpmTpmBackendDevice device;
         
         private DomainDevicesTpmTpmBackendEncryption encryption;
@@ -26921,6 +27079,16 @@ namespace Libvirt.Model {
             }
             set {
                 this.type = value;
+            }
+        }
+        
+        [System.Xml.Serialization.XmlIgnoreAttribute()]
+        public bool TypeSpecified {
+            get {
+                return this.typeSpecified;
+            }
+            set {
+                this.typeSpecified = value;
             }
         }
         
@@ -27406,6 +27574,8 @@ namespace Libvirt.Model {
         
         private DomainDevicesVideoModelType type;
         
+        private bool typeSpecified;
+        
         private uint ram;
         
         private bool ramSpecified;
@@ -27445,6 +27615,16 @@ namespace Libvirt.Model {
             }
             set {
                 this.type = value;
+            }
+        }
+        
+        [System.Xml.Serialization.XmlIgnoreAttribute()]
+        public bool TypeSpecified {
+            get {
+                return this.typeSpecified;
+            }
+            set {
+                this.typeSpecified = value;
             }
         }
         
@@ -31111,6 +31291,8 @@ namespace Libvirt.Model {
         
         private DomainLaunchSecurityType type;
         
+        private bool typeSpecified;
+        
         private VirYesNo kernelHashes;
         
         private bool kernelHashesSpecified;
@@ -31140,6 +31322,16 @@ namespace Libvirt.Model {
             }
             set {
                 this.type = value;
+            }
+        }
+        
+        [System.Xml.Serialization.XmlIgnoreAttribute()]
+        public bool TypeSpecified {
+            get {
+                return this.typeSpecified;
+            }
+            set {
+                this.typeSpecified = value;
             }
         }
         
@@ -33029,6 +33221,8 @@ namespace Libvirt.Model {
         
         private DomainOsNvramSourceProtocol protocol;
         
+        private bool protocolSpecified;
+        
         private string name;
         
         private DomainOsNvramSourceTls tls;
@@ -33210,6 +33404,16 @@ namespace Libvirt.Model {
             }
             set {
                 this.protocol = value;
+            }
+        }
+        
+        [System.Xml.Serialization.XmlIgnoreAttribute()]
+        public bool ProtocolSpecified {
+            get {
+                return this.protocolSpecified;
+            }
+            set {
+                this.protocolSpecified = value;
             }
         }
         
@@ -34959,6 +35163,8 @@ namespace Libvirt.Model {
         
         private DomainsnapshotDisksDisksnapshotSourceProtocol protocol;
         
+        private bool protocolSpecified;
+        
         private string name;
         
         private DomainsnapshotDisksDisksnapshotSourceTls tls;
@@ -35068,6 +35274,16 @@ namespace Libvirt.Model {
             }
             set {
                 this.protocol = value;
+            }
+        }
+        
+        [System.Xml.Serialization.XmlIgnoreAttribute()]
+        public bool ProtocolSpecified {
+            get {
+                return this.protocolSpecified;
+            }
+            set {
+                this.protocolSpecified = value;
             }
         }
         
@@ -36548,6 +36764,8 @@ namespace Libvirt.Model {
         
         private DomainSysinfoType type;
         
+        private bool typeSpecified;
+        
         private DomainSysinfoBios bios;
         
         private DomainSysinfoSystem system;
@@ -36567,6 +36785,16 @@ namespace Libvirt.Model {
             }
             set {
                 this.type = value;
+            }
+        }
+        
+        [System.Xml.Serialization.XmlIgnoreAttribute()]
+        public bool TypeSpecified {
+            get {
+                return this.typeSpecified;
+            }
+            set {
+                this.typeSpecified = value;
             }
         }
         
@@ -37182,8 +37410,6 @@ namespace Libvirt.Model {
         
         private EthernetInterfaceProtocolFamily family;
         
-        private bool familySpecified;
-        
         private EthernetInterfaceProtocolIpv4DhcpElement dhcp;
         
         private EthernetInterfaceProtocolIp[] ip;
@@ -37199,16 +37425,6 @@ namespace Libvirt.Model {
             }
             set {
                 this.family = value;
-            }
-        }
-        
-        [System.Xml.Serialization.XmlIgnoreAttribute()]
-        public bool FamilySpecified {
-            get {
-                return this.familySpecified;
-            }
-            set {
-                this.familySpecified = value;
             }
         }
         
@@ -47064,6 +47280,8 @@ namespace Libvirt.Model {
         
         private NetworkportPlugType type;
         
+        private bool typeSpecified;
+        
         private string bridge;
         
         private NetworkportPlugMacTableManager macTableManager;
@@ -47091,6 +47309,16 @@ namespace Libvirt.Model {
             }
             set {
                 this.type = value;
+            }
+        }
+        
+        [System.Xml.Serialization.XmlIgnoreAttribute()]
+        public bool TypeSpecified {
+            get {
+                return this.typeSpecified;
+            }
+            set {
+                this.typeSpecified = value;
             }
         }
         
@@ -47767,6 +47995,8 @@ namespace Libvirt.Model {
         
         private PoolType type;
         
+        private bool typeSpecified;
+        
         private string name;
         
         private string uuid;
@@ -47796,6 +48026,16 @@ namespace Libvirt.Model {
             }
             set {
                 this.type = value;
+            }
+        }
+        
+        [System.Xml.Serialization.XmlIgnoreAttribute()]
+        public bool TypeSpecified {
+            get {
+                return this.typeSpecified;
+            }
+            set {
+                this.typeSpecified = value;
             }
         }
         
@@ -48277,8 +48517,6 @@ namespace Libvirt.Model {
         
         private PoolSourceFormatType type;
         
-        private bool typeSpecified;
-        
         private PoolSourceVendor vendor;
         
         private PoolSourceProduct product;
@@ -48290,16 +48528,6 @@ namespace Libvirt.Model {
             }
             set {
                 this.type = value;
-            }
-        }
-        
-        [System.Xml.Serialization.XmlIgnoreAttribute()]
-        public bool TypeSpecified {
-            get {
-                return this.typeSpecified;
-            }
-            set {
-                this.typeSpecified = value;
             }
         }
         
@@ -49270,6 +49498,8 @@ namespace Libvirt.Model {
         
         private SecretUsageType type;
         
+        private bool typeSpecified;
+        
         private string volume;
         
         private string name;
@@ -49283,6 +49513,16 @@ namespace Libvirt.Model {
             }
             set {
                 this.type = value;
+            }
+        }
+        
+        [System.Xml.Serialization.XmlIgnoreAttribute()]
+        public bool TypeSpecified {
+            get {
+                return this.typeSpecified;
+            }
+            set {
+                this.typeSpecified = value;
             }
         }
         
@@ -49737,8 +49977,6 @@ namespace Libvirt.Model {
         
         private VlanInterfaceProtocolFamily family;
         
-        private bool familySpecified;
-        
         private EthernetInterfaceProtocolIpv4DhcpElement dhcp;
         
         private VlanInterfaceProtocolIp[] ip;
@@ -49754,16 +49992,6 @@ namespace Libvirt.Model {
             }
             set {
                 this.family = value;
-            }
-        }
-        
-        [System.Xml.Serialization.XmlIgnoreAttribute()]
-        public bool FamilySpecified {
-            get {
-                return this.familySpecified;
-            }
-            set {
-                this.familySpecified = value;
             }
         }
         

@@ -72,19 +72,19 @@ internal class Repository
         {
             foreach (var start in root.DescendantNodes.OfType<Start>())
             {
-                this.ParseStart(null, start, new ParsedStack());
+                this.ParseStart(null, start, new ParsedStack(), 1);
             }
         }
     }
 
-    private void ParseStart(ParsedNode? parent, INode node, ParsedStack stack)
+    private void ParseStart(ParsedNode? parent, INode node, ParsedStack stack, int branchCount)
     {
         stack.Add(node);
 
         switch (node)
         {
             case Data data:
-                parent!.AddValue(data, stack.Copy());
+                parent!.AddValue(data, stack.Copy(), branchCount);
 
                 break;
 
@@ -106,7 +106,7 @@ internal class Repository
                         {
                             foreach (var start in root.DescendantNodes.OfType<Start>())
                             {
-                                this.ParseStart(parent, start, childStack.Copy());
+                                this.ParseStart(parent, start, childStack.Copy(), branchCount);
                             }
                         }
                     }
@@ -125,24 +125,24 @@ internal class Repository
                 {
                     if (!stack.HasNode(childDefine))
                     {
-                        this.ParseStart(parent, childDefine, stack);
+                        this.ParseStart(parent, childDefine, stack, branchCount);
                     }
                 }
 
                 break;
 
             case Start start:
-                this.ParseStart(parent, start.Child, stack);
+                this.ParseStart(parent, start.Child, stack, branchCount);
 
                 break;
 
             case Text text:
-                parent!.AddValue(text, stack.Copy());
+                parent!.AddValue(text, stack.Copy(), branchCount);
 
                 break;
 
             case Value value:
-                parent!.AddValue(value, stack.Copy());
+                parent!.AddValue(value, stack.Copy(), branchCount);
 
                 break;
 
@@ -164,7 +164,7 @@ internal class Repository
 
                     foreach (var child in hasName.ChildNodes)
                     {
-                        this.ParseStart(parsedNode, child, stack.Copy());
+                        this.ParseStart(parsedNode, child, stack.Copy(), 1);
                     }
 
                     parsedNode.ChildParsed = true;
@@ -183,15 +183,18 @@ internal class Repository
                     }
                 }
 
+                parsedNode.BranchCount = branchCount;
+
                 parent?.AddChild(parsedNode);
 
                 break;
 
             case IHasChildren hasChildren:
                 // Choice, Define, Div, Group, Interleave, List, Mixed, OneOrMore, Optional, ZeroOrMore
+                var bCount = hasChildren is Choice c ? branchCount + c.Children.Length - 1 : branchCount;
                 foreach (var child in hasChildren.Children)
                 {
-                    this.ParseStart(parent, child, stack.Copy());
+                    this.ParseStart(parent, child, stack.Copy(), bCount);
                 }
 
                 break;

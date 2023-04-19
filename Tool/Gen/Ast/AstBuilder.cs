@@ -120,25 +120,15 @@ internal class AstBuilder
 
     private bool IsMandatoryValue(AstTypeFragment[] values)
     {
-        var choice = values[0].Stack.Reverse().FirstOrDefault(n => n is Choice);
-        if (choice is null)
-        {
-            return false;
-        }
-
-        if (choice.ChildNodes.Count() != values.Length)
+        var maxBranchCount = values.Max(v => v.BranchCount);
+        if (maxBranchCount > values.Length)
         {
             return false;
         }
 
         foreach (var value in values)
         {
-            var optional = value.Stack
-                .Reverse()
-                .TakeWhile(n => !n.Position.Equals(choice.Position))
-                .Reverse()
-                .FirstOrDefault(n => n is Optional);
-            if (optional is not null)
+            if (value.Optional)
             {
                 return false;
             }
@@ -189,6 +179,7 @@ internal class AstBuilder
 
         if (member.Type is null && classes.Length == 1)
         {
+            optional = optional || (classes[0].BranchCount > 1);
             member.Type = new AstTypeReference(classes[0].Type!, optional, isArray);
             return;
         }
@@ -197,6 +188,8 @@ internal class AstBuilder
             classes[0].Type!.Position is not null &&
             classes.All(c => c.Type!.Position is not null && c.Type!.Position.Equals(classes[0].Type!.Position!)))
         {
+            var maxBranchCount = classes.Max(v => v.BranchCount);
+            optional = optional || (maxBranchCount > classes.Length);
             member.Type = new AstTypeReference(classes[0].Type!, optional, isArray);
             return;
         }
@@ -225,7 +218,9 @@ internal class AstBuilder
                     fragments.AddRange(frag.Fragments);
                 }
 
-                var isOptional = !this.IsMandatoryValue(fragments.ToArray());
+                var isOptional =
+                    (member.Fragments.Length > fragments.Count) ||
+                    !this.IsMandatoryValue(fragments.ToArray());
                 fragments.ForEach(f => f.SetOptional(isOptional));
 
                 members.Add(new AstTypeMember(nodes.First().Name, fragments.ToArray(), nodes.Key));
@@ -354,7 +349,7 @@ internal class AstBuilder
                 foreach (var frag in nodes)
                 {
                     var attributes = frag!.Stack!.GetFrom(node);
-                    fragments.Add(new AstTypeFragment(frag.Node, attributes, frag.Stack!.Inner));
+                    fragments.Add(new AstTypeFragment(frag.Node, attributes, frag.Stack!.Inner, frag.BranchCount));
                 }
 
                 members.Add(new AstTypeMember(nodes.First().Name, fragments.ToArray(), nodes.Key));
@@ -365,7 +360,7 @@ internal class AstBuilder
         foreach (var value in parsed.Values)
         {
             var attributes = value!.Stack!.GetFrom(node);
-            values.Add(new AstTypeFragment(value.Node, attributes, value.Stack.Inner));
+            values.Add(new AstTypeFragment(value.Node, attributes, value.Stack.Inner, value.BranchCount));
         }
 
         var type = new AstTypeDeclaration(

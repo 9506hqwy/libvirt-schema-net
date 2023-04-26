@@ -4,6 +4,10 @@ using RelaxNg.Schema;
 
 internal class Generator
 {
+    private readonly Dictionary<AstTypeDeclarationBase, string> candidateClassName;
+
+    private readonly Dictionary<string, string?> commonDefines;
+
     private readonly Dictionary<RngPosition, CodeTypeDeclaration> enumCache;
 
     private readonly string[] exceptTypeAttr;
@@ -12,12 +16,19 @@ internal class Generator
 
     private readonly Dictionary<object, CodeTypeDeclaration> generated;
 
-    internal Generator(AstTypeDeclarationBase[] types, string[] exceptTypeAttr)
+    internal Generator(AstTypeDeclarationBase[] types, string[] exceptTypeAttr, Dictionary<string, string?> commonDefines)
     {
         this.types = types;
         this.exceptTypeAttr = exceptTypeAttr;
+        this.commonDefines = commonDefines;
+        this.candidateClassName = new Dictionary<AstTypeDeclarationBase, string>();
         this.enumCache = new Dictionary<RngPosition, CodeTypeDeclaration>();
         this.generated = new Dictionary<object, CodeTypeDeclaration>();
+
+        foreach (var type in types)
+        {
+            this.candidateClassName[type] = Utility.ToClassName(this.InitClassName(type));
+        }
     }
 
     internal CodeTypeDeclaration[] Types => this.generated.Values.Distinct().OrderBy(t => t.Name).ToArray();
@@ -266,21 +277,38 @@ internal class Generator
 
     private string GetClassName(AstTypeDeclarationBase type)
     {
+        return this.GetClassNameInternal(type, false);
+    }
+
+    private string GetClassNameInternal(AstTypeDeclarationBase type, bool init)
+    {
         return type switch
         {
-            AstTypeDeclaration d => this.GetClassName(d),
-            AstMergedTypeDeclaration d => this.GetClassName(d),
+            AstTypeDeclaration d => this.GetClassNameInternal(d, init),
+            AstMergedTypeDeclaration d => this.GetClassNameInternal(d, init),
             _ => throw new InvalidProgramException(),
         };
     }
 
-    private string GetClassName(AstTypeDeclaration type)
+    private string GetClassNameInternal(AstTypeDeclaration type, bool init)
     {
         var names = new List<string>();
+        var reset = false;
 
         Define? define = null;
         foreach (var node in type.Stack)
         {
+            if (!reset && this.commonDefines.TryGetValue(node.Position.File.Info.Name, out var alias))
+            {
+                names.Clear();
+                reset = true;
+
+                if (alias is not null)
+                {
+                    names.Add(alias);
+                }
+            }
+
             switch (node)
             {
                 case Define tmp:
@@ -290,6 +318,11 @@ internal class Generator
                 case IHasName hasName:
                     if (define is not null && define.Children.Length == 1)
                     {
+                        if (this.SimplifiedClassName(type, init) && names.Count > 1)
+                        {
+                            names.RemoveRange(1, names.Count - 1);
+                        }
+
                         names.Add(define.Name);
                     }
                     else
@@ -310,9 +343,9 @@ internal class Generator
         return string.Join("_", names);
     }
 
-    private string GetClassName(AstMergedTypeDeclaration type)
+    private string GetClassNameInternal(AstMergedTypeDeclaration type, bool init)
     {
-        var parentName = this.GetClassName(type.Parent);
+        var parentName = this.GetClassNameInternal(type.Parent, init);
         return $"{parentName}_{type.ElementName}";
     }
 
@@ -331,6 +364,28 @@ internal class Generator
         }
 
         return defines[0];
+    }
+
+    private string InitClassName(AstTypeDeclarationBase type)
+    {
+        return this.GetClassNameInternal(type, true);
+    }
+
+    private bool SimplifiedClassName(AstTypeDeclaration type, bool init)
+    {
+        if (init)
+        {
+            return true;
+        }
+
+        if (!this.candidateClassName.ContainsKey(type))
+        {
+            return false;
+        }
+
+        var initClassName = this.candidateClassName[type];
+        var count = this.candidateClassName.Values.Count(n => n == initClassName);
+        return count < 2;
     }
 
     private bool WithXmlModifier(AstTypeDeclarationBase type)

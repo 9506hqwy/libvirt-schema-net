@@ -42,10 +42,17 @@ internal class MainShell
 
         var exceptTypeAttr = new[]
         {
-            "bridge-interface_bridge_bare-ethernet-interface",
-            "capabilities_hostcaps_topology",
-            "domaincheckpoint_disks_diskcheckpoint",
-            "domainsnapshot_disks_disksnapshot",
+            "bond-interface_bare-ethernet-interface",
+            "capabilities_topology",
+            "domaincheckpoint_diskcheckpoint",
+            "domainsnapshot_disksnapshot",
+        };
+
+        var commonDefines = new Dictionary<string, string?>
+        {
+            { "basictypes.rng", null },
+            { "networkcommon.rng", "network" },
+            { "storagecommon.rng", "storage" },
         };
 
         var dir = new DirectoryInfo(directory);
@@ -62,7 +69,7 @@ internal class MainShell
             .Where(t => t.StartReachable)
             .ToArray();
 
-        var gen = new Generator(types, exceptTypeAttr);
+        var gen = new Generator(types, exceptTypeAttr, commonDefines);
         gen.Compile();
 
         var ns = new CodeNamespace("Libvirt.Model");

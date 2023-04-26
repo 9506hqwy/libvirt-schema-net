@@ -25,6 +25,11 @@ internal class Repository
 
     internal ParsedNode[] Types => this.types.Values.Where(v => v.ChildParsed).ToArray();
 
+    private int GetNameLength(INode[] nodes)
+    {
+        return nodes.OfType<IHasName>().Select(n => n.Name.GetName().Length).Sum();
+    }
+
     private void Init()
     {
         foreach (var file in this.Files)
@@ -171,16 +176,11 @@ internal class Repository
                 }
                 else
                 {
-                    var nodeDepth = parsedNode.Stack!.Count<INode>();
-
                     parsedNode = parsedNode.Copy();
 
                     parsedNode.Restack(stack);
 
-                    if (parsedNode.Stack!.Count<INode>() < nodeDepth)
-                    {
-                        this.types[hasName.Position] = parsedNode;
-                    }
+                    this.ReplaceType(parsedNode);
                 }
 
                 parsedNode.BranchCount = branchCount;
@@ -201,6 +201,20 @@ internal class Repository
 
             default:
                 throw new InvalidProgramException($"Unexpected syntax at `{node.Position}`.");
+        }
+    }
+
+    private void ReplaceType(ParsedNode parsed)
+    {
+        var origParsedNode = this.types[parsed.Node.Position];
+        if (this.GetNameLength(parsed.Stack!.Inner) < this.GetNameLength(origParsedNode.Stack!.Inner))
+        {
+            this.types[parsed.Node.Position] = parsed;
+        }
+
+        foreach (var child in parsed.Children)
+        {
+            this.ReplaceType(child);
         }
     }
 

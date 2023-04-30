@@ -26,14 +26,6 @@ internal class MainShell
 
     internal void WriteGenerated(string directory)
     {
-        var execludedDefines = new[]
-        {
-            new ExcludeDefine("privateDataStorageSource", "privatedata.rng"),
-            new ExcludeDefine("privateDataDeviceDisk", "privatedata.rng"),
-            new ExcludeDefine("storageStartupPolicy", "storagecommon.rng"),
-            new ExcludeDefine("storageSourceExtra", "storagecommon.rng"),
-        };
-
         var exceptTypeAttr = new[]
         {
             "bond-interface_bare-ethernet-interface",
@@ -54,7 +46,7 @@ internal class MainShell
             f => f.Info.Name,
             f => f);
 
-        var repository = new Repository(files.Values.ToArray(), execludedDefines);
+        var repository = new Repository(files.Values.ToArray());
         var builder = new AstBuilder(repository);
         var types = builder.Types
             .Where(t => !t.FundamentalType)

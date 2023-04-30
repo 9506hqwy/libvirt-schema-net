@@ -24,6 +24,8 @@ internal class ParsedNode
 
     internal ParsedNode[] Children => this.childList.ToArray();
 
+    internal bool HasNotAllowed => this.valueList.Any(v => v.IsNotAllowed);
+
     internal bool HasRawXml => this.childList.Any(c => c.IsRawXml);
 
     internal bool IsAttribute => this.Node is Attribute;
@@ -38,7 +40,7 @@ internal class ParsedNode
 
     internal ParsedStack? Stack { get; set; }
 
-    internal ParsedValue[] Values => this.valueList.ToArray();
+    internal ParsedValue[] Values => this.valueList.Where(v => !v.IsNotAllowed).ToArray();
 
     internal void AddChild(ParsedNode child)
     {
@@ -67,12 +69,12 @@ internal class ParsedNode
     {
         this.Stack?.Restack(stack);
 
-        foreach (var child in this.Children)
+        foreach (var child in this.childList)
         {
             child.Restack(stack);
         }
 
-        foreach (var value in this.Values)
+        foreach (var value in this.valueList)
         {
             value.Restack(stack);
         }

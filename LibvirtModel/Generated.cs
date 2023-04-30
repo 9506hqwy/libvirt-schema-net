@@ -13312,6 +13312,8 @@ namespace Libvirt.Model {
         
         private DomainDiskBackingStore backingStore;
         
+        private DomainDiskPrivateData privateData;
+        
         private VirYesNo rawio;
         
         private bool rawioSpecified;
@@ -13588,6 +13590,16 @@ namespace Libvirt.Model {
             }
         }
         
+        [System.Xml.Serialization.XmlElementAttribute("privateData", Namespace="")]
+        public DomainDiskPrivateData PrivateData {
+            get {
+                return this.privateData;
+            }
+            set {
+                this.privateData = value;
+            }
+        }
+        
         [System.Xml.Serialization.XmlAttributeAttribute("rawio")]
         public VirYesNo Rawio {
             get {
@@ -13846,6 +13858,8 @@ namespace Libvirt.Model {
         
         private DomainOsNvramSourceSlices slices;
         
+        private DomainOsNvramSourcePrivateData privateData;
+        
         private DomainDiskBackingStoreSourceStartupPolicy startupPolicy;
         
         private bool startupPolicySpecified;
@@ -13965,6 +13979,16 @@ namespace Libvirt.Model {
             }
             set {
                 this.slices = value;
+            }
+        }
+        
+        [System.Xml.Serialization.XmlElementAttribute("privateData", Namespace="")]
+        public DomainOsNvramSourcePrivateData PrivateData {
+            get {
+                return this.privateData;
+            }
+            set {
+                this.privateData = value;
             }
         }
         
@@ -15814,6 +15838,8 @@ namespace Libvirt.Model {
         
         private DomainOsNvramSourceSlices slices;
         
+        private DomainOsNvramSourcePrivateData privateData;
+        
         private DomainDiskMirrorBackingStoreSourceStartupPolicy startupPolicy;
         
         private bool startupPolicySpecified;
@@ -15933,6 +15959,16 @@ namespace Libvirt.Model {
             }
             set {
                 this.slices = value;
+            }
+        }
+        
+        [System.Xml.Serialization.XmlElementAttribute("privateData", Namespace="")]
+        public DomainOsNvramSourcePrivateData PrivateData {
+            get {
+                return this.privateData;
+            }
+            set {
+                this.privateData = value;
             }
         }
         
@@ -16477,6 +16513,8 @@ namespace Libvirt.Model {
         
         private DomainOsNvramSourceSlices slices;
         
+        private DomainOsNvramSourcePrivateData privateData;
+        
         private DomainDiskMirrorSourceStartupPolicy startupPolicy;
         
         private bool startupPolicySpecified;
@@ -16596,6 +16634,16 @@ namespace Libvirt.Model {
             }
             set {
                 this.slices = value;
+            }
+        }
+        
+        [System.Xml.Serialization.XmlElementAttribute("privateData", Namespace="")]
+        public DomainOsNvramSourcePrivateData PrivateData {
+            get {
+                return this.privateData;
+            }
+            set {
+                this.privateData = value;
             }
         }
         
@@ -17065,6 +17113,9 @@ namespace Libvirt.Model {
         VirtioTransitional,
     }
     
+    public partial class DomainDiskPrivateData {
+    }
+    
     public partial class DomainDiskReadonly {
     }
     
@@ -17082,6 +17133,8 @@ namespace Libvirt.Model {
         private bool indexSpecified;
         
         private DomainOsNvramSourceSlices slices;
+        
+        private DomainOsNvramSourcePrivateData privateData;
         
         private DomainDiskSourceStartupPolicy startupPolicy;
         
@@ -17202,6 +17255,16 @@ namespace Libvirt.Model {
             }
             set {
                 this.slices = value;
+            }
+        }
+        
+        [System.Xml.Serialization.XmlElementAttribute("privateData", Namespace="")]
+        public DomainOsNvramSourcePrivateData PrivateData {
+            get {
+                return this.privateData;
+            }
+            set {
+                this.privateData = value;
             }
         }
         
@@ -28580,6 +28643,8 @@ namespace Libvirt.Model {
         
         private DomainOsNvramSourceSlices slices;
         
+        private DomainOsNvramSourcePrivateData privateData;
+        
         private DomainOsNvramSourceStartupPolicy startupPolicy;
         
         private bool startupPolicySpecified;
@@ -28699,6 +28764,16 @@ namespace Libvirt.Model {
             }
             set {
                 this.slices = value;
+            }
+        }
+        
+        [System.Xml.Serialization.XmlElementAttribute("privateData", Namespace="")]
+        public DomainOsNvramSourcePrivateData PrivateData {
+            get {
+                return this.privateData;
+            }
+            set {
+                this.privateData = value;
             }
         }
         
@@ -29145,6 +29220,9 @@ namespace Libvirt.Model {
         
         [System.Xml.Serialization.XmlEnumAttribute(Name="host")]
         Host,
+    }
+    
+    public partial class DomainOsNvramSourcePrivateData {
     }
     
     public enum DomainOsNvramSourceProtocol {
@@ -31869,6 +31947,8 @@ namespace Libvirt.Model {
         
         private DomainOsNvramSourceSlices slices;
         
+        private DomainOsNvramSourcePrivateData privateData;
+        
         private StorageEncryption encryption;
         
         private string dev;
@@ -31956,6 +32036,16 @@ namespace Libvirt.Model {
             }
             set {
                 this.slices = value;
+            }
+        }
+        
+        [System.Xml.Serialization.XmlElementAttribute("privateData", Namespace="")]
+        public DomainOsNvramSourcePrivateData PrivateData {
+            get {
+                return this.privateData;
+            }
+            set {
+                this.privateData = value;
             }
         }
         

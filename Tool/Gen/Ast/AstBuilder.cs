@@ -367,7 +367,7 @@ internal class AstBuilder
             node,
             members.ToArray(),
             values.ToArray(),
-            parsed.IsEmpty,
+            parsed.HasNotAllowed || parsed.IsEmpty,
             parsed.HasRawXml,
             parsed.Stack!.Inner);
         this.types.Add(node.Position, type);

@@ -4,19 +4,16 @@ using RelaxNg.Schema;
 
 internal class Repository
 {
-    private readonly ExcludeDefine[] excludedDefines;
-
     private readonly Schema schema;
 
     private readonly Dictionary<RngPosition, ParsedNode> types;
 
-    internal Repository(RngFile[] files, ExcludeDefine[] excludedDefines)
+    internal Repository(RngFile[] files)
     {
         this.schema = new Schema();
         this.types = new Dictionary<RngPosition, ParsedNode>();
 
         this.Files = files;
-        this.excludedDefines = excludedDefines;
 
         this.Init();
     }
@@ -123,15 +120,17 @@ internal class Repository
 
                 break;
 
+            case NotAllowed notAllowed:
+                parent!.AddValue(notAllowed, stack.Copy(), branchCount, branchId);
+
+                break;
+
             case Ref r:
                 var childDefine = r.Resolve(stack.Position.File);
 
-                if (!this.Skip(childDefine))
+                if (!stack.HasNode(childDefine))
                 {
-                    if (!stack.HasNode(childDefine))
-                    {
-                        this.ParseStart(parent, childDefine, stack, branchCount, branchId);
-                    }
+                    this.ParseStart(parent, childDefine, stack, branchCount, branchId);
                 }
 
                 break;
@@ -155,7 +154,6 @@ internal class Repository
             case ExceptPattern:
             case Include:
             case NameBase:
-            case NotAllowed:
             case Param:
             case Unknown:
                 break;
@@ -218,10 +216,5 @@ internal class Repository
         {
             this.ReplaceType(child);
         }
-    }
-
-    private bool Skip(Define define)
-    {
-        return this.excludedDefines.Any(d => d.EqualDefine(define));
     }
 }

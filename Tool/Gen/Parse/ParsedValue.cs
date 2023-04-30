@@ -16,6 +16,8 @@ internal class ParsedValue
 
     internal Guid BranchId { get; }
 
+    internal bool IsNotAllowed => this.Node is NotAllowed;
+
     internal IPattern Node { get; }
 
     internal ParsedStack Stack { get; }

@@ -177,7 +177,7 @@ namespace Libvirt.Model {
         
         private EthernetInterfaceMtu mtu;
         
-        private BondInterfaceProtocol protocol;
+        private BondInterfaceProtocol[] protocol;
         
         private BondInterfaceBondElement bond;
         
@@ -232,7 +232,7 @@ namespace Libvirt.Model {
         }
         
         [System.Xml.Serialization.XmlElementAttribute("protocol", Namespace="")]
-        public BondInterfaceProtocol Protocol {
+        public BondInterfaceProtocol[] Protocol {
             get {
                 return this.protocol;
             }
@@ -717,7 +717,7 @@ namespace Libvirt.Model {
         
         private EthernetInterfaceMtu mtu;
         
-        private BridgeInterfaceProtocol protocol;
+        private BridgeInterfaceProtocol[] protocol;
         
         private BridgeInterfaceBridge bridge;
         
@@ -762,7 +762,7 @@ namespace Libvirt.Model {
         }
         
         [System.Xml.Serialization.XmlElementAttribute("protocol", Namespace="")]
-        public BridgeInterfaceProtocol Protocol {
+        public BridgeInterfaceProtocol[] Protocol {
             get {
                 return this.protocol;
             }
@@ -3592,7 +3592,7 @@ namespace Libvirt.Model {
         
         private string name;
         
-        private DeviceCapabilityCapabilityFields fields;
+        private DeviceCapabilityCapabilityFields[] fields;
         
         private string wwnn;
         
@@ -3699,7 +3699,7 @@ namespace Libvirt.Model {
         }
         
         [System.Xml.Serialization.XmlElementAttribute("fields", Namespace="")]
-        public DeviceCapabilityCapabilityFields Fields {
+        public DeviceCapabilityCapabilityFields[] Fields {
             get {
                 return this.fields;
             }
@@ -7726,10 +7726,10 @@ namespace Libvirt.Model {
     [System.Xml.Serialization.XmlTypeAttribute("cpu", Namespace="")]
     public partial class DomainCapabilitiesCpu {
         
-        private DomainCapabilitiesCpuMode mode;
+        private DomainCapabilitiesCpuMode[] mode;
         
         [System.Xml.Serialization.XmlElementAttribute("mode", Namespace="")]
-        public DomainCapabilitiesCpuMode Mode {
+        public DomainCapabilitiesCpuMode[] Mode {
             get {
                 return this.mode;
             }
@@ -31264,7 +31264,7 @@ namespace Libvirt.Model {
         
         private bool modeSpecified;
         
-        private string certificate;
+        private string[] certificate;
         
         private string database;
         
@@ -31305,7 +31305,7 @@ namespace Libvirt.Model {
         }
         
         [System.Xml.Serialization.XmlElementAttribute("certificate", Namespace="")]
-        public string Certificate {
+        public string[] Certificate {
             get {
                 return this.certificate;
             }
@@ -35863,7 +35863,7 @@ namespace Libvirt.Model {
         
         private EthernetInterfaceMtu mtu;
         
-        private EthernetInterfaceProtocol protocol;
+        private EthernetInterfaceProtocol[] protocol;
         
         [System.Xml.Serialization.XmlElementAttribute("start", Namespace="")]
         public EthernetInterfaceStart Start {
@@ -35926,7 +35926,7 @@ namespace Libvirt.Model {
         }
         
         [System.Xml.Serialization.XmlElementAttribute("protocol", Namespace="")]
-        public EthernetInterfaceProtocol Protocol {
+        public EthernetInterfaceProtocol[] Protocol {
             get {
                 return this.protocol;
             }
@@ -50076,7 +50076,7 @@ namespace Libvirt.Model {
         
         private EthernetInterfaceMtu mtu;
         
-        private VlanInterfaceProtocol protocol;
+        private VlanInterfaceProtocol[] protocol;
         
         private VlanInterfaceVlanDevice vlan;
         
@@ -50131,7 +50131,7 @@ namespace Libvirt.Model {
         }
         
         [System.Xml.Serialization.XmlElementAttribute("protocol", Namespace="")]
-        public VlanInterfaceProtocol Protocol {
+        public VlanInterfaceProtocol[] Protocol {
             get {
                 return this.protocol;
             }

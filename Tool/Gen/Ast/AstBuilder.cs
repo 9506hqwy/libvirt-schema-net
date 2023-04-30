@@ -349,7 +349,18 @@ internal class AstBuilder
                 foreach (var frag in nodes)
                 {
                     var attributes = frag!.Stack!.GetFrom(node);
-                    fragments.Add(new AstTypeFragment(frag.Node, attributes, frag.Stack!.Inner, frag.BranchCount));
+                    fragments.Add(new AstTypeFragment(frag.Node, attributes, frag.Stack!.Inner, frag.BranchCount, frag.BranchId));
+                }
+
+                foreach (var memGroup in fragments.GroupBy(f => f.BranchId))
+                {
+                    if (memGroup.Count() > 1)
+                    {
+                        foreach (var frag in memGroup)
+                        {
+                            frag.SetIsArray(true);
+                        }
+                    }
                 }
 
                 members.Add(new AstTypeMember(nodes.First().Name, fragments.ToArray(), nodes.Key));
@@ -360,7 +371,7 @@ internal class AstBuilder
         foreach (var value in parsed.Values)
         {
             var attributes = value!.Stack!.GetFrom(node);
-            values.Add(new AstTypeFragment(value.Node, attributes, value.Stack.Inner, value.BranchCount));
+            values.Add(new AstTypeFragment(value.Node, attributes, value.Stack.Inner, value.BranchCount, value.BranchId));
         }
 
         var type = new AstTypeDeclaration(

@@ -6,19 +6,24 @@ internal class AstTypeFragment
 {
     private readonly INode[] attributes;
 
+    private bool isArray;
+
     private bool isOptional;
 
-    internal AstTypeFragment(INode node, INode[] attribute, INode[] stack, int branchCount)
+    internal AstTypeFragment(INode node, INode[] attribute, INode[] stack, int branchCount, Guid branchId)
     {
         this.Node = node;
         this.attributes = attribute;
         this.Stack = stack;
         this.BranchCount = branchCount;
+        this.BranchId = branchId;
     }
 
     internal int BranchCount { get; }
 
-    internal bool IsArray => this.attributes.Any(n => n is ZeroOrMore || n is OneOrMore);
+    internal Guid BranchId { get; }
+
+    internal bool IsArray => this.isArray || this.attributes.Any(n => n is ZeroOrMore || n is OneOrMore);
 
     internal INode Node { get; }
 
@@ -29,6 +34,11 @@ internal class AstTypeFragment
     internal AstTypeDeclaration? Type { get; set; }
 
     internal bool Unordered => this.attributes.Any(n => n is Interleave);
+
+    internal void SetIsArray(bool isArray)
+    {
+        this.isArray = isArray;
+    }
 
     internal void SetOptional(bool isOptional)
     {

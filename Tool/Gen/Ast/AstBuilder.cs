@@ -29,15 +29,15 @@ internal class AstBuilder
         return $"{member.FindNamespace()}_{member.Name}";
     }
 
-    private string ByFqdn(ParsedNode node)
+    private string ByFqdn(ParsedChildNode node)
     {
-        var ns = node.Node switch
+        var ns = node.Value.Node switch
         {
             Element e => e.Namespace,
             _ => null,
         };
 
-        return $"{ns}_{node.Name}";
+        return $"{ns}_{node.Value.Name}";
     }
 
     private void Init()
@@ -91,6 +91,33 @@ internal class AstBuilder
         }
     }
 
+    private Choice? GetCommonChoice(AstTypeFragment[] values)
+    {
+        var choice = values[0].Stack.Reverse().FirstOrDefault(n => n is Choice);
+        if (choice is null)
+        {
+            return null;
+        }
+
+        foreach (var value in values)
+        {
+            while (!value.Stack.Reverse().Any(n => n.Position.Equals(choice.Position)))
+            {
+                choice = values[0].Stack
+                    .Reverse()
+                    .SkipWhile(n => !n.Position.Equals(choice.Position))
+                    .Skip(1)
+                    .FirstOrDefault(n => n is Choice);
+                if (choice is null)
+                {
+                    return null;
+                }
+            }
+        }
+
+        return (Choice)choice;
+    }
+
     private void InitFragment(AstTypeDeclaration type)
     {
         foreach (var member in type.Members)
@@ -115,23 +142,36 @@ internal class AstBuilder
         }
     }
 
-    private bool IsMandatoryValue(AstTypeFragment[] values)
+    private bool IsMandatoryValue(AstTypeFragment[] values, int maxBranchCount)
     {
-        var maxBranchCount = values.Max(v => v.BranchCount);
         if (maxBranchCount > values.Length)
         {
             return false;
         }
 
+        var root = this.GetCommonChoice(values);
+        if (root is null)
+        {
+            return values.All(v => !v.Optional);
+        }
+
         foreach (var value in values)
         {
-            if (value.Optional)
+            var optional = value.Stack
+                .Reverse()
+                .TakeWhile(n => n is not Element)
+                .TakeWhile(n => !n.Position.Equals(root.Position))
+                .FirstOrDefault(n => n is Optional);
+            if (optional is not null)
             {
                 return false;
             }
         }
 
-        return true;
+        return !values[0].Attributes
+            .Reverse()
+            .SkipWhile(n => !n.Position.Equals(root.Position))
+            .Any(n => n is Optional);
     }
 
     private void MergeFragment(AstTypeDeclarationBase type, AstTypeMember member)
@@ -191,6 +231,8 @@ internal class AstBuilder
 
     private void MergeFragmentClassMember(AstTypeDeclarationBase type, AstTypeMember member)
     {
+        var maxBranchCount = member.Fragments.Length;
+
         var optional = member.Fragments.Any(v => v.Optional);
         var isArray = member.Fragments.Any(v => v.IsArray);
 
@@ -201,16 +243,11 @@ internal class AstBuilder
         {
             foreach (var nodes in child.GroupBy(c => c.IsAttribute))
             {
-                var fragments = new List<AstTypeFragment>();
-                foreach (var frag in nodes)
-                {
-                    fragments.AddRange(frag.Fragments);
-                }
+                var fragments = nodes.SelectMany(n => n.Fragments).Select(n => n.Copy()).ToArray();
 
-                var isOptional =
-                    (member.Fragments.Length > fragments.Count) ||
-                    !this.IsMandatoryValue(fragments.ToArray());
-                fragments.ForEach(f => f.SetOptional(isOptional));
+                var isOptional = !this.IsMandatoryValue(fragments, maxBranchCount);
+                Array.ForEach(fragments, f => f.SetOptional(isOptional));
+                Array.ForEach(fragments, f => f.SetBranchCount(maxBranchCount));
 
                 members.Add(new AstTypeMember(nodes.First().Name, fragments.ToArray(), nodes.Key));
             }
@@ -292,7 +329,9 @@ internal class AstBuilder
             return;
         }
 
-        var optional = !this.IsMandatoryValue(values);
+        var maxBranchCount = values.Max(v => v.BranchCount);
+
+        var optional = !this.IsMandatoryValue(values, maxBranchCount);
         var isArray = values.Any(v => v.IsArray);
 
         if (values.Any(v => v.Type!.ValueType!.IsString))
@@ -327,32 +366,29 @@ internal class AstBuilder
     {
         var node = parsed.Node;
 
-        var children = parsed.Children.Where(c => !c.IsRawXml).GroupBy(this.ByFqdn);
+        var children = parsed.Children.Where(c => !c.Value.IsRawXml).GroupBy(this.ByFqdn);
 
         var members = new List<AstTypeMember>();
         foreach (var child in children)
         {
-            foreach (var nodes in child.GroupBy(c => c.IsAttribute))
+            foreach (var nodes in child.GroupBy(c => c.Value.IsAttribute))
             {
                 var fragments = new List<AstTypeFragment>();
                 foreach (var frag in nodes)
                 {
-                    var attributes = frag!.Stack!.GetFrom(node);
-                    fragments.Add(new AstTypeFragment(frag.Node, attributes, frag.Stack!.Inner, frag.BranchCount, frag.BranchId));
+                    var attributes = frag!.Value.Stack!.GetFrom(node);
+                    fragments.Add(new AstTypeFragment(frag.Value.Node, attributes, frag.Value.Stack!.Inner, frag.BranchCount, frag.BranchId));
                 }
 
                 foreach (var memGroup in fragments.GroupBy(f => f.BranchId))
                 {
-                    if (memGroup.Count() > 1)
+                    foreach (var frag in memGroup)
                     {
-                        foreach (var frag in memGroup)
-                        {
-                            frag.SetIsArray(true);
-                        }
+                        frag.SetIsArray(memGroup.Count() > 1);
                     }
                 }
 
-                members.Add(new AstTypeMember(nodes.First().Name, fragments.ToArray(), nodes.Key));
+                members.Add(new AstTypeMember(nodes.First().Value.Name, fragments.ToArray(), nodes.Key));
             }
         }
 

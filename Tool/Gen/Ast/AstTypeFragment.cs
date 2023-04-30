@@ -4,8 +4,6 @@ using RelaxNg.Schema;
 
 internal class AstTypeFragment
 {
-    private readonly INode[] attributes;
-
     private bool isArray;
 
     private bool isOptional;
@@ -13,17 +11,19 @@ internal class AstTypeFragment
     internal AstTypeFragment(INode node, INode[] attribute, INode[] stack, int branchCount, Guid branchId)
     {
         this.Node = node;
-        this.attributes = attribute;
+        this.Attributes = attribute;
         this.Stack = stack;
         this.BranchCount = branchCount;
         this.BranchId = branchId;
     }
 
-    internal int BranchCount { get; }
+    internal INode[] Attributes { get; }
+
+    internal int BranchCount { get; private set; }
 
     internal Guid BranchId { get; }
 
-    internal bool IsArray => this.isArray || this.attributes.Any(n => n is ZeroOrMore || n is OneOrMore);
+    internal bool IsArray => this.isArray || this.Attributes.Any(n => n is ZeroOrMore || n is OneOrMore);
 
     internal INode Node { get; }
 
@@ -33,7 +33,21 @@ internal class AstTypeFragment
 
     internal AstTypeDeclaration? Type { get; set; }
 
-    internal bool Unordered => this.attributes.Any(n => n is Interleave);
+    internal bool Unordered => this.Attributes.Any(n => n is Interleave);
+
+    internal AstTypeFragment Copy()
+    {
+        var frag = new AstTypeFragment(this.Node, this.Attributes, this.Stack, this.BranchCount, this.BranchId);
+        frag.isArray = this.isArray;
+        frag.isOptional = this.isOptional;
+        frag.Type = this.Type;
+        return frag;
+    }
+
+    internal void SetBranchCount(int branchCount)
+    {
+        this.BranchCount = branchCount;
+    }
 
     internal void SetIsArray(bool isArray)
     {
@@ -47,7 +61,7 @@ internal class AstTypeFragment
 
     private bool IsOptional()
     {
-        var attrs = this.attributes.AsEnumerable();
+        var attrs = this.Attributes.AsEnumerable();
 
         switch (this.Node)
         {
@@ -62,6 +76,6 @@ internal class AstTypeFragment
                 break;
         }
 
-        return this.attributes.Any(n => n is Choice || n is Optional);
+        return this.Attributes.Any(n => n is Choice || n is Optional);
     }
 }

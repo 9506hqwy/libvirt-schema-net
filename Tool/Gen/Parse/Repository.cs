@@ -181,10 +181,7 @@ internal class Repository
                     this.ReplaceType(parsedNode);
                 }
 
-                parsedNode.BranchCount = branchCount;
-                parsedNode.BranchId = branchId;
-
-                parent?.AddChild(parsedNode);
+                parent?.AddChild(parsedNode, branchCount, branchId);
 
                 break;
 
@@ -214,7 +211,7 @@ internal class Repository
 
         foreach (var child in parsed.Children)
         {
-            this.ReplaceType(child);
+            this.ReplaceType(child.Value);
         }
     }
 }

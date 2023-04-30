@@ -24,9 +24,13 @@ internal class ParsedNode
 
     internal ParsedNode[] Children => this.childList.ToArray();
 
+    internal bool HasRawXml => this.childList.Any(c => c.IsRawXml);
+
     internal bool IsAttribute => this.Node is Attribute;
 
     internal bool IsEmpty { get; private set; }
+
+    internal bool IsRawXml => this.Node.Name.IsAnyName();
 
     internal string Name => this.Node.Name.GetName();
 

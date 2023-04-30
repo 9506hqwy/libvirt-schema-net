@@ -27,7 +27,7 @@ internal class Repository
 
     private int GetNameLength(INode[] nodes)
     {
-        return nodes.OfType<IHasName>().Select(n => n.Name.GetName().Length).Sum();
+        return nodes.OfType<IHasName>().Select(n => n.Name.GetNameLength()).Sum();
     }
 
     private void Init()

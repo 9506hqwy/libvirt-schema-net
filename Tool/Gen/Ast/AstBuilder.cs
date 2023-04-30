@@ -6,19 +6,16 @@ internal class AstBuilder
 {
     private readonly List<AstMergedTypeDeclaration> mergedTypes;
 
-    private readonly RawXmlDefine[] rawDefines;
-
     private readonly Repository repository;
 
     private readonly Dictionary<RngPosition, AstTypeDeclaration> types;
 
-    internal AstBuilder(Repository repository, RawXmlDefine[] rawDefines)
+    internal AstBuilder(Repository repository)
     {
         this.mergedTypes = new List<AstMergedTypeDeclaration>();
         this.types = new Dictionary<RngPosition, AstTypeDeclaration>();
 
         this.repository = repository;
-        this.rawDefines = rawDefines;
 
         this.Init();
     }
@@ -135,14 +132,6 @@ internal class AstBuilder
         }
 
         return true;
-    }
-
-    private bool IsRawXml(ParsedStack stack)
-    {
-        return stack.Inner
-            .Reverse()
-            .OfType<Define>()
-            .Any(d => this.rawDefines.Any(r => r.EqualDefine(d)));
     }
 
     private void MergeFragment(AstTypeDeclarationBase type, AstTypeMember member)
@@ -338,7 +327,7 @@ internal class AstBuilder
     {
         var node = parsed.Node;
 
-        var children = parsed.Children.GroupBy(this.ByFqdn);
+        var children = parsed.Children.Where(c => !c.IsRawXml).GroupBy(this.ByFqdn);
 
         var members = new List<AstTypeMember>();
         foreach (var child in children)
@@ -379,7 +368,7 @@ internal class AstBuilder
             members.ToArray(),
             values.ToArray(),
             parsed.IsEmpty,
-            this.IsRawXml(parsed.Stack!),
+            parsed.HasRawXml,
             parsed.Stack!.Inner);
         this.types.Add(node.Position, type);
     }

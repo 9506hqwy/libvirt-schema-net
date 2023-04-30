@@ -28,16 +28,10 @@ internal class MainShell
     {
         var execludedDefines = new[]
         {
-            new ExcludeDefine("customElement", "basictypes.rng"),
             new ExcludeDefine("privateDataStorageSource", "privatedata.rng"),
             new ExcludeDefine("privateDataDeviceDisk", "privatedata.rng"),
             new ExcludeDefine("storageStartupPolicy", "storagecommon.rng"),
             new ExcludeDefine("storageSourceExtra", "storagecommon.rng"),
-        };
-
-        var rawDefines = new[]
-        {
-            new RawXmlDefine("metadata", "basictypes.rng"),
         };
 
         var exceptTypeAttr = new[]
@@ -61,7 +55,7 @@ internal class MainShell
             f => f);
 
         var repository = new Repository(files.Values.ToArray(), execludedDefines);
-        var builder = new AstBuilder(repository, rawDefines);
+        var builder = new AstBuilder(repository);
         var types = builder.Types
             .Where(t => !t.FundamentalType)
             .OfType<AstTypeDeclarationBase>()

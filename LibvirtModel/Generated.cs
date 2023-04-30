@@ -31472,7 +31472,7 @@ namespace Libvirt.Model {
         
         private DomainsnapshotParent parent;
         
-        private string cookie;
+        private DomainsnapshotCookie cookie;
         
         [System.Xml.Serialization.XmlElementAttribute("name", Namespace="")]
         public string Name {
@@ -31595,7 +31595,7 @@ namespace Libvirt.Model {
         }
         
         [System.Xml.Serialization.XmlElementAttribute("cookie", Namespace="")]
-        public string Cookie {
+        public DomainsnapshotCookie Cookie {
             get {
                 return this.cookie;
             }
@@ -31627,6 +31627,21 @@ namespace Libvirt.Model {
         
         [System.Xml.Serialization.XmlEnumAttribute(Name="1")]
         N1,
+    }
+    
+    public partial class DomainsnapshotCookie {
+        
+        private System.Xml.XmlElement[] elements;
+        
+        [System.Xml.Serialization.XmlAnyElementAttribute()]
+        public System.Xml.XmlElement[] Elements {
+            get {
+                return this.elements;
+            }
+            set {
+                this.elements = value;
+            }
+        }
     }
     
     public partial class DomainsnapshotDisks {

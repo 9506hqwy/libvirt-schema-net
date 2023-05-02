@@ -1717,6 +1717,9 @@ namespace Libvirt.Model {
     
     public enum CapabilitiesDomainType {
         
+        [System.Xml.Serialization.XmlEnumAttribute(Name="hvf")]
+        Hvf,
+        
         [System.Xml.Serialization.XmlEnumAttribute(Name="kqemu")]
         Kqemu,
         
@@ -41859,6 +41862,10 @@ namespace Libvirt.Model {
         
         private bool bitsSpecified;
         
+        private uint limit;
+        
+        private bool limitSpecified;
+        
         [System.Xml.Serialization.XmlAttributeAttribute("mode")]
         public GuestcpuCpuMaxPhysAddrMode Mode {
             get {
@@ -41886,6 +41893,26 @@ namespace Libvirt.Model {
             }
             set {
                 this.bitsSpecified = value;
+            }
+        }
+        
+        [System.Xml.Serialization.XmlAttributeAttribute("limit")]
+        public uint Limit {
+            get {
+                return this.limit;
+            }
+            set {
+                this.limit = value;
+            }
+        }
+        
+        [System.Xml.Serialization.XmlIgnoreAttribute()]
+        public bool LimitSpecified {
+            get {
+                return this.limitSpecified;
+            }
+            set {
+                this.limitSpecified = value;
             }
         }
     }

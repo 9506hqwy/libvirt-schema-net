@@ -25830,6 +25830,8 @@ namespace Libvirt.Model {
         
         private bool threadPoolMaxSpecified;
         
+        private DomainIothreadidsIothreadPoll poll;
+        
         [System.Xml.Serialization.XmlAttributeAttribute("id")]
         public uint Id {
             get {
@@ -25877,6 +25879,91 @@ namespace Libvirt.Model {
             }
             set {
                 this.threadPoolMaxSpecified = value;
+            }
+        }
+        
+        [System.Xml.Serialization.XmlElementAttribute("poll", Namespace="")]
+        public DomainIothreadidsIothreadPoll Poll {
+            get {
+                return this.poll;
+            }
+            set {
+                this.poll = value;
+            }
+        }
+    }
+    
+    public partial class DomainIothreadidsIothreadPoll {
+        
+        private uint max;
+        
+        private bool maxSpecified;
+        
+        private uint grow;
+        
+        private bool growSpecified;
+        
+        private uint shrink;
+        
+        private bool shrinkSpecified;
+        
+        [System.Xml.Serialization.XmlAttributeAttribute("max")]
+        public uint Max {
+            get {
+                return this.max;
+            }
+            set {
+                this.max = value;
+            }
+        }
+        
+        [System.Xml.Serialization.XmlIgnoreAttribute()]
+        public bool MaxSpecified {
+            get {
+                return this.maxSpecified;
+            }
+            set {
+                this.maxSpecified = value;
+            }
+        }
+        
+        [System.Xml.Serialization.XmlAttributeAttribute("grow")]
+        public uint Grow {
+            get {
+                return this.grow;
+            }
+            set {
+                this.grow = value;
+            }
+        }
+        
+        [System.Xml.Serialization.XmlIgnoreAttribute()]
+        public bool GrowSpecified {
+            get {
+                return this.growSpecified;
+            }
+            set {
+                this.growSpecified = value;
+            }
+        }
+        
+        [System.Xml.Serialization.XmlAttributeAttribute("shrink")]
+        public uint Shrink {
+            get {
+                return this.shrink;
+            }
+            set {
+                this.shrink = value;
+            }
+        }
+        
+        [System.Xml.Serialization.XmlIgnoreAttribute()]
+        public bool ShrinkSpecified {
+            get {
+                return this.shrinkSpecified;
+            }
+            set {
+                this.shrinkSpecified = value;
             }
         }
     }
@@ -27216,6 +27303,8 @@ namespace Libvirt.Model {
         
         private DomainMemorydevTargetReadonly @readonly;
         
+        private DomainMemorydevTargetAddress address;
+        
         [System.Xml.Serialization.XmlElementAttribute("size", Namespace="")]
         public DomainDevicesMemorydevMemorydevTargetSize Size {
             get {
@@ -27293,6 +27382,31 @@ namespace Libvirt.Model {
             }
             set {
                 this.@readonly = value;
+            }
+        }
+        
+        [System.Xml.Serialization.XmlElementAttribute("address", Namespace="")]
+        public DomainMemorydevTargetAddress Address {
+            get {
+                return this.address;
+            }
+            set {
+                this.address = value;
+            }
+        }
+    }
+    
+    public partial class DomainMemorydevTargetAddress {
+        
+        private string @base;
+        
+        [System.Xml.Serialization.XmlAttributeAttribute("base")]
+        public string Base {
+            get {
+                return this.@base;
+            }
+            set {
+                this.@base = value;
             }
         }
     }
@@ -33242,6 +33356,10 @@ namespace Libvirt.Model {
         
         private DomainSoundModel model;
         
+        private VirYesNo multichannel;
+        
+        private bool multichannelSpecified;
+        
         private DomainHubAlias alias;
         
         private DomainAcpi acpi;
@@ -33259,6 +33377,26 @@ namespace Libvirt.Model {
             }
             set {
                 this.model = value;
+            }
+        }
+        
+        [System.Xml.Serialization.XmlAttributeAttribute("multichannel")]
+        public VirYesNo Multichannel {
+            get {
+                return this.multichannel;
+            }
+            set {
+                this.multichannel = value;
+            }
+        }
+        
+        [System.Xml.Serialization.XmlIgnoreAttribute()]
+        public bool MultichannelSpecified {
+            get {
+                return this.multichannelSpecified;
+            }
+            set {
+                this.multichannelSpecified = value;
             }
         }
         

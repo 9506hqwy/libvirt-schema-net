@@ -3368,7 +3368,7 @@ public class DomainTest : TestBase
     {
         const string expected = $@"
 {XMLDECL}
-<DomainMaxMemory {XMLNS} slots=""0"" />
+<DomainMaxMemory {XMLNS} />
 ";
 
         this.AssertXml<DomainMaxMemory>(expected);

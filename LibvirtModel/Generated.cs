@@ -7718,6 +7718,8 @@ namespace Libvirt.Model {
         
         private string vendor;
         
+        private GuestcpuCpuMaxPhysAddr maxphysaddr;
+        
         private GuestcpuCpuFeature[] feature;
         
         [System.Xml.Serialization.XmlAttributeAttribute("name")]
@@ -7767,6 +7769,16 @@ namespace Libvirt.Model {
             }
             set {
                 this.vendor = value;
+            }
+        }
+        
+        [System.Xml.Serialization.XmlElementAttribute("maxphysaddr", Namespace="")]
+        public GuestcpuCpuMaxPhysAddr Maxphysaddr {
+            get {
+                return this.maxphysaddr;
+            }
+            set {
+                this.maxphysaddr = value;
             }
         }
         
@@ -14449,6 +14461,10 @@ namespace Libvirt.Model {
         
         private bool detectZeroesSpecified;
         
+        private VirOnOff discardNoUnref;
+        
+        private bool discardNoUnrefSpecified;
+        
         private ulong queues;
         
         private bool queuesSpecified;
@@ -14702,6 +14718,26 @@ namespace Libvirt.Model {
             }
             set {
                 this.detectZeroesSpecified = value;
+            }
+        }
+        
+        [System.Xml.Serialization.XmlAttributeAttribute("discard_no_unref")]
+        public VirOnOff DiscardNoUnref {
+            get {
+                return this.discardNoUnref;
+            }
+            set {
+                this.discardNoUnref = value;
+            }
+        }
+        
+        [System.Xml.Serialization.XmlIgnoreAttribute()]
+        public bool DiscardNoUnrefSpecified {
+            get {
+                return this.discardNoUnrefSpecified;
+            }
+            set {
+                this.discardNoUnrefSpecified = value;
             }
         }
         
@@ -26455,6 +26491,8 @@ namespace Libvirt.Model {
         
         private uint slots;
         
+        private bool slotsSpecified;
+        
         private string value;
         
         [System.Xml.Serialization.XmlAttributeAttribute("unit")]
@@ -26474,6 +26512,16 @@ namespace Libvirt.Model {
             }
             set {
                 this.slots = value;
+            }
+        }
+        
+        [System.Xml.Serialization.XmlIgnoreAttribute()]
+        public bool SlotsSpecified {
+            get {
+                return this.slotsSpecified;
+            }
+            set {
+                this.slotsSpecified = value;
             }
         }
         

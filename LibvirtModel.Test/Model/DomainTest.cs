@@ -1743,6 +1743,17 @@ public class DomainTest : TestBase
     }
 
     [TestMethod]
+    public void DomainFeaturesAsyncTeardown()
+    {
+        const string expected = $@"
+{XMLDECL}
+<DomainFeaturesAsyncTeardown {XMLNS} />
+";
+
+        this.AssertXml<DomainFeaturesAsyncTeardown>(expected);
+    }
+
+    [TestMethod]
     public void DomainFeaturesCapabilities()
     {
         const string expected = $@"

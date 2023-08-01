@@ -15,6 +15,17 @@ public class DomainCapsTest : TestBase
     }
 
     [TestMethod]
+    public void DomainCapabilitiesAsyncTeardown()
+    {
+        const string expected = $@"
+{XMLDECL}
+<async-teardown {XMLNS} supported=""no"" />
+";
+
+        this.AssertXml<DomainCapabilitiesAsyncTeardown>(expected);
+    }
+
+    [TestMethod]
     public void DomainCapabilitiesCpu()
     {
         const string expected = $@"

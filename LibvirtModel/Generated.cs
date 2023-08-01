@@ -7558,6 +7558,22 @@ namespace Libvirt.Model {
         }
     }
     
+    [System.Xml.Serialization.XmlTypeAttribute("async-teardown", Namespace="")]
+    public partial class DomainCapabilitiesAsyncTeardown {
+        
+        private VirYesNo supported;
+        
+        [System.Xml.Serialization.XmlAttributeAttribute("supported")]
+        public VirYesNo Supported {
+            get {
+                return this.supported;
+            }
+            set {
+                this.supported = value;
+            }
+        }
+    }
+    
     public partial class DomainCapabilitiesAuditControl {
         
         private VirOnOff state;
@@ -8151,6 +8167,8 @@ namespace Libvirt.Model {
         
         private DomainCapabilitiesBackup backup;
         
+        private DomainCapabilitiesAsyncTeardown asyncTeardown;
+        
         private DomainCapabilitiesS390Pv s390Pv;
         
         private DomainCapabilitiesSev sev;
@@ -8206,6 +8224,16 @@ namespace Libvirt.Model {
             }
             set {
                 this.backup = value;
+            }
+        }
+        
+        [System.Xml.Serialization.XmlElementAttribute("async-teardown", Namespace="")]
+        public DomainCapabilitiesAsyncTeardown AsyncTeardown {
+            get {
+                return this.asyncTeardown;
+            }
+            set {
+                this.asyncTeardown = value;
             }
         }
         
@@ -18133,6 +18161,8 @@ namespace Libvirt.Model {
         
         private DomainTcgfeatures tcg;
         
+        private DomainFeaturesAsyncTeardown asyncTeardown;
+        
         [System.Xml.Serialization.XmlElementAttribute("pae", Namespace="")]
         public DomainFeaturesPae Pae {
             get {
@@ -18392,6 +18422,16 @@ namespace Libvirt.Model {
                 this.tcg = value;
             }
         }
+        
+        [System.Xml.Serialization.XmlElementAttribute("async-teardown", Namespace="")]
+        public DomainFeaturesAsyncTeardown AsyncTeardown {
+            get {
+                return this.asyncTeardown;
+            }
+            set {
+                this.asyncTeardown = value;
+            }
+        }
     }
     
     public partial class DomainFeaturesAcpi {
@@ -18420,6 +18460,33 @@ namespace Libvirt.Model {
             }
             set {
                 this.eoiSpecified = value;
+            }
+        }
+    }
+    
+    public partial class DomainFeaturesAsyncTeardown {
+        
+        private VirYesNo enabled;
+        
+        private bool enabledSpecified;
+        
+        [System.Xml.Serialization.XmlAttributeAttribute("enabled")]
+        public VirYesNo Enabled {
+            get {
+                return this.enabled;
+            }
+            set {
+                this.enabled = value;
+            }
+        }
+        
+        [System.Xml.Serialization.XmlIgnoreAttribute()]
+        public bool EnabledSpecified {
+            get {
+                return this.enabledSpecified;
+            }
+            set {
+                this.enabledSpecified = value;
             }
         }
     }

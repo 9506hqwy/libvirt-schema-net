@@ -14385,6 +14385,10 @@ namespace Libvirt.Model {
         
         private bool physicalBlockSizeSpecified;
         
+        private long discardGranularity;
+        
+        private bool discardGranularitySpecified;
+        
         [System.Xml.Serialization.XmlAttributeAttribute("logical_block_size")]
         public long LogicalBlockSize {
             get {
@@ -14422,6 +14426,26 @@ namespace Libvirt.Model {
             }
             set {
                 this.physicalBlockSizeSpecified = value;
+            }
+        }
+        
+        [System.Xml.Serialization.XmlAttributeAttribute("discard_granularity")]
+        public long DiscardGranularity {
+            get {
+                return this.discardGranularity;
+            }
+            set {
+                this.discardGranularity = value;
+            }
+        }
+        
+        [System.Xml.Serialization.XmlIgnoreAttribute()]
+        public bool DiscardGranularitySpecified {
+            get {
+                return this.discardGranularitySpecified;
+            }
+            set {
+                this.discardGranularitySpecified = value;
             }
         }
     }
@@ -31544,6 +31568,8 @@ namespace Libvirt.Model {
         
         private DomainsnapshotDisks disks;
         
+        private DomainsnapshotRevertDisks revertDisks;
+        
         private DomainsnapshotActive active;
         
         private bool activeSpecified;
@@ -31623,6 +31649,16 @@ namespace Libvirt.Model {
             }
             set {
                 this.disks = value;
+            }
+        }
+        
+        [System.Xml.Serialization.XmlElementAttribute("revertDisks", Namespace="")]
+        public DomainsnapshotRevertDisks RevertDisks {
+            get {
+                return this.revertDisks;
+            }
+            set {
+                this.revertDisks = value;
             }
         }
         
@@ -33462,6 +33498,21 @@ namespace Libvirt.Model {
             }
             set {
                 this.name = value;
+            }
+        }
+    }
+    
+    public partial class DomainsnapshotRevertDisks {
+        
+        private DomainsnapshotDisksnapshot[] disk;
+        
+        [System.Xml.Serialization.XmlElementAttribute("disk", Namespace="")]
+        public DomainsnapshotDisksnapshot[] Disk {
+            get {
+                return this.disk;
+            }
+            set {
+                this.disk = value;
             }
         }
     }
@@ -44563,6 +44614,10 @@ namespace Libvirt.Model {
         
         private string name;
         
+        private string title;
+        
+        private string description;
+        
         private Metadata metadata;
         
         private string uuid;
@@ -44662,6 +44717,26 @@ namespace Libvirt.Model {
             }
             set {
                 this.name = value;
+            }
+        }
+        
+        [System.Xml.Serialization.XmlElementAttribute("title", Namespace="")]
+        public string Title {
+            get {
+                return this.title;
+            }
+            set {
+                this.title = value;
+            }
+        }
+        
+        [System.Xml.Serialization.XmlElementAttribute("description", Namespace="")]
+        public string Description {
+            get {
+                return this.description;
+            }
+            set {
+                this.description = value;
             }
         }
         

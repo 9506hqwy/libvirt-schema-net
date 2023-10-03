@@ -13819,7 +13819,9 @@ namespace Libvirt.Model {
         
         private DomainDiskSourceNetworkProtocolSslverify ssl;
         
-        private DomainDiskSourceNetworkNfs identity;
+        private DomainDiskSourceNetworkProtocolSshhostVerify knownHosts;
+        
+        private DomainDiskBackingStoreSourceIdentity identity;
         
         private string pool;
         
@@ -14143,8 +14145,18 @@ namespace Libvirt.Model {
             }
         }
         
+        [System.Xml.Serialization.XmlElementAttribute("knownHosts", Namespace="")]
+        public DomainDiskSourceNetworkProtocolSshhostVerify KnownHosts {
+            get {
+                return this.knownHosts;
+            }
+            set {
+                this.knownHosts = value;
+            }
+        }
+        
         [System.Xml.Serialization.XmlElementAttribute("identity", Namespace="")]
-        public DomainDiskSourceNetworkNfs Identity {
+        public DomainDiskBackingStoreSourceIdentity Identity {
             get {
                 return this.identity;
             }
@@ -14264,6 +14276,69 @@ namespace Libvirt.Model {
         }
     }
     
+    public partial class DomainDiskBackingStoreSourceIdentity {
+        
+        private string username;
+        
+        private string keyfile;
+        
+        private string agentsock;
+        
+        private string user;
+        
+        private string group;
+        
+        [System.Xml.Serialization.XmlAttributeAttribute("username")]
+        public string Username {
+            get {
+                return this.username;
+            }
+            set {
+                this.username = value;
+            }
+        }
+        
+        [System.Xml.Serialization.XmlAttributeAttribute("keyfile")]
+        public string Keyfile {
+            get {
+                return this.keyfile;
+            }
+            set {
+                this.keyfile = value;
+            }
+        }
+        
+        [System.Xml.Serialization.XmlAttributeAttribute("agentsock")]
+        public string Agentsock {
+            get {
+                return this.agentsock;
+            }
+            set {
+                this.agentsock = value;
+            }
+        }
+        
+        [System.Xml.Serialization.XmlAttributeAttribute("user")]
+        public string User {
+            get {
+                return this.user;
+            }
+            set {
+                this.user = value;
+            }
+        }
+        
+        [System.Xml.Serialization.XmlAttributeAttribute("group")]
+        public string Group {
+            get {
+                return this.group;
+            }
+            set {
+                this.group = value;
+            }
+        }
+    }
+    
     public enum DomainDiskBackingStoreSourceManaged {
         
         [System.Xml.Serialization.XmlEnumAttribute(Name="no")]
@@ -14313,6 +14388,9 @@ namespace Libvirt.Model {
         
         [System.Xml.Serialization.XmlEnumAttribute(Name="sheepdog")]
         Sheepdog,
+        
+        [System.Xml.Serialization.XmlEnumAttribute(Name="ssh")]
+        Ssh,
         
         [System.Xml.Serialization.XmlEnumAttribute(Name="tftp")]
         Tftp,
@@ -14370,6 +14448,9 @@ namespace Libvirt.Model {
         
         [System.Xml.Serialization.XmlEnumAttribute(Name="vhostuser")]
         Vhostuser,
+        
+        [System.Xml.Serialization.XmlEnumAttribute(Name="vhostvdpa")]
+        Vhostvdpa,
         
         [System.Xml.Serialization.XmlEnumAttribute(Name="volume")]
         Volume,
@@ -15847,7 +15928,9 @@ namespace Libvirt.Model {
         
         private DomainDiskSourceNetworkProtocolSslverify ssl;
         
-        private DomainDiskSourceNetworkNfs identity;
+        private DomainDiskSourceNetworkProtocolSshhostVerify knownHosts;
+        
+        private DomainDiskMirrorBackingStoreSourceIdentity identity;
         
         private string pool;
         
@@ -16171,8 +16254,18 @@ namespace Libvirt.Model {
             }
         }
         
+        [System.Xml.Serialization.XmlElementAttribute("knownHosts", Namespace="")]
+        public DomainDiskSourceNetworkProtocolSshhostVerify KnownHosts {
+            get {
+                return this.knownHosts;
+            }
+            set {
+                this.knownHosts = value;
+            }
+        }
+        
         [System.Xml.Serialization.XmlElementAttribute("identity", Namespace="")]
-        public DomainDiskSourceNetworkNfs Identity {
+        public DomainDiskMirrorBackingStoreSourceIdentity Identity {
             get {
                 return this.identity;
             }
@@ -16292,6 +16385,69 @@ namespace Libvirt.Model {
         }
     }
     
+    public partial class DomainDiskMirrorBackingStoreSourceIdentity {
+        
+        private string username;
+        
+        private string keyfile;
+        
+        private string agentsock;
+        
+        private string user;
+        
+        private string group;
+        
+        [System.Xml.Serialization.XmlAttributeAttribute("username")]
+        public string Username {
+            get {
+                return this.username;
+            }
+            set {
+                this.username = value;
+            }
+        }
+        
+        [System.Xml.Serialization.XmlAttributeAttribute("keyfile")]
+        public string Keyfile {
+            get {
+                return this.keyfile;
+            }
+            set {
+                this.keyfile = value;
+            }
+        }
+        
+        [System.Xml.Serialization.XmlAttributeAttribute("agentsock")]
+        public string Agentsock {
+            get {
+                return this.agentsock;
+            }
+            set {
+                this.agentsock = value;
+            }
+        }
+        
+        [System.Xml.Serialization.XmlAttributeAttribute("user")]
+        public string User {
+            get {
+                return this.user;
+            }
+            set {
+                this.user = value;
+            }
+        }
+        
+        [System.Xml.Serialization.XmlAttributeAttribute("group")]
+        public string Group {
+            get {
+                return this.group;
+            }
+            set {
+                this.group = value;
+            }
+        }
+    }
+    
     public enum DomainDiskMirrorBackingStoreSourceProtocol {
         
         [System.Xml.Serialization.XmlEnumAttribute(Name="ftp")]
@@ -16323,6 +16479,9 @@ namespace Libvirt.Model {
         
         [System.Xml.Serialization.XmlEnumAttribute(Name="sheepdog")]
         Sheepdog,
+        
+        [System.Xml.Serialization.XmlEnumAttribute(Name="ssh")]
+        Ssh,
         
         [System.Xml.Serialization.XmlEnumAttribute(Name="tftp")]
         Tftp,
@@ -16380,6 +16539,9 @@ namespace Libvirt.Model {
         
         [System.Xml.Serialization.XmlEnumAttribute(Name="vhostuser")]
         Vhostuser,
+        
+        [System.Xml.Serialization.XmlEnumAttribute(Name="vhostvdpa")]
+        Vhostvdpa,
         
         [System.Xml.Serialization.XmlEnumAttribute(Name="volume")]
         Volume,
@@ -16522,7 +16684,9 @@ namespace Libvirt.Model {
         
         private DomainDiskSourceNetworkProtocolSslverify ssl;
         
-        private DomainDiskSourceNetworkNfs identity;
+        private DomainDiskSourceNetworkProtocolSshhostVerify knownHosts;
+        
+        private DomainDiskMirrorSourceIdentity identity;
         
         private string pool;
         
@@ -16846,8 +17010,18 @@ namespace Libvirt.Model {
             }
         }
         
+        [System.Xml.Serialization.XmlElementAttribute("knownHosts", Namespace="")]
+        public DomainDiskSourceNetworkProtocolSshhostVerify KnownHosts {
+            get {
+                return this.knownHosts;
+            }
+            set {
+                this.knownHosts = value;
+            }
+        }
+        
         [System.Xml.Serialization.XmlElementAttribute("identity", Namespace="")]
-        public DomainDiskSourceNetworkNfs Identity {
+        public DomainDiskMirrorSourceIdentity Identity {
             get {
                 return this.identity;
             }
@@ -16967,6 +17141,69 @@ namespace Libvirt.Model {
         }
     }
     
+    public partial class DomainDiskMirrorSourceIdentity {
+        
+        private string username;
+        
+        private string keyfile;
+        
+        private string agentsock;
+        
+        private string user;
+        
+        private string group;
+        
+        [System.Xml.Serialization.XmlAttributeAttribute("username")]
+        public string Username {
+            get {
+                return this.username;
+            }
+            set {
+                this.username = value;
+            }
+        }
+        
+        [System.Xml.Serialization.XmlAttributeAttribute("keyfile")]
+        public string Keyfile {
+            get {
+                return this.keyfile;
+            }
+            set {
+                this.keyfile = value;
+            }
+        }
+        
+        [System.Xml.Serialization.XmlAttributeAttribute("agentsock")]
+        public string Agentsock {
+            get {
+                return this.agentsock;
+            }
+            set {
+                this.agentsock = value;
+            }
+        }
+        
+        [System.Xml.Serialization.XmlAttributeAttribute("user")]
+        public string User {
+            get {
+                return this.user;
+            }
+            set {
+                this.user = value;
+            }
+        }
+        
+        [System.Xml.Serialization.XmlAttributeAttribute("group")]
+        public string Group {
+            get {
+                return this.group;
+            }
+            set {
+                this.group = value;
+            }
+        }
+    }
+    
     public enum DomainDiskMirrorSourceProtocol {
         
         [System.Xml.Serialization.XmlEnumAttribute(Name="ftp")]
@@ -16998,6 +17235,9 @@ namespace Libvirt.Model {
         
         [System.Xml.Serialization.XmlEnumAttribute(Name="sheepdog")]
         Sheepdog,
+        
+        [System.Xml.Serialization.XmlEnumAttribute(Name="ssh")]
+        Ssh,
         
         [System.Xml.Serialization.XmlEnumAttribute(Name="tftp")]
         Tftp,
@@ -17055,6 +17295,9 @@ namespace Libvirt.Model {
         
         [System.Xml.Serialization.XmlEnumAttribute(Name="vhostuser")]
         Vhostuser,
+        
+        [System.Xml.Serialization.XmlEnumAttribute(Name="vhostvdpa")]
+        Vhostvdpa,
         
         [System.Xml.Serialization.XmlEnumAttribute(Name="volume")]
         Volume,
@@ -17143,7 +17386,9 @@ namespace Libvirt.Model {
         
         private DomainDiskSourceNetworkProtocolSslverify ssl;
         
-        private DomainDiskSourceNetworkNfs identity;
+        private DomainDiskSourceNetworkProtocolSshhostVerify knownHosts;
+        
+        private DomainDiskSourceIdentity identity;
         
         private string pool;
         
@@ -17467,8 +17712,18 @@ namespace Libvirt.Model {
             }
         }
         
+        [System.Xml.Serialization.XmlElementAttribute("knownHosts", Namespace="")]
+        public DomainDiskSourceNetworkProtocolSshhostVerify KnownHosts {
+            get {
+                return this.knownHosts;
+            }
+            set {
+                this.knownHosts = value;
+            }
+        }
+        
         [System.Xml.Serialization.XmlElementAttribute("identity", Namespace="")]
-        public DomainDiskSourceNetworkNfs Identity {
+        public DomainDiskSourceIdentity Identity {
             get {
                 return this.identity;
             }
@@ -17588,6 +17843,69 @@ namespace Libvirt.Model {
         }
     }
     
+    public partial class DomainDiskSourceIdentity {
+        
+        private string username;
+        
+        private string keyfile;
+        
+        private string agentsock;
+        
+        private string user;
+        
+        private string group;
+        
+        [System.Xml.Serialization.XmlAttributeAttribute("username")]
+        public string Username {
+            get {
+                return this.username;
+            }
+            set {
+                this.username = value;
+            }
+        }
+        
+        [System.Xml.Serialization.XmlAttributeAttribute("keyfile")]
+        public string Keyfile {
+            get {
+                return this.keyfile;
+            }
+            set {
+                this.keyfile = value;
+            }
+        }
+        
+        [System.Xml.Serialization.XmlAttributeAttribute("agentsock")]
+        public string Agentsock {
+            get {
+                return this.agentsock;
+            }
+            set {
+                this.agentsock = value;
+            }
+        }
+        
+        [System.Xml.Serialization.XmlAttributeAttribute("user")]
+        public string User {
+            get {
+                return this.user;
+            }
+            set {
+                this.user = value;
+            }
+        }
+        
+        [System.Xml.Serialization.XmlAttributeAttribute("group")]
+        public string Group {
+            get {
+                return this.group;
+            }
+            set {
+                this.group = value;
+            }
+        }
+    }
+    
     public enum DomainDiskSourceMode {
         
         [System.Xml.Serialization.XmlEnumAttribute(Name="direct")]
@@ -17684,33 +18002,6 @@ namespace Libvirt.Model {
         Unix,
     }
     
-    public partial class DomainDiskSourceNetworkNfs {
-        
-        private string user;
-        
-        private string group;
-        
-        [System.Xml.Serialization.XmlAttributeAttribute("user")]
-        public string User {
-            get {
-                return this.user;
-            }
-            set {
-                this.user = value;
-            }
-        }
-        
-        [System.Xml.Serialization.XmlAttributeAttribute("group")]
-        public string Group {
-            get {
-                return this.group;
-            }
-            set {
-                this.group = value;
-            }
-        }
-    }
-    
     public partial class DomainDiskSourceNetworkProtocolHttpcookies {
         
         private DomainOsNvramDiskSourceNetworkProtocolHttpDiskSourceNetworkProtocolHttpcookiesCookie[] cookie;
@@ -17786,6 +18077,21 @@ namespace Libvirt.Model {
         }
     }
     
+    public partial class DomainDiskSourceNetworkProtocolSshhostVerify {
+        
+        private string path;
+        
+        [System.Xml.Serialization.XmlAttributeAttribute("path")]
+        public string Path {
+            get {
+                return this.path;
+            }
+            set {
+                this.path = value;
+            }
+        }
+    }
+    
     public partial class DomainDiskSourceNetworkProtocolSslverify {
         
         private VirYesNo verify;
@@ -17832,6 +18138,9 @@ namespace Libvirt.Model {
         
         [System.Xml.Serialization.XmlEnumAttribute(Name="sheepdog")]
         Sheepdog,
+        
+        [System.Xml.Serialization.XmlEnumAttribute(Name="ssh")]
+        Ssh,
         
         [System.Xml.Serialization.XmlEnumAttribute(Name="tftp")]
         Tftp,
@@ -18066,6 +18375,9 @@ namespace Libvirt.Model {
         
         [System.Xml.Serialization.XmlEnumAttribute(Name="vhostuser")]
         Vhostuser,
+        
+        [System.Xml.Serialization.XmlEnumAttribute(Name="vhostvdpa")]
+        Vhostvdpa,
         
         [System.Xml.Serialization.XmlEnumAttribute(Name="volume")]
         Volume,
@@ -26022,20 +26334,20 @@ namespace Libvirt.Model {
     
     public partial class DomainIothreadidsIothreadPoll {
         
-        private uint max;
+        private ulong max;
         
         private bool maxSpecified;
         
-        private uint grow;
+        private ulong grow;
         
         private bool growSpecified;
         
-        private uint shrink;
+        private ulong shrink;
         
         private bool shrinkSpecified;
         
         [System.Xml.Serialization.XmlAttributeAttribute("max")]
-        public uint Max {
+        public ulong Max {
             get {
                 return this.max;
             }
@@ -26055,7 +26367,7 @@ namespace Libvirt.Model {
         }
         
         [System.Xml.Serialization.XmlAttributeAttribute("grow")]
-        public uint Grow {
+        public ulong Grow {
             get {
                 return this.grow;
             }
@@ -26075,7 +26387,7 @@ namespace Libvirt.Model {
         }
         
         [System.Xml.Serialization.XmlAttributeAttribute("shrink")]
-        public uint Shrink {
+        public ulong Shrink {
             get {
                 return this.shrink;
             }
@@ -28733,7 +29045,9 @@ namespace Libvirt.Model {
         
         private DomainDiskSourceNetworkProtocolSslverify ssl;
         
-        private DomainDiskSourceNetworkNfs identity;
+        private DomainDiskSourceNetworkProtocolSshhostVerify knownHosts;
+        
+        private DomainOsNvramSourceIdentity identity;
         
         private string pool;
         
@@ -29057,8 +29371,18 @@ namespace Libvirt.Model {
             }
         }
         
+        [System.Xml.Serialization.XmlElementAttribute("knownHosts", Namespace="")]
+        public DomainDiskSourceNetworkProtocolSshhostVerify KnownHosts {
+            get {
+                return this.knownHosts;
+            }
+            set {
+                this.knownHosts = value;
+            }
+        }
+        
         [System.Xml.Serialization.XmlElementAttribute("identity", Namespace="")]
-        public DomainDiskSourceNetworkNfs Identity {
+        public DomainOsNvramSourceIdentity Identity {
             get {
                 return this.identity;
             }
@@ -29253,6 +29577,69 @@ namespace Libvirt.Model {
         }
     }
     
+    public partial class DomainOsNvramSourceIdentity {
+        
+        private string username;
+        
+        private string keyfile;
+        
+        private string agentsock;
+        
+        private string user;
+        
+        private string group;
+        
+        [System.Xml.Serialization.XmlAttributeAttribute("username")]
+        public string Username {
+            get {
+                return this.username;
+            }
+            set {
+                this.username = value;
+            }
+        }
+        
+        [System.Xml.Serialization.XmlAttributeAttribute("keyfile")]
+        public string Keyfile {
+            get {
+                return this.keyfile;
+            }
+            set {
+                this.keyfile = value;
+            }
+        }
+        
+        [System.Xml.Serialization.XmlAttributeAttribute("agentsock")]
+        public string Agentsock {
+            get {
+                return this.agentsock;
+            }
+            set {
+                this.agentsock = value;
+            }
+        }
+        
+        [System.Xml.Serialization.XmlAttributeAttribute("user")]
+        public string User {
+            get {
+                return this.user;
+            }
+            set {
+                this.user = value;
+            }
+        }
+        
+        [System.Xml.Serialization.XmlAttributeAttribute("group")]
+        public string Group {
+            get {
+                return this.group;
+            }
+            set {
+                this.group = value;
+            }
+        }
+    }
+    
     public enum DomainOsNvramSourceMode {
         
         [System.Xml.Serialization.XmlEnumAttribute(Name="direct")]
@@ -29296,6 +29683,9 @@ namespace Libvirt.Model {
         
         [System.Xml.Serialization.XmlEnumAttribute(Name="sheepdog")]
         Sheepdog,
+        
+        [System.Xml.Serialization.XmlEnumAttribute(Name="ssh")]
+        Ssh,
         
         [System.Xml.Serialization.XmlEnumAttribute(Name="tftp")]
         Tftp,
@@ -29413,6 +29803,9 @@ namespace Libvirt.Model {
         
         [System.Xml.Serialization.XmlEnumAttribute(Name="vhostuser")]
         Vhostuser,
+        
+        [System.Xml.Serialization.XmlEnumAttribute(Name="vhostvdpa")]
+        Vhostvdpa,
         
         [System.Xml.Serialization.XmlEnumAttribute(Name="volume")]
         Volume,
@@ -32027,7 +32420,9 @@ namespace Libvirt.Model {
         
         private DomainDiskSourceNetworkProtocolSslverify ssl;
         
-        private DomainDiskSourceNetworkNfs identity;
+        private DomainDiskSourceNetworkProtocolSshhostVerify knownHosts;
+        
+        private DomainsnapshotDisksnapshotSourceIdentity identity;
         
         [System.Xml.Serialization.XmlAttributeAttribute("file")]
         public string File {
@@ -32279,13 +32674,86 @@ namespace Libvirt.Model {
             }
         }
         
+        [System.Xml.Serialization.XmlElementAttribute("knownHosts", Namespace="")]
+        public DomainDiskSourceNetworkProtocolSshhostVerify KnownHosts {
+            get {
+                return this.knownHosts;
+            }
+            set {
+                this.knownHosts = value;
+            }
+        }
+        
         [System.Xml.Serialization.XmlElementAttribute("identity", Namespace="")]
-        public DomainDiskSourceNetworkNfs Identity {
+        public DomainsnapshotDisksnapshotSourceIdentity Identity {
             get {
                 return this.identity;
             }
             set {
                 this.identity = value;
+            }
+        }
+    }
+    
+    public partial class DomainsnapshotDisksnapshotSourceIdentity {
+        
+        private string username;
+        
+        private string keyfile;
+        
+        private string agentsock;
+        
+        private string user;
+        
+        private string group;
+        
+        [System.Xml.Serialization.XmlAttributeAttribute("username")]
+        public string Username {
+            get {
+                return this.username;
+            }
+            set {
+                this.username = value;
+            }
+        }
+        
+        [System.Xml.Serialization.XmlAttributeAttribute("keyfile")]
+        public string Keyfile {
+            get {
+                return this.keyfile;
+            }
+            set {
+                this.keyfile = value;
+            }
+        }
+        
+        [System.Xml.Serialization.XmlAttributeAttribute("agentsock")]
+        public string Agentsock {
+            get {
+                return this.agentsock;
+            }
+            set {
+                this.agentsock = value;
+            }
+        }
+        
+        [System.Xml.Serialization.XmlAttributeAttribute("user")]
+        public string User {
+            get {
+                return this.user;
+            }
+            set {
+                this.user = value;
+            }
+        }
+        
+        [System.Xml.Serialization.XmlAttributeAttribute("group")]
+        public string Group {
+            get {
+                return this.group;
+            }
+            set {
+                this.group = value;
             }
         }
     }
@@ -32321,6 +32789,9 @@ namespace Libvirt.Model {
         
         [System.Xml.Serialization.XmlEnumAttribute(Name="sheepdog")]
         Sheepdog,
+        
+        [System.Xml.Serialization.XmlEnumAttribute(Name="ssh")]
+        Ssh,
         
         [System.Xml.Serialization.XmlEnumAttribute(Name="tftp")]
         Tftp,

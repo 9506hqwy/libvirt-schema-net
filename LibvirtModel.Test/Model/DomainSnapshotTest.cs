@@ -113,10 +113,21 @@ public class DomainSnapshotTest : TestBase
     }
 
     [TestMethod]
+    public void DomainsnapshotDisksnapshotSourceIdentity()
+    {
+        const string expected = $@"
+{XMLDECL}
+<DomainsnapshotDisksnapshotSourceIdentity {XMLNS} />
+";
+
+        this.AssertXml<DomainsnapshotDisksnapshotSourceIdentity>(expected);
+    }
+
+    [TestMethod]
     public void DomainsnapshotDisksnapshotSourceProtocol()
     {
         var values = Enum.GetValues(typeof(DomainsnapshotDisksnapshotSourceProtocol));
-        Assert.AreEqual(12, values.Length);
+        Assert.AreEqual(13, values.Length);
     }
 
     [TestMethod]

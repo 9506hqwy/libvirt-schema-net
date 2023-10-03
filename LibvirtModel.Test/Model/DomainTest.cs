@@ -1334,10 +1334,21 @@ public class DomainTest : TestBase
     }
 
     [TestMethod]
+    public void DomainDiskBackingStoreSourceIdentity()
+    {
+        const string expected = $@"
+{XMLDECL}
+<DomainDiskBackingStoreSourceIdentity {XMLNS} />
+";
+
+        this.AssertXml<DomainDiskBackingStoreSourceIdentity>(expected);
+    }
+
+    [TestMethod]
     public void DomainDiskBackingStoreType()
     {
         var values = Enum.GetValues(typeof(DomainDiskBackingStoreType));
-        Assert.AreEqual(7, values.Length);
+        Assert.AreEqual(8, values.Length);
     }
 
     [TestMethod]
@@ -1454,6 +1465,17 @@ public class DomainTest : TestBase
     }
 
     [TestMethod]
+    public void DomainDiskMirrorBackingStoreSourceIdentity()
+    {
+        const string expected = $@"
+{XMLDECL}
+<DomainDiskMirrorBackingStoreSourceIdentity {XMLNS} />
+";
+
+        this.AssertXml<DomainDiskMirrorBackingStoreSourceIdentity>(expected);
+    }
+
+    [TestMethod]
     public void DomainDiskMirrorJob()
     {
         var values = Enum.GetValues(typeof(DomainDiskMirrorJob));
@@ -1476,6 +1498,17 @@ public class DomainTest : TestBase
 ";
 
         this.AssertXml<DomainDiskMirrorSource>(expected);
+    }
+
+    [TestMethod]
+    public void DomainDiskMirrorSourceIdentity()
+    {
+        const string expected = $@"
+{XMLDECL}
+<DomainDiskMirrorSourceIdentity {XMLNS} />
+";
+
+        this.AssertXml<DomainDiskMirrorSourceIdentity>(expected);
     }
 
     [TestMethod]
@@ -1519,6 +1552,17 @@ public class DomainTest : TestBase
     }
 
     [TestMethod]
+    public void DomainDiskSourceIdentity()
+    {
+        const string expected = $@"
+{XMLDECL}
+<DomainDiskSourceIdentity {XMLNS} />
+";
+
+        this.AssertXml<DomainDiskSourceIdentity>(expected);
+    }
+
+    [TestMethod]
     public void DomainDiskSourceMode()
     {
         var values = Enum.GetValues(typeof(DomainDiskSourceMode));
@@ -1541,17 +1585,6 @@ public class DomainTest : TestBase
     {
         var values = Enum.GetValues(typeof(DomainDiskSourceNetworkHostTransport));
         Assert.AreEqual(3, values.Length);
-    }
-
-    [TestMethod]
-    public void DomainDiskSourceNetworkNfs()
-    {
-        const string expected = $@"
-{XMLDECL}
-<DomainDiskSourceNetworkNfs {XMLNS} />
-";
-
-        this.AssertXml<DomainDiskSourceNetworkNfs>(expected);
     }
 
     [TestMethod]
@@ -1632,6 +1665,17 @@ public class DomainTest : TestBase
     }
 
     [TestMethod]
+    public void DomainDiskSourceNetworkProtocolSshhostVerify()
+    {
+        const string expected = $@"
+{XMLDECL}
+<DomainDiskSourceNetworkProtocolSshhostVerify {XMLNS} />
+";
+
+        this.AssertXml<DomainDiskSourceNetworkProtocolSshhostVerify>(expected);
+    }
+
+    [TestMethod]
     public void DomainDiskSourceType()
     {
         var values = Enum.GetValues(typeof(DomainDiskSourceType));
@@ -1678,7 +1722,7 @@ public class DomainTest : TestBase
     public void DomainDiskType()
     {
         var values = Enum.GetValues(typeof(DomainDiskType));
-        Assert.AreEqual(7, values.Length);
+        Assert.AreEqual(8, values.Length);
     }
 
     [TestMethod]
@@ -3931,6 +3975,17 @@ public class DomainTest : TestBase
     }
 
     [TestMethod]
+    public void DomainOsNvramSourceIdentity()
+    {
+        const string expected = $@"
+{XMLDECL}
+<DomainOsNvramSourceIdentity {XMLNS} />
+";
+
+        this.AssertXml<DomainOsNvramSourceIdentity>(expected);
+    }
+
+    [TestMethod]
     public void DomainOsNvramSourceAddress()
     {
         const string expected = $@"
@@ -3952,7 +4007,7 @@ public class DomainTest : TestBase
     public void DomainOsNvramSourceProtocol()
     {
         var values = Enum.GetValues(typeof(DomainOsNvramSourceProtocol));
-        Assert.AreEqual(12, values.Length);
+        Assert.AreEqual(13, values.Length);
     }
 
     [TestMethod]
@@ -3988,7 +4043,7 @@ public class DomainTest : TestBase
     public void DomainOsNvramType()
     {
         var values = Enum.GetValues(typeof(DomainOsNvramType));
-        Assert.AreEqual(7, values.Length);
+        Assert.AreEqual(8, values.Length);
     }
 
     [TestMethod]

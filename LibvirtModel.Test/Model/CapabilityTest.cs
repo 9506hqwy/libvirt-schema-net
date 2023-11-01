@@ -211,6 +211,17 @@ public class CapabilityTest : TestBase
     }
 
     [TestMethod]
+    public void CapabilitiesFeaturesExternalSnapshot()
+    {
+        const string expected = $@"
+{XMLDECL}
+<CapabilitiesFeaturesExternalSnapshot {XMLNS} />
+";
+
+        this.AssertXml<CapabilitiesFeaturesExternalSnapshot>(expected);
+    }
+
+    [TestMethod]
     public void CapabilitiesFeaturesHap()
     {
         const string expected = $@"

@@ -1766,6 +1766,8 @@ namespace Libvirt.Model {
         
         private CapabilitiesFeaturesHap hap;
         
+        private CapabilitiesFeaturesExternalSnapshot externalSnapshot;
+        
         [System.Xml.Serialization.XmlElementAttribute("pae", Namespace="")]
         public CapabilitiesFeaturesPae Pae {
             get {
@@ -1855,6 +1857,16 @@ namespace Libvirt.Model {
                 this.hap = value;
             }
         }
+        
+        [System.Xml.Serialization.XmlElementAttribute("externalSnapshot", Namespace="")]
+        public CapabilitiesFeaturesExternalSnapshot ExternalSnapshot {
+            get {
+                return this.externalSnapshot;
+            }
+            set {
+                this.externalSnapshot = value;
+            }
+        }
     }
     
     public partial class CapabilitiesFeaturesAcpi {
@@ -1942,6 +1954,9 @@ namespace Libvirt.Model {
                 this.@default = value;
             }
         }
+    }
+    
+    public partial class CapabilitiesFeaturesExternalSnapshot {
     }
     
     public partial class CapabilitiesFeaturesHap {

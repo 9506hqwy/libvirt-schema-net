@@ -145,7 +145,7 @@ public class DomainTest : TestBase
     public void DomainAudioType()
     {
         var values = Enum.GetValues(typeof(DomainAudioType));
-        Assert.AreEqual(10, values.Length);
+        Assert.AreEqual(11, values.Length);
     }
 
     [TestMethod]

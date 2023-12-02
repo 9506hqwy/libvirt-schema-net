@@ -5712,6 +5712,8 @@ namespace Libvirt.Model {
         
         private bool dspPolicySpecified;
         
+        private string runtimeDir;
+        
         private string serverName;
         
         private DomainAudioDriver driver;
@@ -5827,6 +5829,16 @@ namespace Libvirt.Model {
             }
             set {
                 this.dspPolicySpecified = value;
+            }
+        }
+        
+        [System.Xml.Serialization.XmlAttributeAttribute("runtimeDir")]
+        public string RuntimeDir {
+            get {
+                return this.runtimeDir;
+            }
+            set {
+                this.runtimeDir = value;
             }
         }
         
@@ -6481,6 +6493,9 @@ namespace Libvirt.Model {
         
         [System.Xml.Serialization.XmlEnumAttribute(Name="oss")]
         Oss,
+        
+        [System.Xml.Serialization.XmlEnumAttribute(Name="pipewire")]
+        Pipewire,
         
         [System.Xml.Serialization.XmlEnumAttribute(Name="pulseaudio")]
         Pulseaudio,

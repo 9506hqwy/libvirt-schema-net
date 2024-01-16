@@ -1399,6 +1399,39 @@ public class DomainTest : TestBase
     }
 
     [TestMethod]
+    public void DomainDiskDriverIothreads()
+    {
+        const string expected = $@"
+{XMLDECL}
+<DomainDiskDriverIothreads {XMLNS} />
+";
+
+        this.AssertXml<DomainDiskDriverIothreads>(expected);
+    }
+
+    [TestMethod]
+    public void DomainDiskDriverIothreadsIothread()
+    {
+        const string expected = $@"
+{XMLDECL}
+<DomainDiskDriverIothreadsIothread {XMLNS} id=""0"" />
+";
+
+        this.AssertXml<DomainDiskDriverIothreadsIothread>(expected);
+    }
+
+    [TestMethod]
+    public void DomainDiskDriverIothreadsIothreadQueue()
+    {
+        const string expected = $@"
+{XMLDECL}
+<DomainDiskDriverIothreadsIothreadQueue {XMLNS} id=""0"" />
+";
+
+        this.AssertXml<DomainDiskDriverIothreadsIothreadQueue>(expected);
+    }
+
+    [TestMethod]
     public void DomainDiskFormat()
     {
         const string expected = $@"
@@ -2378,24 +2411,6 @@ public class DomainTest : TestBase
 ";
 
         this.AssertXml<DomainHostdev>(expected);
-    }
-
-    [TestMethod]
-    public void DomainHostdevDriver()
-    {
-        const string expected = $@"
-{XMLDECL}
-<DomainHostdevDriver {XMLNS} name=""kvm"" />
-";
-
-        this.AssertXml<DomainHostdevDriver>(expected);
-    }
-
-    [TestMethod]
-    public void DomainHostdevDriverName()
-    {
-        var values = Enum.GetValues(typeof(DomainHostdevDriverName));
-        Assert.AreEqual(3, values.Length);
     }
 
     [TestMethod]

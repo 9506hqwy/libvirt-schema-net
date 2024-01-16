@@ -14654,6 +14654,8 @@ namespace Libvirt.Model {
         
         private DomainDiskDriverMetadataCache metadataCache;
         
+        private DomainDiskDriverIothreads iothreads;
+        
         [System.Xml.Serialization.XmlAttributeAttribute("name")]
         public string Name {
             get {
@@ -15031,6 +15033,73 @@ namespace Libvirt.Model {
             }
             set {
                 this.metadataCache = value;
+            }
+        }
+        
+        [System.Xml.Serialization.XmlElementAttribute("iothreads", Namespace="")]
+        public DomainDiskDriverIothreads Iothreads {
+            get {
+                return this.iothreads;
+            }
+            set {
+                this.iothreads = value;
+            }
+        }
+    }
+    
+    public partial class DomainDiskDriverIothreads {
+        
+        private DomainDiskDriverIothreadsIothread[] iothread;
+        
+        [System.Xml.Serialization.XmlElementAttribute("iothread", Namespace="")]
+        public DomainDiskDriverIothreadsIothread[] Iothread {
+            get {
+                return this.iothread;
+            }
+            set {
+                this.iothread = value;
+            }
+        }
+    }
+    
+    public partial class DomainDiskDriverIothreadsIothread {
+        
+        private uint id;
+        
+        private DomainDiskDriverIothreadsIothreadQueue[] queue;
+        
+        [System.Xml.Serialization.XmlAttributeAttribute("id")]
+        public uint Id {
+            get {
+                return this.id;
+            }
+            set {
+                this.id = value;
+            }
+        }
+        
+        [System.Xml.Serialization.XmlElementAttribute("queue", Namespace="")]
+        public DomainDiskDriverIothreadsIothreadQueue[] Queue {
+            get {
+                return this.queue;
+            }
+            set {
+                this.queue = value;
+            }
+        }
+    }
+    
+    public partial class DomainDiskDriverIothreadsIothreadQueue {
+        
+        private uint id;
+        
+        [System.Xml.Serialization.XmlAttributeAttribute("id")]
+        public uint Id {
+            get {
+                return this.id;
+            }
+            set {
+                this.id = value;
             }
         }
     }
@@ -19676,6 +19745,8 @@ namespace Libvirt.Model {
         
         private DomainFsBinary binary;
         
+        private DomainIdmap idmap;
+        
         [System.Xml.Serialization.XmlAttributeAttribute("model")]
         public DomainFilesystemModel Model {
             get {
@@ -19903,6 +19974,16 @@ namespace Libvirt.Model {
             }
             set {
                 this.binary = value;
+            }
+        }
+        
+        [System.Xml.Serialization.XmlElementAttribute("idmap", Namespace="")]
+        public DomainIdmap Idmap {
+            get {
+                return this.idmap;
+            }
+            set {
+                this.idmap = value;
             }
         }
     }
@@ -21697,7 +21778,7 @@ namespace Libvirt.Model {
         
         private DomainHostdevType type;
         
-        private DomainHostdevDriver driver;
+        private HostdevDriver driver;
         
         private DomainTeaming teaming;
         
@@ -21792,7 +21873,7 @@ namespace Libvirt.Model {
         }
         
         [System.Xml.Serialization.XmlElementAttribute("driver", Namespace="")]
-        public DomainHostdevDriver Driver {
+        public HostdevDriver Driver {
             get {
                 return this.driver;
             }
@@ -22010,33 +22091,6 @@ namespace Libvirt.Model {
                 this.shareable = value;
             }
         }
-    }
-    
-    public partial class DomainHostdevDriver {
-        
-        private DomainHostdevDriverName name;
-        
-        [System.Xml.Serialization.XmlAttributeAttribute("name")]
-        public DomainHostdevDriverName Name {
-            get {
-                return this.name;
-            }
-            set {
-                this.name = value;
-            }
-        }
-    }
-    
-    public enum DomainHostdevDriverName {
-        
-        [System.Xml.Serialization.XmlEnumAttribute(Name="kvm")]
-        Kvm,
-        
-        [System.Xml.Serialization.XmlEnumAttribute(Name="vfio")]
-        Vfio,
-        
-        [System.Xml.Serialization.XmlEnumAttribute(Name="xen")]
-        Xen,
     }
     
     public partial class DomainHostdevIp {
@@ -24353,6 +24407,8 @@ namespace Libvirt.Model {
         
         private bool nameSpecified;
         
+        private string model;
+        
         private ulong queues;
         
         private bool queuesSpecified;
@@ -24369,27 +24425,27 @@ namespace Libvirt.Model {
         
         private bool txmodeSpecified;
         
-        private VirOnOff ioeventfd;
+        private DomainInterfaceDriverIoeventfd ioeventfd;
         
         private bool ioeventfdSpecified;
         
-        private VirOnOff eventIdx;
+        private DomainInterfaceDriverEventIdx eventIdx;
         
         private bool eventIdxSpecified;
         
-        private VirOnOff iommu;
+        private DomainInterfaceDriverIommu iommu;
         
         private bool iommuSpecified;
         
-        private VirOnOff ats;
+        private DomainInterfaceDriverAts ats;
         
         private bool atsSpecified;
         
-        private VirOnOff packed;
+        private DomainInterfaceDriverPacked packed;
         
         private bool packedSpecified;
         
-        private VirOnOff pagePerVq;
+        private DomainInterfaceDriverPagePerVq pagePerVq;
         
         private bool pagePerVqSpecified;
         
@@ -24397,11 +24453,11 @@ namespace Libvirt.Model {
         
         private DomainInterfaceDriverGuest guest;
         
-        private VirOnOff rss;
+        private DomainInterfaceDriverRss rss;
         
         private bool rssSpecified;
         
-        private VirOnOff rssHashReport;
+        private DomainInterfaceDriverRssHashReport rssHashReport;
         
         private bool rssHashReportSpecified;
         
@@ -24422,6 +24478,16 @@ namespace Libvirt.Model {
             }
             set {
                 this.nameSpecified = value;
+            }
+        }
+        
+        [System.Xml.Serialization.XmlAttributeAttribute("model")]
+        public string Model {
+            get {
+                return this.model;
+            }
+            set {
+                this.model = value;
             }
         }
         
@@ -24506,7 +24572,7 @@ namespace Libvirt.Model {
         }
         
         [System.Xml.Serialization.XmlAttributeAttribute("ioeventfd")]
-        public VirOnOff Ioeventfd {
+        public DomainInterfaceDriverIoeventfd Ioeventfd {
             get {
                 return this.ioeventfd;
             }
@@ -24526,7 +24592,7 @@ namespace Libvirt.Model {
         }
         
         [System.Xml.Serialization.XmlAttributeAttribute("event_idx")]
-        public VirOnOff EventIdx {
+        public DomainInterfaceDriverEventIdx EventIdx {
             get {
                 return this.eventIdx;
             }
@@ -24546,7 +24612,7 @@ namespace Libvirt.Model {
         }
         
         [System.Xml.Serialization.XmlAttributeAttribute("iommu")]
-        public VirOnOff Iommu {
+        public DomainInterfaceDriverIommu Iommu {
             get {
                 return this.iommu;
             }
@@ -24566,7 +24632,7 @@ namespace Libvirt.Model {
         }
         
         [System.Xml.Serialization.XmlAttributeAttribute("ats")]
-        public VirOnOff Ats {
+        public DomainInterfaceDriverAts Ats {
             get {
                 return this.ats;
             }
@@ -24586,7 +24652,7 @@ namespace Libvirt.Model {
         }
         
         [System.Xml.Serialization.XmlAttributeAttribute("packed")]
-        public VirOnOff Packed {
+        public DomainInterfaceDriverPacked Packed {
             get {
                 return this.packed;
             }
@@ -24606,7 +24672,7 @@ namespace Libvirt.Model {
         }
         
         [System.Xml.Serialization.XmlAttributeAttribute("page_per_vq")]
-        public VirOnOff PagePerVq {
+        public DomainInterfaceDriverPagePerVq PagePerVq {
             get {
                 return this.pagePerVq;
             }
@@ -24646,7 +24712,7 @@ namespace Libvirt.Model {
         }
         
         [System.Xml.Serialization.XmlAttributeAttribute("rss")]
-        public VirOnOff Rss {
+        public DomainInterfaceDriverRss Rss {
             get {
                 return this.rss;
             }
@@ -24666,7 +24732,7 @@ namespace Libvirt.Model {
         }
         
         [System.Xml.Serialization.XmlAttributeAttribute("rss_hash_report")]
-        public VirOnOff RssHashReport {
+        public DomainInterfaceDriverRssHashReport RssHashReport {
             get {
                 return this.rssHashReport;
             }
@@ -24684,6 +24750,24 @@ namespace Libvirt.Model {
                 this.rssHashReportSpecified = value;
             }
         }
+    }
+    
+    public enum DomainInterfaceDriverAts {
+        
+        [System.Xml.Serialization.XmlEnumAttribute(Name="off")]
+        Off,
+        
+        [System.Xml.Serialization.XmlEnumAttribute(Name="on")]
+        On,
+    }
+    
+    public enum DomainInterfaceDriverEventIdx {
+        
+        [System.Xml.Serialization.XmlEnumAttribute(Name="off")]
+        Off,
+        
+        [System.Xml.Serialization.XmlEnumAttribute(Name="on")]
+        On,
     }
     
     public partial class DomainInterfaceDriverGuest {
@@ -24980,6 +25064,24 @@ namespace Libvirt.Model {
         }
     }
     
+    public enum DomainInterfaceDriverIoeventfd {
+        
+        [System.Xml.Serialization.XmlEnumAttribute(Name="off")]
+        Off,
+        
+        [System.Xml.Serialization.XmlEnumAttribute(Name="on")]
+        On,
+    }
+    
+    public enum DomainInterfaceDriverIommu {
+        
+        [System.Xml.Serialization.XmlEnumAttribute(Name="off")]
+        Off,
+        
+        [System.Xml.Serialization.XmlEnumAttribute(Name="on")]
+        On,
+    }
+    
     public enum DomainInterfaceDriverName {
         
         [System.Xml.Serialization.XmlEnumAttribute(Name="kvm")]
@@ -24996,6 +25098,42 @@ namespace Libvirt.Model {
         
         [System.Xml.Serialization.XmlEnumAttribute(Name="xen")]
         Xen,
+    }
+    
+    public enum DomainInterfaceDriverPacked {
+        
+        [System.Xml.Serialization.XmlEnumAttribute(Name="off")]
+        Off,
+        
+        [System.Xml.Serialization.XmlEnumAttribute(Name="on")]
+        On,
+    }
+    
+    public enum DomainInterfaceDriverPagePerVq {
+        
+        [System.Xml.Serialization.XmlEnumAttribute(Name="off")]
+        Off,
+        
+        [System.Xml.Serialization.XmlEnumAttribute(Name="on")]
+        On,
+    }
+    
+    public enum DomainInterfaceDriverRss {
+        
+        [System.Xml.Serialization.XmlEnumAttribute(Name="off")]
+        Off,
+        
+        [System.Xml.Serialization.XmlEnumAttribute(Name="on")]
+        On,
+    }
+    
+    public enum DomainInterfaceDriverRssHashReport {
+        
+        [System.Xml.Serialization.XmlEnumAttribute(Name="off")]
+        Off,
+        
+        [System.Xml.Serialization.XmlEnumAttribute(Name="on")]
+        On,
     }
     
     public enum DomainInterfaceDriverTxmode {
@@ -43775,6 +43913,58 @@ namespace Libvirt.Model {
         }
     }
     
+    [System.Xml.Serialization.XmlTypeAttribute("driver", Namespace="")]
+    public partial class HostdevDriver {
+        
+        private HostdevDriverName name;
+        
+        private bool nameSpecified;
+        
+        private string model;
+        
+        [System.Xml.Serialization.XmlAttributeAttribute("name")]
+        public HostdevDriverName Name {
+            get {
+                return this.name;
+            }
+            set {
+                this.name = value;
+            }
+        }
+        
+        [System.Xml.Serialization.XmlIgnoreAttribute()]
+        public bool NameSpecified {
+            get {
+                return this.nameSpecified;
+            }
+            set {
+                this.nameSpecified = value;
+            }
+        }
+        
+        [System.Xml.Serialization.XmlAttributeAttribute("model")]
+        public string Model {
+            get {
+                return this.model;
+            }
+            set {
+                this.model = value;
+            }
+        }
+    }
+    
+    public enum HostdevDriverName {
+        
+        [System.Xml.Serialization.XmlEnumAttribute(Name="kvm")]
+        Kvm,
+        
+        [System.Xml.Serialization.XmlEnumAttribute(Name="vfio")]
+        Vfio,
+        
+        [System.Xml.Serialization.XmlEnumAttribute(Name="xen")]
+        Xen,
+    }
+    
     [System.Xml.Serialization.XmlTypeAttribute("inactiveDomain", Namespace="")]
     public partial class InactiveDomain {
         
@@ -46111,7 +46301,7 @@ namespace Libvirt.Model {
         
         private NetworkForwardPf pf;
         
-        private NetworkForwardDriver driver;
+        private HostdevDriver driver;
         
         private NetworkForwardNat nat;
         
@@ -46196,7 +46386,7 @@ namespace Libvirt.Model {
         }
         
         [System.Xml.Serialization.XmlElementAttribute("driver", Namespace="")]
-        public NetworkForwardDriver Driver {
+        public HostdevDriver Driver {
             get {
                 return this.driver;
             }
@@ -46331,30 +46521,6 @@ namespace Libvirt.Model {
         
         [System.Xml.Serialization.XmlEnumAttribute(Name="pci")]
         Pci,
-    }
-    
-    public partial class NetworkForwardDriver {
-        
-        private NetworkForwardDriverName name;
-        
-        [System.Xml.Serialization.XmlAttributeAttribute("name")]
-        public NetworkForwardDriverName Name {
-            get {
-                return this.name;
-            }
-            set {
-                this.name = value;
-            }
-        }
-    }
-    
-    public enum NetworkForwardDriverName {
-        
-        [System.Xml.Serialization.XmlEnumAttribute(Name="kvm")]
-        Kvm,
-        
-        [System.Xml.Serialization.XmlEnumAttribute(Name="vfio")]
-        Vfio,
     }
     
     public partial class NetworkForwardInterface {
@@ -47391,7 +47557,7 @@ namespace Libvirt.Model {
         
         private bool managedSpecified;
         
-        private NetworkportPlugDriver driver;
+        private HostdevDriver driver;
         
         private NetworkportPlugAddress address;
         
@@ -47486,7 +47652,7 @@ namespace Libvirt.Model {
         }
         
         [System.Xml.Serialization.XmlElementAttribute("driver", Namespace="")]
-        public NetworkportPlugDriver Driver {
+        public HostdevDriver Driver {
             get {
                 return this.driver;
             }
@@ -47579,30 +47745,6 @@ namespace Libvirt.Model {
                 this.multifunctionSpecified = value;
             }
         }
-    }
-    
-    public partial class NetworkportPlugDriver {
-        
-        private NetworkportPlugDriverName name;
-        
-        [System.Xml.Serialization.XmlAttributeAttribute("name")]
-        public NetworkportPlugDriverName Name {
-            get {
-                return this.name;
-            }
-            set {
-                this.name = value;
-            }
-        }
-    }
-    
-    public enum NetworkportPlugDriverName {
-        
-        [System.Xml.Serialization.XmlEnumAttribute(Name="kvm")]
-        Kvm,
-        
-        [System.Xml.Serialization.XmlEnumAttribute(Name="vfio")]
-        Vfio,
     }
     
     public enum NetworkportPlugMacTableManager {

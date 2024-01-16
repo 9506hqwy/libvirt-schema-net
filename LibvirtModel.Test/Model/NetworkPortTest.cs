@@ -59,24 +59,6 @@ public class NetworkPortTest : TestBase
     }
 
     [TestMethod]
-    public void NetworkportPlugDriver()
-    {
-        const string expected = $@"
-{XMLDECL}
-<NetworkportPlugDriver {XMLNS} name=""kvm"" />
-";
-
-        this.AssertXml<NetworkportPlugDriver>(expected);
-    }
-
-    [TestMethod]
-    public void NetworkportPlugDriverName()
-    {
-        var values = Enum.GetValues(typeof(NetworkportPlugDriverName));
-        Assert.AreEqual(2, values.Length);
-    }
-
-    [TestMethod]
     public void NetworkportPlugMacTableManager()
     {
         var values = Enum.GetValues(typeof(NetworkportPlugMacTableManager));

@@ -150,24 +150,6 @@ public class NetworkTest : TestBase
     }
 
     [TestMethod]
-    public void NetworkForwardDriver()
-    {
-        const string expected = $@"
-{XMLDECL}
-<NetworkForwardDriver {XMLNS} name=""kvm"" />
-";
-
-        this.AssertXml<NetworkForwardDriver>(expected);
-    }
-
-    [TestMethod]
-    public void NetworkForwardDriverName()
-    {
-        var values = Enum.GetValues(typeof(NetworkForwardDriverName));
-        Assert.AreEqual(2, values.Length);
-    }
-
-    [TestMethod]
     public void NetworkForwardInterface()
     {
         const string expected = $@"

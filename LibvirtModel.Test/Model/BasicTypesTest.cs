@@ -11,6 +11,24 @@ public class BasicTypesTest : TestBase
     }
 
     [TestMethod]
+    public void HostdevDriver()
+    {
+        const string expected = $@"
+{XMLDECL}
+<driver {XMLNS} />
+";
+
+        this.AssertXml<HostdevDriver>(expected);
+    }
+
+    [TestMethod]
+    public void HostdevDriverName()
+    {
+        var values = Enum.GetValues(typeof(HostdevDriverName));
+        Assert.AreEqual(3, values.Length);
+    }
+
+    [TestMethod]
     public void Link()
     {
         const string expected = $@"

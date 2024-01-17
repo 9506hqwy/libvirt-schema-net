@@ -5900,11 +5900,11 @@ namespace Libvirt.Model {
     
     public partial class DomainAudioInput {
         
-        private DomainAudioInputMixingEngine mixingEngine;
+        private VirYesNo mixingEngine;
         
         private bool mixingEngineSpecified;
         
-        private DomainAudioInputFixedSettings fixedSettings;
+        private VirYesNo fixedSettings;
         
         private bool fixedSettingsSpecified;
         
@@ -5939,7 +5939,7 @@ namespace Libvirt.Model {
         private string latency;
         
         [System.Xml.Serialization.XmlAttributeAttribute("mixingEngine")]
-        public DomainAudioInputMixingEngine MixingEngine {
+        public VirYesNo MixingEngine {
             get {
                 return this.mixingEngine;
             }
@@ -5959,7 +5959,7 @@ namespace Libvirt.Model {
         }
         
         [System.Xml.Serialization.XmlAttributeAttribute("fixedSettings")]
-        public DomainAudioInputFixedSettings FixedSettings {
+        public VirYesNo FixedSettings {
             get {
                 return this.fixedSettings;
             }
@@ -6127,24 +6127,6 @@ namespace Libvirt.Model {
                 this.latency = value;
             }
         }
-    }
-    
-    public enum DomainAudioInputFixedSettings {
-        
-        [System.Xml.Serialization.XmlEnumAttribute(Name="no")]
-        No,
-        
-        [System.Xml.Serialization.XmlEnumAttribute(Name="yes")]
-        Yes,
-    }
-    
-    public enum DomainAudioInputMixingEngine {
-        
-        [System.Xml.Serialization.XmlEnumAttribute(Name="no")]
-        No,
-        
-        [System.Xml.Serialization.XmlEnumAttribute(Name="yes")]
-        Yes,
     }
     
     public partial class DomainAudioInputSettings {
@@ -6224,11 +6206,11 @@ namespace Libvirt.Model {
     
     public partial class DomainAudioOutput {
         
-        private DomainAudioOutputMixingEngine mixingEngine;
+        private VirYesNo mixingEngine;
         
         private bool mixingEngineSpecified;
         
-        private DomainAudioOutputFixedSettings fixedSettings;
+        private VirYesNo fixedSettings;
         
         private bool fixedSettingsSpecified;
         
@@ -6263,7 +6245,7 @@ namespace Libvirt.Model {
         private string latency;
         
         [System.Xml.Serialization.XmlAttributeAttribute("mixingEngine")]
-        public DomainAudioOutputMixingEngine MixingEngine {
+        public VirYesNo MixingEngine {
             get {
                 return this.mixingEngine;
             }
@@ -6283,7 +6265,7 @@ namespace Libvirt.Model {
         }
         
         [System.Xml.Serialization.XmlAttributeAttribute("fixedSettings")]
-        public DomainAudioOutputFixedSettings FixedSettings {
+        public VirYesNo FixedSettings {
             get {
                 return this.fixedSettings;
             }
@@ -6451,24 +6433,6 @@ namespace Libvirt.Model {
                 this.latency = value;
             }
         }
-    }
-    
-    public enum DomainAudioOutputFixedSettings {
-        
-        [System.Xml.Serialization.XmlEnumAttribute(Name="no")]
-        No,
-        
-        [System.Xml.Serialization.XmlEnumAttribute(Name="yes")]
-        Yes,
-    }
-    
-    public enum DomainAudioOutputMixingEngine {
-        
-        [System.Xml.Serialization.XmlEnumAttribute(Name="no")]
-        No,
-        
-        [System.Xml.Serialization.XmlEnumAttribute(Name="yes")]
-        Yes,
     }
     
     public enum DomainAudioType {
@@ -7756,7 +7720,7 @@ namespace Libvirt.Model {
         
         private DomainCapabilitiesCpuModeName name;
         
-        private DomainCapabilitiesCpuModeSupported supported;
+        private VirYesNo supported;
         
         private DomainCapabilitiesOsEnum[] @enum;
         
@@ -7779,7 +7743,7 @@ namespace Libvirt.Model {
         }
         
         [System.Xml.Serialization.XmlAttributeAttribute("supported")]
-        public DomainCapabilitiesCpuModeSupported Supported {
+        public VirYesNo Supported {
             get {
                 return this.supported;
             }
@@ -7963,15 +7927,6 @@ namespace Libvirt.Model {
         
         [System.Xml.Serialization.XmlEnumAttribute(Name="maximum")]
         Maximum,
-    }
-    
-    public enum DomainCapabilitiesCpuModeSupported {
-        
-        [System.Xml.Serialization.XmlEnumAttribute(Name="no")]
-        No,
-        
-        [System.Xml.Serialization.XmlEnumAttribute(Name="yes")]
-        Yes,
     }
     
     [System.Xml.Serialization.XmlTypeAttribute("crypto", Namespace="")]
@@ -13801,7 +13756,7 @@ namespace Libvirt.Model {
         
         private DomainOsNvramSourcePrivateData privateData;
         
-        private DomainDiskBackingStoreSourceStartupPolicy startupPolicy;
+        private DomainStartupPolicy startupPolicy;
         
         private bool startupPolicySpecified;
         
@@ -13821,7 +13776,7 @@ namespace Libvirt.Model {
         
         private string name;
         
-        private DomainDiskBackingStoreSourceTls tls;
+        private VirYesNo tls;
         
         private bool tlsSpecified;
         
@@ -13857,7 +13812,7 @@ namespace Libvirt.Model {
         
         private string volume;
         
-        private DomainDiskBackingStoreSourceMode mode;
+        private DomainOsNvramSourceMode mode;
         
         private bool modeSpecified;
         
@@ -13867,7 +13822,7 @@ namespace Libvirt.Model {
         
         private string @namespace;
         
-        private DomainDiskBackingStoreSourceManaged managed;
+        private VirYesNo managed;
         
         private bool managedSpecified;
         
@@ -13936,7 +13891,7 @@ namespace Libvirt.Model {
         }
         
         [System.Xml.Serialization.XmlAttributeAttribute("startupPolicy")]
-        public DomainDiskBackingStoreSourceStartupPolicy StartupPolicy {
+        public DomainStartupPolicy StartupPolicy {
             get {
                 return this.startupPolicy;
             }
@@ -14036,7 +13991,7 @@ namespace Libvirt.Model {
         }
         
         [System.Xml.Serialization.XmlAttributeAttribute("tls")]
-        public DomainDiskBackingStoreSourceTls Tls {
+        public VirYesNo Tls {
             get {
                 return this.tls;
             }
@@ -14216,7 +14171,7 @@ namespace Libvirt.Model {
         }
         
         [System.Xml.Serialization.XmlAttributeAttribute("mode")]
-        public DomainDiskBackingStoreSourceMode Mode {
+        public DomainOsNvramSourceMode Mode {
             get {
                 return this.mode;
             }
@@ -14266,7 +14221,7 @@ namespace Libvirt.Model {
         }
         
         [System.Xml.Serialization.XmlAttributeAttribute("managed")]
-        public DomainDiskBackingStoreSourceManaged Managed {
+        public VirYesNo Managed {
             get {
                 return this.managed;
             }
@@ -14369,24 +14324,6 @@ namespace Libvirt.Model {
         }
     }
     
-    public enum DomainDiskBackingStoreSourceManaged {
-        
-        [System.Xml.Serialization.XmlEnumAttribute(Name="no")]
-        No,
-        
-        [System.Xml.Serialization.XmlEnumAttribute(Name="yes")]
-        Yes,
-    }
-    
-    public enum DomainDiskBackingStoreSourceMode {
-        
-        [System.Xml.Serialization.XmlEnumAttribute(Name="direct")]
-        Direct,
-        
-        [System.Xml.Serialization.XmlEnumAttribute(Name="host")]
-        Host,
-    }
-    
     public enum DomainDiskBackingStoreSourceProtocol {
         
         [System.Xml.Serialization.XmlEnumAttribute(Name="ftp")]
@@ -14427,27 +14364,6 @@ namespace Libvirt.Model {
         
         [System.Xml.Serialization.XmlEnumAttribute(Name="vxhs")]
         Vxhs,
-    }
-    
-    public enum DomainDiskBackingStoreSourceStartupPolicy {
-        
-        [System.Xml.Serialization.XmlEnumAttribute(Name="mandatory")]
-        Mandatory,
-        
-        [System.Xml.Serialization.XmlEnumAttribute(Name="optional")]
-        Optional,
-        
-        [System.Xml.Serialization.XmlEnumAttribute(Name="requisite")]
-        Requisite,
-    }
-    
-    public enum DomainDiskBackingStoreSourceTls {
-        
-        [System.Xml.Serialization.XmlEnumAttribute(Name="no")]
-        No,
-        
-        [System.Xml.Serialization.XmlEnumAttribute(Name="yes")]
-        Yes,
     }
     
     public enum DomainDiskBackingStoreSourceType {
@@ -15979,7 +15895,7 @@ namespace Libvirt.Model {
         
         private DomainOsNvramSourcePrivateData privateData;
         
-        private DomainDiskMirrorBackingStoreSourceStartupPolicy startupPolicy;
+        private DomainStartupPolicy startupPolicy;
         
         private bool startupPolicySpecified;
         
@@ -15999,7 +15915,7 @@ namespace Libvirt.Model {
         
         private string name;
         
-        private DomainDiskMirrorBackingStoreSourceTls tls;
+        private VirYesNo tls;
         
         private bool tlsSpecified;
         
@@ -16114,7 +16030,7 @@ namespace Libvirt.Model {
         }
         
         [System.Xml.Serialization.XmlAttributeAttribute("startupPolicy")]
-        public DomainDiskMirrorBackingStoreSourceStartupPolicy StartupPolicy {
+        public DomainStartupPolicy StartupPolicy {
             get {
                 return this.startupPolicy;
             }
@@ -16214,7 +16130,7 @@ namespace Libvirt.Model {
         }
         
         [System.Xml.Serialization.XmlAttributeAttribute("tls")]
-        public DomainDiskMirrorBackingStoreSourceTls Tls {
+        public VirYesNo Tls {
             get {
                 return this.tls;
             }
@@ -16589,27 +16505,6 @@ namespace Libvirt.Model {
         Vxhs,
     }
     
-    public enum DomainDiskMirrorBackingStoreSourceStartupPolicy {
-        
-        [System.Xml.Serialization.XmlEnumAttribute(Name="mandatory")]
-        Mandatory,
-        
-        [System.Xml.Serialization.XmlEnumAttribute(Name="optional")]
-        Optional,
-        
-        [System.Xml.Serialization.XmlEnumAttribute(Name="requisite")]
-        Requisite,
-    }
-    
-    public enum DomainDiskMirrorBackingStoreSourceTls {
-        
-        [System.Xml.Serialization.XmlEnumAttribute(Name="no")]
-        No,
-        
-        [System.Xml.Serialization.XmlEnumAttribute(Name="yes")]
-        Yes,
-    }
-    
     public enum DomainDiskMirrorBackingStoreSourceType {
         
         [System.Xml.Serialization.XmlEnumAttribute(Name="pci")]
@@ -16735,7 +16630,7 @@ namespace Libvirt.Model {
         
         private DomainOsNvramSourcePrivateData privateData;
         
-        private DomainDiskMirrorSourceStartupPolicy startupPolicy;
+        private DomainStartupPolicy startupPolicy;
         
         private bool startupPolicySpecified;
         
@@ -16755,7 +16650,7 @@ namespace Libvirt.Model {
         
         private string name;
         
-        private DomainDiskMirrorSourceTls tls;
+        private VirYesNo tls;
         
         private bool tlsSpecified;
         
@@ -16870,7 +16765,7 @@ namespace Libvirt.Model {
         }
         
         [System.Xml.Serialization.XmlAttributeAttribute("startupPolicy")]
-        public DomainDiskMirrorSourceStartupPolicy StartupPolicy {
+        public DomainStartupPolicy StartupPolicy {
             get {
                 return this.startupPolicy;
             }
@@ -16970,7 +16865,7 @@ namespace Libvirt.Model {
         }
         
         [System.Xml.Serialization.XmlAttributeAttribute("tls")]
-        public DomainDiskMirrorSourceTls Tls {
+        public VirYesNo Tls {
             get {
                 return this.tls;
             }
@@ -17345,27 +17240,6 @@ namespace Libvirt.Model {
         Vxhs,
     }
     
-    public enum DomainDiskMirrorSourceStartupPolicy {
-        
-        [System.Xml.Serialization.XmlEnumAttribute(Name="mandatory")]
-        Mandatory,
-        
-        [System.Xml.Serialization.XmlEnumAttribute(Name="optional")]
-        Optional,
-        
-        [System.Xml.Serialization.XmlEnumAttribute(Name="requisite")]
-        Requisite,
-    }
-    
-    public enum DomainDiskMirrorSourceTls {
-        
-        [System.Xml.Serialization.XmlEnumAttribute(Name="no")]
-        No,
-        
-        [System.Xml.Serialization.XmlEnumAttribute(Name="yes")]
-        Yes,
-    }
-    
     public enum DomainDiskMirrorSourceType {
         
         [System.Xml.Serialization.XmlEnumAttribute(Name="pci")]
@@ -17437,7 +17311,7 @@ namespace Libvirt.Model {
         
         private DomainOsNvramSourcePrivateData privateData;
         
-        private DomainDiskSourceStartupPolicy startupPolicy;
+        private DomainStartupPolicy startupPolicy;
         
         private bool startupPolicySpecified;
         
@@ -17457,7 +17331,7 @@ namespace Libvirt.Model {
         
         private string name;
         
-        private DomainDiskSourceTls tls;
+        private VirYesNo tls;
         
         private bool tlsSpecified;
         
@@ -17493,7 +17367,7 @@ namespace Libvirt.Model {
         
         private string volume;
         
-        private DomainDiskSourceMode mode;
+        private DomainOsNvramSourceMode mode;
         
         private bool modeSpecified;
         
@@ -17572,7 +17446,7 @@ namespace Libvirt.Model {
         }
         
         [System.Xml.Serialization.XmlAttributeAttribute("startupPolicy")]
-        public DomainDiskSourceStartupPolicy StartupPolicy {
+        public DomainStartupPolicy StartupPolicy {
             get {
                 return this.startupPolicy;
             }
@@ -17672,7 +17546,7 @@ namespace Libvirt.Model {
         }
         
         [System.Xml.Serialization.XmlAttributeAttribute("tls")]
-        public DomainDiskSourceTls Tls {
+        public VirYesNo Tls {
             get {
                 return this.tls;
             }
@@ -17852,7 +17726,7 @@ namespace Libvirt.Model {
         }
         
         [System.Xml.Serialization.XmlAttributeAttribute("mode")]
-        public DomainDiskSourceMode Mode {
+        public DomainOsNvramSourceMode Mode {
             get {
                 return this.mode;
             }
@@ -18003,15 +17877,6 @@ namespace Libvirt.Model {
                 this.group = value;
             }
         }
-    }
-    
-    public enum DomainDiskSourceMode {
-        
-        [System.Xml.Serialization.XmlEnumAttribute(Name="direct")]
-        Direct,
-        
-        [System.Xml.Serialization.XmlEnumAttribute(Name="host")]
-        Host,
     }
     
     public partial class DomainDiskSourceNetworkHost {
@@ -18246,27 +18111,6 @@ namespace Libvirt.Model {
         
         [System.Xml.Serialization.XmlEnumAttribute(Name="vxhs")]
         Vxhs,
-    }
-    
-    public enum DomainDiskSourceStartupPolicy {
-        
-        [System.Xml.Serialization.XmlEnumAttribute(Name="mandatory")]
-        Mandatory,
-        
-        [System.Xml.Serialization.XmlEnumAttribute(Name="optional")]
-        Optional,
-        
-        [System.Xml.Serialization.XmlEnumAttribute(Name="requisite")]
-        Requisite,
-    }
-    
-    public enum DomainDiskSourceTls {
-        
-        [System.Xml.Serialization.XmlEnumAttribute(Name="no")]
-        No,
-        
-        [System.Xml.Serialization.XmlEnumAttribute(Name="yes")]
-        Yes,
     }
     
     public enum DomainDiskSourceType {
@@ -20416,19 +20260,19 @@ namespace Libvirt.Model {
         
         private bool wrpolicySpecified;
         
-        private DomainFsDriverIommu iommu;
+        private VirOnOff iommu;
         
         private bool iommuSpecified;
         
-        private DomainFsDriverAts ats;
+        private VirOnOff ats;
         
         private bool atsSpecified;
         
-        private DomainFsDriverPacked packed;
+        private VirOnOff packed;
         
         private bool packedSpecified;
         
-        private DomainFsDriverPagePerVq pagePerVq;
+        private VirOnOff pagePerVq;
         
         private bool pagePerVqSpecified;
         
@@ -20497,7 +20341,7 @@ namespace Libvirt.Model {
         }
         
         [System.Xml.Serialization.XmlAttributeAttribute("iommu")]
-        public DomainFsDriverIommu Iommu {
+        public VirOnOff Iommu {
             get {
                 return this.iommu;
             }
@@ -20517,7 +20361,7 @@ namespace Libvirt.Model {
         }
         
         [System.Xml.Serialization.XmlAttributeAttribute("ats")]
-        public DomainFsDriverAts Ats {
+        public VirOnOff Ats {
             get {
                 return this.ats;
             }
@@ -20537,7 +20381,7 @@ namespace Libvirt.Model {
         }
         
         [System.Xml.Serialization.XmlAttributeAttribute("packed")]
-        public DomainFsDriverPacked Packed {
+        public VirOnOff Packed {
             get {
                 return this.packed;
             }
@@ -20557,7 +20401,7 @@ namespace Libvirt.Model {
         }
         
         [System.Xml.Serialization.XmlAttributeAttribute("page_per_vq")]
-        public DomainFsDriverPagePerVq PagePerVq {
+        public VirOnOff PagePerVq {
             get {
                 return this.pagePerVq;
             }
@@ -20595,15 +20439,6 @@ namespace Libvirt.Model {
                 this.queueSpecified = value;
             }
         }
-    }
-    
-    public enum DomainFsDriverAts {
-        
-        [System.Xml.Serialization.XmlEnumAttribute(Name="off")]
-        Off,
-        
-        [System.Xml.Serialization.XmlEnumAttribute(Name="on")]
-        On,
     }
     
     public enum DomainFsDriverFormat {
@@ -20658,33 +20493,6 @@ namespace Libvirt.Model {
         
         [System.Xml.Serialization.XmlEnumAttribute(Name="vpc")]
         Vpc,
-    }
-    
-    public enum DomainFsDriverIommu {
-        
-        [System.Xml.Serialization.XmlEnumAttribute(Name="off")]
-        Off,
-        
-        [System.Xml.Serialization.XmlEnumAttribute(Name="on")]
-        On,
-    }
-    
-    public enum DomainFsDriverPacked {
-        
-        [System.Xml.Serialization.XmlEnumAttribute(Name="off")]
-        Off,
-        
-        [System.Xml.Serialization.XmlEnumAttribute(Name="on")]
-        On,
-    }
-    
-    public enum DomainFsDriverPagePerVq {
-        
-        [System.Xml.Serialization.XmlEnumAttribute(Name="off")]
-        Off,
-        
-        [System.Xml.Serialization.XmlEnumAttribute(Name="on")]
-        On,
     }
     
     public enum DomainFsDriverType {
@@ -20798,7 +20606,7 @@ namespace Libvirt.Model {
         
         private string xauth;
         
-        private DomainGraphicFullscreen fullscreen;
+        private VirYesNo fullscreen;
         
         private bool fullscreenSpecified;
         
@@ -20808,7 +20616,7 @@ namespace Libvirt.Model {
         
         private bool portSpecified;
         
-        private DomainGraphicAutoport autoport;
+        private VirYesNo autoport;
         
         private bool autoportSpecified;
         
@@ -20915,7 +20723,7 @@ namespace Libvirt.Model {
         }
         
         [System.Xml.Serialization.XmlAttributeAttribute("fullscreen")]
-        public DomainGraphicFullscreen Fullscreen {
+        public VirYesNo Fullscreen {
             get {
                 return this.fullscreen;
             }
@@ -20965,7 +20773,7 @@ namespace Libvirt.Model {
         }
         
         [System.Xml.Serialization.XmlAttributeAttribute("autoport")]
-        public DomainGraphicAutoport Autoport {
+        public VirYesNo Autoport {
             get {
                 return this.autoport;
             }
@@ -21360,15 +21168,6 @@ namespace Libvirt.Model {
         }
     }
     
-    public enum DomainGraphicAutoport {
-        
-        [System.Xml.Serialization.XmlEnumAttribute(Name="no")]
-        No,
-        
-        [System.Xml.Serialization.XmlEnumAttribute(Name="yes")]
-        Yes,
-    }
-    
     public partial class DomainGraphicChannel {
         
         private DomainGraphicChannelName name;
@@ -21474,25 +21273,16 @@ namespace Libvirt.Model {
         }
     }
     
-    public enum DomainGraphicFullscreen {
-        
-        [System.Xml.Serialization.XmlEnumAttribute(Name="no")]
-        No,
-        
-        [System.Xml.Serialization.XmlEnumAttribute(Name="yes")]
-        Yes,
-    }
-    
     public partial class DomainGraphicGl {
         
-        private DomainGraphicGlEnable enable;
+        private VirYesNo enable;
         
         private bool enableSpecified;
         
         private string rendernode;
         
         [System.Xml.Serialization.XmlAttributeAttribute("enable")]
-        public DomainGraphicGlEnable Enable {
+        public VirYesNo Enable {
             get {
                 return this.enable;
             }
@@ -21520,15 +21310,6 @@ namespace Libvirt.Model {
                 this.rendernode = value;
             }
         }
-    }
-    
-    public enum DomainGraphicGlEnable {
-        
-        [System.Xml.Serialization.XmlEnumAttribute(Name="no")]
-        No,
-        
-        [System.Xml.Serialization.XmlEnumAttribute(Name="yes")]
-        Yes,
     }
     
     public partial class DomainGraphicImage {
@@ -22194,7 +21975,7 @@ namespace Libvirt.Model {
     
     public partial class DomainHostdevSource {
         
-        private DomainHostdevSourceStartupPolicy startupPolicy;
+        private DomainStartupPolicy startupPolicy;
         
         private bool startupPolicySpecified;
         
@@ -22235,7 +22016,7 @@ namespace Libvirt.Model {
         private string @interface;
         
         [System.Xml.Serialization.XmlAttributeAttribute("startupPolicy")]
-        public DomainHostdevSourceStartupPolicy StartupPolicy {
+        public DomainStartupPolicy StartupPolicy {
             get {
                 return this.startupPolicy;
             }
@@ -22634,18 +22415,6 @@ namespace Libvirt.Model {
         
         [System.Xml.Serialization.XmlEnumAttribute(Name="vhost")]
         Vhost,
-    }
-    
-    public enum DomainHostdevSourceStartupPolicy {
-        
-        [System.Xml.Serialization.XmlEnumAttribute(Name="mandatory")]
-        Mandatory,
-        
-        [System.Xml.Serialization.XmlEnumAttribute(Name="optional")]
-        Optional,
-        
-        [System.Xml.Serialization.XmlEnumAttribute(Name="requisite")]
-        Requisite,
     }
     
     public partial class DomainHostdevSourceVendor {
@@ -24425,27 +24194,27 @@ namespace Libvirt.Model {
         
         private bool txmodeSpecified;
         
-        private DomainInterfaceDriverIoeventfd ioeventfd;
+        private VirOnOff ioeventfd;
         
         private bool ioeventfdSpecified;
         
-        private DomainInterfaceDriverEventIdx eventIdx;
+        private VirOnOff eventIdx;
         
         private bool eventIdxSpecified;
         
-        private DomainInterfaceDriverIommu iommu;
+        private VirOnOff iommu;
         
         private bool iommuSpecified;
         
-        private DomainInterfaceDriverAts ats;
+        private VirOnOff ats;
         
         private bool atsSpecified;
         
-        private DomainInterfaceDriverPacked packed;
+        private VirOnOff packed;
         
         private bool packedSpecified;
         
-        private DomainInterfaceDriverPagePerVq pagePerVq;
+        private VirOnOff pagePerVq;
         
         private bool pagePerVqSpecified;
         
@@ -24453,11 +24222,11 @@ namespace Libvirt.Model {
         
         private DomainInterfaceDriverGuest guest;
         
-        private DomainInterfaceDriverRss rss;
+        private VirOnOff rss;
         
         private bool rssSpecified;
         
-        private DomainInterfaceDriverRssHashReport rssHashReport;
+        private VirOnOff rssHashReport;
         
         private bool rssHashReportSpecified;
         
@@ -24572,7 +24341,7 @@ namespace Libvirt.Model {
         }
         
         [System.Xml.Serialization.XmlAttributeAttribute("ioeventfd")]
-        public DomainInterfaceDriverIoeventfd Ioeventfd {
+        public VirOnOff Ioeventfd {
             get {
                 return this.ioeventfd;
             }
@@ -24592,7 +24361,7 @@ namespace Libvirt.Model {
         }
         
         [System.Xml.Serialization.XmlAttributeAttribute("event_idx")]
-        public DomainInterfaceDriverEventIdx EventIdx {
+        public VirOnOff EventIdx {
             get {
                 return this.eventIdx;
             }
@@ -24612,7 +24381,7 @@ namespace Libvirt.Model {
         }
         
         [System.Xml.Serialization.XmlAttributeAttribute("iommu")]
-        public DomainInterfaceDriverIommu Iommu {
+        public VirOnOff Iommu {
             get {
                 return this.iommu;
             }
@@ -24632,7 +24401,7 @@ namespace Libvirt.Model {
         }
         
         [System.Xml.Serialization.XmlAttributeAttribute("ats")]
-        public DomainInterfaceDriverAts Ats {
+        public VirOnOff Ats {
             get {
                 return this.ats;
             }
@@ -24652,7 +24421,7 @@ namespace Libvirt.Model {
         }
         
         [System.Xml.Serialization.XmlAttributeAttribute("packed")]
-        public DomainInterfaceDriverPacked Packed {
+        public VirOnOff Packed {
             get {
                 return this.packed;
             }
@@ -24672,7 +24441,7 @@ namespace Libvirt.Model {
         }
         
         [System.Xml.Serialization.XmlAttributeAttribute("page_per_vq")]
-        public DomainInterfaceDriverPagePerVq PagePerVq {
+        public VirOnOff PagePerVq {
             get {
                 return this.pagePerVq;
             }
@@ -24712,7 +24481,7 @@ namespace Libvirt.Model {
         }
         
         [System.Xml.Serialization.XmlAttributeAttribute("rss")]
-        public DomainInterfaceDriverRss Rss {
+        public VirOnOff Rss {
             get {
                 return this.rss;
             }
@@ -24732,7 +24501,7 @@ namespace Libvirt.Model {
         }
         
         [System.Xml.Serialization.XmlAttributeAttribute("rss_hash_report")]
-        public DomainInterfaceDriverRssHashReport RssHashReport {
+        public VirOnOff RssHashReport {
             get {
                 return this.rssHashReport;
             }
@@ -24750,24 +24519,6 @@ namespace Libvirt.Model {
                 this.rssHashReportSpecified = value;
             }
         }
-    }
-    
-    public enum DomainInterfaceDriverAts {
-        
-        [System.Xml.Serialization.XmlEnumAttribute(Name="off")]
-        Off,
-        
-        [System.Xml.Serialization.XmlEnumAttribute(Name="on")]
-        On,
-    }
-    
-    public enum DomainInterfaceDriverEventIdx {
-        
-        [System.Xml.Serialization.XmlEnumAttribute(Name="off")]
-        Off,
-        
-        [System.Xml.Serialization.XmlEnumAttribute(Name="on")]
-        On,
     }
     
     public partial class DomainInterfaceDriverGuest {
@@ -25064,24 +24815,6 @@ namespace Libvirt.Model {
         }
     }
     
-    public enum DomainInterfaceDriverIoeventfd {
-        
-        [System.Xml.Serialization.XmlEnumAttribute(Name="off")]
-        Off,
-        
-        [System.Xml.Serialization.XmlEnumAttribute(Name="on")]
-        On,
-    }
-    
-    public enum DomainInterfaceDriverIommu {
-        
-        [System.Xml.Serialization.XmlEnumAttribute(Name="off")]
-        Off,
-        
-        [System.Xml.Serialization.XmlEnumAttribute(Name="on")]
-        On,
-    }
-    
     public enum DomainInterfaceDriverName {
         
         [System.Xml.Serialization.XmlEnumAttribute(Name="kvm")]
@@ -25098,42 +24831,6 @@ namespace Libvirt.Model {
         
         [System.Xml.Serialization.XmlEnumAttribute(Name="xen")]
         Xen,
-    }
-    
-    public enum DomainInterfaceDriverPacked {
-        
-        [System.Xml.Serialization.XmlEnumAttribute(Name="off")]
-        Off,
-        
-        [System.Xml.Serialization.XmlEnumAttribute(Name="on")]
-        On,
-    }
-    
-    public enum DomainInterfaceDriverPagePerVq {
-        
-        [System.Xml.Serialization.XmlEnumAttribute(Name="off")]
-        Off,
-        
-        [System.Xml.Serialization.XmlEnumAttribute(Name="on")]
-        On,
-    }
-    
-    public enum DomainInterfaceDriverRss {
-        
-        [System.Xml.Serialization.XmlEnumAttribute(Name="off")]
-        Off,
-        
-        [System.Xml.Serialization.XmlEnumAttribute(Name="on")]
-        On,
-    }
-    
-    public enum DomainInterfaceDriverRssHashReport {
-        
-        [System.Xml.Serialization.XmlEnumAttribute(Name="off")]
-        Off,
-        
-        [System.Xml.Serialization.XmlEnumAttribute(Name="on")]
-        On,
     }
     
     public enum DomainInterfaceDriverTxmode {
@@ -25476,7 +25173,7 @@ namespace Libvirt.Model {
         
         private string bridge;
         
-        private DomainInterfaceSourceMacTableManager macTableManager;
+        private MacTableManager macTableManager;
         
         private bool macTableManagerSpecified;
         
@@ -25541,7 +25238,7 @@ namespace Libvirt.Model {
         }
         
         [System.Xml.Serialization.XmlAttributeAttribute("macTableManager")]
-        public DomainInterfaceSourceMacTableManager MacTableManager {
+        public MacTableManager MacTableManager {
             get {
                 return this.macTableManager;
             }
@@ -25944,15 +25641,6 @@ namespace Libvirt.Model {
                 this.port = value;
             }
         }
-    }
-    
-    public enum DomainInterfaceSourceMacTableManager {
-        
-        [System.Xml.Serialization.XmlEnumAttribute(Name="kernel")]
-        Kernel,
-        
-        [System.Xml.Serialization.XmlEnumAttribute(Name="libvirt")]
-        Libvirt,
     }
     
     public partial class DomainInterfaceTarget {
@@ -29165,7 +28853,7 @@ namespace Libvirt.Model {
         
         private DomainOsNvramSourcePrivateData privateData;
         
-        private DomainOsNvramSourceStartupPolicy startupPolicy;
+        private DomainStartupPolicy startupPolicy;
         
         private bool startupPolicySpecified;
         
@@ -29185,7 +28873,7 @@ namespace Libvirt.Model {
         
         private string name;
         
-        private DomainOsNvramSourceTls tls;
+        private VirYesNo tls;
         
         private bool tlsSpecified;
         
@@ -29300,7 +28988,7 @@ namespace Libvirt.Model {
         }
         
         [System.Xml.Serialization.XmlAttributeAttribute("startupPolicy")]
-        public DomainOsNvramSourceStartupPolicy StartupPolicy {
+        public DomainStartupPolicy StartupPolicy {
             get {
                 return this.startupPolicy;
             }
@@ -29400,7 +29088,7 @@ namespace Libvirt.Model {
         }
         
         [System.Xml.Serialization.XmlAttributeAttribute("tls")]
-        public DomainOsNvramSourceTls Tls {
+        public VirYesNo Tls {
             get {
                 return this.tls;
             }
@@ -29920,27 +29608,6 @@ namespace Libvirt.Model {
         
         [System.Xml.Serialization.XmlEnumAttribute(Name="storage")]
         Storage,
-    }
-    
-    public enum DomainOsNvramSourceStartupPolicy {
-        
-        [System.Xml.Serialization.XmlEnumAttribute(Name="mandatory")]
-        Mandatory,
-        
-        [System.Xml.Serialization.XmlEnumAttribute(Name="optional")]
-        Optional,
-        
-        [System.Xml.Serialization.XmlEnumAttribute(Name="requisite")]
-        Requisite,
-    }
-    
-    public enum DomainOsNvramSourceTls {
-        
-        [System.Xml.Serialization.XmlEnumAttribute(Name="no")]
-        No,
-        
-        [System.Xml.Serialization.XmlEnumAttribute(Name="yes")]
-        Yes,
     }
     
     public enum DomainOsNvramSourceType {
@@ -32560,7 +32227,7 @@ namespace Libvirt.Model {
         
         private string name;
         
-        private DomainsnapshotDisksnapshotSourceTls tls;
+        private VirYesNo tls;
         
         private bool tlsSpecified;
         
@@ -32703,7 +32370,7 @@ namespace Libvirt.Model {
         }
         
         [System.Xml.Serialization.XmlAttributeAttribute("tls")]
-        public DomainsnapshotDisksnapshotSourceTls Tls {
+        public VirYesNo Tls {
             get {
                 return this.tls;
             }
@@ -32966,15 +32633,6 @@ namespace Libvirt.Model {
         
         [System.Xml.Serialization.XmlEnumAttribute(Name="vxhs")]
         Vxhs,
-    }
-    
-    public enum DomainsnapshotDisksnapshotSourceTls {
-        
-        [System.Xml.Serialization.XmlEnumAttribute(Name="no")]
-        No,
-        
-        [System.Xml.Serialization.XmlEnumAttribute(Name="yes")]
-        Yes,
     }
     
     public enum DomainsnapshotDisksnapshotType {
@@ -34296,6 +33954,18 @@ namespace Libvirt.Model {
         
         [System.Xml.Serialization.XmlEnumAttribute(Name="usb")]
         Usb,
+    }
+    
+    public enum DomainStartupPolicy {
+        
+        [System.Xml.Serialization.XmlEnumAttribute(Name="mandatory")]
+        Mandatory,
+        
+        [System.Xml.Serialization.XmlEnumAttribute(Name="optional")]
+        Optional,
+        
+        [System.Xml.Serialization.XmlEnumAttribute(Name="requisite")]
+        Requisite,
     }
     
     [System.Xml.Serialization.XmlTypeAttribute("sysinfo", Namespace="")]
@@ -47543,7 +47213,7 @@ namespace Libvirt.Model {
         
         private string bridge;
         
-        private NetworkportPlugMacTableManager macTableManager;
+        private MacTableManager macTableManager;
         
         private bool macTableManagerSpecified;
         
@@ -47582,7 +47252,7 @@ namespace Libvirt.Model {
         }
         
         [System.Xml.Serialization.XmlAttributeAttribute("macTableManager")]
-        public NetworkportPlugMacTableManager MacTableManager {
+        public MacTableManager MacTableManager {
             get {
                 return this.macTableManager;
             }
@@ -47745,15 +47415,6 @@ namespace Libvirt.Model {
                 this.multifunctionSpecified = value;
             }
         }
-    }
-    
-    public enum NetworkportPlugMacTableManager {
-        
-        [System.Xml.Serialization.XmlEnumAttribute(Name="kernel")]
-        Kernel,
-        
-        [System.Xml.Serialization.XmlEnumAttribute(Name="libvirt")]
-        Libvirt,
     }
     
     public enum NetworkportPlugMode {
@@ -48711,7 +48372,7 @@ namespace Libvirt.Model {
         
         private PoolSourceinfodevFreeExtent[] freeExtent;
         
-        private PoolSourceDevicePartSeparator partSeparator;
+        private VirYesNo partSeparator;
         
         private bool partSeparatorSpecified;
         
@@ -48736,7 +48397,7 @@ namespace Libvirt.Model {
         }
         
         [System.Xml.Serialization.XmlAttributeAttribute("part_separator")]
-        public PoolSourceDevicePartSeparator PartSeparator {
+        public VirYesNo PartSeparator {
             get {
                 return this.partSeparator;
             }
@@ -48754,15 +48415,6 @@ namespace Libvirt.Model {
                 this.partSeparatorSpecified = value;
             }
         }
-    }
-    
-    public enum PoolSourceDevicePartSeparator {
-        
-        [System.Xml.Serialization.XmlEnumAttribute(Name="no")]
-        No,
-        
-        [System.Xml.Serialization.XmlEnumAttribute(Name="yes")]
-        Yes,
     }
     
     public partial class PoolSourceDir {

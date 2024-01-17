@@ -118,6 +118,25 @@ internal class AstBuilder
         return (Choice)choice;
     }
 
+    private AstTypeDeclaration? GetTypeByValue(Value[] values)
+    {
+        var defines = values.Select(v =>
+        {
+            return this.types.Values.FirstOrDefault(t => t.Values.Any(r => r.Node.Position == v.Position));
+        });
+
+        if (!defines.Any())
+        {
+            return null;
+        }
+
+        var f = defines.First()!;
+
+        return defines.All(d => d is not null && d.Position == f.Position)
+            ? f
+            : null;
+    }
+
     private void InitFragment(AstTypeDeclaration type)
     {
         foreach (var member in type.Members)
@@ -349,7 +368,16 @@ internal class AstBuilder
         if (values.All(v => v.Type!.ValueType!.IsEnum))
         {
             var mergedValus = values.SelectMany(v => v.Type!.ValueType!.Values!).ToArray();
-            member.Type = new AstTypeReference(mergedValus, optional, isArray, type);
+            var refType = this.GetTypeByValue(mergedValus);
+            if (refType is null)
+            {
+                member.Type = new AstTypeReference(mergedValus, optional, isArray, type);
+            }
+            else
+            {
+                member.Type = new AstTypeReference(refType, optional, isArray);
+            }
+
             return;
         }
 

@@ -1596,13 +1596,6 @@ public class DomainTest : TestBase
     }
 
     [TestMethod]
-    public void DomainDiskSourceMode()
-    {
-        var values = Enum.GetValues(typeof(DomainDiskSourceMode));
-        Assert.AreEqual(2, values.Length);
-    }
-
-    [TestMethod]
     public void DomainDiskSourceNetworkHost()
     {
         const string expected = $@"
@@ -2515,13 +2508,6 @@ public class DomainTest : TestBase
     public void DomainHostdevSourceProtocol()
     {
         var values = Enum.GetValues(typeof(DomainHostdevSourceProtocol));
-        Assert.AreEqual(3, values.Length);
-    }
-
-    [TestMethod]
-    public void DomainHostdevSourceStartupPolicy()
-    {
-        var values = Enum.GetValues(typeof(DomainHostdevSourceStartupPolicy));
         Assert.AreEqual(3, values.Length);
     }
 
@@ -4551,6 +4537,13 @@ public class DomainTest : TestBase
     {
         var values = Enum.GetValues(typeof(DomainSoundModel));
         Assert.AreEqual(8, values.Length);
+    }
+
+    [TestMethod]
+    public void DomainStartupPolicy()
+    {
+        var values = Enum.GetValues(typeof(DomainStartupPolicy));
+        Assert.AreEqual(3, values.Length);
     }
 
     [TestMethod]

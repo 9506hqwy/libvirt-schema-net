@@ -136,13 +136,6 @@ public class StoragePoolTest : TestBase
     }
 
     [TestMethod]
-    public void PoolSourceDevicePartSeparator()
-    {
-        var values = Enum.GetValues(typeof(PoolSourceDevicePartSeparator));
-        Assert.AreEqual(2, values.Length);
-    }
-
-    [TestMethod]
     public void PoolSourceDir()
     {
         const string expected = $@"

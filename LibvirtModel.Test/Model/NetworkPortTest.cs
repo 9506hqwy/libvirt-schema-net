@@ -59,13 +59,6 @@ public class NetworkPortTest : TestBase
     }
 
     [TestMethod]
-    public void NetworkportPlugMacTableManager()
-    {
-        var values = Enum.GetValues(typeof(NetworkportPlugMacTableManager));
-        Assert.AreEqual(2, values.Length);
-    }
-
-    [TestMethod]
     public void NetworkportPlugMode()
     {
         var values = Enum.GetValues(typeof(NetworkportPlugMode));

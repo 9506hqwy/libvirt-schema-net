@@ -1499,6 +1499,10 @@ namespace Libvirt.Model {
         
         private bool dieIdSpecified;
         
+        private uint clusterId;
+        
+        private bool clusterIdSpecified;
+        
         private uint coreId;
         
         private bool coreIdSpecified;
@@ -1552,6 +1556,26 @@ namespace Libvirt.Model {
             }
             set {
                 this.dieIdSpecified = value;
+            }
+        }
+        
+        [System.Xml.Serialization.XmlAttributeAttribute("cluster_id")]
+        public uint ClusterId {
+            get {
+                return this.clusterId;
+            }
+            set {
+                this.clusterId = value;
+            }
+        }
+        
+        [System.Xml.Serialization.XmlIgnoreAttribute()]
+        public bool ClusterIdSpecified {
+            get {
+                return this.clusterIdSpecified;
+            }
+            set {
+                this.clusterIdSpecified = value;
             }
         }
         
@@ -27594,6 +27618,10 @@ namespace Libvirt.Model {
     
     public partial class DomainMemorydevTarget {
         
+        private VirYesNo dynamicMemslots;
+        
+        private bool dynamicMemslotsSpecified;
+        
         private DomainDevicesMemorydevMemorydevTargetSize size;
         
         private uint node;
@@ -27611,6 +27639,26 @@ namespace Libvirt.Model {
         private DomainMemorydevTargetReadonly @readonly;
         
         private DomainMemorydevTargetAddress address;
+        
+        [System.Xml.Serialization.XmlAttributeAttribute("dynamicMemslots")]
+        public VirYesNo DynamicMemslots {
+            get {
+                return this.dynamicMemslots;
+            }
+            set {
+                this.dynamicMemslots = value;
+            }
+        }
+        
+        [System.Xml.Serialization.XmlIgnoreAttribute()]
+        public bool DynamicMemslotsSpecified {
+            get {
+                return this.dynamicMemslotsSpecified;
+            }
+            set {
+                this.dynamicMemslotsSpecified = value;
+            }
+        }
         
         [System.Xml.Serialization.XmlElementAttribute("size", Namespace="")]
         public DomainDevicesMemorydevMemorydevTargetSize Size {
@@ -42652,6 +42700,10 @@ namespace Libvirt.Model {
         
         private bool diesSpecified;
         
+        private ulong clusters;
+        
+        private bool clustersSpecified;
+        
         private ulong cores;
         
         private ulong threads;
@@ -42683,6 +42735,26 @@ namespace Libvirt.Model {
             }
             set {
                 this.diesSpecified = value;
+            }
+        }
+        
+        [System.Xml.Serialization.XmlAttributeAttribute("clusters")]
+        public ulong Clusters {
+            get {
+                return this.clusters;
+            }
+            set {
+                this.clusters = value;
+            }
+        }
+        
+        [System.Xml.Serialization.XmlIgnoreAttribute()]
+        public bool ClustersSpecified {
+            get {
+                return this.clustersSpecified;
+            }
+            set {
+                this.clustersSpecified = value;
             }
         }
         
@@ -45922,6 +45994,10 @@ namespace Libvirt.Model {
         
         private bool localOnlySpecified;
         
+        private VirYesNo register;
+        
+        private bool registerSpecified;
+        
         [System.Xml.Serialization.XmlAttributeAttribute("name")]
         public string Name {
             get {
@@ -45949,6 +46025,26 @@ namespace Libvirt.Model {
             }
             set {
                 this.localOnlySpecified = value;
+            }
+        }
+        
+        [System.Xml.Serialization.XmlAttributeAttribute("register")]
+        public VirYesNo Register {
+            get {
+                return this.register;
+            }
+            set {
+                this.register = value;
+            }
+        }
+        
+        [System.Xml.Serialization.XmlIgnoreAttribute()]
+        public bool RegisterSpecified {
+            get {
+                return this.registerSpecified;
+            }
+            set {
+                this.registerSpecified = value;
             }
         }
     }

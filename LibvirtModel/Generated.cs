@@ -54,6 +54,9 @@ namespace Libvirt.Model {
         [System.Xml.Serialization.XmlEnumAttribute(Name="lm32")]
         Lm32,
         
+        [System.Xml.Serialization.XmlEnumAttribute(Name="loongarch64")]
+        Loongarch64,
+        
         [System.Xml.Serialization.XmlEnumAttribute(Name="m68k")]
         M68k,
         
@@ -20527,6 +20530,9 @@ namespace Libvirt.Model {
         [System.Xml.Serialization.XmlEnumAttribute(Name="loop")]
         Loop,
         
+        [System.Xml.Serialization.XmlEnumAttribute(Name="mtp")]
+        Mtp,
+        
         [System.Xml.Serialization.XmlEnumAttribute(Name="nbd")]
         Nbd,
         
@@ -29771,6 +29777,9 @@ namespace Libvirt.Model {
         [System.Xml.Serialization.XmlEnumAttribute(Name="lm32")]
         Lm32,
         
+        [System.Xml.Serialization.XmlEnumAttribute(Name="loongarch64")]
+        Loongarch64,
+        
         [System.Xml.Serialization.XmlEnumAttribute(Name="m68k")]
         M68k,
         
@@ -33701,6 +33710,9 @@ namespace Libvirt.Model {
         
         [System.Xml.Serialization.XmlEnumAttribute(Name="lm32")]
         Lm32,
+        
+        [System.Xml.Serialization.XmlEnumAttribute(Name="loongarch64")]
+        Loongarch64,
         
         [System.Xml.Serialization.XmlEnumAttribute(Name="m68k")]
         M68k,
@@ -44702,6 +44714,9 @@ namespace Libvirt.Model {
         
         [System.Xml.Serialization.XmlEnumAttribute(Name="lm32")]
         Lm32,
+        
+        [System.Xml.Serialization.XmlEnumAttribute(Name="loongarch64")]
+        Loongarch64,
         
         [System.Xml.Serialization.XmlEnumAttribute(Name="m68k")]
         M68k,

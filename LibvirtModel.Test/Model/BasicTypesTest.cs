@@ -7,7 +7,7 @@ public class BasicTypesTest : TestBase
     public void Archnames()
     {
         var values = Enum.GetValues(typeof(Archnames));
-        Assert.AreEqual(34, values.Length);
+        Assert.AreEqual(35, values.Length);
     }
 
     [TestMethod]

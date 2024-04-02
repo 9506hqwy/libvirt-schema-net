@@ -2169,7 +2169,7 @@ public class DomainTest : TestBase
     public void DomainFsDriverType()
     {
         var values = Enum.GetValues(typeof(DomainFsDriverType));
-        Assert.AreEqual(6, values.Length);
+        Assert.AreEqual(7, values.Length);
     }
 
     [TestMethod]
@@ -4062,7 +4062,7 @@ public class DomainTest : TestBase
     public void DomainOsTypeArch()
     {
         var values = Enum.GetValues(typeof(DomainOsTypeArch));
-        Assert.AreEqual(34, values.Length);
+        Assert.AreEqual(35, values.Length);
     }
 
     [TestMethod]

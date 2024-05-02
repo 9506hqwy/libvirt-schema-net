@@ -10974,6 +10974,10 @@ namespace Libvirt.Model {
         
         private bool nodeSpecified;
         
+        private ulong memReserve;
+        
+        private bool memReserveSpecified;
+        
         [System.Xml.Serialization.XmlAttributeAttribute("chassisNr")]
         public string ChassisNr {
             get {
@@ -11061,6 +11065,26 @@ namespace Libvirt.Model {
             }
             set {
                 this.nodeSpecified = value;
+            }
+        }
+        
+        [System.Xml.Serialization.XmlAttributeAttribute("memReserve")]
+        public ulong MemReserve {
+            get {
+                return this.memReserve;
+            }
+            set {
+                this.memReserve = value;
+            }
+        }
+        
+        [System.Xml.Serialization.XmlIgnoreAttribute()]
+        public bool MemReserveSpecified {
+            get {
+                return this.memReserveSpecified;
+            }
+            set {
+                this.memReserveSpecified = value;
             }
         }
     }
@@ -21595,6 +21619,14 @@ namespace Libvirt.Model {
         
         private DomainHostdevSource source;
         
+        private VirOnOff ramfb;
+        
+        private bool ramfbSpecified;
+        
+        private VirOnOff display;
+        
+        private bool displaySpecified;
+        
         private DomainSgIo sgio;
         
         private bool sgioSpecified;
@@ -21606,14 +21638,6 @@ namespace Libvirt.Model {
         private DomainHostdevModel model;
         
         private bool modelSpecified;
-        
-        private VirOnOff ramfb;
-        
-        private bool ramfbSpecified;
-        
-        private VirOnOff display;
-        
-        private bool displaySpecified;
         
         private DomainHostdevIp[] ip;
         
@@ -21713,6 +21737,46 @@ namespace Libvirt.Model {
             }
         }
         
+        [System.Xml.Serialization.XmlAttributeAttribute("ramfb")]
+        public VirOnOff Ramfb {
+            get {
+                return this.ramfb;
+            }
+            set {
+                this.ramfb = value;
+            }
+        }
+        
+        [System.Xml.Serialization.XmlIgnoreAttribute()]
+        public bool RamfbSpecified {
+            get {
+                return this.ramfbSpecified;
+            }
+            set {
+                this.ramfbSpecified = value;
+            }
+        }
+        
+        [System.Xml.Serialization.XmlAttributeAttribute("display")]
+        public VirOnOff Display {
+            get {
+                return this.display;
+            }
+            set {
+                this.display = value;
+            }
+        }
+        
+        [System.Xml.Serialization.XmlIgnoreAttribute()]
+        public bool DisplaySpecified {
+            get {
+                return this.displaySpecified;
+            }
+            set {
+                this.displaySpecified = value;
+            }
+        }
+        
         [System.Xml.Serialization.XmlAttributeAttribute("sgio")]
         public DomainSgIo Sgio {
             get {
@@ -21770,46 +21834,6 @@ namespace Libvirt.Model {
             }
             set {
                 this.modelSpecified = value;
-            }
-        }
-        
-        [System.Xml.Serialization.XmlAttributeAttribute("ramfb")]
-        public VirOnOff Ramfb {
-            get {
-                return this.ramfb;
-            }
-            set {
-                this.ramfb = value;
-            }
-        }
-        
-        [System.Xml.Serialization.XmlIgnoreAttribute()]
-        public bool RamfbSpecified {
-            get {
-                return this.ramfbSpecified;
-            }
-            set {
-                this.ramfbSpecified = value;
-            }
-        }
-        
-        [System.Xml.Serialization.XmlAttributeAttribute("display")]
-        public VirOnOff Display {
-            get {
-                return this.display;
-            }
-            set {
-                this.display = value;
-            }
-        }
-        
-        [System.Xml.Serialization.XmlIgnoreAttribute()]
-        public bool DisplaySpecified {
-            get {
-                return this.displaySpecified;
-            }
-            set {
-                this.displaySpecified = value;
             }
         }
         

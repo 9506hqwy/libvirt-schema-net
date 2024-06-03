@@ -1941,6 +1941,17 @@ public class DomainTest : TestBase
     }
 
     [TestMethod]
+    public void DomainFeaturesRas()
+    {
+        const string expected = $@"
+{XMLDECL}
+<DomainFeaturesRas {XMLNS} state=""off"" />
+";
+
+        this.AssertXml<DomainFeaturesRas>(expected);
+    }
+
+    [TestMethod]
     public void DomainFeaturesSmm()
     {
         const string expected = $@"
@@ -4533,10 +4544,21 @@ public class DomainTest : TestBase
     }
 
     [TestMethod]
+    public void DomainSoundDriver()
+    {
+        const string expected = $@"
+{XMLDECL}
+<DomainSoundDriver {XMLNS} />
+";
+
+        this.AssertXml<DomainSoundDriver>(expected);
+    }
+
+    [TestMethod]
     public void DomainSoundModel()
     {
         var values = Enum.GetValues(typeof(DomainSoundModel));
-        Assert.AreEqual(8, values.Length);
+        Assert.AreEqual(9, values.Length);
     }
 
     [TestMethod]

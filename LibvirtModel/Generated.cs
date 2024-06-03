@@ -18493,6 +18493,8 @@ namespace Libvirt.Model {
         
         private DomainFeaturesAsyncTeardown asyncTeardown;
         
+        private DomainFeaturesRas ras;
+        
         [System.Xml.Serialization.XmlElementAttribute("pae", Namespace="")]
         public DomainFeaturesPae Pae {
             get {
@@ -18760,6 +18762,16 @@ namespace Libvirt.Model {
             }
             set {
                 this.asyncTeardown = value;
+            }
+        }
+        
+        [System.Xml.Serialization.XmlElementAttribute("ras", Namespace="")]
+        public DomainFeaturesRas Ras {
+            get {
+                return this.ras;
+            }
+            set {
+                this.ras = value;
             }
         }
     }
@@ -19448,6 +19460,21 @@ namespace Libvirt.Model {
             }
             set {
                 this.stateSpecified = value;
+            }
+        }
+    }
+    
+    public partial class DomainFeaturesRas {
+        
+        private VirOnOff state;
+        
+        [System.Xml.Serialization.XmlAttributeAttribute("state")]
+        public VirOnOff State {
+            get {
+                return this.state;
+            }
+            set {
+                this.state = value;
             }
         }
     }
@@ -33907,6 +33934,8 @@ namespace Libvirt.Model {
         
         private bool multichannelSpecified;
         
+        private string streams;
+        
         private DomainHubAlias alias;
         
         private DomainAcpi acpi;
@@ -33916,6 +33945,8 @@ namespace Libvirt.Model {
         private DomainSoundAudio audio;
         
         private DomainCodec[] codec;
+        
+        private DomainSoundDriver driver;
         
         [System.Xml.Serialization.XmlAttributeAttribute("model")]
         public DomainSoundModel Model {
@@ -33944,6 +33975,16 @@ namespace Libvirt.Model {
             }
             set {
                 this.multichannelSpecified = value;
+            }
+        }
+        
+        [System.Xml.Serialization.XmlAttributeAttribute("streams")]
+        public string Streams {
+            get {
+                return this.streams;
+            }
+            set {
+                this.streams = value;
             }
         }
         
@@ -33996,6 +34037,16 @@ namespace Libvirt.Model {
                 this.codec = value;
             }
         }
+        
+        [System.Xml.Serialization.XmlElementAttribute("driver", Namespace="")]
+        public DomainSoundDriver Driver {
+            get {
+                return this.driver;
+            }
+            set {
+                this.driver = value;
+            }
+        }
     }
     
     public partial class DomainSoundAudio {
@@ -34009,6 +34060,105 @@ namespace Libvirt.Model {
             }
             set {
                 this.id = value;
+            }
+        }
+    }
+    
+    public partial class DomainSoundDriver {
+        
+        private VirOnOff iommu;
+        
+        private bool iommuSpecified;
+        
+        private VirOnOff ats;
+        
+        private bool atsSpecified;
+        
+        private VirOnOff packed;
+        
+        private bool packedSpecified;
+        
+        private VirOnOff pagePerVq;
+        
+        private bool pagePerVqSpecified;
+        
+        [System.Xml.Serialization.XmlAttributeAttribute("iommu")]
+        public VirOnOff Iommu {
+            get {
+                return this.iommu;
+            }
+            set {
+                this.iommu = value;
+            }
+        }
+        
+        [System.Xml.Serialization.XmlIgnoreAttribute()]
+        public bool IommuSpecified {
+            get {
+                return this.iommuSpecified;
+            }
+            set {
+                this.iommuSpecified = value;
+            }
+        }
+        
+        [System.Xml.Serialization.XmlAttributeAttribute("ats")]
+        public VirOnOff Ats {
+            get {
+                return this.ats;
+            }
+            set {
+                this.ats = value;
+            }
+        }
+        
+        [System.Xml.Serialization.XmlIgnoreAttribute()]
+        public bool AtsSpecified {
+            get {
+                return this.atsSpecified;
+            }
+            set {
+                this.atsSpecified = value;
+            }
+        }
+        
+        [System.Xml.Serialization.XmlAttributeAttribute("packed")]
+        public VirOnOff Packed {
+            get {
+                return this.packed;
+            }
+            set {
+                this.packed = value;
+            }
+        }
+        
+        [System.Xml.Serialization.XmlIgnoreAttribute()]
+        public bool PackedSpecified {
+            get {
+                return this.packedSpecified;
+            }
+            set {
+                this.packedSpecified = value;
+            }
+        }
+        
+        [System.Xml.Serialization.XmlAttributeAttribute("page_per_vq")]
+        public VirOnOff PagePerVq {
+            get {
+                return this.pagePerVq;
+            }
+            set {
+                this.pagePerVq = value;
+            }
+        }
+        
+        [System.Xml.Serialization.XmlIgnoreAttribute()]
+        public bool PagePerVqSpecified {
+            get {
+                return this.pagePerVqSpecified;
+            }
+            set {
+                this.pagePerVqSpecified = value;
             }
         }
     }
@@ -34038,6 +34188,9 @@ namespace Libvirt.Model {
         
         [System.Xml.Serialization.XmlEnumAttribute(Name="usb")]
         Usb,
+        
+        [System.Xml.Serialization.XmlEnumAttribute(Name="virtio")]
+        Virtio,
     }
     
     public enum DomainStartupPolicy {

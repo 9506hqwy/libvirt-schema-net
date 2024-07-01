@@ -2977,6 +2977,10 @@ namespace Libvirt.Model {
         
         private DeviceCapabilityAttr[] attr;
         
+        private DeviceCapabilityState state;
+        
+        private bool stateSpecified;
+        
         private string cssid;
         
         private string ssid;
@@ -3508,6 +3512,26 @@ namespace Libvirt.Model {
             }
             set {
                 this.attr = value;
+            }
+        }
+        
+        [System.Xml.Serialization.XmlElementAttribute("state", Namespace="")]
+        public DeviceCapabilityState State {
+            get {
+                return this.state;
+            }
+            set {
+                this.state = value;
+            }
+        }
+        
+        [System.Xml.Serialization.XmlIgnoreAttribute()]
+        public bool StateSpecified {
+            get {
+                return this.stateSpecified;
+            }
+            set {
+                this.stateSpecified = value;
             }
         }
         
@@ -4389,6 +4413,15 @@ namespace Libvirt.Model {
                 this.value = value;
             }
         }
+    }
+    
+    public enum DeviceCapabilityState {
+        
+        [System.Xml.Serialization.XmlEnumAttribute(Name="offline")]
+        Offline,
+        
+        [System.Xml.Serialization.XmlEnumAttribute(Name="online")]
+        Online,
     }
     
     public partial class DeviceCapabilityType {
@@ -8189,6 +8222,8 @@ namespace Libvirt.Model {
         
         private DomainCapabilitiesHyperv hyperv;
         
+        private DomainCapabilitiesLaunchSecurity launchSecurity;
+        
         [System.Xml.Serialization.XmlElementAttribute("gic", Namespace="")]
         public DomainCapabilitiesGic Gic {
             get {
@@ -8286,6 +8321,16 @@ namespace Libvirt.Model {
             }
             set {
                 this.hyperv = value;
+            }
+        }
+        
+        [System.Xml.Serialization.XmlElementAttribute("launchSecurity", Namespace="")]
+        public DomainCapabilitiesLaunchSecurity LaunchSecurity {
+            get {
+                return this.launchSecurity;
+            }
+            set {
+                this.launchSecurity = value;
             }
         }
     }
@@ -8544,6 +8589,34 @@ namespace Libvirt.Model {
             }
             set {
                 this.state = value;
+            }
+        }
+    }
+    
+    [System.Xml.Serialization.XmlTypeAttribute("launchSecurity", Namespace="")]
+    public partial class DomainCapabilitiesLaunchSecurity {
+        
+        private VirYesNo supported;
+        
+        private DomainCapabilitiesOsEnum[] @enum;
+        
+        [System.Xml.Serialization.XmlAttributeAttribute("supported")]
+        public VirYesNo Supported {
+            get {
+                return this.supported;
+            }
+            set {
+                this.supported = value;
+            }
+        }
+        
+        [System.Xml.Serialization.XmlElementAttribute("enum", Namespace="")]
+        public DomainCapabilitiesOsEnum[] Enum {
+            get {
+                return this.@enum;
+            }
+            set {
+                this.@enum = value;
             }
         }
     }
@@ -26586,6 +26659,22 @@ namespace Libvirt.Model {
         
         private string session;
         
+        private VirYesNo authorKey;
+        
+        private bool authorKeySpecified;
+        
+        private VirYesNo vcek;
+        
+        private bool vcekSpecified;
+        
+        private string guestVisibleWorkarounds;
+        
+        private string idBlock;
+        
+        private string idAuth;
+        
+        private string hostData;
+        
         [System.Xml.Serialization.XmlAttributeAttribute("type")]
         public DomainLaunchSecurityType Type {
             get {
@@ -26705,6 +26794,86 @@ namespace Libvirt.Model {
                 this.session = value;
             }
         }
+        
+        [System.Xml.Serialization.XmlAttributeAttribute("authorKey")]
+        public VirYesNo AuthorKey {
+            get {
+                return this.authorKey;
+            }
+            set {
+                this.authorKey = value;
+            }
+        }
+        
+        [System.Xml.Serialization.XmlIgnoreAttribute()]
+        public bool AuthorKeySpecified {
+            get {
+                return this.authorKeySpecified;
+            }
+            set {
+                this.authorKeySpecified = value;
+            }
+        }
+        
+        [System.Xml.Serialization.XmlAttributeAttribute("vcek")]
+        public VirYesNo Vcek {
+            get {
+                return this.vcek;
+            }
+            set {
+                this.vcek = value;
+            }
+        }
+        
+        [System.Xml.Serialization.XmlIgnoreAttribute()]
+        public bool VcekSpecified {
+            get {
+                return this.vcekSpecified;
+            }
+            set {
+                this.vcekSpecified = value;
+            }
+        }
+        
+        [System.Xml.Serialization.XmlElementAttribute("guestVisibleWorkarounds", Namespace="")]
+        public string GuestVisibleWorkarounds {
+            get {
+                return this.guestVisibleWorkarounds;
+            }
+            set {
+                this.guestVisibleWorkarounds = value;
+            }
+        }
+        
+        [System.Xml.Serialization.XmlElementAttribute("idBlock", Namespace="")]
+        public string IdBlock {
+            get {
+                return this.idBlock;
+            }
+            set {
+                this.idBlock = value;
+            }
+        }
+        
+        [System.Xml.Serialization.XmlElementAttribute("idAuth", Namespace="")]
+        public string IdAuth {
+            get {
+                return this.idAuth;
+            }
+            set {
+                this.idAuth = value;
+            }
+        }
+        
+        [System.Xml.Serialization.XmlElementAttribute("hostData", Namespace="")]
+        public string HostData {
+            get {
+                return this.hostData;
+            }
+            set {
+                this.hostData = value;
+            }
+        }
     }
     
     public enum DomainLaunchSecurityType {
@@ -26714,6 +26883,9 @@ namespace Libvirt.Model {
         
         [System.Xml.Serialization.XmlEnumAttribute(Name="sev")]
         Sev,
+        
+        [System.Xml.Serialization.XmlEnumAttribute(Name="sev-snp")]
+        SevSnp,
     }
     
     [System.Xml.Serialization.XmlTypeAttribute("lease", Namespace="")]

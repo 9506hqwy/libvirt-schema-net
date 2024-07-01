@@ -3388,6 +3388,13 @@ public class DomainTest : TestBase
     }
 
     [TestMethod]
+    public void DomainLaunchSecurityType()
+    {
+        var values = Enum.GetValues(typeof(DomainLaunchSecurityType));
+        Assert.AreEqual(3, values.Length);
+    }
+
+    [TestMethod]
     public void DomainLease()
     {
         const string expected = $@"

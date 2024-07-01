@@ -395,6 +395,17 @@ public class DomainCapsTest : TestBase
     }
 
     [TestMethod]
+    public void DomainCapabilitiesLaunchSecurity()
+    {
+        const string expected = $@"
+{XMLDECL}
+<launchSecurity {XMLNS} supported=""no"" />
+";
+
+        this.AssertXml<DomainCapabilitiesLaunchSecurity>(expected);
+    }
+
+    [TestMethod]
     public void DomainCapabilitiesLoader()
     {
         const string expected = $@"

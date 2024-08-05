@@ -362,6 +362,17 @@ public class DomainCapsTest : TestBase
     }
 
     [TestMethod]
+    public void DomainCapabilitiesInterface()
+    {
+        const string expected = $@"
+{XMLDECL}
+<interface {XMLNS} supported=""no"" />
+";
+
+        this.AssertXml<DomainCapabilitiesInterface>(expected);
+    }
+
+    [TestMethod]
     public void DomainCapabilitiesMemoryBacking()
     {
         const string expected = $@"

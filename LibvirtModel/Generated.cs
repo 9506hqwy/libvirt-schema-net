@@ -8070,6 +8070,8 @@ namespace Libvirt.Model {
         
         private DomainCapabilitiesCrypto crypto;
         
+        private DomainCapabilitiesInterface @interface;
+        
         [System.Xml.Serialization.XmlElementAttribute("disk", Namespace="")]
         public DomainCapabilitiesDisk Disk {
             get {
@@ -8167,6 +8169,16 @@ namespace Libvirt.Model {
             }
             set {
                 this.crypto = value;
+            }
+        }
+        
+        [System.Xml.Serialization.XmlElementAttribute("interface", Namespace="")]
+        public DomainCapabilitiesInterface Interface {
+            get {
+                return this.@interface;
+            }
+            set {
+                this.@interface = value;
             }
         }
     }
@@ -8506,6 +8518,34 @@ namespace Libvirt.Model {
     
     [System.Xml.Serialization.XmlTypeAttribute("hyperv", Namespace="")]
     public partial class DomainCapabilitiesHyperv {
+        
+        private VirYesNo supported;
+        
+        private DomainCapabilitiesOsEnum[] @enum;
+        
+        [System.Xml.Serialization.XmlAttributeAttribute("supported")]
+        public VirYesNo Supported {
+            get {
+                return this.supported;
+            }
+            set {
+                this.supported = value;
+            }
+        }
+        
+        [System.Xml.Serialization.XmlElementAttribute("enum", Namespace="")]
+        public DomainCapabilitiesOsEnum[] Enum {
+            get {
+                return this.@enum;
+            }
+            set {
+                this.@enum = value;
+            }
+        }
+    }
+    
+    [System.Xml.Serialization.XmlTypeAttribute("interface", Namespace="")]
+    public partial class DomainCapabilitiesInterface {
         
         private VirYesNo supported;
         
@@ -12417,6 +12457,8 @@ namespace Libvirt.Model {
         
         private DomainVsock vsock;
         
+        private DomainPstore pstore;
+        
         [System.Xml.Serialization.XmlElementAttribute("emulator", Namespace="")]
         public string Emulator {
             get {
@@ -12726,6 +12768,16 @@ namespace Libvirt.Model {
                 this.vsock = value;
             }
         }
+        
+        [System.Xml.Serialization.XmlElementAttribute("pstore", Namespace="")]
+        public DomainPstore Pstore {
+            get {
+                return this.pstore;
+            }
+            set {
+                this.pstore = value;
+            }
+        }
     }
     
     public partial class DomainDevicesControllerPcihole64 {
@@ -13026,6 +13078,33 @@ namespace Libvirt.Model {
     }
     
     public partial class DomainDevicesMemorydevMemorydevTargetSize {
+        
+        private string unit;
+        
+        private string value;
+        
+        [System.Xml.Serialization.XmlAttributeAttribute("unit")]
+        public string Unit {
+            get {
+                return this.unit;
+            }
+            set {
+                this.unit = value;
+            }
+        }
+        
+        [System.Xml.Serialization.XmlTextAttribute()]
+        public string Value {
+            get {
+                return this.value;
+            }
+            set {
+                this.value = value;
+            }
+        }
+    }
+    
+    public partial class DomainDevicesPstoreSize {
         
         private string unit;
         
@@ -20176,6 +20255,8 @@ namespace Libvirt.Model {
         
         private DomainFsBinaryThreadPool threadPool;
         
+        private DomainFsBinaryOpenfiles openfiles;
+        
         [System.Xml.Serialization.XmlAttributeAttribute("path")]
         public string Path {
             get {
@@ -20243,6 +20324,16 @@ namespace Libvirt.Model {
             }
             set {
                 this.threadPool = value;
+            }
+        }
+        
+        [System.Xml.Serialization.XmlElementAttribute("openfiles", Namespace="")]
+        public DomainFsBinaryOpenfiles Openfiles {
+            get {
+                return this.openfiles;
+            }
+            set {
+                this.openfiles = value;
             }
         }
     }
@@ -20330,6 +20421,33 @@ namespace Libvirt.Model {
             }
             set {
                 this.flockSpecified = value;
+            }
+        }
+    }
+    
+    public partial class DomainFsBinaryOpenfiles {
+        
+        private ulong max;
+        
+        private bool maxSpecified;
+        
+        [System.Xml.Serialization.XmlAttributeAttribute("max")]
+        public ulong Max {
+            get {
+                return this.max;
+            }
+            set {
+                this.max = value;
+            }
+        }
+        
+        [System.Xml.Serialization.XmlIgnoreAttribute()]
+        public bool MaxSpecified {
+            get {
+                return this.maxSpecified;
+            }
+            set {
+                this.maxSpecified = value;
             }
         }
     }
@@ -24304,6 +24422,9 @@ namespace Libvirt.Model {
     }
     
     public enum DomainInterfaceBackendType {
+        
+        [System.Xml.Serialization.XmlEnumAttribute(Name="default")]
+        Default,
         
         [System.Xml.Serialization.XmlEnumAttribute(Name="passt")]
         Passt,
@@ -30495,6 +30616,76 @@ namespace Libvirt.Model {
         }
     }
     
+    [System.Xml.Serialization.XmlTypeAttribute("pstore", Namespace="")]
+    public partial class DomainPstore {
+        
+        private DomainPstoreBackend backend;
+        
+        private string path;
+        
+        private DomainDevicesPstoreSize size;
+        
+        private DomainAddress address;
+        
+        private DomainHubAlias alias;
+        
+        [System.Xml.Serialization.XmlAttributeAttribute("backend")]
+        public DomainPstoreBackend Backend {
+            get {
+                return this.backend;
+            }
+            set {
+                this.backend = value;
+            }
+        }
+        
+        [System.Xml.Serialization.XmlElementAttribute("path", Namespace="")]
+        public string Path {
+            get {
+                return this.path;
+            }
+            set {
+                this.path = value;
+            }
+        }
+        
+        [System.Xml.Serialization.XmlElementAttribute("size", Namespace="")]
+        public DomainDevicesPstoreSize Size {
+            get {
+                return this.size;
+            }
+            set {
+                this.size = value;
+            }
+        }
+        
+        [System.Xml.Serialization.XmlElementAttribute("address", Namespace="")]
+        public DomainAddress Address {
+            get {
+                return this.address;
+            }
+            set {
+                this.address = value;
+            }
+        }
+        
+        [System.Xml.Serialization.XmlElementAttribute("alias", Namespace="")]
+        public DomainHubAlias Alias {
+            get {
+                return this.alias;
+            }
+            set {
+                this.alias = value;
+            }
+        }
+    }
+    
+    public enum DomainPstoreBackend {
+        
+        [System.Xml.Serialization.XmlEnumAttribute(Name="acpi-erst")]
+        AcpiErst,
+    }
+    
     public partial class DomainQemucdevSerialTgtModel {
         
         private DomainQemucdevSerialTgtModelName name;
@@ -35124,6 +35315,8 @@ namespace Libvirt.Model {
         
         private bool persistentStateSpecified;
         
+        private string debug;
+        
         private DomainTpmBackendSource source;
         
         private DomainTpmBackendVersion version;
@@ -35187,6 +35380,16 @@ namespace Libvirt.Model {
             }
             set {
                 this.persistentStateSpecified = value;
+            }
+        }
+        
+        [System.Xml.Serialization.XmlAttributeAttribute("debug")]
+        public string Debug {
+            get {
+                return this.debug;
+            }
+            set {
+                this.debug = value;
             }
         }
         

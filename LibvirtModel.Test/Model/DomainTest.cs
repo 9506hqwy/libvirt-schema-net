@@ -2130,6 +2130,17 @@ public class DomainTest : TestBase
     }
 
     [TestMethod]
+    public void DomainFsBinaryOpenfiles()
+    {
+        const string expected = $@"
+{XMLDECL}
+<DomainFsBinaryOpenfiles {XMLNS} />
+";
+
+        this.AssertXml<DomainFsBinaryOpenfiles>(expected);
+    }
+
+    [TestMethod]
     public void DomainFsBinarySandbox()
     {
         const string expected = $@"
@@ -2944,7 +2955,7 @@ public class DomainTest : TestBase
     public void DomainInterfaceBackendType()
     {
         var values = Enum.GetValues(typeof(DomainInterfaceBackendType));
-        Assert.AreEqual(1, values.Length);
+        Assert.AreEqual(2, values.Length);
     }
 
     [TestMethod]
@@ -4190,6 +4201,24 @@ public class DomainTest : TestBase
 ";
 
         this.AssertXml<DomainPmu>(expected);
+    }
+
+    [TestMethod]
+    public void DomainPstore()
+    {
+        const string expected = $@"
+{XMLDECL}
+<pstore {XMLNS} backend=""acpi-erst"" />
+";
+
+        this.AssertXml<DomainPstore>(expected);
+    }
+
+    [TestMethod]
+    public void DomainPstoreBackend()
+    {
+        var values = Enum.GetValues(typeof(DomainPstoreBackend));
+        Assert.AreEqual(1, values.Length);
     }
 
     [TestMethod]

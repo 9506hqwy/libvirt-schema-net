@@ -428,6 +428,17 @@ public class DomainCapsTest : TestBase
     }
 
     [TestMethod]
+    public void DomainCapabilitiesPs2()
+    {
+        const string expected = $@"
+{XMLDECL}
+<ps2 {XMLNS} supported=""no"" />
+";
+
+        this.AssertXml<DomainCapabilitiesPs2>(expected);
+    }
+
+    [TestMethod]
     public void DomainCapabilitiesVcpu()
     {
         const string expected = $@"

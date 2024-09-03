@@ -1919,6 +1919,17 @@ public class DomainTest : TestBase
     }
 
     [TestMethod]
+    public void DomainFeaturesPs2()
+    {
+        const string expected = $@"
+{XMLDECL}
+<DomainFeaturesPs2 {XMLNS} state=""off"" />
+";
+
+        this.AssertXml<DomainFeaturesPs2>(expected);
+    }
+
+    [TestMethod]
     public void DomainFeaturesPrivnet()
     {
         const string expected = $@"
@@ -2628,6 +2639,17 @@ public class DomainTest : TestBase
     }
 
     [TestMethod]
+    public void DomainHypervEmsrBitmap()
+    {
+        const string expected = $@"
+{XMLDECL}
+<DomainHypervEmsrBitmap {XMLNS} state=""off"" />
+";
+
+        this.AssertXml<DomainHypervEmsrBitmap>(expected);
+    }
+
+    [TestMethod]
     public void DomainHypervEvmcs()
     {
         const string expected = $@"
@@ -2797,6 +2819,17 @@ public class DomainTest : TestBase
 ";
 
         this.AssertXml<DomainHypervVpindex>(expected);
+    }
+
+    [TestMethod]
+    public void DomainHypervXmmInput()
+    {
+        const string expected = $@"
+{XMLDECL}
+<DomainHypervXmmInput {XMLNS} state=""off"" />
+";
+
+        this.AssertXml<DomainHypervXmmInput>(expected);
     }
 
     [TestMethod]

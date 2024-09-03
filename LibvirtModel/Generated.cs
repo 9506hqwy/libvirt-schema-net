@@ -8228,6 +8228,8 @@ namespace Libvirt.Model {
         
         private DomainCapabilitiesS390Pv s390Pv;
         
+        private DomainCapabilitiesPs2 ps2;
+        
         private DomainCapabilitiesSev sev;
         
         private DomainCapabilitiesSgx sgx;
@@ -8303,6 +8305,16 @@ namespace Libvirt.Model {
             }
             set {
                 this.s390Pv = value;
+            }
+        }
+        
+        [System.Xml.Serialization.XmlElementAttribute("ps2", Namespace="")]
+        public DomainCapabilitiesPs2 Ps2 {
+            get {
+                return this.ps2;
+            }
+            set {
+                this.ps2 = value;
             }
         }
         
@@ -8941,6 +8953,22 @@ namespace Libvirt.Model {
         
         [System.Xml.Serialization.XmlEnumAttribute(Name="deny")]
         Deny,
+    }
+    
+    [System.Xml.Serialization.XmlTypeAttribute("ps2", Namespace="")]
+    public partial class DomainCapabilitiesPs2 {
+        
+        private VirYesNo supported;
+        
+        [System.Xml.Serialization.XmlAttributeAttribute("supported")]
+        public VirYesNo Supported {
+            get {
+                return this.supported;
+            }
+            set {
+                this.supported = value;
+            }
+        }
     }
     
     [System.Xml.Serialization.XmlTypeAttribute("redirdev", Namespace="")]
@@ -18647,6 +18675,8 @@ namespace Libvirt.Model {
         
         private DomainFeaturesRas ras;
         
+        private DomainFeaturesPs2 ps2;
+        
         [System.Xml.Serialization.XmlElementAttribute("pae", Namespace="")]
         public DomainFeaturesPae Pae {
             get {
@@ -18924,6 +18954,16 @@ namespace Libvirt.Model {
             }
             set {
                 this.ras = value;
+            }
+        }
+        
+        [System.Xml.Serialization.XmlElementAttribute("ps2", Namespace="")]
+        public DomainFeaturesPs2 Ps2 {
+            get {
+                return this.ps2;
+            }
+            set {
+                this.ps2 = value;
             }
         }
     }
@@ -19587,6 +19627,21 @@ namespace Libvirt.Model {
     }
     
     public partial class DomainFeaturesPrivnet {
+    }
+    
+    public partial class DomainFeaturesPs2 {
+        
+        private VirOnOff state;
+        
+        [System.Xml.Serialization.XmlAttributeAttribute("state")]
+        public VirOnOff State {
+            get {
+                return this.state;
+            }
+            set {
+                this.state = value;
+            }
+        }
     }
     
     public partial class DomainFeaturesPvspinlock {
@@ -22929,6 +22984,10 @@ namespace Libvirt.Model {
         
         private DomainHypervAvic avic;
         
+        private DomainHypervEmsrBitmap emsrBitmap;
+        
+        private DomainHypervXmmInput xmmInput;
+        
         [System.Xml.Serialization.XmlAttributeAttribute("mode")]
         public DomainHypervMode Mode {
             get {
@@ -23098,9 +23157,44 @@ namespace Libvirt.Model {
                 this.avic = value;
             }
         }
+        
+        [System.Xml.Serialization.XmlElementAttribute("emsr_bitmap", Namespace="")]
+        public DomainHypervEmsrBitmap EmsrBitmap {
+            get {
+                return this.emsrBitmap;
+            }
+            set {
+                this.emsrBitmap = value;
+            }
+        }
+        
+        [System.Xml.Serialization.XmlElementAttribute("xmm_input", Namespace="")]
+        public DomainHypervXmmInput XmmInput {
+            get {
+                return this.xmmInput;
+            }
+            set {
+                this.xmmInput = value;
+            }
+        }
     }
     
     public partial class DomainHypervAvic {
+        
+        private VirOnOff state;
+        
+        [System.Xml.Serialization.XmlAttributeAttribute("state")]
+        public VirOnOff State {
+            get {
+                return this.state;
+            }
+            set {
+                this.state = value;
+            }
+        }
+    }
+    
+    public partial class DomainHypervEmsrBitmap {
         
         private VirOnOff state;
         
@@ -23395,6 +23489,21 @@ namespace Libvirt.Model {
     }
     
     public partial class DomainHypervVpindex {
+        
+        private VirOnOff state;
+        
+        [System.Xml.Serialization.XmlAttributeAttribute("state")]
+        public VirOnOff State {
+            get {
+                return this.state;
+            }
+            set {
+                this.state = value;
+            }
+        }
+    }
+    
+    public partial class DomainHypervXmmInput {
         
         private VirOnOff state;
         
@@ -26270,6 +26379,10 @@ namespace Libvirt.Model {
         
         private string awBits;
         
+        private VirOnOff dmaTranslation;
+        
+        private bool dmaTranslationSpecified;
+        
         [System.Xml.Serialization.XmlAttributeAttribute("intremap")]
         public VirOnOff Intremap {
             get {
@@ -26357,6 +26470,26 @@ namespace Libvirt.Model {
             }
             set {
                 this.awBits = value;
+            }
+        }
+        
+        [System.Xml.Serialization.XmlAttributeAttribute("dma_translation")]
+        public VirOnOff DmaTranslation {
+            get {
+                return this.dmaTranslation;
+            }
+            set {
+                this.dmaTranslation = value;
+            }
+        }
+        
+        [System.Xml.Serialization.XmlIgnoreAttribute()]
+        public bool DmaTranslationSpecified {
+            get {
+                return this.dmaTranslationSpecified;
+            }
+            set {
+                this.dmaTranslationSpecified = value;
             }
         }
     }
@@ -45955,15 +46088,15 @@ namespace Libvirt.Model {
     
     public partial class NetworkBandwidthInbound {
         
-        private uint average;
+        private ulong average;
         
         private bool averageSpecified;
         
-        private uint peak;
+        private ulong peak;
         
         private bool peakSpecified;
         
-        private uint floor;
+        private ulong floor;
         
         private bool floorSpecified;
         
@@ -45972,7 +46105,7 @@ namespace Libvirt.Model {
         private bool burstSpecified;
         
         [System.Xml.Serialization.XmlAttributeAttribute("average")]
-        public uint Average {
+        public ulong Average {
             get {
                 return this.average;
             }
@@ -45992,7 +46125,7 @@ namespace Libvirt.Model {
         }
         
         [System.Xml.Serialization.XmlAttributeAttribute("peak")]
-        public uint Peak {
+        public ulong Peak {
             get {
                 return this.peak;
             }
@@ -46012,7 +46145,7 @@ namespace Libvirt.Model {
         }
         
         [System.Xml.Serialization.XmlAttributeAttribute("floor")]
-        public uint Floor {
+        public ulong Floor {
             get {
                 return this.floor;
             }
@@ -46054,15 +46187,15 @@ namespace Libvirt.Model {
     
     public partial class NetworkBandwidthOutbound {
         
-        private uint average;
+        private ulong average;
         
         private bool averageSpecified;
         
-        private uint peak;
+        private ulong peak;
         
         private bool peakSpecified;
         
-        private uint floor;
+        private ulong floor;
         
         private bool floorSpecified;
         
@@ -46071,7 +46204,7 @@ namespace Libvirt.Model {
         private bool burstSpecified;
         
         [System.Xml.Serialization.XmlAttributeAttribute("average")]
-        public uint Average {
+        public ulong Average {
             get {
                 return this.average;
             }
@@ -46091,7 +46224,7 @@ namespace Libvirt.Model {
         }
         
         [System.Xml.Serialization.XmlAttributeAttribute("peak")]
-        public uint Peak {
+        public ulong Peak {
             get {
                 return this.peak;
             }
@@ -46111,7 +46244,7 @@ namespace Libvirt.Model {
         }
         
         [System.Xml.Serialization.XmlAttributeAttribute("floor")]
-        public uint Floor {
+        public ulong Floor {
             get {
                 return this.floor;
             }

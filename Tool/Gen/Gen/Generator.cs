@@ -21,9 +21,9 @@ internal class Generator
         this.types = types;
         this.exceptTypeAttr = exceptTypeAttr;
         this.commonDefines = commonDefines;
-        this.candidateClassName = new Dictionary<AstTypeDeclarationBase, string>();
-        this.enumCache = new Dictionary<RngPosition, CodeTypeDeclaration>();
-        this.generated = new Dictionary<object, CodeTypeDeclaration>();
+        this.candidateClassName = [];
+        this.enumCache = [];
+        this.generated = [];
 
         foreach (var type in types)
         {
@@ -31,7 +31,7 @@ internal class Generator
         }
     }
 
-    internal CodeTypeDeclaration[] Types => this.generated.Values.Distinct().OrderBy(t => t.Name).ToArray();
+    internal CodeTypeDeclaration[] Types => [.. this.generated.Values.Distinct().OrderBy(t => t.Name)];
 
     internal void Compile()
     {
@@ -84,8 +84,8 @@ internal class Generator
                 out var field,
                 out var prop);
 
-            type.Members.Add(field);
-            type.Members.Add(prop);
+            _ = type.Members.Add(field);
+            _ = type.Members.Add(prop);
 
             if ((member.Type.IsDatetime || member.Type.IsEnum || member.Type.IsPrimitive) &&
                 member.Type.Optional &&
@@ -93,8 +93,8 @@ internal class Generator
             {
                 Code.ConvertForSpecified(propName, out field, out prop);
 
-                type.Members.Add(field);
-                type.Members.Add(prop);
+                _ = type.Members.Add(field);
+                _ = type.Members.Add(prop);
             }
         }
         else
@@ -107,8 +107,8 @@ internal class Generator
                 out var field,
                 out var prop);
 
-            type.Members.Add(field);
-            type.Members.Add(prop);
+            _ = type.Members.Add(field);
+            _ = type.Members.Add(prop);
 
             if ((member.Type.IsDatetime || member.Type.IsEnum || member.Type.IsPrimitive) &&
                 member.Type.Optional &&
@@ -116,8 +116,8 @@ internal class Generator
             {
                 Code.ConvertForSpecified(propName, out field, out prop);
 
-                type.Members.Add(field);
-                type.Members.Add(prop);
+                _ = type.Members.Add(field);
+                _ = type.Members.Add(prop);
             }
         }
     }
@@ -198,12 +198,11 @@ internal class Generator
 
         if (type.Members.Length == 0 && (type.ValueType?.IsEnum ?? false))
         {
-            var define = this.GetEnumDefine(type.Values);
+            var define = GetEnumDefine(type.Values);
             if (define is not null)
             {
-                if (this.enumCache.ContainsKey(define.Position))
+                if (this.enumCache.TryGetValue(define.Position, out cls!))
                 {
-                    cls = this.enumCache[define.Position];
                     return;
                 }
 
@@ -218,7 +217,7 @@ internal class Generator
             foreach (var value in type.ValueType.Values!.GroupBy(v => v.Val).OrderBy(v => v.Key))
             {
                 Code.ConvertForEnum(value.Key, out var field);
-                cls.Members.Add(field);
+                _ = cls.Members.Add(field);
             }
 
             if (define is not null)
@@ -228,8 +227,8 @@ internal class Generator
         }
         else
         {
-            var xmlModifier = !this.exceptTypeAttr.Contains(className) && this.WithXmlModifier(type);
-            Code.ConvertForType(className, type.ElementName, type.FindNamespace(), xmlModifier, out cls);
+            var xmlModifier = !this.exceptTypeAttr.Contains(className) && WithXmlModifier(type);
+            _ = Code.ConvertForType(className, type.ElementName, type.FindNamespace(), xmlModifier, out cls);
 
             foreach (var member in type.Members)
             {
@@ -240,15 +239,15 @@ internal class Generator
             if (type.ValueType is not null)
             {
                 Code.ConvertForExtension(out var field, out var prop);
-                cls.Members.Add(field);
-                cls.Members.Add(prop);
+                _ = cls.Members.Add(field);
+                _ = cls.Members.Add(prop);
             }
 
             if (type.IsRawXml)
             {
                 Code.ConvertForElement(out var field, out var prop);
-                cls.Members.Add(field);
-                cls.Members.Add(prop);
+                _ = cls.Members.Add(field);
+                _ = cls.Members.Add(prop);
             }
         }
     }
@@ -271,7 +270,7 @@ internal class Generator
         foreach (var value in reference.Values!.GroupBy(v => v.Val).OrderBy(v => v.Key))
         {
             Code.ConvertForEnum(value.Key, out var field);
-            cls.Members.Add(field);
+            _ = cls.Members.Add(field);
         }
     }
 
@@ -349,21 +348,16 @@ internal class Generator
         return $"{parentName}_{type.ElementName}";
     }
 
-    private Define? GetEnumDefine(AstTypeFragment[] values)
+    private static Define? GetEnumDefine(AstTypeFragment[] values)
     {
-        var nodes = values.Select(v => v.Stack.SkipLast(2).LastOrDefault());
+        var nodes = values.Select(v => v.Stack.SkipLast(2).LastOrDefault()).ToArray();
         if (nodes.Any(d => d is not Define))
         {
             return null;
         }
 
         var defines = nodes.OfType<Define>().ToArray();
-        if (defines.Any(d => !d.Position.Equals(defines[0].Position)))
-        {
-            return null;
-        }
-
-        return defines[0];
+        return defines.Any(d => !d.Position.Equals(defines[0].Position)) ? null : defines[0];
     }
 
     private string InitClassName(AstTypeDeclarationBase type)
@@ -388,16 +382,16 @@ internal class Generator
         return count < 2;
     }
 
-    private bool WithXmlModifier(AstTypeDeclarationBase type)
+    private static bool WithXmlModifier(AstTypeDeclarationBase type)
     {
         return type switch
         {
-            AstTypeDeclaration t => this.WithXmlModifier(t),
+            AstTypeDeclaration t => WithXmlModifier(t),
             _ => false,
         };
     }
 
-    private bool WithXmlModifier(AstTypeDeclaration type)
+    private static bool WithXmlModifier(AstTypeDeclaration type)
     {
         var node = type.Stack.SkipLast(1).LastOrDefault();
         return node is Define && type.Stack.Count(n => n is IHasName) < 4;

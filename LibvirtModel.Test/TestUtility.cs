@@ -9,7 +9,9 @@ internal static class TestUtility
         var xml = TestUtility.GetTestData(typeof(T), filename);
 
         var ser = new XmlSerializer(typeof(T));
+#pragma warning disable CA5369
         return (T)ser.Deserialize(new StringReader(xml))!;
+#pragma warning restore CA5369
     }
 
     internal static string GetTestData(Type type, string filename)

@@ -11,7 +11,7 @@ internal class Repository
     internal Repository(RngFile[] files)
     {
         this.schema = new Schema();
-        this.types = new Dictionary<RngPosition, ParsedNode>();
+        this.types = [];
 
         this.Files = files;
 
@@ -22,7 +22,7 @@ internal class Repository
 
     internal ParsedNode[] Types => this.types.Values.Where(v => v.ChildParsed).ToArray();
 
-    private int GetNameLength(INode[] nodes)
+    private static int GetNameLength(INode[] nodes)
     {
         return nodes.OfType<IHasName>().Select(n => n.Name.GetNameLength()).Sum();
     }
@@ -204,7 +204,7 @@ internal class Repository
     private void ReplaceType(ParsedNode parsed)
     {
         var origParsedNode = this.types[parsed.Node.Position];
-        if (this.GetNameLength(parsed.Stack!.Inner) < this.GetNameLength(origParsedNode.Stack!.Inner))
+        if (GetNameLength(parsed.Stack!.Inner) < GetNameLength(origParsedNode.Stack!.Inner))
         {
             this.types[parsed.Node.Position] = parsed;
         }

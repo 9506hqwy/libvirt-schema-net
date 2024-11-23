@@ -1,5 +1,6 @@
 ﻿namespace Gen;
 
+using System.Globalization;
 using System.Text.RegularExpressions;
 
 internal static class Utility
@@ -27,15 +28,15 @@ internal static class Utility
     private static string Replace(string value)
     {
         return value
-            .Replace("+", "Plus")
-            .Replace(".", "o");
+            .Replace("+", "Plus", StringComparison.InvariantCulture)
+            .Replace(".", "o", StringComparison.InvariantCulture);
     }
 
     private static string ToLowerCamelCase(string value)
     {
         var terms = Regex.Replace(value, @"([A-Z]+)", "_$1")
             .Trim('_')
-            .Split(new[] { '_', '-' })
+            .Split(['_', '-'])
             .Select(t => t.ToLowerInvariant())
             .Select((t, i) => i == 0 ? t : Utility.ToCaption(t));
         return string.Join(string.Empty, terms);
@@ -45,7 +46,7 @@ internal static class Utility
     {
         var terms = Regex.Replace(value, @"([A-Z]+)", "_$1")
             .Trim('_')
-            .Split(new[] { '_', '-' })
+            .Split(['_', '-'])
             .Select(Utility.ToCaption);
         return string.Join(string.Empty, terms);
     }
@@ -54,7 +55,7 @@ internal static class Utility
     {
         var caption = value
             .ToCharArray()
-            .Select((ch, i) => i == 0 ? char.ToUpper(ch) : char.ToLower(ch))
+            .Select((ch, i) => i == 0 ? char.ToUpper(ch, CultureInfo.CurrentCulture) : char.ToLower(ch, CultureInfo.CurrentCulture))
             .ToArray();
         return new string(caption);
     }

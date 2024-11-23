@@ -10,15 +10,15 @@ internal class ParsedNode
 
     internal ParsedNode(IHasName node)
     {
-        this.childList = new List<ParsedChildNode>();
-        this.valueList = new List<ParsedValue>();
+        this.childList = [];
+        this.valueList = [];
 
         this.Node = node;
     }
 
     internal bool ChildParsed { get; set; }
 
-    internal ParsedChildNode[] Children => this.childList.ToArray();
+    internal ParsedChildNode[] Children => [.. this.childList];
 
     internal bool HasNotAllowed => this.valueList.Any(v => v.IsNotAllowed);
 

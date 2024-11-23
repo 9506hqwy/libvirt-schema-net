@@ -10,8 +10,7 @@ internal class MainShell
     {
         try
         {
-            var shell = new MainShell();
-            shell.Work(args);
+            Work(args);
         }
         catch (Exception e)
         {
@@ -19,12 +18,12 @@ internal class MainShell
         }
     }
 
-    internal void Work(string[] args)
+    internal static void Work(string[] args)
     {
-        this.WriteGenerated(args[0]);
+        WriteGenerated(args[0]);
     }
 
-    internal void WriteGenerated(string directory)
+    internal static void WriteGenerated(string directory)
     {
         var exceptTypeAttr = new[]
         {
@@ -46,7 +45,7 @@ internal class MainShell
             f => f.Info.Name,
             f => f);
 
-        var repository = new Repository(files.Values.ToArray());
+        var repository = new Repository([.. files.Values]);
         var builder = new AstBuilder(repository);
         var types = builder.Types
             .Where(t => !t.FundamentalType)

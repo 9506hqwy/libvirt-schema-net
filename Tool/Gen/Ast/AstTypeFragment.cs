@@ -23,7 +23,7 @@ internal class AstTypeFragment
 
     internal Guid BranchId { get; }
 
-    internal bool IsArray => this.isArray || this.Attributes.Any(n => n is ZeroOrMore || n is OneOrMore);
+    internal bool IsArray => this.isArray || this.Attributes.Any(n => n is ZeroOrMore or OneOrMore);
 
     internal INode Node { get; }
 
@@ -37,10 +37,12 @@ internal class AstTypeFragment
 
     internal AstTypeFragment Copy()
     {
-        var frag = new AstTypeFragment(this.Node, this.Attributes, this.Stack, this.BranchCount, this.BranchId);
-        frag.isArray = this.isArray;
-        frag.isOptional = this.isOptional;
-        frag.Type = this.Type;
+        var frag = new AstTypeFragment(this.Node, this.Attributes, this.Stack, this.BranchCount, this.BranchId)
+        {
+            isArray = this.isArray,
+            isOptional = this.isOptional,
+            Type = this.Type
+        };
         return frag;
     }
 
@@ -65,7 +67,7 @@ internal class AstTypeFragment
 
         switch (this.Node)
         {
-            case Value _:
+            case Value:
                 if (attrs.SkipLast(1).LastOrDefault() is Choice)
                 {
                     attrs = attrs.SkipLast(2);

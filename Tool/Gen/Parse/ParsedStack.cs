@@ -8,10 +8,10 @@ internal class ParsedStack
 
     internal ParsedStack()
     {
-        this.inner = new List<INode>();
+        this.inner = [];
     }
 
-    internal INode[] Inner => this.inner.ToArray();
+    internal INode[] Inner => [.. this.inner];
 
     internal RngPosition Position => this.inner.First().Position;
 

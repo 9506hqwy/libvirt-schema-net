@@ -18,7 +18,7 @@ internal static class Code
     {
         Code.ToProperty(type, propertyName, out field, out prop);
 
-        prop.CustomAttributes.Add(new CodeAttributeDeclaration(
+        _ = prop.CustomAttributes.Add(new CodeAttributeDeclaration(
             new CodeTypeReference(typeof(XmlAttributeAttribute)),
             new CodeAttributeArgument(new CodePrimitiveExpression(attrName))));
     }
@@ -29,7 +29,7 @@ internal static class Code
     {
         Code.ToProperty(new CodeTypeReference(typeof(XmlElement[])), "elements", out field, out prop);
 
-        prop.CustomAttributes.Add(new CodeAttributeDeclaration(
+        _ = prop.CustomAttributes.Add(new CodeAttributeDeclaration(
             new CodeTypeReference(typeof(XmlAnyElementAttribute))));
     }
 
@@ -45,19 +45,19 @@ internal static class Code
 
         var attrArgs = new List<CodeAttributeArgument>
         {
-            new CodeAttributeArgument(new CodePrimitiveExpression(elementName)),
-            new CodeAttributeArgument("Namespace", new CodePrimitiveExpression(ns ?? Code.DefaultNs)),
+            new(new CodePrimitiveExpression(elementName)),
+            new("Namespace", new CodePrimitiveExpression(ns ?? Code.DefaultNs)),
         };
 
-        prop.CustomAttributes.Add(new CodeAttributeDeclaration(
+        _ = prop.CustomAttributes.Add(new CodeAttributeDeclaration(
             new CodeTypeReference(typeof(XmlElementAttribute)),
-            attrArgs.ToArray()));
+            [.. attrArgs]));
     }
 
     internal static void ConvertForEnum(string enumName, out CodeMemberField field)
     {
         field = new CodeMemberField(typeof(int), Utility.ToPropertyName(enumName));
-        field.CustomAttributes.Add(
+        _ = field.CustomAttributes.Add(
             new CodeAttributeDeclaration(
                 new CodeTypeReference(typeof(XmlEnumAttribute)),
                 new CodeAttributeArgument("Name", new CodePrimitiveExpression(enumName))));
@@ -69,7 +69,7 @@ internal static class Code
     {
         Code.ToProperty(new CodeTypeReference(typeof(string)), "value", out field, out prop);
 
-        prop.CustomAttributes.Add(new CodeAttributeDeclaration(
+        _ = prop.CustomAttributes.Add(new CodeAttributeDeclaration(
             new CodeTypeReference(typeof(XmlTextAttribute))));
     }
 
@@ -80,7 +80,7 @@ internal static class Code
     {
         Code.ToProperty(new CodeTypeReference(typeof(bool)), $"{targetName}_Specified", out field, out prop);
 
-        prop.CustomAttributes.Add(new CodeAttributeDeclaration(
+        _ = prop.CustomAttributes.Add(new CodeAttributeDeclaration(
             new CodeTypeReference(typeof(XmlIgnoreAttribute))));
     }
 
@@ -95,13 +95,13 @@ internal static class Code
         {
             var attrArgs = new List<CodeAttributeArgument>
             {
-                new CodeAttributeArgument(new CodePrimitiveExpression(elementName)),
-                new CodeAttributeArgument("Namespace", new CodePrimitiveExpression(ns ?? Code.DefaultNs)),
+                new(new CodePrimitiveExpression(elementName)),
+                new("Namespace", new CodePrimitiveExpression(ns ?? Code.DefaultNs)),
             };
 
-            cls.CustomAttributes.Add(new CodeAttributeDeclaration(
+            _ = cls.CustomAttributes.Add(new CodeAttributeDeclaration(
                 new CodeTypeReference(typeof(XmlTypeAttribute)),
-                attrArgs.ToArray()));
+                [.. attrArgs]));
         }
 
         type = cls;
@@ -120,9 +120,9 @@ internal static class Code
     internal static void WriteFile(string path, CodeNamespace ns)
     {
         var compileUnit = new CodeCompileUnit();
-        compileUnit.Namespaces.Add(ns);
+        _ = compileUnit.Namespaces.Add(ns);
 
-        var provider = new CSharpCodeProvider();
+        using var provider = new CSharpCodeProvider();
 
         using var stream = File.OpenWrite(path);
         using var writer = new StreamWriter(stream, leaveOpen: true);
@@ -139,16 +139,18 @@ internal static class Code
         var fieldName = Utility.ToFieldName(ideintifier);
         field = new CodeMemberField(type, fieldName);
 
-        prop = new CodeMemberProperty();
-        prop.Type = type;
+        prop = new CodeMemberProperty
+        {
+            Type = type
+        };
         prop.Attributes &= ~MemberAttributes.AccessMask & ~MemberAttributes.ScopeMask;
         prop.Attributes |= MemberAttributes.Public | MemberAttributes.Final;
         prop.Name = Utility.ToPropertyName(ideintifier);
-        prop.GetStatements.Add(
+        _ = prop.GetStatements.Add(
             new CodeMethodReturnStatement(
                 new CodeFieldReferenceExpression(
                     new CodeThisReferenceExpression(), fieldName)));
-        prop.SetStatements.Add(
+        _ = prop.SetStatements.Add(
             new CodeAssignStatement(
                 new CodeFieldReferenceExpression(new CodeThisReferenceExpression(), fieldName),
                 new CodePropertySetValueReferenceExpression()));

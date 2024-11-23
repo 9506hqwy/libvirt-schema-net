@@ -21,7 +21,7 @@ internal class AstTypeDeclaration : AstTypeDeclarationBase
 
     internal override string ElementName => this.Stack.OfType<IHasName>().Last().Name.GetName();
 
-    internal override int Depth => this.Stack.Count(n => n is Attribute || n is Element);
+    internal override int Depth => this.Stack.Count(n => n is Attribute or Element);
 
     internal INode[] Stack { get; }
 

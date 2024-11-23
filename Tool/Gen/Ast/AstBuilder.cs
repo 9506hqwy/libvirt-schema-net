@@ -12,17 +12,17 @@ internal class AstBuilder
 
     internal AstBuilder(Repository repository)
     {
-        this.mergedTypes = new List<AstMergedTypeDeclaration>();
-        this.types = new Dictionary<RngPosition, AstTypeDeclaration>();
+        this.mergedTypes = [];
+        this.types = [];
 
         this.repository = repository;
 
         this.Init();
     }
 
-    internal AstMergedTypeDeclaration[] MergedTypes => this.mergedTypes.ToArray();
+    internal AstMergedTypeDeclaration[] MergedTypes => [.. this.mergedTypes];
 
-    internal AstTypeDeclaration[] Types => this.types.Values.ToArray();
+    internal AstTypeDeclaration[] Types => [.. this.types.Values];
 
     private string ByFqdn(AstTypeMember member)
     {
@@ -54,7 +54,7 @@ internal class AstBuilder
 
         foreach (var type in this.types.Values)
         {
-            this.ParseValueType(type);
+            ParseValueType(type);
         }
 
         foreach (var type in this.types.Values)
@@ -64,11 +64,11 @@ internal class AstBuilder
 
         foreach (var type in this.types.Values.Where(t => t.Depth == 1))
         {
-            this.TraverseType(type);
+            TraverseType(type);
         }
     }
 
-    private void TraverseType(AstTypeDeclarationBase type)
+    private static void TraverseType(AstTypeDeclarationBase type)
     {
         if (type.StartReachable)
         {
@@ -81,17 +81,17 @@ internal class AstBuilder
         {
             if (member.Type?.Declaration is not null)
             {
-                this.TraverseType(member.Type!.Declaration!);
+                TraverseType(member.Type!.Declaration!);
             }
         }
 
         if (type.ValueType?.Declaration is not null)
         {
-            this.TraverseType(type.ValueType!.Declaration!);
+            TraverseType(type.ValueType!.Declaration!);
         }
     }
 
-    private Choice? GetCommonChoice(AstTypeFragment[] values)
+    private static Choice? GetCommonChoice(AstTypeFragment[] values)
     {
         var choice = values[0].Stack.Reverse().FirstOrDefault(n => n is Choice);
         if (choice is null)
@@ -123,9 +123,9 @@ internal class AstBuilder
         var defines = values.Select(v =>
         {
             return this.types.Values.FirstOrDefault(t => t.Values.Any(r => r.Node.Position == v.Position));
-        });
+        }).ToArray();
 
-        if (!defines.Any())
+        if (defines.Length == 0)
         {
             return null;
         }
@@ -161,14 +161,14 @@ internal class AstBuilder
         }
     }
 
-    private bool IsMandatoryValue(AstTypeFragment[] values, int maxBranchCount)
+    private static bool IsMandatoryValue(AstTypeFragment[] values, int maxBranchCount)
     {
         if (maxBranchCount > values.Length)
         {
             return false;
         }
 
-        var root = this.GetCommonChoice(values);
+        var root = GetCommonChoice(values);
         if (root is null)
         {
             return values.All(v => !v.Optional);
@@ -264,11 +264,11 @@ internal class AstBuilder
             {
                 var fragments = nodes.SelectMany(n => n.Fragments).Select(n => n.Copy()).ToArray();
 
-                var isOptional = !this.IsMandatoryValue(fragments, maxBranchCount);
+                var isOptional = !IsMandatoryValue(fragments, maxBranchCount);
                 Array.ForEach(fragments, f => f.SetOptional(isOptional));
                 Array.ForEach(fragments, f => f.SetBranchCount(maxBranchCount));
 
-                members.Add(new AstTypeMember(nodes.First().Name, fragments.ToArray(), nodes.Key));
+                members.Add(new AstTypeMember(nodes.First().Name, [.. fragments], nodes.Key));
             }
         }
 
@@ -276,8 +276,8 @@ internal class AstBuilder
 
         var isEmpty = member.Fragments.Any(c => c.Type!.IsEmpty);
 
-        var mergedType = new AstMergedTypeDeclaration(member.Name, members.ToArray(), values, isEmpty, type);
-        this.ParseValueType(mergedType);
+        var mergedType = new AstMergedTypeDeclaration(member.Name, [.. members], values, isEmpty, type);
+        ParseValueType(mergedType);
         this.MergeFragment(mergedType);
 
         this.mergedTypes.Add(mergedType);
@@ -285,7 +285,7 @@ internal class AstBuilder
         member.Type = new AstTypeReference(mergedType, optional, isArray);
     }
 
-    private void MergeFragmentPrimitive(AstTypeMember member, AstTypeReference[] primitives, bool optional, bool isArray)
+    private static void MergeFragmentPrimitive(AstTypeMember member, AstTypeReference[] primitives, bool optional, bool isArray)
     {
         optional = optional || primitives.Any(v => v.Optional);
         isArray = isArray || primitives[0].IsArray;
@@ -350,7 +350,7 @@ internal class AstBuilder
 
         var maxBranchCount = values.Max(v => v.BranchCount);
 
-        var optional = !this.IsMandatoryValue(values, maxBranchCount);
+        var optional = !IsMandatoryValue(values, maxBranchCount);
         var isArray = values.Any(v => v.IsArray);
 
         if (values.Any(v => v.Type!.ValueType!.IsString))
@@ -369,21 +369,16 @@ internal class AstBuilder
         {
             var mergedValus = values.SelectMany(v => v.Type!.ValueType!.Values!).ToArray();
             var refType = this.GetTypeByValue(mergedValus);
-            if (refType is null)
-            {
-                member.Type = new AstTypeReference(mergedValus, optional, isArray, type);
-            }
-            else
-            {
-                member.Type = new AstTypeReference(refType, optional, isArray);
-            }
+            member.Type = refType is null
+                ? new AstTypeReference(mergedValus, optional, isArray, type)
+                : new AstTypeReference(refType, optional, isArray);
 
             return;
         }
 
         if (values.All(v => v.Type!.ValueType!.IsPrimitive))
         {
-            this.MergeFragmentPrimitive(member, values.Select(v => v.Type!.ValueType!).ToArray(), optional, isArray);
+            MergeFragmentPrimitive(member, values.Select(v => v.Type!.ValueType!).ToArray(), optional, isArray);
             return;
         }
 
@@ -416,7 +411,7 @@ internal class AstBuilder
                     }
                 }
 
-                members.Add(new AstTypeMember(nodes.First().Value.Name, fragments.ToArray(), nodes.Key));
+                members.Add(new AstTypeMember(nodes.First().Value.Name, [.. fragments], nodes.Key));
             }
         }
 
@@ -429,15 +424,15 @@ internal class AstBuilder
 
         var type = new AstTypeDeclaration(
             node,
-            members.ToArray(),
-            values.ToArray(),
+            [.. members],
+            [.. values],
             parsed.HasNotAllowed || parsed.IsEmpty,
             parsed.HasRawXml,
             parsed.Stack!.Inner);
         this.types.Add(node.Position, type);
     }
 
-    private void ParseValueType(AstTypeDeclarationBase type)
+    private static void ParseValueType(AstTypeDeclarationBase type)
     {
         if (type.Members.Length == 0 && type.Values.Length == 0)
         {
@@ -470,7 +465,7 @@ internal class AstBuilder
 
         if (datum.Length != 0)
         {
-            this.ParseValueType(type, datum, values);
+            ParseValueType(type, datum, values);
             return;
         }
 
@@ -482,7 +477,7 @@ internal class AstBuilder
         return;
     }
 
-    private void ParseValueType(AstTypeDeclarationBase type, AstTypeFragment[] datum, AstTypeFragment[] values)
+    private static void ParseValueType(AstTypeDeclarationBase type, AstTypeFragment[] datum, AstTypeFragment[] values)
     {
         var optional = datum.Any(v => v.Optional);
         var isArray = datum[0].IsArray;
@@ -500,6 +495,7 @@ internal class AstBuilder
         }
         else
         {
+#pragma warning disable IDE0045
             if (types.Contains(typeof(double)))
             {
                 type.ValueType = new AstTypeReference(typeof(double), optional, isArray);
@@ -510,55 +506,37 @@ internal class AstBuilder
             }
             else if (types.Contains(typeof(ulong)))
             {
-                if (values.Any(v => !ulong.TryParse((v.Node as Value)!.Val, out var _)))
-                {
-                    type.ValueType = new AstTypeReference(typeof(long), optional, isArray);
-                }
-                else
-                {
-                    type.ValueType = new AstTypeReference(typeof(ulong), optional, isArray);
-                }
+                type.ValueType = values.Any(v => !ulong.TryParse((v.Node as Value)!.Val, out var _))
+                    ? new AstTypeReference(typeof(long), optional, isArray)
+                    : new AstTypeReference(typeof(ulong), optional, isArray);
             }
             else if (types.Contains(typeof(uint)))
             {
-                if (values.Any(v => !uint.TryParse((v.Node as Value)!.Val, out var _)))
-                {
-                    type.ValueType = new AstTypeReference(typeof(long), optional, isArray);
-                }
-                else
-                {
-                    type.ValueType = new AstTypeReference(typeof(uint), optional, isArray);
-                }
+                type.ValueType = values.Any(v => !uint.TryParse((v.Node as Value)!.Val, out var _))
+                    ? new AstTypeReference(typeof(long), optional, isArray)
+                    : new AstTypeReference(typeof(uint), optional, isArray);
             }
             else if (types.Contains(typeof(ushort)))
             {
-                if (values.Any(v => !ushort.TryParse((v.Node as Value)!.Val, out var _)))
-                {
-                    type.ValueType = new AstTypeReference(typeof(int), optional, isArray);
-                }
-                else
-                {
-                    type.ValueType = new AstTypeReference(typeof(ushort), optional, isArray);
-                }
+                type.ValueType = values.Any(v => !ushort.TryParse((v.Node as Value)!.Val, out var _))
+                    ? new AstTypeReference(typeof(int), optional, isArray)
+                    : new AstTypeReference(typeof(ushort), optional, isArray);
             }
             else if (types.Contains(typeof(long)))
             {
                 type.ValueType = new AstTypeReference(typeof(long), optional, isArray);
             }
-            else if (types.Contains(typeof(int)))
-            {
-                type.ValueType = new AstTypeReference(typeof(int), optional, isArray);
-            }
-            else if (types.Contains(typeof(short)))
-            {
-                type.ValueType = new AstTypeReference(typeof(short), optional, isArray);
-            }
             else
             {
-                throw new Exception($"Not supported. Data type in `{datum[0].Node.Position}`.");
+                type.ValueType = types.Contains(typeof(int))
+                    ? new AstTypeReference(typeof(int), optional, isArray)
+                    : types.Contains(typeof(short))
+                                    ? new AstTypeReference(typeof(short), optional, isArray)
+                                    : throw new Exception($"Not supported. Data type in `{datum[0].Node.Position}`.");
             }
 
             // TODO: values is not number.
+#pragma warning restore IDE0045
         }
     }
 }

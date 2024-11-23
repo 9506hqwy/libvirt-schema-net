@@ -3,7 +3,7 @@
 internal static class DataType
 {
     // https://www.w3.org/TR/xmlschema-2/
-    private static readonly IDictionary<string, Type> Mapping = new Dictionary<string, Type>
+    private static readonly Dictionary<string, Type> Mapping = new()
     {
         // Primitive
         { "string", typeof(string) },
@@ -39,16 +39,8 @@ internal static class DataType
 
     internal static Type? Get(string? name)
     {
-        if (name is null)
-        {
-            return null;
-        }
-
-        if (DataType.Mapping.TryGetValue(name, out var type))
-        {
-            return type;
-        }
-
-        throw new NotSupportedException($"Not suppored type `{name}`.");
+        return name is null
+            ? null
+            : DataType.Mapping.TryGetValue(name, out var type) ? type : throw new NotSupportedException($"Not suppored type `{name}`.");
     }
 }

@@ -37,6 +37,17 @@ public class DomainCapsTest : TestBase
     }
 
     [TestMethod]
+    public void DomainCapabilitiesCpuCustomBlockers()
+    {
+        const string expected = $@"
+{XMLDECL}
+<DomainCapabilitiesCpuCustomBlockers {XMLNS} />
+";
+
+        this.AssertXml<DomainCapabilitiesCpuCustomBlockers>(expected);
+    }
+
+    [TestMethod]
     public void DomainCapabilitiesCpuCustomModelUsable()
     {
         var values = Enum.GetValues(typeof(DomainCapabilitiesCpuCustomModelUsable));
@@ -425,6 +436,17 @@ public class DomainCapsTest : TestBase
 ";
 
         this.AssertXml<DomainCapabilitiesLoader>(expected);
+    }
+
+    [TestMethod]
+    public void DomainCapabilitiesPanic()
+    {
+        const string expected = $@"
+{XMLDECL}
+<panic {XMLNS} supported=""no"" />
+";
+
+        this.AssertXml<DomainCapabilitiesPanic>(expected);
     }
 
     [TestMethod]

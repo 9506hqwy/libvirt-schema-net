@@ -7764,6 +7764,48 @@ namespace Libvirt.Model {
         }
     }
     
+    public partial class DomainCapabilitiesCpuCustomBlockers {
+        
+        private string model;
+        
+        private DomainCapabilitiesCpuCustomBlockersFeature[] feature;
+        
+        [System.Xml.Serialization.XmlAttributeAttribute("model")]
+        public string Model {
+            get {
+                return this.model;
+            }
+            set {
+                this.model = value;
+            }
+        }
+        
+        [System.Xml.Serialization.XmlElementAttribute("feature", Namespace="")]
+        public DomainCapabilitiesCpuCustomBlockersFeature[] Feature {
+            get {
+                return this.feature;
+            }
+            set {
+                this.feature = value;
+            }
+        }
+    }
+    
+    public partial class DomainCapabilitiesCpuCustomBlockersFeature {
+        
+        private string name;
+        
+        [System.Xml.Serialization.XmlAttributeAttribute("name")]
+        public string Name {
+            get {
+                return this.name;
+            }
+            set {
+                this.name = value;
+            }
+        }
+    }
+    
     public enum DomainCapabilitiesCpuCustomModelUsable {
         
         [System.Xml.Serialization.XmlEnumAttribute(Name="no")]
@@ -7791,6 +7833,8 @@ namespace Libvirt.Model {
         private GuestcpuCpuMaxPhysAddr maxphysaddr;
         
         private GuestcpuCpuFeature[] feature;
+        
+        private DomainCapabilitiesCpuCustomBlockers[] blockers;
         
         [System.Xml.Serialization.XmlAttributeAttribute("name")]
         public DomainCapabilitiesCpuModeName Name {
@@ -7861,6 +7905,16 @@ namespace Libvirt.Model {
                 this.feature = value;
             }
         }
+        
+        [System.Xml.Serialization.XmlElementAttribute("blockers", Namespace="")]
+        public DomainCapabilitiesCpuCustomBlockers[] Blockers {
+            get {
+                return this.blockers;
+            }
+            set {
+                this.blockers = value;
+            }
+        }
     }
     
     public partial class DomainCapabilitiesCpuModeModel {
@@ -7878,6 +7932,8 @@ namespace Libvirt.Model {
         private VirYesNo deprecated;
         
         private bool deprecatedSpecified;
+        
+        private string canonical;
         
         private string vendor;
         
@@ -7950,6 +8006,16 @@ namespace Libvirt.Model {
             }
             set {
                 this.deprecatedSpecified = value;
+            }
+        }
+        
+        [System.Xml.Serialization.XmlAttributeAttribute("canonical")]
+        public string Canonical {
+            get {
+                return this.canonical;
+            }
+            set {
+                this.canonical = value;
             }
         }
         
@@ -8072,6 +8138,8 @@ namespace Libvirt.Model {
         
         private DomainCapabilitiesInterface @interface;
         
+        private DomainCapabilitiesPanic panic;
+        
         [System.Xml.Serialization.XmlElementAttribute("disk", Namespace="")]
         public DomainCapabilitiesDisk Disk {
             get {
@@ -8179,6 +8247,16 @@ namespace Libvirt.Model {
             }
             set {
                 this.@interface = value;
+            }
+        }
+        
+        [System.Xml.Serialization.XmlElementAttribute("panic", Namespace="")]
+        public DomainCapabilitiesPanic Panic {
+            get {
+                return this.panic;
+            }
+            set {
+                this.panic = value;
             }
         }
     }
@@ -8939,6 +9017,34 @@ namespace Libvirt.Model {
             }
             set {
                 this.value = value;
+            }
+        }
+    }
+    
+    [System.Xml.Serialization.XmlTypeAttribute("panic", Namespace="")]
+    public partial class DomainCapabilitiesPanic {
+        
+        private VirYesNo supported;
+        
+        private DomainCapabilitiesOsEnum[] @enum;
+        
+        [System.Xml.Serialization.XmlAttributeAttribute("supported")]
+        public VirYesNo Supported {
+            get {
+                return this.supported;
+            }
+            set {
+                this.supported = value;
+            }
+        }
+        
+        [System.Xml.Serialization.XmlElementAttribute("enum", Namespace="")]
+        public DomainCapabilitiesOsEnum[] Enum {
+            get {
+                return this.@enum;
+            }
+            set {
+                this.@enum = value;
             }
         }
     }
@@ -13985,6 +14091,8 @@ namespace Libvirt.Model {
         
         private DomainOsNvramSourceSlices slices;
         
+        private DomainOsNvramSourceDataStore dataStore;
+        
         private DomainOsNvramSourcePrivateData privateData;
         
         private DomainStartupPolicy startupPolicy;
@@ -14108,6 +14216,16 @@ namespace Libvirt.Model {
             }
             set {
                 this.slices = value;
+            }
+        }
+        
+        [System.Xml.Serialization.XmlElementAttribute("dataStore", Namespace="")]
+        public DomainOsNvramSourceDataStore DataStore {
+            get {
+                return this.dataStore;
+            }
+            set {
+                this.dataStore = value;
             }
         }
         
@@ -16124,6 +16242,8 @@ namespace Libvirt.Model {
         
         private DomainOsNvramSourceSlices slices;
         
+        private DomainOsNvramSourceDataStore dataStore;
+        
         private DomainOsNvramSourcePrivateData privateData;
         
         private DomainStartupPolicy startupPolicy;
@@ -16247,6 +16367,16 @@ namespace Libvirt.Model {
             }
             set {
                 this.slices = value;
+            }
+        }
+        
+        [System.Xml.Serialization.XmlElementAttribute("dataStore", Namespace="")]
+        public DomainOsNvramSourceDataStore DataStore {
+            get {
+                return this.dataStore;
+            }
+            set {
+                this.dataStore = value;
             }
         }
         
@@ -16859,6 +16989,8 @@ namespace Libvirt.Model {
         
         private DomainOsNvramSourceSlices slices;
         
+        private DomainOsNvramSourceDataStore dataStore;
+        
         private DomainOsNvramSourcePrivateData privateData;
         
         private DomainStartupPolicy startupPolicy;
@@ -16982,6 +17114,16 @@ namespace Libvirt.Model {
             }
             set {
                 this.slices = value;
+            }
+        }
+        
+        [System.Xml.Serialization.XmlElementAttribute("dataStore", Namespace="")]
+        public DomainOsNvramSourceDataStore DataStore {
+            get {
+                return this.dataStore;
+            }
+            set {
+                this.dataStore = value;
             }
         }
         
@@ -17540,6 +17682,8 @@ namespace Libvirt.Model {
         
         private DomainOsNvramSourceSlices slices;
         
+        private DomainOsNvramSourceDataStore dataStore;
+        
         private DomainOsNvramSourcePrivateData privateData;
         
         private DomainStartupPolicy startupPolicy;
@@ -17663,6 +17807,16 @@ namespace Libvirt.Model {
             }
             set {
                 this.slices = value;
+            }
+        }
+        
+        [System.Xml.Serialization.XmlElementAttribute("dataStore", Namespace="")]
+        public DomainOsNvramSourceDataStore DataStore {
+            get {
+                return this.dataStore;
+            }
+            set {
+                this.dataStore = value;
             }
         }
         
@@ -29130,7 +29284,7 @@ namespace Libvirt.Model {
         
         private bool statelessSpecified;
         
-        private DomainPflashFormat format;
+        private PflashFormatTypes format;
         
         private bool formatSpecified;
         
@@ -29217,7 +29371,7 @@ namespace Libvirt.Model {
         }
         
         [System.Xml.Serialization.XmlAttributeAttribute("format")]
-        public DomainPflashFormat Format {
+        public PflashFormatTypes Format {
             get {
                 return this.format;
             }
@@ -29260,7 +29414,11 @@ namespace Libvirt.Model {
         
         private string template;
         
-        private DomainPflashFormat format;
+        private PflashFormatTypes templateFormat;
+        
+        private bool templateFormatSpecified;
+        
+        private PflashFormatTypes format;
         
         private bool formatSpecified;
         
@@ -29282,8 +29440,28 @@ namespace Libvirt.Model {
             }
         }
         
+        [System.Xml.Serialization.XmlAttributeAttribute("templateFormat")]
+        public PflashFormatTypes TemplateFormat {
+            get {
+                return this.templateFormat;
+            }
+            set {
+                this.templateFormat = value;
+            }
+        }
+        
+        [System.Xml.Serialization.XmlIgnoreAttribute()]
+        public bool TemplateFormatSpecified {
+            get {
+                return this.templateFormatSpecified;
+            }
+            set {
+                this.templateFormatSpecified = value;
+            }
+        }
+        
         [System.Xml.Serialization.XmlAttributeAttribute("format")]
-        public DomainPflashFormat Format {
+        public PflashFormatTypes Format {
             get {
                 return this.format;
             }
@@ -29381,6 +29559,8 @@ namespace Libvirt.Model {
         private bool indexSpecified;
         
         private DomainOsNvramSourceSlices slices;
+        
+        private DomainOsNvramSourceDataStore dataStore;
         
         private DomainOsNvramSourcePrivateData privateData;
         
@@ -29505,6 +29685,16 @@ namespace Libvirt.Model {
             }
             set {
                 this.slices = value;
+            }
+        }
+        
+        [System.Xml.Serialization.XmlElementAttribute("dataStore", Namespace="")]
+        public DomainOsNvramSourceDataStore DataStore {
+            get {
+                return this.dataStore;
+            }
+            set {
+                this.dataStore = value;
             }
         }
         
@@ -29960,6 +30150,21 @@ namespace Libvirt.Model {
             }
             set {
                 this.multifunctionSpecified = value;
+            }
+        }
+    }
+    
+    public partial class DomainOsNvramSourceDataStore {
+        
+        private DomainDiskFormat format;
+        
+        [System.Xml.Serialization.XmlElementAttribute("format", Namespace="")]
+        public DomainDiskFormat Format {
+            get {
+                return this.format;
+            }
+            set {
+                this.format = value;
             }
         }
     }
@@ -30628,15 +30833,6 @@ namespace Libvirt.Model {
         
         [System.Xml.Serialization.XmlEnumAttribute(Name="task_clock")]
         TaskClock,
-    }
-    
-    public enum DomainPflashFormat {
-        
-        [System.Xml.Serialization.XmlEnumAttribute(Name="qcow2")]
-        Qcow2,
-        
-        [System.Xml.Serialization.XmlEnumAttribute(Name="raw")]
-        Raw,
     }
     
     [System.Xml.Serialization.XmlTypeAttribute("pm", Namespace="")]
@@ -32819,6 +33015,8 @@ namespace Libvirt.Model {
         
         private DomainOsNvramSourceSlices slices;
         
+        private DomainOsNvramSourceDataStore dataStore;
+        
         private DomainOsNvramSourcePrivateData privateData;
         
         private StorageEncryption encryption;
@@ -32910,6 +33108,16 @@ namespace Libvirt.Model {
             }
             set {
                 this.slices = value;
+            }
+        }
+        
+        [System.Xml.Serialization.XmlElementAttribute("dataStore", Namespace="")]
+        public DomainOsNvramSourceDataStore DataStore {
+            get {
+                return this.dataStore;
+            }
+            set {
+                this.dataStore = value;
             }
         }
         
@@ -35444,13 +35652,15 @@ namespace Libvirt.Model {
         
         private DomainTpmBackendActivePcrBanks activePcrBanks;
         
+        private DomainTpmBackendSource source;
+        
+        private DomainTpmBackendProfile profile;
+        
         private VirYesNo persistentState;
         
         private bool persistentStateSpecified;
         
         private string debug;
-        
-        private DomainTpmBackendSource source;
         
         private DomainTpmBackendVersion version;
         
@@ -35496,6 +35706,26 @@ namespace Libvirt.Model {
             }
         }
         
+        [System.Xml.Serialization.XmlElementAttribute("source", Namespace="")]
+        public DomainTpmBackendSource Source {
+            get {
+                return this.source;
+            }
+            set {
+                this.source = value;
+            }
+        }
+        
+        [System.Xml.Serialization.XmlElementAttribute("profile", Namespace="")]
+        public DomainTpmBackendProfile Profile {
+            get {
+                return this.profile;
+            }
+            set {
+                this.profile = value;
+            }
+        }
+        
         [System.Xml.Serialization.XmlAttributeAttribute("persistent_state")]
         public VirYesNo PersistentState {
             get {
@@ -35523,16 +35753,6 @@ namespace Libvirt.Model {
             }
             set {
                 this.debug = value;
-            }
-        }
-        
-        [System.Xml.Serialization.XmlElementAttribute("source", Namespace="")]
-        public DomainTpmBackendSource Source {
-            get {
-                return this.source;
-            }
-            set {
-                this.source = value;
             }
         }
         
@@ -35650,6 +35870,66 @@ namespace Libvirt.Model {
         }
     }
     
+    public partial class DomainTpmBackendProfile {
+        
+        private string source;
+        
+        private DomainTpmBackendProfileRemoveDisabled removeDisabled;
+        
+        private bool removeDisabledSpecified;
+        
+        private string name;
+        
+        [System.Xml.Serialization.XmlAttributeAttribute("source")]
+        public string Source {
+            get {
+                return this.source;
+            }
+            set {
+                this.source = value;
+            }
+        }
+        
+        [System.Xml.Serialization.XmlAttributeAttribute("removeDisabled")]
+        public DomainTpmBackendProfileRemoveDisabled RemoveDisabled {
+            get {
+                return this.removeDisabled;
+            }
+            set {
+                this.removeDisabled = value;
+            }
+        }
+        
+        [System.Xml.Serialization.XmlIgnoreAttribute()]
+        public bool RemoveDisabledSpecified {
+            get {
+                return this.removeDisabledSpecified;
+            }
+            set {
+                this.removeDisabledSpecified = value;
+            }
+        }
+        
+        [System.Xml.Serialization.XmlAttributeAttribute("name")]
+        public string Name {
+            get {
+                return this.name;
+            }
+            set {
+                this.name = value;
+            }
+        }
+    }
+    
+    public enum DomainTpmBackendProfileRemoveDisabled {
+        
+        [System.Xml.Serialization.XmlEnumAttribute(Name="check")]
+        Check,
+        
+        [System.Xml.Serialization.XmlEnumAttribute(Name="fips-host")]
+        FipsHost,
+    }
+    
     public partial class DomainTpmBackendSource {
         
         private DomainTpmBackendSourceType type;
@@ -35657,6 +35937,8 @@ namespace Libvirt.Model {
         private string path;
         
         private DomainTpmBackendSourceMode mode;
+        
+        private bool modeSpecified;
         
         [System.Xml.Serialization.XmlAttributeAttribute("type")]
         public DomainTpmBackendSourceType Type {
@@ -35687,6 +35969,16 @@ namespace Libvirt.Model {
                 this.mode = value;
             }
         }
+        
+        [System.Xml.Serialization.XmlIgnoreAttribute()]
+        public bool ModeSpecified {
+            get {
+                return this.modeSpecified;
+            }
+            set {
+                this.modeSpecified = value;
+            }
+        }
     }
     
     public enum DomainTpmBackendSourceMode {
@@ -35696,6 +35988,12 @@ namespace Libvirt.Model {
     }
     
     public enum DomainTpmBackendSourceType {
+        
+        [System.Xml.Serialization.XmlEnumAttribute(Name="dir")]
+        Dir,
+        
+        [System.Xml.Serialization.XmlEnumAttribute(Name="file")]
+        File,
         
         [System.Xml.Serialization.XmlEnumAttribute(Name="unix")]
         Unix,
@@ -48724,6 +49022,15 @@ namespace Libvirt.Model {
         
         [System.Xml.Serialization.XmlEnumAttribute(Name="restart")]
         Restart,
+    }
+    
+    public enum PflashFormatTypes {
+        
+        [System.Xml.Serialization.XmlEnumAttribute(Name="qcow2")]
+        Qcow2,
+        
+        [System.Xml.Serialization.XmlEnumAttribute(Name="raw")]
+        Raw,
     }
     
     [System.Xml.Serialization.XmlTypeAttribute("pool", Namespace="")]

@@ -4038,6 +4038,17 @@ public class DomainTest : TestBase
     }
 
     [TestMethod]
+    public void DomainOsNvramSourceDataStore()
+    {
+        const string expected = $@"
+{XMLDECL}
+<DomainOsNvramSourceDataStore {XMLNS} />
+";
+
+        this.AssertXml<DomainOsNvramSourceDataStore>(expected);
+    }
+
+    [TestMethod]
     public void DomainOsNvramSourceIdentity()
     {
         const string expected = $@"
@@ -4183,13 +4194,6 @@ public class DomainTest : TestBase
     {
         var values = Enum.GetValues(typeof(DomainPerfEventName));
         Assert.AreEqual(22, values.Length);
-    }
-
-    [TestMethod]
-    public void DomainPflashFormat()
-    {
-        var values = Enum.GetValues(typeof(DomainPflashFormat));
-        Assert.AreEqual(2, values.Length);
     }
 
     [TestMethod]
@@ -4944,11 +4948,22 @@ public class DomainTest : TestBase
     }
 
     [TestMethod]
+    public void DomainTpmBackendProfile()
+    {
+        const string expected = $@"
+{XMLDECL}
+<DomainTpmBackendProfile {XMLNS} />
+";
+
+        this.AssertXml<DomainTpmBackendProfile>(expected);
+    }
+
+    [TestMethod]
     public void DomainTpmBackendSource()
     {
         const string expected = $@"
 {XMLDECL}
-<DomainTpmBackendSource {XMLNS} type=""unix"" mode=""connect"" />
+<DomainTpmBackendSource {XMLNS} type=""dir"" />
 ";
 
         this.AssertXml<DomainTpmBackendSource>(expected);
@@ -4965,7 +4980,7 @@ public class DomainTest : TestBase
     public void DomainTpmBackendSourceType()
     {
         var values = Enum.GetValues(typeof(DomainTpmBackendSourceType));
-        Assert.AreEqual(1, values.Length);
+        Assert.AreEqual(3, values.Length);
     }
 
     [TestMethod]
@@ -5299,6 +5314,13 @@ public class DomainTest : TestBase
     {
         var values = Enum.GetValues(typeof(OffOptions));
         Assert.AreEqual(4, values.Length);
+    }
+
+    [TestMethod]
+    public void PflashFormatTypes()
+    {
+        var values = Enum.GetValues(typeof(PflashFormatTypes));
+        Assert.AreEqual(2, values.Length);
     }
 
     [TestMethod]

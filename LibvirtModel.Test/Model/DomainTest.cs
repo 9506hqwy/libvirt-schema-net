@@ -2782,10 +2782,32 @@ public class DomainTest : TestBase
     {
         const string expected = $@"
 {XMLDECL}
-<DomainHypervTlbflush {XMLNS} state=""off"" />
+<DomainHypervTlbflush {XMLNS} />
 ";
 
         this.AssertXml<DomainHypervTlbflush>(expected);
+    }
+
+    [TestMethod]
+    public void DomainHypervTlbflushDirect()
+    {
+        const string expected = $@"
+{XMLDECL}
+<DomainHypervTlbflushDirect {XMLNS} state=""off"" />
+";
+
+        this.AssertXml<DomainHypervTlbflushDirect>(expected);
+    }
+
+    [TestMethod]
+    public void DomainHypervTlbflushExtended()
+    {
+        const string expected = $@"
+{XMLDECL}
+<DomainHypervTlbflushExtended {XMLNS} state=""off"" />
+";
+
+        this.AssertXml<DomainHypervTlbflushExtended>(expected);
     }
 
     [TestMethod]

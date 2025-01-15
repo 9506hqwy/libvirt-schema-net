@@ -23589,6 +23589,72 @@ namespace Libvirt.Model {
         
         private VirOnOff state;
         
+        private bool stateSpecified;
+        
+        private DomainHypervTlbflushDirect direct;
+        
+        private DomainHypervTlbflushExtended extended;
+        
+        [System.Xml.Serialization.XmlAttributeAttribute("state")]
+        public VirOnOff State {
+            get {
+                return this.state;
+            }
+            set {
+                this.state = value;
+            }
+        }
+        
+        [System.Xml.Serialization.XmlIgnoreAttribute()]
+        public bool StateSpecified {
+            get {
+                return this.stateSpecified;
+            }
+            set {
+                this.stateSpecified = value;
+            }
+        }
+        
+        [System.Xml.Serialization.XmlElementAttribute("direct", Namespace="")]
+        public DomainHypervTlbflushDirect Direct {
+            get {
+                return this.direct;
+            }
+            set {
+                this.direct = value;
+            }
+        }
+        
+        [System.Xml.Serialization.XmlElementAttribute("extended", Namespace="")]
+        public DomainHypervTlbflushExtended Extended {
+            get {
+                return this.extended;
+            }
+            set {
+                this.extended = value;
+            }
+        }
+    }
+    
+    public partial class DomainHypervTlbflushDirect {
+        
+        private VirOnOff state;
+        
+        [System.Xml.Serialization.XmlAttributeAttribute("state")]
+        public VirOnOff State {
+            get {
+                return this.state;
+            }
+            set {
+                this.state = value;
+            }
+        }
+    }
+    
+    public partial class DomainHypervTlbflushExtended {
+        
+        private VirOnOff state;
+        
         [System.Xml.Serialization.XmlAttributeAttribute("state")]
         public VirOnOff State {
             get {
@@ -43206,6 +43272,10 @@ namespace Libvirt.Model {
         
         private bool checkSpecified;
         
+        private VirOnOff deprecatedFeatures;
+        
+        private bool deprecatedFeaturesSpecified;
+        
         private VirOnOff migratable;
         
         private bool migratableSpecified;
@@ -43281,6 +43351,26 @@ namespace Libvirt.Model {
             }
             set {
                 this.checkSpecified = value;
+            }
+        }
+        
+        [System.Xml.Serialization.XmlAttributeAttribute("deprecated_features")]
+        public VirOnOff DeprecatedFeatures {
+            get {
+                return this.deprecatedFeatures;
+            }
+            set {
+                this.deprecatedFeatures = value;
+            }
+        }
+        
+        [System.Xml.Serialization.XmlIgnoreAttribute()]
+        public bool DeprecatedFeaturesSpecified {
+            get {
+                return this.deprecatedFeaturesSpecified;
+            }
+            set {
+                this.deprecatedFeaturesSpecified = value;
             }
         }
         

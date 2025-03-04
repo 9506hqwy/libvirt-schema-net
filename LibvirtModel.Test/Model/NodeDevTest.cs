@@ -91,7 +91,7 @@ public class NodeDevTest : TestBase
     public void DeviceCapabilityCapabilityTypeAttr()
     {
         var values = Enum.GetValues(typeof(DeviceCapabilityCapabilityTypeAttr));
-        Assert.AreEqual(13, values.Length);
+        Assert.AreEqual(17, values.Length);
     }
 
     [TestMethod]
@@ -171,6 +171,28 @@ public class NodeDevTest : TestBase
     }
 
     [TestMethod]
+    public void DeviceCapabilityMembers()
+    {
+        const string expected = $@"
+{XMLDECL}
+<DeviceCapabilityMembers {XMLNS} />
+";
+
+        this.AssertXml<DeviceCapabilityMembers>(expected);
+    }
+
+    [TestMethod]
+    public void DeviceCapabilityMembersCcwDevice()
+    {
+        const string expected = $@"
+{XMLDECL}
+<DeviceCapabilityMembersCcwDevice {XMLNS} />
+";
+
+        this.AssertXml<DeviceCapabilityMembersCcwDevice>(expected);
+    }
+
+    [TestMethod]
     public void DeviceCapabilityNuma()
     {
         const string expected = $@"
@@ -236,7 +258,7 @@ public class NodeDevTest : TestBase
     public void DeviceCapabilityTypeAttr()
     {
         var values = Enum.GetValues(typeof(DeviceCapabilityTypeAttr));
-        Assert.AreEqual(18, values.Length);
+        Assert.AreEqual(19, values.Length);
     }
 
     [TestMethod]

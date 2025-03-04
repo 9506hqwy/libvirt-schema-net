@@ -2987,6 +2987,8 @@ namespace Libvirt.Model {
         
         private string devno;
         
+        private DeviceCapabilityMembers members;
+        
         private DeviceCapabilityChannelDevAddr channelDevAddr;
         
         private string chardev;
@@ -3565,6 +3567,16 @@ namespace Libvirt.Model {
             }
         }
         
+        [System.Xml.Serialization.XmlElementAttribute("members", Namespace="")]
+        public DeviceCapabilityMembers Members {
+            get {
+                return this.members;
+            }
+            set {
+                this.members = value;
+            }
+        }
+        
         [System.Xml.Serialization.XmlElementAttribute("channel_dev_addr", Namespace="")]
         public DeviceCapabilityChannelDevAddr ChannelDevAddr {
             get {
@@ -3682,6 +3694,12 @@ namespace Libvirt.Model {
         private ulong numBlocks;
         
         private bool numBlocksSpecified;
+        
+        private string groupDevice;
+        
+        private string cardType;
+        
+        private string chpid;
         
         [System.Xml.Serialization.XmlAttributeAttribute("type")]
         public DeviceCapabilityCapabilityTypeAttr TypeAttr {
@@ -3922,6 +3940,36 @@ namespace Libvirt.Model {
                 this.numBlocksSpecified = value;
             }
         }
+        
+        [System.Xml.Serialization.XmlElementAttribute("group_device", Namespace="")]
+        public string GroupDevice {
+            get {
+                return this.groupDevice;
+            }
+            set {
+                this.groupDevice = value;
+            }
+        }
+        
+        [System.Xml.Serialization.XmlElementAttribute("card_type", Namespace="")]
+        public string CardType {
+            get {
+                return this.cardType;
+            }
+            set {
+                this.cardType = value;
+            }
+        }
+        
+        [System.Xml.Serialization.XmlElementAttribute("chpid", Namespace="")]
+        public string Chpid {
+            get {
+                return this.chpid;
+            }
+            set {
+                this.chpid = value;
+            }
+        }
     }
     
     public partial class DeviceCapabilityCapabilityFields {
@@ -4070,6 +4118,9 @@ namespace Libvirt.Model {
         [System.Xml.Serialization.XmlEnumAttribute(Name="cardbus-bridge")]
         CardbusBridge,
         
+        [System.Xml.Serialization.XmlEnumAttribute(Name="ccwgroup_member")]
+        CcwgroupMember,
+        
         [System.Xml.Serialization.XmlEnumAttribute(Name="fc_host")]
         FcHost,
         
@@ -4087,6 +4138,15 @@ namespace Libvirt.Model {
         
         [System.Xml.Serialization.XmlEnumAttribute(Name="phys_function")]
         PhysFunction,
+        
+        [System.Xml.Serialization.XmlEnumAttribute(Name="qeth_generic")]
+        QethGeneric,
+        
+        [System.Xml.Serialization.XmlEnumAttribute(Name="qeth_layer2")]
+        QethLayer2,
+        
+        [System.Xml.Serialization.XmlEnumAttribute(Name="qeth_layer3")]
+        QethLayer3,
         
         [System.Xml.Serialization.XmlEnumAttribute(Name="removable")]
         Removable,
@@ -4270,6 +4330,48 @@ namespace Libvirt.Model {
             }
             set {
                 this.address = value;
+            }
+        }
+    }
+    
+    public partial class DeviceCapabilityMembers {
+        
+        private DeviceCapabilityMembersCcwDevice[] ccwDevice;
+        
+        [System.Xml.Serialization.XmlElementAttribute("ccw_device", Namespace="")]
+        public DeviceCapabilityMembersCcwDevice[] CcwDevice {
+            get {
+                return this.ccwDevice;
+            }
+            set {
+                this.ccwDevice = value;
+            }
+        }
+    }
+    
+    public partial class DeviceCapabilityMembersCcwDevice {
+        
+        private string @ref;
+        
+        private string value;
+        
+        [System.Xml.Serialization.XmlAttributeAttribute("ref")]
+        public string Ref {
+            get {
+                return this.@ref;
+            }
+            set {
+                this.@ref = value;
+            }
+        }
+        
+        [System.Xml.Serialization.XmlTextAttribute()]
+        public string Value {
+            get {
+                return this.value;
+            }
+            set {
+                this.value = value;
             }
         }
     }
@@ -4464,6 +4566,9 @@ namespace Libvirt.Model {
         
         [System.Xml.Serialization.XmlEnumAttribute(Name="ccw")]
         Ccw,
+        
+        [System.Xml.Serialization.XmlEnumAttribute(Name="ccwgroup")]
+        Ccwgroup,
         
         [System.Xml.Serialization.XmlEnumAttribute(Name="css")]
         Css,
@@ -5745,6 +5850,34 @@ namespace Libvirt.Model {
         
         [System.Xml.Serialization.XmlEnumAttribute(Name="virtio-serial")]
         VirtioSerial,
+    }
+    
+    [System.Xml.Serialization.XmlTypeAttribute("aia", Namespace="")]
+    public partial class DomainAia {
+        
+        private DomainAiaValue value;
+        
+        [System.Xml.Serialization.XmlAttributeAttribute("value")]
+        public DomainAiaValue Value {
+            get {
+                return this.value;
+            }
+            set {
+                this.value = value;
+            }
+        }
+    }
+    
+    public enum DomainAiaValue {
+        
+        [System.Xml.Serialization.XmlEnumAttribute(Name="aplic")]
+        Aplic,
+        
+        [System.Xml.Serialization.XmlEnumAttribute(Name="aplic-imsic")]
+        AplicImsic,
+        
+        [System.Xml.Serialization.XmlEnumAttribute(Name="none")]
+        None,
     }
     
     [System.Xml.Serialization.XmlTypeAttribute("audio", Namespace="")]
@@ -14919,7 +15052,7 @@ namespace Libvirt.Model {
         
         private DomainDiskDriverMetadataCache metadataCache;
         
-        private DomainDiskDriverIothreads iothreads;
+        private DomainIothreadMapping iothreads;
         
         [System.Xml.Serialization.XmlAttributeAttribute("name")]
         public string Name {
@@ -15302,69 +15435,12 @@ namespace Libvirt.Model {
         }
         
         [System.Xml.Serialization.XmlElementAttribute("iothreads", Namespace="")]
-        public DomainDiskDriverIothreads Iothreads {
+        public DomainIothreadMapping Iothreads {
             get {
                 return this.iothreads;
             }
             set {
                 this.iothreads = value;
-            }
-        }
-    }
-    
-    public partial class DomainDiskDriverIothreads {
-        
-        private DomainDiskDriverIothreadsIothread[] iothread;
-        
-        [System.Xml.Serialization.XmlElementAttribute("iothread", Namespace="")]
-        public DomainDiskDriverIothreadsIothread[] Iothread {
-            get {
-                return this.iothread;
-            }
-            set {
-                this.iothread = value;
-            }
-        }
-    }
-    
-    public partial class DomainDiskDriverIothreadsIothread {
-        
-        private uint id;
-        
-        private DomainDiskDriverIothreadsIothreadQueue[] queue;
-        
-        [System.Xml.Serialization.XmlAttributeAttribute("id")]
-        public uint Id {
-            get {
-                return this.id;
-            }
-            set {
-                this.id = value;
-            }
-        }
-        
-        [System.Xml.Serialization.XmlElementAttribute("queue", Namespace="")]
-        public DomainDiskDriverIothreadsIothreadQueue[] Queue {
-            get {
-                return this.queue;
-            }
-            set {
-                this.queue = value;
-            }
-        }
-    }
-    
-    public partial class DomainDiskDriverIothreadsIothreadQueue {
-        
-        private uint id;
-        
-        [System.Xml.Serialization.XmlAttributeAttribute("id")]
-        public uint Id {
-            get {
-                return this.id;
-            }
-            set {
-                this.id = value;
             }
         }
     }
@@ -18831,6 +18907,8 @@ namespace Libvirt.Model {
         
         private DomainFeaturesPs2 ps2;
         
+        private DomainAia aia;
+        
         [System.Xml.Serialization.XmlElementAttribute("pae", Namespace="")]
         public DomainFeaturesPae Pae {
             get {
@@ -19118,6 +19196,16 @@ namespace Libvirt.Model {
             }
             set {
                 this.ps2 = value;
+            }
+        }
+        
+        [System.Xml.Serialization.XmlElementAttribute("aia", Namespace="")]
+        public DomainAia Aia {
+            get {
+                return this.aia;
+            }
+            set {
+                this.aia = value;
             }
         }
     }
@@ -25791,7 +25879,7 @@ namespace Libvirt.Model {
         
         private NetworkRoute[] route;
         
-        private StorageUnixSocketSourceType type;
+        private DomainInterfaceSourceType type;
         
         private bool typeSpecified;
         
@@ -25799,9 +25887,9 @@ namespace Libvirt.Model {
         
         private string mode;
         
-        private StorageReconnect reconnect;
-        
         private string dev;
+        
+        private StorageReconnect reconnect;
         
         private string name;
         
@@ -25912,7 +26000,7 @@ namespace Libvirt.Model {
         }
         
         [System.Xml.Serialization.XmlAttributeAttribute("type")]
-        public StorageUnixSocketSourceType Type {
+        public DomainInterfaceSourceType Type {
             get {
                 return this.type;
             }
@@ -25951,16 +26039,6 @@ namespace Libvirt.Model {
             }
         }
         
-        [System.Xml.Serialization.XmlElementAttribute("reconnect", Namespace="")]
-        public StorageReconnect Reconnect {
-            get {
-                return this.reconnect;
-            }
-            set {
-                this.reconnect = value;
-            }
-        }
-        
         [System.Xml.Serialization.XmlAttributeAttribute("dev")]
         public string Dev {
             get {
@@ -25968,6 +26046,16 @@ namespace Libvirt.Model {
             }
             set {
                 this.dev = value;
+            }
+        }
+        
+        [System.Xml.Serialization.XmlElementAttribute("reconnect", Namespace="")]
+        public StorageReconnect Reconnect {
+            get {
+                return this.reconnect;
+            }
+            set {
+                this.reconnect = value;
             }
         }
         
@@ -26245,6 +26333,12 @@ namespace Libvirt.Model {
                 this.port = value;
             }
         }
+    }
+    
+    public enum DomainInterfaceSourceType {
+        
+        [System.Xml.Serialization.XmlEnumAttribute(Name="unix")]
+        Unix,
     }
     
     public partial class DomainInterfaceTarget {
@@ -26887,6 +26981,63 @@ namespace Libvirt.Model {
             }
             set {
                 this.shrinkSpecified = value;
+            }
+        }
+    }
+    
+    public partial class DomainIothreadMapping {
+        
+        private DomainIothreadMappingIothread[] iothread;
+        
+        [System.Xml.Serialization.XmlElementAttribute("iothread", Namespace="")]
+        public DomainIothreadMappingIothread[] Iothread {
+            get {
+                return this.iothread;
+            }
+            set {
+                this.iothread = value;
+            }
+        }
+    }
+    
+    public partial class DomainIothreadMappingIothread {
+        
+        private uint id;
+        
+        private DomainIothreadMappingIothreadQueue[] queue;
+        
+        [System.Xml.Serialization.XmlAttributeAttribute("id")]
+        public uint Id {
+            get {
+                return this.id;
+            }
+            set {
+                this.id = value;
+            }
+        }
+        
+        [System.Xml.Serialization.XmlElementAttribute("queue", Namespace="")]
+        public DomainIothreadMappingIothreadQueue[] Queue {
+            get {
+                return this.queue;
+            }
+            set {
+                this.queue = value;
+            }
+        }
+    }
+    
+    public partial class DomainIothreadMappingIothreadQueue {
+        
+        private uint id;
+        
+        [System.Xml.Serialization.XmlAttributeAttribute("id")]
+        public uint Id {
+            get {
+                return this.id;
+            }
+            set {
+                this.id = value;
             }
         }
     }

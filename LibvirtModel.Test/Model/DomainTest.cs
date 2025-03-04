@@ -4,6 +4,24 @@
 public class DomainTest : TestBase
 {
     [TestMethod]
+    public void DomainAia()
+    {
+        const string expected = $@"
+{XMLDECL}
+<aia {XMLNS} value=""aplic"" />
+";
+
+        this.AssertXml<DomainAia>(expected);
+    }
+
+    [TestMethod]
+    public void DomainAiaValue()
+    {
+        var values = Enum.GetValues(typeof(DomainAiaValue));
+        Assert.AreEqual(3, values.Length);
+    }
+
+    [TestMethod]
     public void BhyveDomainBhyvecmdline()
     {
         const string expected = $@"
@@ -1396,39 +1414,6 @@ public class DomainTest : TestBase
     {
         var values = Enum.GetValues(typeof(DomainDiskDriverType));
         Assert.AreEqual(18, values.Length);
-    }
-
-    [TestMethod]
-    public void DomainDiskDriverIothreads()
-    {
-        const string expected = $@"
-{XMLDECL}
-<DomainDiskDriverIothreads {XMLNS} />
-";
-
-        this.AssertXml<DomainDiskDriverIothreads>(expected);
-    }
-
-    [TestMethod]
-    public void DomainDiskDriverIothreadsIothread()
-    {
-        const string expected = $@"
-{XMLDECL}
-<DomainDiskDriverIothreadsIothread {XMLNS} id=""0"" />
-";
-
-        this.AssertXml<DomainDiskDriverIothreadsIothread>(expected);
-    }
-
-    [TestMethod]
-    public void DomainDiskDriverIothreadsIothreadQueue()
-    {
-        const string expected = $@"
-{XMLDECL}
-<DomainDiskDriverIothreadsIothreadQueue {XMLNS} id=""0"" />
-";
-
-        this.AssertXml<DomainDiskDriverIothreadsIothreadQueue>(expected);
     }
 
     [TestMethod]
@@ -3345,6 +3330,39 @@ public class DomainTest : TestBase
 ";
 
         this.AssertXml<DomainIothreadidsIothread>(expected);
+    }
+
+    [TestMethod]
+    public void DomainIothreadMapping()
+    {
+        const string expected = $@"
+{XMLDECL}
+<DomainIothreadMapping {XMLNS} />
+";
+
+        this.AssertXml<DomainIothreadMapping>(expected);
+    }
+
+    [TestMethod]
+    public void DomainIothreadMappingIothread()
+    {
+        const string expected = $@"
+{XMLDECL}
+<DomainIothreadMappingIothread {XMLNS} id=""0"" />
+";
+
+        this.AssertXml<DomainIothreadMappingIothread>(expected);
+    }
+
+    [TestMethod]
+    public void DomainIothreadMappingIothreadQueue()
+    {
+        const string expected = $@"
+{XMLDECL}
+<DomainIothreadMappingIothreadQueue {XMLNS} id=""0"" />
+";
+
+        this.AssertXml<DomainIothreadMappingIothreadQueue>(expected);
     }
 
     [TestMethod]

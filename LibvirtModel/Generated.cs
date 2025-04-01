@@ -4917,6 +4917,8 @@ namespace Libvirt.Model {
         
         private DomainClock clock;
         
+        private DomainThrottlegroups throttlegroups;
+        
         private DomainMemory memory;
         
         private DomainMaxMemory maxMemory;
@@ -5142,6 +5144,16 @@ namespace Libvirt.Model {
             }
             set {
                 this.clock = value;
+            }
+        }
+        
+        [System.Xml.Serialization.XmlElementAttribute("throttlegroups", Namespace="")]
+        public DomainThrottlegroups Throttlegroups {
+            get {
+                return this.throttlegroups;
+            }
+            set {
+                this.throttlegroups = value;
             }
         }
         
@@ -5580,6 +5592,15 @@ namespace Libvirt.Model {
     }
     
     public enum DomainAcpiTableTableType {
+        
+        [System.Xml.Serialization.XmlEnumAttribute(Name="msdm")]
+        Msdm,
+        
+        [System.Xml.Serialization.XmlEnumAttribute(Name="raw")]
+        Raw,
+        
+        [System.Xml.Serialization.XmlEnumAttribute(Name="rawset")]
+        Rawset,
         
         [System.Xml.Serialization.XmlEnumAttribute(Name="slic")]
         Slic,
@@ -9363,6 +9384,8 @@ namespace Libvirt.Model {
         
         private bool maxEsguestsSpecified;
         
+        private string cpu0Id;
+        
         [System.Xml.Serialization.XmlAttributeAttribute("supported")]
         public VirYesNo Supported {
             get {
@@ -9450,6 +9473,16 @@ namespace Libvirt.Model {
             }
             set {
                 this.maxEsguestsSpecified = value;
+            }
+        }
+        
+        [System.Xml.Serialization.XmlElementAttribute("cpu0Id", Namespace="")]
+        public string Cpu0Id {
+            get {
+                return this.cpu0Id;
+            }
+            set {
+                this.cpu0Id = value;
             }
         }
     }
@@ -10963,6 +10996,8 @@ namespace Libvirt.Model {
         
         private bool iothreadSpecified;
         
+        private DomainIothreadMapping iothreads;
+        
         private VirOnOff iommu;
         
         private bool iommuSpecified;
@@ -11076,6 +11111,16 @@ namespace Libvirt.Model {
             }
             set {
                 this.iothreadSpecified = value;
+            }
+        }
+        
+        [System.Xml.Serialization.XmlElementAttribute("iothreads", Namespace="")]
+        public DomainIothreadMapping Iothreads {
+            get {
+                return this.iothreads;
+            }
+            set {
+                this.iothreads = value;
             }
         }
         
@@ -13658,6 +13703,8 @@ namespace Libvirt.Model {
         
         private StorageEncryption encryption;
         
+        private DomainThrottlefilters throttlefilters;
+        
         private DomainDiskIoTune iotune;
         
         private DomainHubAlias alias;
@@ -13853,6 +13900,16 @@ namespace Libvirt.Model {
             }
             set {
                 this.encryption = value;
+            }
+        }
+        
+        [System.Xml.Serialization.XmlElementAttribute("throttlefilters", Namespace="")]
+        public DomainThrottlefilters Throttlefilters {
+            get {
+                return this.throttlefilters;
+            }
+            set {
+                this.throttlefilters = value;
             }
         }
         
@@ -21261,6 +21318,8 @@ namespace Libvirt.Model {
         
         private bool multiUserSpecified;
         
+        private string username;
+        
         [System.Xml.Serialization.XmlAttributeAttribute("type")]
         public DomainGraphicType Type {
             get {
@@ -21718,6 +21777,16 @@ namespace Libvirt.Model {
             }
             set {
                 this.multiUserSpecified = value;
+            }
+        }
+        
+        [System.Xml.Serialization.XmlAttributeAttribute("username")]
+        public string Username {
+            get {
+                return this.username;
+            }
+            set {
+                this.username = value;
             }
         }
     }
@@ -25624,6 +25693,8 @@ namespace Libvirt.Model {
         
         private bool checkSpecified;
         
+        private string currentAddress;
+        
         [System.Xml.Serialization.XmlAttributeAttribute("address")]
         public string Address {
             get {
@@ -25671,6 +25742,16 @@ namespace Libvirt.Model {
             }
             set {
                 this.checkSpecified = value;
+            }
+        }
+        
+        [System.Xml.Serialization.XmlAttributeAttribute("currentAddress")]
+        public string CurrentAddress {
+            get {
+                return this.currentAddress;
+            }
+            set {
+                this.currentAddress = value;
             }
         }
     }
@@ -29044,6 +29125,8 @@ namespace Libvirt.Model {
         
         private string cmdline;
         
+        private string shim;
+        
         private string dtb;
         
         private DomainOsFirmwareAttr firmwareAttr;
@@ -29125,6 +29208,16 @@ namespace Libvirt.Model {
             }
             set {
                 this.cmdline = value;
+            }
+        }
+        
+        [System.Xml.Serialization.XmlElementAttribute("shim", Namespace="")]
+        public string Shim {
+            get {
+                return this.shim;
+            }
+            set {
+                this.shim = value;
             }
         }
         
@@ -33710,6 +33803,8 @@ namespace Libvirt.Model {
         
         private DomainClock clock;
         
+        private DomainThrottlegroups throttlegroups;
+        
         private DomainMemory memory;
         
         private DomainMaxMemory maxMemory;
@@ -33945,6 +34040,16 @@ namespace Libvirt.Model {
             }
             set {
                 this.clock = value;
+            }
+        }
+        
+        [System.Xml.Serialization.XmlElementAttribute("throttlegroups", Namespace="")]
+        public DomainThrottlegroups Throttlegroups {
+            get {
+                return this.throttlegroups;
+            }
+            set {
+                this.throttlegroups = value;
             }
         }
         
@@ -34351,6 +34456,8 @@ namespace Libvirt.Model {
         
         private string cmdline;
         
+        private string shim;
+        
         private string dtb;
         
         private DomainOsFirmwareAttr firmwareAttr;
@@ -34432,6 +34539,16 @@ namespace Libvirt.Model {
             }
             set {
                 this.cmdline = value;
+            }
+        }
+        
+        [System.Xml.Serialization.XmlElementAttribute("shim", Namespace="")]
+        public string Shim {
+            get {
+                return this.shim;
+            }
+            set {
+                this.shim = value;
             }
         }
         
@@ -35495,6 +35612,523 @@ namespace Libvirt.Model {
         
         [System.Xml.Serialization.XmlEnumAttribute(Name="transient")]
         Transient,
+    }
+    
+    public partial class DomainThrottlefilters {
+        
+        private DomainThrottlefiltersThrottlefilter[] throttlefilter;
+        
+        [System.Xml.Serialization.XmlElementAttribute("throttlefilter", Namespace="")]
+        public DomainThrottlefiltersThrottlefilter[] Throttlefilter {
+            get {
+                return this.throttlefilter;
+            }
+            set {
+                this.throttlefilter = value;
+            }
+        }
+    }
+    
+    public partial class DomainThrottlefiltersThrottlefilter {
+        
+        private string group;
+        
+        [System.Xml.Serialization.XmlAttributeAttribute("group")]
+        public string Group {
+            get {
+                return this.group;
+            }
+            set {
+                this.group = value;
+            }
+        }
+    }
+    
+    [System.Xml.Serialization.XmlTypeAttribute("throttlegroup", Namespace="")]
+    public partial class DomainThrottlegroup {
+        
+        private ulong totalBytesSec;
+        
+        private bool totalBytesSecSpecified;
+        
+        private ulong readBytesSec;
+        
+        private bool readBytesSecSpecified;
+        
+        private ulong writeBytesSec;
+        
+        private bool writeBytesSecSpecified;
+        
+        private ulong totalIopsSec;
+        
+        private bool totalIopsSecSpecified;
+        
+        private ulong readIopsSec;
+        
+        private bool readIopsSecSpecified;
+        
+        private ulong writeIopsSec;
+        
+        private bool writeIopsSecSpecified;
+        
+        private ulong totalBytesSecMax;
+        
+        private bool totalBytesSecMaxSpecified;
+        
+        private ulong readBytesSecMax;
+        
+        private bool readBytesSecMaxSpecified;
+        
+        private ulong writeBytesSecMax;
+        
+        private bool writeBytesSecMaxSpecified;
+        
+        private ulong totalIopsSecMax;
+        
+        private bool totalIopsSecMaxSpecified;
+        
+        private ulong readIopsSecMax;
+        
+        private bool readIopsSecMaxSpecified;
+        
+        private ulong writeIopsSecMax;
+        
+        private bool writeIopsSecMaxSpecified;
+        
+        private ulong sizeIopsSec;
+        
+        private bool sizeIopsSecSpecified;
+        
+        private string groupName;
+        
+        private ulong totalBytesSecMaxLength;
+        
+        private bool totalBytesSecMaxLengthSpecified;
+        
+        private ulong readBytesSecMaxLength;
+        
+        private bool readBytesSecMaxLengthSpecified;
+        
+        private ulong writeBytesSecMaxLength;
+        
+        private bool writeBytesSecMaxLengthSpecified;
+        
+        private ulong totalIopsSecMaxLength;
+        
+        private bool totalIopsSecMaxLengthSpecified;
+        
+        private ulong readIopsSecMaxLength;
+        
+        private bool readIopsSecMaxLengthSpecified;
+        
+        private ulong writeIopsSecMaxLength;
+        
+        private bool writeIopsSecMaxLengthSpecified;
+        
+        [System.Xml.Serialization.XmlElementAttribute("total_bytes_sec", Namespace="")]
+        public ulong TotalBytesSec {
+            get {
+                return this.totalBytesSec;
+            }
+            set {
+                this.totalBytesSec = value;
+            }
+        }
+        
+        [System.Xml.Serialization.XmlIgnoreAttribute()]
+        public bool TotalBytesSecSpecified {
+            get {
+                return this.totalBytesSecSpecified;
+            }
+            set {
+                this.totalBytesSecSpecified = value;
+            }
+        }
+        
+        [System.Xml.Serialization.XmlElementAttribute("read_bytes_sec", Namespace="")]
+        public ulong ReadBytesSec {
+            get {
+                return this.readBytesSec;
+            }
+            set {
+                this.readBytesSec = value;
+            }
+        }
+        
+        [System.Xml.Serialization.XmlIgnoreAttribute()]
+        public bool ReadBytesSecSpecified {
+            get {
+                return this.readBytesSecSpecified;
+            }
+            set {
+                this.readBytesSecSpecified = value;
+            }
+        }
+        
+        [System.Xml.Serialization.XmlElementAttribute("write_bytes_sec", Namespace="")]
+        public ulong WriteBytesSec {
+            get {
+                return this.writeBytesSec;
+            }
+            set {
+                this.writeBytesSec = value;
+            }
+        }
+        
+        [System.Xml.Serialization.XmlIgnoreAttribute()]
+        public bool WriteBytesSecSpecified {
+            get {
+                return this.writeBytesSecSpecified;
+            }
+            set {
+                this.writeBytesSecSpecified = value;
+            }
+        }
+        
+        [System.Xml.Serialization.XmlElementAttribute("total_iops_sec", Namespace="")]
+        public ulong TotalIopsSec {
+            get {
+                return this.totalIopsSec;
+            }
+            set {
+                this.totalIopsSec = value;
+            }
+        }
+        
+        [System.Xml.Serialization.XmlIgnoreAttribute()]
+        public bool TotalIopsSecSpecified {
+            get {
+                return this.totalIopsSecSpecified;
+            }
+            set {
+                this.totalIopsSecSpecified = value;
+            }
+        }
+        
+        [System.Xml.Serialization.XmlElementAttribute("read_iops_sec", Namespace="")]
+        public ulong ReadIopsSec {
+            get {
+                return this.readIopsSec;
+            }
+            set {
+                this.readIopsSec = value;
+            }
+        }
+        
+        [System.Xml.Serialization.XmlIgnoreAttribute()]
+        public bool ReadIopsSecSpecified {
+            get {
+                return this.readIopsSecSpecified;
+            }
+            set {
+                this.readIopsSecSpecified = value;
+            }
+        }
+        
+        [System.Xml.Serialization.XmlElementAttribute("write_iops_sec", Namespace="")]
+        public ulong WriteIopsSec {
+            get {
+                return this.writeIopsSec;
+            }
+            set {
+                this.writeIopsSec = value;
+            }
+        }
+        
+        [System.Xml.Serialization.XmlIgnoreAttribute()]
+        public bool WriteIopsSecSpecified {
+            get {
+                return this.writeIopsSecSpecified;
+            }
+            set {
+                this.writeIopsSecSpecified = value;
+            }
+        }
+        
+        [System.Xml.Serialization.XmlElementAttribute("total_bytes_sec_max", Namespace="")]
+        public ulong TotalBytesSecMax {
+            get {
+                return this.totalBytesSecMax;
+            }
+            set {
+                this.totalBytesSecMax = value;
+            }
+        }
+        
+        [System.Xml.Serialization.XmlIgnoreAttribute()]
+        public bool TotalBytesSecMaxSpecified {
+            get {
+                return this.totalBytesSecMaxSpecified;
+            }
+            set {
+                this.totalBytesSecMaxSpecified = value;
+            }
+        }
+        
+        [System.Xml.Serialization.XmlElementAttribute("read_bytes_sec_max", Namespace="")]
+        public ulong ReadBytesSecMax {
+            get {
+                return this.readBytesSecMax;
+            }
+            set {
+                this.readBytesSecMax = value;
+            }
+        }
+        
+        [System.Xml.Serialization.XmlIgnoreAttribute()]
+        public bool ReadBytesSecMaxSpecified {
+            get {
+                return this.readBytesSecMaxSpecified;
+            }
+            set {
+                this.readBytesSecMaxSpecified = value;
+            }
+        }
+        
+        [System.Xml.Serialization.XmlElementAttribute("write_bytes_sec_max", Namespace="")]
+        public ulong WriteBytesSecMax {
+            get {
+                return this.writeBytesSecMax;
+            }
+            set {
+                this.writeBytesSecMax = value;
+            }
+        }
+        
+        [System.Xml.Serialization.XmlIgnoreAttribute()]
+        public bool WriteBytesSecMaxSpecified {
+            get {
+                return this.writeBytesSecMaxSpecified;
+            }
+            set {
+                this.writeBytesSecMaxSpecified = value;
+            }
+        }
+        
+        [System.Xml.Serialization.XmlElementAttribute("total_iops_sec_max", Namespace="")]
+        public ulong TotalIopsSecMax {
+            get {
+                return this.totalIopsSecMax;
+            }
+            set {
+                this.totalIopsSecMax = value;
+            }
+        }
+        
+        [System.Xml.Serialization.XmlIgnoreAttribute()]
+        public bool TotalIopsSecMaxSpecified {
+            get {
+                return this.totalIopsSecMaxSpecified;
+            }
+            set {
+                this.totalIopsSecMaxSpecified = value;
+            }
+        }
+        
+        [System.Xml.Serialization.XmlElementAttribute("read_iops_sec_max", Namespace="")]
+        public ulong ReadIopsSecMax {
+            get {
+                return this.readIopsSecMax;
+            }
+            set {
+                this.readIopsSecMax = value;
+            }
+        }
+        
+        [System.Xml.Serialization.XmlIgnoreAttribute()]
+        public bool ReadIopsSecMaxSpecified {
+            get {
+                return this.readIopsSecMaxSpecified;
+            }
+            set {
+                this.readIopsSecMaxSpecified = value;
+            }
+        }
+        
+        [System.Xml.Serialization.XmlElementAttribute("write_iops_sec_max", Namespace="")]
+        public ulong WriteIopsSecMax {
+            get {
+                return this.writeIopsSecMax;
+            }
+            set {
+                this.writeIopsSecMax = value;
+            }
+        }
+        
+        [System.Xml.Serialization.XmlIgnoreAttribute()]
+        public bool WriteIopsSecMaxSpecified {
+            get {
+                return this.writeIopsSecMaxSpecified;
+            }
+            set {
+                this.writeIopsSecMaxSpecified = value;
+            }
+        }
+        
+        [System.Xml.Serialization.XmlElementAttribute("size_iops_sec", Namespace="")]
+        public ulong SizeIopsSec {
+            get {
+                return this.sizeIopsSec;
+            }
+            set {
+                this.sizeIopsSec = value;
+            }
+        }
+        
+        [System.Xml.Serialization.XmlIgnoreAttribute()]
+        public bool SizeIopsSecSpecified {
+            get {
+                return this.sizeIopsSecSpecified;
+            }
+            set {
+                this.sizeIopsSecSpecified = value;
+            }
+        }
+        
+        [System.Xml.Serialization.XmlElementAttribute("group_name", Namespace="")]
+        public string GroupName {
+            get {
+                return this.groupName;
+            }
+            set {
+                this.groupName = value;
+            }
+        }
+        
+        [System.Xml.Serialization.XmlElementAttribute("total_bytes_sec_max_length", Namespace="")]
+        public ulong TotalBytesSecMaxLength {
+            get {
+                return this.totalBytesSecMaxLength;
+            }
+            set {
+                this.totalBytesSecMaxLength = value;
+            }
+        }
+        
+        [System.Xml.Serialization.XmlIgnoreAttribute()]
+        public bool TotalBytesSecMaxLengthSpecified {
+            get {
+                return this.totalBytesSecMaxLengthSpecified;
+            }
+            set {
+                this.totalBytesSecMaxLengthSpecified = value;
+            }
+        }
+        
+        [System.Xml.Serialization.XmlElementAttribute("read_bytes_sec_max_length", Namespace="")]
+        public ulong ReadBytesSecMaxLength {
+            get {
+                return this.readBytesSecMaxLength;
+            }
+            set {
+                this.readBytesSecMaxLength = value;
+            }
+        }
+        
+        [System.Xml.Serialization.XmlIgnoreAttribute()]
+        public bool ReadBytesSecMaxLengthSpecified {
+            get {
+                return this.readBytesSecMaxLengthSpecified;
+            }
+            set {
+                this.readBytesSecMaxLengthSpecified = value;
+            }
+        }
+        
+        [System.Xml.Serialization.XmlElementAttribute("write_bytes_sec_max_length", Namespace="")]
+        public ulong WriteBytesSecMaxLength {
+            get {
+                return this.writeBytesSecMaxLength;
+            }
+            set {
+                this.writeBytesSecMaxLength = value;
+            }
+        }
+        
+        [System.Xml.Serialization.XmlIgnoreAttribute()]
+        public bool WriteBytesSecMaxLengthSpecified {
+            get {
+                return this.writeBytesSecMaxLengthSpecified;
+            }
+            set {
+                this.writeBytesSecMaxLengthSpecified = value;
+            }
+        }
+        
+        [System.Xml.Serialization.XmlElementAttribute("total_iops_sec_max_length", Namespace="")]
+        public ulong TotalIopsSecMaxLength {
+            get {
+                return this.totalIopsSecMaxLength;
+            }
+            set {
+                this.totalIopsSecMaxLength = value;
+            }
+        }
+        
+        [System.Xml.Serialization.XmlIgnoreAttribute()]
+        public bool TotalIopsSecMaxLengthSpecified {
+            get {
+                return this.totalIopsSecMaxLengthSpecified;
+            }
+            set {
+                this.totalIopsSecMaxLengthSpecified = value;
+            }
+        }
+        
+        [System.Xml.Serialization.XmlElementAttribute("read_iops_sec_max_length", Namespace="")]
+        public ulong ReadIopsSecMaxLength {
+            get {
+                return this.readIopsSecMaxLength;
+            }
+            set {
+                this.readIopsSecMaxLength = value;
+            }
+        }
+        
+        [System.Xml.Serialization.XmlIgnoreAttribute()]
+        public bool ReadIopsSecMaxLengthSpecified {
+            get {
+                return this.readIopsSecMaxLengthSpecified;
+            }
+            set {
+                this.readIopsSecMaxLengthSpecified = value;
+            }
+        }
+        
+        [System.Xml.Serialization.XmlElementAttribute("write_iops_sec_max_length", Namespace="")]
+        public ulong WriteIopsSecMaxLength {
+            get {
+                return this.writeIopsSecMaxLength;
+            }
+            set {
+                this.writeIopsSecMaxLength = value;
+            }
+        }
+        
+        [System.Xml.Serialization.XmlIgnoreAttribute()]
+        public bool WriteIopsSecMaxLengthSpecified {
+            get {
+                return this.writeIopsSecMaxLengthSpecified;
+            }
+            set {
+                this.writeIopsSecMaxLengthSpecified = value;
+            }
+        }
+    }
+    
+    public partial class DomainThrottlegroups {
+        
+        private DomainThrottlegroup[] throttlegroup;
+        
+        [System.Xml.Serialization.XmlElementAttribute("throttlegroup", Namespace="")]
+        public DomainThrottlegroup[] Throttlegroup {
+            get {
+                return this.throttlegroup;
+            }
+            set {
+                this.throttlegroup = value;
+            }
+        }
     }
     
     [System.Xml.Serialization.XmlTypeAttribute("timer", Namespace="")]
@@ -44976,6 +45610,8 @@ namespace Libvirt.Model {
         
         private DomainClock clock;
         
+        private DomainThrottlegroups throttlegroups;
+        
         private DomainMemory memory;
         
         private DomainMaxMemory maxMemory;
@@ -45201,6 +45837,16 @@ namespace Libvirt.Model {
             }
             set {
                 this.clock = value;
+            }
+        }
+        
+        [System.Xml.Serialization.XmlElementAttribute("throttlegroups", Namespace="")]
+        public DomainThrottlegroups Throttlegroups {
+            get {
+                return this.throttlegroups;
+            }
+            set {
+                this.throttlegroups = value;
             }
         }
         
@@ -45607,6 +46253,8 @@ namespace Libvirt.Model {
         
         private string cmdline;
         
+        private string shim;
+        
         private string dtb;
         
         private DomainOsFirmwareAttr firmwareAttr;
@@ -45688,6 +46336,16 @@ namespace Libvirt.Model {
             }
             set {
                 this.cmdline = value;
+            }
+        }
+        
+        [System.Xml.Serialization.XmlElementAttribute("shim", Namespace="")]
+        public string Shim {
+            get {
+                return this.shim;
+            }
+            set {
+                this.shim = value;
             }
         }
         

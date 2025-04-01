@@ -3955,7 +3955,7 @@ public class DomainTest : TestBase
     {
         const string expected = $@"
 {XMLDECL}
-<DomainOsAcpiTableTable {XMLNS} type=""slic"" />
+<DomainOsAcpiTableTable {XMLNS} type=""msdm"" />
 ";
 
         this.AssertXml<DomainOsAcpiTableTable>(expected);
@@ -4836,6 +4836,50 @@ public class DomainTest : TestBase
     {
         var values = Enum.GetValues(typeof(DomainTeamingType));
         Assert.AreEqual(2, values.Length);
+    }
+
+    [TestMethod]
+    public void DomainThrottlefilters()
+    {
+        const string expected = $@"
+{XMLDECL}
+<DomainThrottlefilters {XMLNS} />
+";
+
+        this.AssertXml<DomainThrottlefilters>(expected);
+    }
+
+    [TestMethod]
+    public void DomainThrottlefiltersThrottlefilter()
+    {
+        const string expected = $@"
+{XMLDECL}
+<DomainThrottlefiltersThrottlefilter {XMLNS} />
+";
+
+        this.AssertXml<DomainThrottlefiltersThrottlefilter>(expected);
+    }
+
+    [TestMethod]
+    public void DomainThrottlegroup()
+    {
+        const string expected = $@"
+{XMLDECL}
+<throttlegroup {XMLNS} />
+";
+
+        this.AssertXml<DomainThrottlegroup>(expected);
+    }
+
+    [TestMethod]
+    public void DomainThrottlegroups()
+    {
+        const string expected = $@"
+{XMLDECL}
+<DomainThrottlegroups {XMLNS} />
+";
+
+        this.AssertXml<DomainThrottlegroups>(expected);
     }
 
     [TestMethod]

@@ -166,6 +166,6 @@ public class DomainBackupTest : TestBase
     public void DomainbackupServerTransport()
     {
         var values = Enum.GetValues(typeof(DomainbackupServerTransport));
-        Assert.AreEqual(2, values.Length);
+        Assert.AreEqual(3, values.Length);
     }
 }

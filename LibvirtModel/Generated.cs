@@ -7313,6 +7313,8 @@ namespace Libvirt.Model {
         
         private string socket;
         
+        private string fdgroup;
+        
         [System.Xml.Serialization.XmlAttributeAttribute("tls")]
         public VirYesNo Tls {
             get {
@@ -7392,9 +7394,22 @@ namespace Libvirt.Model {
                 this.socket = value;
             }
         }
+        
+        [System.Xml.Serialization.XmlAttributeAttribute("fdgroup")]
+        public string Fdgroup {
+            get {
+                return this.fdgroup;
+            }
+            set {
+                this.fdgroup = value;
+            }
+        }
     }
     
     public enum DomainbackupServerTransport {
+        
+        [System.Xml.Serialization.XmlEnumAttribute(Name="fd")]
+        Fd,
         
         [System.Xml.Serialization.XmlEnumAttribute(Name="tcp")]
         Tcp,

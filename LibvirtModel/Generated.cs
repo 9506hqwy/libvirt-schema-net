@@ -7917,6 +7917,34 @@ namespace Libvirt.Model {
         }
     }
     
+    [System.Xml.Serialization.XmlTypeAttribute("console", Namespace="")]
+    public partial class DomainCapabilitiesConsole {
+        
+        private VirYesNo supported;
+        
+        private DomainCapabilitiesOsEnum[] @enum;
+        
+        [System.Xml.Serialization.XmlAttributeAttribute("supported")]
+        public VirYesNo Supported {
+            get {
+                return this.supported;
+            }
+            set {
+                this.supported = value;
+            }
+        }
+        
+        [System.Xml.Serialization.XmlElementAttribute("enum", Namespace="")]
+        public DomainCapabilitiesOsEnum[] Enum {
+            get {
+                return this.@enum;
+            }
+            set {
+                this.@enum = value;
+            }
+        }
+    }
+    
     [System.Xml.Serialization.XmlTypeAttribute("cpu", Namespace="")]
     public partial class DomainCapabilitiesCpu {
         
@@ -8309,6 +8337,8 @@ namespace Libvirt.Model {
         
         private DomainCapabilitiesPanic panic;
         
+        private DomainCapabilitiesConsole console;
+        
         [System.Xml.Serialization.XmlElementAttribute("disk", Namespace="")]
         public DomainCapabilitiesDisk Disk {
             get {
@@ -8426,6 +8456,16 @@ namespace Libvirt.Model {
             }
             set {
                 this.panic = value;
+            }
+        }
+        
+        [System.Xml.Serialization.XmlElementAttribute("console", Namespace="")]
+        public DomainCapabilitiesConsole Console {
+            get {
+                return this.console;
+            }
+            set {
+                this.console = value;
             }
         }
     }
@@ -10776,6 +10816,8 @@ namespace Libvirt.Model {
         
         private bool maxEventChannelsSpecified;
         
+        private string serial;
+        
         private DomainControllerDriver driver;
         
         [System.Xml.Serialization.XmlAttributeAttribute("index")]
@@ -10975,6 +11017,16 @@ namespace Libvirt.Model {
             }
             set {
                 this.maxEventChannelsSpecified = value;
+            }
+        }
+        
+        [System.Xml.Serialization.XmlElementAttribute("serial", Namespace="")]
+        public string Serial {
+            get {
+                return this.serial;
+            }
+            set {
+                this.serial = value;
             }
         }
         
@@ -11542,6 +11594,9 @@ namespace Libvirt.Model {
         
         [System.Xml.Serialization.XmlEnumAttribute(Name="isa")]
         Isa,
+        
+        [System.Xml.Serialization.XmlEnumAttribute(Name="nvme")]
+        Nvme,
         
         [System.Xml.Serialization.XmlEnumAttribute(Name="pci")]
         Pci,
@@ -17799,6 +17854,12 @@ namespace Libvirt.Model {
     
     public enum DomainDiskModel {
         
+        [System.Xml.Serialization.XmlEnumAttribute(Name="usb-bot")]
+        UsbBot,
+        
+        [System.Xml.Serialization.XmlEnumAttribute(Name="usb-storage")]
+        UsbStorage,
+        
         [System.Xml.Serialization.XmlEnumAttribute(Name="virtio")]
         Virtio,
         
@@ -18773,6 +18834,9 @@ namespace Libvirt.Model {
         
         [System.Xml.Serialization.XmlEnumAttribute(Name="ide")]
         Ide,
+        
+        [System.Xml.Serialization.XmlEnumAttribute(Name="nvme")]
+        Nvme,
         
         [System.Xml.Serialization.XmlEnumAttribute(Name="sata")]
         Sata,
@@ -26793,6 +26857,14 @@ namespace Libvirt.Model {
         
         private bool dmaTranslationSpecified;
         
+        private VirOnOff xtsup;
+        
+        private bool xtsupSpecified;
+        
+        private VirOnOff passthrough;
+        
+        private bool passthroughSpecified;
+        
         [System.Xml.Serialization.XmlAttributeAttribute("intremap")]
         public VirOnOff Intremap {
             get {
@@ -26902,9 +26974,52 @@ namespace Libvirt.Model {
                 this.dmaTranslationSpecified = value;
             }
         }
+        
+        [System.Xml.Serialization.XmlAttributeAttribute("xtsup")]
+        public VirOnOff Xtsup {
+            get {
+                return this.xtsup;
+            }
+            set {
+                this.xtsup = value;
+            }
+        }
+        
+        [System.Xml.Serialization.XmlIgnoreAttribute()]
+        public bool XtsupSpecified {
+            get {
+                return this.xtsupSpecified;
+            }
+            set {
+                this.xtsupSpecified = value;
+            }
+        }
+        
+        [System.Xml.Serialization.XmlAttributeAttribute("passthrough")]
+        public VirOnOff Passthrough {
+            get {
+                return this.passthrough;
+            }
+            set {
+                this.passthrough = value;
+            }
+        }
+        
+        [System.Xml.Serialization.XmlIgnoreAttribute()]
+        public bool PassthroughSpecified {
+            get {
+                return this.passthroughSpecified;
+            }
+            set {
+                this.passthroughSpecified = value;
+            }
+        }
     }
     
     public enum DomainIommuModel {
+        
+        [System.Xml.Serialization.XmlEnumAttribute(Name="amd")]
+        Amd,
         
         [System.Xml.Serialization.XmlEnumAttribute(Name="intel")]
         Intel,

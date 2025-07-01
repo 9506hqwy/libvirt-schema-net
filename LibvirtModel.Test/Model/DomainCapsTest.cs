@@ -26,6 +26,17 @@ public class DomainCapsTest : TestBase
     }
 
     [TestMethod]
+    public void DomainCapabilitiesConsole()
+    {
+        const string expected = $@"
+{XMLDECL}
+<console {XMLNS} supported=""no"" />
+";
+
+        this.AssertXml<DomainCapabilitiesConsole>(expected);
+    }
+
+    [TestMethod]
     public void DomainCapabilitiesCpu()
     {
         const string expected = $@"

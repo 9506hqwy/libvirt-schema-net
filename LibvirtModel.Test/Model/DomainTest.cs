@@ -820,7 +820,7 @@ public class DomainTest : TestBase
     public void DomainControllerType()
     {
         var values = Enum.GetValues(typeof(DomainControllerType));
-        Assert.AreEqual(10, values.Length);
+        Assert.AreEqual(11, values.Length);
     }
 
     [TestMethod]
@@ -1533,7 +1533,7 @@ public class DomainTest : TestBase
     public void DomainDiskModel()
     {
         var values = Enum.GetValues(typeof(DomainDiskModel));
-        Assert.AreEqual(3, values.Length);
+        Assert.AreEqual(5, values.Length);
     }
 
     [TestMethod]
@@ -1708,7 +1708,7 @@ public class DomainTest : TestBase
     public void DomainDiskTargetBus()
     {
         var values = Enum.GetValues(typeof(DomainDiskTargetBus));
-        Assert.AreEqual(9, values.Length);
+        Assert.AreEqual(10, values.Length);
     }
 
     [TestMethod]
@@ -3286,7 +3286,7 @@ public class DomainTest : TestBase
     {
         const string expected = $@"
 {XMLDECL}
-<iommu {XMLNS} model=""intel"" />
+<iommu {XMLNS} model=""amd"" />
 ";
 
         this.AssertXml<DomainIommu>(expected);
@@ -3307,7 +3307,7 @@ public class DomainTest : TestBase
     public void DomainIommuModel()
     {
         var values = Enum.GetValues(typeof(DomainIommuModel));
-        Assert.AreEqual(3, values.Length);
+        Assert.AreEqual(4, values.Length);
     }
 
     [TestMethod]

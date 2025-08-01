@@ -3472,10 +3472,21 @@ public class DomainTest : TestBase
     }
 
     [TestMethod]
+    public void DomainLaunchSecurityQuoteGenerationService()
+    {
+        const string expected = $@"
+{XMLDECL}
+<DomainLaunchSecurityQuoteGenerationService {XMLNS} />
+";
+
+        this.AssertXml<DomainLaunchSecurityQuoteGenerationService>(expected);
+    }
+
+    [TestMethod]
     public void DomainLaunchSecurityType()
     {
         var values = Enum.GetValues(typeof(DomainLaunchSecurityType));
-        Assert.AreEqual(3, values.Length);
+        Assert.AreEqual(4, values.Length);
     }
 
     [TestMethod]
@@ -4693,116 +4704,6 @@ public class DomainTest : TestBase
     }
 
     [TestMethod]
-    public void DomainSysinfoBaseBoard()
-    {
-        const string expected = $@"
-{XMLDECL}
-<DomainSysinfoBaseBoard {XMLNS} />
-";
-
-        this.AssertXml<DomainSysinfoBaseBoard>(expected);
-    }
-
-    [TestMethod]
-    public void DomainSysinfoBaseBoardEntry()
-    {
-        const string expected = $@"
-{XMLDECL}
-<DomainSysinfoBaseBoardEntry {XMLNS} name=""asset"" />
-";
-
-        this.AssertXml<DomainSysinfoBaseBoardEntry>(expected);
-    }
-
-    [TestMethod]
-    public void DomainSysinfoBios()
-    {
-        const string expected = $@"
-{XMLDECL}
-<DomainSysinfoBios {XMLNS} />
-";
-
-        this.AssertXml<DomainSysinfoBios>(expected);
-    }
-
-    [TestMethod]
-    public void DomainSysinfoBiosEntry()
-    {
-        const string expected = $@"
-{XMLDECL}
-<DomainSysinfoBiosEntry {XMLNS} name=""date"" />
-";
-
-        this.AssertXml<DomainSysinfoBiosEntry>(expected);
-    }
-
-    [TestMethod]
-    public void DomainSysinfoChassis()
-    {
-        const string expected = $@"
-{XMLDECL}
-<DomainSysinfoChassis {XMLNS} />
-";
-
-        this.AssertXml<DomainSysinfoChassis>(expected);
-    }
-
-    [TestMethod]
-    public void DomainSysinfoChassisEntry()
-    {
-        const string expected = $@"
-{XMLDECL}
-<DomainSysinfoChassisEntry {XMLNS} name=""asset"" />
-";
-
-        this.AssertXml<DomainSysinfoChassisEntry>(expected);
-    }
-
-    [TestMethod]
-    public void DomainSysinfoEntry()
-    {
-        const string expected = $@"
-{XMLDECL}
-<DomainSysinfoEntry {XMLNS} />
-";
-
-        this.AssertXml<DomainSysinfoEntry>(expected);
-    }
-
-    [TestMethod]
-    public void DomainSysinfoOemStrings()
-    {
-        const string expected = $@"
-{XMLDECL}
-<DomainSysinfoOemStrings {XMLNS} />
-";
-
-        this.AssertXml<DomainSysinfoOemStrings>(expected);
-    }
-
-    [TestMethod]
-    public void DomainSysinfoSystem()
-    {
-        const string expected = $@"
-{XMLDECL}
-<DomainSysinfoSystem {XMLNS} />
-";
-
-        this.AssertXml<DomainSysinfoSystem>(expected);
-    }
-
-    [TestMethod]
-    public void DomainSysinfoSystemEntry()
-    {
-        const string expected = $@"
-{XMLDECL}
-<DomainSysinfoSystemEntry {XMLNS} name=""family"" />
-";
-
-        this.AssertXml<DomainSysinfoSystemEntry>(expected);
-    }
-
-    [TestMethod]
     public void DomainSysinfoType()
     {
         var values = Enum.GetValues(typeof(DomainSysinfoType));
@@ -5550,10 +5451,185 @@ public class DomainTest : TestBase
     }
 
     [TestMethod]
+    public void SysinfoMemoryName()
+    {
+        var values = Enum.GetValues(typeof(SysinfoMemoryName));
+        Assert.AreEqual(10, values.Length);
+    }
+
+    [TestMethod]
+    public void SysinfoProcessorName()
+    {
+        var values = Enum.GetValues(typeof(SysinfoProcessorName));
+        Assert.AreEqual(11, values.Length);
+    }
+
+    [TestMethod]
     public void SysinfoSystemName()
     {
         var values = Enum.GetValues(typeof(SysinfoSystemName));
         Assert.AreEqual(7, values.Length);
+    }
+
+    [TestMethod]
+    public void SysinfoType()
+    {
+        var values = Enum.GetValues(typeof(SysinfoType));
+        Assert.AreEqual(2, values.Length);
+    }
+
+    [TestMethod]
+    public void SysinfoBaseBoard()
+    {
+        const string expected = $@"
+{XMLDECL}
+<SysinfoBaseBoard {XMLNS} />
+";
+
+        this.AssertXml<SysinfoBaseBoard>(expected);
+    }
+
+    [TestMethod]
+    public void SysinfoBaseBoardEntry()
+    {
+        const string expected = $@"
+{XMLDECL}
+<SysinfoBaseBoardEntry {XMLNS} name=""asset"" />
+";
+
+        this.AssertXml<SysinfoBaseBoardEntry>(expected);
+    }
+
+    [TestMethod]
+    public void SysinfoBios()
+    {
+        const string expected = $@"
+{XMLDECL}
+<SysinfoBios {XMLNS} />
+";
+
+        this.AssertXml<SysinfoBios>(expected);
+    }
+
+    [TestMethod]
+    public void SysinfoBiosEntry()
+    {
+        const string expected = $@"
+{XMLDECL}
+<SysinfoBiosEntry {XMLNS} name=""date"" />
+";
+
+        this.AssertXml<SysinfoBiosEntry>(expected);
+    }
+
+    [TestMethod]
+    public void SysinfoChassis()
+    {
+        const string expected = $@"
+{XMLDECL}
+<SysinfoChassis {XMLNS} />
+";
+
+        this.AssertXml<SysinfoChassis>(expected);
+    }
+
+    [TestMethod]
+    public void SysinfoChassisEntry()
+    {
+        const string expected = $@"
+{XMLDECL}
+<SysinfoChassisEntry {XMLNS} name=""asset"" />
+";
+
+        this.AssertXml<SysinfoChassisEntry>(expected);
+    }
+
+    [TestMethod]
+    public void SysinfoMemoryDevice()
+    {
+        const string expected = $@"
+{XMLDECL}
+<SysinfoMemoryDevice {XMLNS} />
+";
+
+        this.AssertXml<SysinfoMemoryDevice>(expected);
+    }
+
+    [TestMethod]
+    public void SysinfoMemoryDeviceEntry()
+    {
+        const string expected = $@"
+{XMLDECL}
+<SysinfoMemoryDeviceEntry {XMLNS} name=""bank_locator"" />
+";
+
+        this.AssertXml<SysinfoMemoryDeviceEntry>(expected);
+    }
+
+    [TestMethod]
+    public void SysinfoSysinfoFwcfgEntry()
+    {
+        const string expected = $@"
+{XMLDECL}
+<entry {XMLNS} />
+";
+
+        this.AssertXml<SysinfoSysinfoFwcfgEntry>(expected);
+    }
+
+    [TestMethod]
+    public void SysinfoOemStrings()
+    {
+        const string expected = $@"
+{XMLDECL}
+<SysinfoOemStrings {XMLNS} />
+";
+
+        this.AssertXml<SysinfoOemStrings>(expected);
+    }
+
+    [TestMethod]
+    public void SysinfoProcessor()
+    {
+        const string expected = $@"
+{XMLDECL}
+<SysinfoProcessor {XMLNS} />
+";
+
+        this.AssertXml<SysinfoProcessor>(expected);
+    }
+
+    [TestMethod]
+    public void SysinfoProcessorEntry()
+    {
+        const string expected = $@"
+{XMLDECL}
+<SysinfoProcessorEntry {XMLNS} name=""external_clock"" />
+";
+
+        this.AssertXml<SysinfoProcessorEntry>(expected);
+    }
+
+    [TestMethod]
+    public void SysinfoSystem()
+    {
+        const string expected = $@"
+{XMLDECL}
+<SysinfoSystem {XMLNS} />
+";
+
+        this.AssertXml<SysinfoSystem>(expected);
+    }
+
+    [TestMethod]
+    public void SysinfoSystemEntry()
+    {
+        const string expected = $@"
+{XMLDECL}
+<SysinfoSystemEntry {XMLNS} name=""family"" />
+";
+
+        this.AssertXml<SysinfoSystemEntry>(expected);
     }
 
     [TestMethod]

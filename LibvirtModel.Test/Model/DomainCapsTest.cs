@@ -194,6 +194,17 @@ public class DomainCapsTest : TestBase
     }
 
     [TestMethod]
+    public void DomainCapabilitiesTdx()
+    {
+        const string expected = $@"
+{XMLDECL}
+<tdx {XMLNS} supported=""no"" />
+";
+
+        this.AssertXml<DomainCapabilitiesTdx>(expected);
+    }
+
+    [TestMethod]
     public void DomainCapabilitiesTpm()
     {
         const string expected = $@"

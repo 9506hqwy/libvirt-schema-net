@@ -8517,6 +8517,8 @@ namespace Libvirt.Model {
         
         private DomainCapabilitiesPs2 ps2;
         
+        private DomainCapabilitiesTdx tdx;
+        
         private DomainCapabilitiesSev sev;
         
         private DomainCapabilitiesSgx sgx;
@@ -8602,6 +8604,16 @@ namespace Libvirt.Model {
             }
             set {
                 this.ps2 = value;
+            }
+        }
+        
+        [System.Xml.Serialization.XmlElementAttribute("tdx", Namespace="")]
+        public DomainCapabilitiesTdx Tdx {
+            get {
+                return this.tdx;
+            }
+            set {
+                this.tdx = value;
             }
         }
         
@@ -9896,6 +9908,22 @@ namespace Libvirt.Model {
             }
             set {
                 this.state = value;
+            }
+        }
+    }
+    
+    [System.Xml.Serialization.XmlTypeAttribute("tdx", Namespace="")]
+    public partial class DomainCapabilitiesTdx {
+        
+        private VirYesNo supported;
+        
+        [System.Xml.Serialization.XmlAttributeAttribute("supported")]
+        public VirYesNo Supported {
+            get {
+                return this.supported;
+            }
+            set {
+                this.supported = value;
             }
         }
     }
@@ -27511,6 +27539,14 @@ namespace Libvirt.Model {
         
         private string hostData;
         
+        private string mrConfigId;
+        
+        private string mrOwner;
+        
+        private string mrOwnerConfig;
+        
+        private DomainLaunchSecurityQuoteGenerationService quoteGenerationService;
+        
         [System.Xml.Serialization.XmlAttributeAttribute("type")]
         public DomainLaunchSecurityType Type {
             get {
@@ -27710,6 +27746,61 @@ namespace Libvirt.Model {
                 this.hostData = value;
             }
         }
+        
+        [System.Xml.Serialization.XmlElementAttribute("mrConfigId", Namespace="")]
+        public string MrConfigId {
+            get {
+                return this.mrConfigId;
+            }
+            set {
+                this.mrConfigId = value;
+            }
+        }
+        
+        [System.Xml.Serialization.XmlElementAttribute("mrOwner", Namespace="")]
+        public string MrOwner {
+            get {
+                return this.mrOwner;
+            }
+            set {
+                this.mrOwner = value;
+            }
+        }
+        
+        [System.Xml.Serialization.XmlElementAttribute("mrOwnerConfig", Namespace="")]
+        public string MrOwnerConfig {
+            get {
+                return this.mrOwnerConfig;
+            }
+            set {
+                this.mrOwnerConfig = value;
+            }
+        }
+        
+        [System.Xml.Serialization.XmlElementAttribute("quoteGenerationService", Namespace="")]
+        public DomainLaunchSecurityQuoteGenerationService QuoteGenerationService {
+            get {
+                return this.quoteGenerationService;
+            }
+            set {
+                this.quoteGenerationService = value;
+            }
+        }
+    }
+    
+    public partial class DomainLaunchSecurityQuoteGenerationService {
+        
+        private string path;
+        
+        [System.Xml.Serialization.XmlAttributeAttribute("path")]
+        public string Path {
+            get {
+                return this.path;
+            }
+            set {
+                this.path = value;
+            }
+        }
     }
     
     public enum DomainLaunchSecurityType {
@@ -27722,6 +27813,9 @@ namespace Libvirt.Model {
         
         [System.Xml.Serialization.XmlEnumAttribute(Name="sev-snp")]
         SevSnp,
+        
+        [System.Xml.Serialization.XmlEnumAttribute(Name="tdx")]
+        Tdx,
     }
     
     [System.Xml.Serialization.XmlTypeAttribute("lease", Namespace="")]
@@ -35378,17 +35472,17 @@ namespace Libvirt.Model {
         
         private DomainSysinfoType type;
         
-        private DomainSysinfoBios bios;
+        private SysinfoBios bios;
         
-        private DomainSysinfoSystem system;
+        private SysinfoSystem system;
         
-        private DomainSysinfoBaseBoard[] baseBoard;
+        private SysinfoBaseBoard[] baseBoard;
         
-        private DomainSysinfoChassis chassis;
+        private SysinfoChassis chassis;
         
-        private DomainSysinfoOemStrings oemStrings;
+        private SysinfoOemStrings oemStrings;
         
-        private DomainSysinfoEntry[] entry;
+        private SysinfoSysinfoFwcfgEntry[] entry;
         
         [System.Xml.Serialization.XmlAttributeAttribute("type")]
         public DomainSysinfoType Type {
@@ -35401,7 +35495,7 @@ namespace Libvirt.Model {
         }
         
         [System.Xml.Serialization.XmlElementAttribute("bios", Namespace="")]
-        public DomainSysinfoBios Bios {
+        public SysinfoBios Bios {
             get {
                 return this.bios;
             }
@@ -35411,7 +35505,7 @@ namespace Libvirt.Model {
         }
         
         [System.Xml.Serialization.XmlElementAttribute("system", Namespace="")]
-        public DomainSysinfoSystem System {
+        public SysinfoSystem System {
             get {
                 return this.system;
             }
@@ -35421,7 +35515,7 @@ namespace Libvirt.Model {
         }
         
         [System.Xml.Serialization.XmlElementAttribute("baseBoard", Namespace="")]
-        public DomainSysinfoBaseBoard[] BaseBoard {
+        public SysinfoBaseBoard[] BaseBoard {
             get {
                 return this.baseBoard;
             }
@@ -35431,7 +35525,7 @@ namespace Libvirt.Model {
         }
         
         [System.Xml.Serialization.XmlElementAttribute("chassis", Namespace="")]
-        public DomainSysinfoChassis Chassis {
+        public SysinfoChassis Chassis {
             get {
                 return this.chassis;
             }
@@ -35441,7 +35535,7 @@ namespace Libvirt.Model {
         }
         
         [System.Xml.Serialization.XmlElementAttribute("oemStrings", Namespace="")]
-        public DomainSysinfoOemStrings OemStrings {
+        public SysinfoOemStrings OemStrings {
             get {
                 return this.oemStrings;
             }
@@ -35451,234 +35545,12 @@ namespace Libvirt.Model {
         }
         
         [System.Xml.Serialization.XmlElementAttribute("entry", Namespace="")]
-        public DomainSysinfoEntry[] Entry {
+        public SysinfoSysinfoFwcfgEntry[] Entry {
             get {
                 return this.entry;
             }
             set {
                 this.entry = value;
-            }
-        }
-    }
-    
-    public partial class DomainSysinfoBaseBoard {
-        
-        private DomainSysinfoBaseBoardEntry[] entry;
-        
-        [System.Xml.Serialization.XmlElementAttribute("entry", Namespace="")]
-        public DomainSysinfoBaseBoardEntry[] Entry {
-            get {
-                return this.entry;
-            }
-            set {
-                this.entry = value;
-            }
-        }
-    }
-    
-    public partial class DomainSysinfoBaseBoardEntry {
-        
-        private SysinfoBaseBoardName name;
-        
-        private string value;
-        
-        [System.Xml.Serialization.XmlAttributeAttribute("name")]
-        public SysinfoBaseBoardName Name {
-            get {
-                return this.name;
-            }
-            set {
-                this.name = value;
-            }
-        }
-        
-        [System.Xml.Serialization.XmlTextAttribute()]
-        public string Value {
-            get {
-                return this.value;
-            }
-            set {
-                this.value = value;
-            }
-        }
-    }
-    
-    public partial class DomainSysinfoBios {
-        
-        private DomainSysinfoBiosEntry[] entry;
-        
-        [System.Xml.Serialization.XmlElementAttribute("entry", Namespace="")]
-        public DomainSysinfoBiosEntry[] Entry {
-            get {
-                return this.entry;
-            }
-            set {
-                this.entry = value;
-            }
-        }
-    }
-    
-    public partial class DomainSysinfoBiosEntry {
-        
-        private SysinfoBiosName name;
-        
-        private string value;
-        
-        [System.Xml.Serialization.XmlAttributeAttribute("name")]
-        public SysinfoBiosName Name {
-            get {
-                return this.name;
-            }
-            set {
-                this.name = value;
-            }
-        }
-        
-        [System.Xml.Serialization.XmlTextAttribute()]
-        public string Value {
-            get {
-                return this.value;
-            }
-            set {
-                this.value = value;
-            }
-        }
-    }
-    
-    public partial class DomainSysinfoChassis {
-        
-        private DomainSysinfoChassisEntry[] entry;
-        
-        [System.Xml.Serialization.XmlElementAttribute("entry", Namespace="")]
-        public DomainSysinfoChassisEntry[] Entry {
-            get {
-                return this.entry;
-            }
-            set {
-                this.entry = value;
-            }
-        }
-    }
-    
-    public partial class DomainSysinfoChassisEntry {
-        
-        private SysinfoChassisName name;
-        
-        private string value;
-        
-        [System.Xml.Serialization.XmlAttributeAttribute("name")]
-        public SysinfoChassisName Name {
-            get {
-                return this.name;
-            }
-            set {
-                this.name = value;
-            }
-        }
-        
-        [System.Xml.Serialization.XmlTextAttribute()]
-        public string Value {
-            get {
-                return this.value;
-            }
-            set {
-                this.value = value;
-            }
-        }
-    }
-    
-    public partial class DomainSysinfoEntry {
-        
-        private string name;
-        
-        private string file;
-        
-        private string value;
-        
-        [System.Xml.Serialization.XmlAttributeAttribute("name")]
-        public string Name {
-            get {
-                return this.name;
-            }
-            set {
-                this.name = value;
-            }
-        }
-        
-        [System.Xml.Serialization.XmlAttributeAttribute("file")]
-        public string File {
-            get {
-                return this.file;
-            }
-            set {
-                this.file = value;
-            }
-        }
-        
-        [System.Xml.Serialization.XmlTextAttribute()]
-        public string Value {
-            get {
-                return this.value;
-            }
-            set {
-                this.value = value;
-            }
-        }
-    }
-    
-    public partial class DomainSysinfoOemStrings {
-        
-        private string[] entry;
-        
-        [System.Xml.Serialization.XmlElementAttribute("entry", Namespace="")]
-        public string[] Entry {
-            get {
-                return this.entry;
-            }
-            set {
-                this.entry = value;
-            }
-        }
-    }
-    
-    public partial class DomainSysinfoSystem {
-        
-        private DomainSysinfoSystemEntry[] entry;
-        
-        [System.Xml.Serialization.XmlElementAttribute("entry", Namespace="")]
-        public DomainSysinfoSystemEntry[] Entry {
-            get {
-                return this.entry;
-            }
-            set {
-                this.entry = value;
-            }
-        }
-    }
-    
-    public partial class DomainSysinfoSystemEntry {
-        
-        private SysinfoSystemName name;
-        
-        private string value;
-        
-        [System.Xml.Serialization.XmlAttributeAttribute("name")]
-        public SysinfoSystemName Name {
-            get {
-                return this.name;
-            }
-            set {
-                this.name = value;
-            }
-        }
-        
-        [System.Xml.Serialization.XmlTextAttribute()]
-        public string Value {
-            get {
-                return this.value;
-            }
-            set {
-                this.value = value;
             }
         }
     }
@@ -52506,6 +52378,159 @@ namespace Libvirt.Model {
         Unix,
     }
     
+    public partial class Sysinfo {
+        
+        private SysinfoType type;
+        
+        private SysinfoBios bios;
+        
+        private SysinfoSystem system;
+        
+        private SysinfoBaseBoard[] baseBoard;
+        
+        private SysinfoProcessor[] processor;
+        
+        private SysinfoMemoryDevice[] memoryDevice;
+        
+        private SysinfoChassis chassis;
+        
+        private SysinfoOemStrings oemStrings;
+        
+        private SysinfoSysinfoFwcfgEntry[] entry;
+        
+        [System.Xml.Serialization.XmlAttributeAttribute("type")]
+        public SysinfoType Type {
+            get {
+                return this.type;
+            }
+            set {
+                this.type = value;
+            }
+        }
+        
+        [System.Xml.Serialization.XmlElementAttribute("bios", Namespace="")]
+        public SysinfoBios Bios {
+            get {
+                return this.bios;
+            }
+            set {
+                this.bios = value;
+            }
+        }
+        
+        [System.Xml.Serialization.XmlElementAttribute("system", Namespace="")]
+        public SysinfoSystem System {
+            get {
+                return this.system;
+            }
+            set {
+                this.system = value;
+            }
+        }
+        
+        [System.Xml.Serialization.XmlElementAttribute("baseBoard", Namespace="")]
+        public SysinfoBaseBoard[] BaseBoard {
+            get {
+                return this.baseBoard;
+            }
+            set {
+                this.baseBoard = value;
+            }
+        }
+        
+        [System.Xml.Serialization.XmlElementAttribute("processor", Namespace="")]
+        public SysinfoProcessor[] Processor {
+            get {
+                return this.processor;
+            }
+            set {
+                this.processor = value;
+            }
+        }
+        
+        [System.Xml.Serialization.XmlElementAttribute("memory_device", Namespace="")]
+        public SysinfoMemoryDevice[] MemoryDevice {
+            get {
+                return this.memoryDevice;
+            }
+            set {
+                this.memoryDevice = value;
+            }
+        }
+        
+        [System.Xml.Serialization.XmlElementAttribute("chassis", Namespace="")]
+        public SysinfoChassis Chassis {
+            get {
+                return this.chassis;
+            }
+            set {
+                this.chassis = value;
+            }
+        }
+        
+        [System.Xml.Serialization.XmlElementAttribute("oemStrings", Namespace="")]
+        public SysinfoOemStrings OemStrings {
+            get {
+                return this.oemStrings;
+            }
+            set {
+                this.oemStrings = value;
+            }
+        }
+        
+        [System.Xml.Serialization.XmlElementAttribute("entry", Namespace="")]
+        public SysinfoSysinfoFwcfgEntry[] Entry {
+            get {
+                return this.entry;
+            }
+            set {
+                this.entry = value;
+            }
+        }
+    }
+    
+    public partial class SysinfoBaseBoard {
+        
+        private SysinfoBaseBoardEntry[] entry;
+        
+        [System.Xml.Serialization.XmlElementAttribute("entry", Namespace="")]
+        public SysinfoBaseBoardEntry[] Entry {
+            get {
+                return this.entry;
+            }
+            set {
+                this.entry = value;
+            }
+        }
+    }
+    
+    public partial class SysinfoBaseBoardEntry {
+        
+        private SysinfoBaseBoardName name;
+        
+        private string value;
+        
+        [System.Xml.Serialization.XmlAttributeAttribute("name")]
+        public SysinfoBaseBoardName Name {
+            get {
+                return this.name;
+            }
+            set {
+                this.name = value;
+            }
+        }
+        
+        [System.Xml.Serialization.XmlTextAttribute()]
+        public string Value {
+            get {
+                return this.value;
+            }
+            set {
+                this.value = value;
+            }
+        }
+    }
+    
     public enum SysinfoBaseBoardName {
         
         [System.Xml.Serialization.XmlEnumAttribute(Name="asset")]
@@ -52527,6 +52552,48 @@ namespace Libvirt.Model {
         Version,
     }
     
+    public partial class SysinfoBios {
+        
+        private SysinfoBiosEntry[] entry;
+        
+        [System.Xml.Serialization.XmlElementAttribute("entry", Namespace="")]
+        public SysinfoBiosEntry[] Entry {
+            get {
+                return this.entry;
+            }
+            set {
+                this.entry = value;
+            }
+        }
+    }
+    
+    public partial class SysinfoBiosEntry {
+        
+        private SysinfoBiosName name;
+        
+        private string value;
+        
+        [System.Xml.Serialization.XmlAttributeAttribute("name")]
+        public SysinfoBiosName Name {
+            get {
+                return this.name;
+            }
+            set {
+                this.name = value;
+            }
+        }
+        
+        [System.Xml.Serialization.XmlTextAttribute()]
+        public string Value {
+            get {
+                return this.value;
+            }
+            set {
+                this.value = value;
+            }
+        }
+    }
+    
     public enum SysinfoBiosName {
         
         [System.Xml.Serialization.XmlEnumAttribute(Name="date")]
@@ -52540,6 +52607,48 @@ namespace Libvirt.Model {
         
         [System.Xml.Serialization.XmlEnumAttribute(Name="version")]
         Version,
+    }
+    
+    public partial class SysinfoChassis {
+        
+        private SysinfoChassisEntry[] entry;
+        
+        [System.Xml.Serialization.XmlElementAttribute("entry", Namespace="")]
+        public SysinfoChassisEntry[] Entry {
+            get {
+                return this.entry;
+            }
+            set {
+                this.entry = value;
+            }
+        }
+    }
+    
+    public partial class SysinfoChassisEntry {
+        
+        private SysinfoChassisName name;
+        
+        private string value;
+        
+        [System.Xml.Serialization.XmlAttributeAttribute("name")]
+        public SysinfoChassisName Name {
+            get {
+                return this.name;
+            }
+            set {
+                this.name = value;
+            }
+        }
+        
+        [System.Xml.Serialization.XmlTextAttribute()]
+        public string Value {
+            get {
+                return this.value;
+            }
+            set {
+                this.value = value;
+            }
+        }
     }
     
     public enum SysinfoChassisName {
@@ -52558,6 +52667,256 @@ namespace Libvirt.Model {
         
         [System.Xml.Serialization.XmlEnumAttribute(Name="version")]
         Version,
+    }
+    
+    public partial class SysinfoMemoryDevice {
+        
+        private SysinfoMemoryDeviceEntry[] entry;
+        
+        [System.Xml.Serialization.XmlElementAttribute("entry", Namespace="")]
+        public SysinfoMemoryDeviceEntry[] Entry {
+            get {
+                return this.entry;
+            }
+            set {
+                this.entry = value;
+            }
+        }
+    }
+    
+    public partial class SysinfoMemoryDeviceEntry {
+        
+        private SysinfoMemoryName name;
+        
+        private string value;
+        
+        [System.Xml.Serialization.XmlAttributeAttribute("name")]
+        public SysinfoMemoryName Name {
+            get {
+                return this.name;
+            }
+            set {
+                this.name = value;
+            }
+        }
+        
+        [System.Xml.Serialization.XmlTextAttribute()]
+        public string Value {
+            get {
+                return this.value;
+            }
+            set {
+                this.value = value;
+            }
+        }
+    }
+    
+    public enum SysinfoMemoryName {
+        
+        [System.Xml.Serialization.XmlEnumAttribute(Name="bank_locator")]
+        BankLocator,
+        
+        [System.Xml.Serialization.XmlEnumAttribute(Name="form_factor")]
+        FormFactor,
+        
+        [System.Xml.Serialization.XmlEnumAttribute(Name="locator")]
+        Locator,
+        
+        [System.Xml.Serialization.XmlEnumAttribute(Name="manufacturer")]
+        Manufacturer,
+        
+        [System.Xml.Serialization.XmlEnumAttribute(Name="part_number")]
+        PartNumber,
+        
+        [System.Xml.Serialization.XmlEnumAttribute(Name="serial_number")]
+        SerialNumber,
+        
+        [System.Xml.Serialization.XmlEnumAttribute(Name="size")]
+        Size,
+        
+        [System.Xml.Serialization.XmlEnumAttribute(Name="speed")]
+        Speed,
+        
+        [System.Xml.Serialization.XmlEnumAttribute(Name="type")]
+        Type,
+        
+        [System.Xml.Serialization.XmlEnumAttribute(Name="type_detail")]
+        TypeDetail,
+    }
+    
+    public partial class SysinfoOemStrings {
+        
+        private string[] entry;
+        
+        [System.Xml.Serialization.XmlElementAttribute("entry", Namespace="")]
+        public string[] Entry {
+            get {
+                return this.entry;
+            }
+            set {
+                this.entry = value;
+            }
+        }
+    }
+    
+    public partial class SysinfoProcessor {
+        
+        private SysinfoProcessorEntry[] entry;
+        
+        [System.Xml.Serialization.XmlElementAttribute("entry", Namespace="")]
+        public SysinfoProcessorEntry[] Entry {
+            get {
+                return this.entry;
+            }
+            set {
+                this.entry = value;
+            }
+        }
+    }
+    
+    public partial class SysinfoProcessorEntry {
+        
+        private SysinfoProcessorName name;
+        
+        private string value;
+        
+        [System.Xml.Serialization.XmlAttributeAttribute("name")]
+        public SysinfoProcessorName Name {
+            get {
+                return this.name;
+            }
+            set {
+                this.name = value;
+            }
+        }
+        
+        [System.Xml.Serialization.XmlTextAttribute()]
+        public string Value {
+            get {
+                return this.value;
+            }
+            set {
+                this.value = value;
+            }
+        }
+    }
+    
+    public enum SysinfoProcessorName {
+        
+        [System.Xml.Serialization.XmlEnumAttribute(Name="external_clock")]
+        ExternalClock,
+        
+        [System.Xml.Serialization.XmlEnumAttribute(Name="family")]
+        Family,
+        
+        [System.Xml.Serialization.XmlEnumAttribute(Name="manufacturer")]
+        Manufacturer,
+        
+        [System.Xml.Serialization.XmlEnumAttribute(Name="max_speed")]
+        MaxSpeed,
+        
+        [System.Xml.Serialization.XmlEnumAttribute(Name="part_number")]
+        PartNumber,
+        
+        [System.Xml.Serialization.XmlEnumAttribute(Name="serial_number")]
+        SerialNumber,
+        
+        [System.Xml.Serialization.XmlEnumAttribute(Name="signature")]
+        Signature,
+        
+        [System.Xml.Serialization.XmlEnumAttribute(Name="socket_destination")]
+        SocketDestination,
+        
+        [System.Xml.Serialization.XmlEnumAttribute(Name="status")]
+        Status,
+        
+        [System.Xml.Serialization.XmlEnumAttribute(Name="type")]
+        Type,
+        
+        [System.Xml.Serialization.XmlEnumAttribute(Name="version")]
+        Version,
+    }
+    
+    [System.Xml.Serialization.XmlTypeAttribute("entry", Namespace="")]
+    public partial class SysinfoSysinfoFwcfgEntry {
+        
+        private string name;
+        
+        private string file;
+        
+        private string value;
+        
+        [System.Xml.Serialization.XmlAttributeAttribute("name")]
+        public string Name {
+            get {
+                return this.name;
+            }
+            set {
+                this.name = value;
+            }
+        }
+        
+        [System.Xml.Serialization.XmlAttributeAttribute("file")]
+        public string File {
+            get {
+                return this.file;
+            }
+            set {
+                this.file = value;
+            }
+        }
+        
+        [System.Xml.Serialization.XmlTextAttribute()]
+        public string Value {
+            get {
+                return this.value;
+            }
+            set {
+                this.value = value;
+            }
+        }
+    }
+    
+    public partial class SysinfoSystem {
+        
+        private SysinfoSystemEntry[] entry;
+        
+        [System.Xml.Serialization.XmlElementAttribute("entry", Namespace="")]
+        public SysinfoSystemEntry[] Entry {
+            get {
+                return this.entry;
+            }
+            set {
+                this.entry = value;
+            }
+        }
+    }
+    
+    public partial class SysinfoSystemEntry {
+        
+        private SysinfoSystemName name;
+        
+        private string value;
+        
+        [System.Xml.Serialization.XmlAttributeAttribute("name")]
+        public SysinfoSystemName Name {
+            get {
+                return this.name;
+            }
+            set {
+                this.name = value;
+            }
+        }
+        
+        [System.Xml.Serialization.XmlTextAttribute()]
+        public string Value {
+            get {
+                return this.value;
+            }
+            set {
+                this.value = value;
+            }
+        }
     }
     
     public enum SysinfoSystemName {
@@ -52582,6 +52941,15 @@ namespace Libvirt.Model {
         
         [System.Xml.Serialization.XmlEnumAttribute(Name="version")]
         Version,
+    }
+    
+    public enum SysinfoType {
+        
+        [System.Xml.Serialization.XmlEnumAttribute(Name="fwcfg")]
+        Fwcfg,
+        
+        [System.Xml.Serialization.XmlEnumAttribute(Name="smbios")]
+        Smbios,
     }
     
     public enum VirOnOff {

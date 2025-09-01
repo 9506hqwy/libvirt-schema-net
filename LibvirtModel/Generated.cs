@@ -4897,6 +4897,8 @@ namespace Libvirt.Model {
         
         private string uuid;
         
+        private string hwuuid;
+        
         private string genid;
         
         private string title;
@@ -5044,6 +5046,16 @@ namespace Libvirt.Model {
             }
             set {
                 this.uuid = value;
+            }
+        }
+        
+        [System.Xml.Serialization.XmlElementAttribute("hwuuid", Namespace="")]
+        public string Hwuuid {
+            get {
+                return this.hwuuid;
+            }
+            set {
+                this.hwuuid = value;
             }
         }
         
@@ -34007,6 +34019,8 @@ namespace Libvirt.Model {
         
         private string name;
         
+        private string hwuuid;
+        
         private string genid;
         
         private string title;
@@ -34164,6 +34178,16 @@ namespace Libvirt.Model {
             }
             set {
                 this.name = value;
+            }
+        }
+        
+        [System.Xml.Serialization.XmlElementAttribute("hwuuid", Namespace="")]
+        public string Hwuuid {
+            get {
+                return this.hwuuid;
+            }
+            set {
+                this.hwuuid = value;
             }
         }
         
@@ -37404,6 +37428,10 @@ namespace Libvirt.Model {
         
         private bool blobSpecified;
         
+        private VirOnOff edid;
+        
+        private bool edidSpecified;
+        
         private DomainVideoModelAcceleration acceleration;
         
         private DomainVideoModelResolution resolution;
@@ -37555,6 +37583,26 @@ namespace Libvirt.Model {
             }
             set {
                 this.blobSpecified = value;
+            }
+        }
+        
+        [System.Xml.Serialization.XmlAttributeAttribute("edid")]
+        public VirOnOff Edid {
+            get {
+                return this.edid;
+            }
+            set {
+                this.edid = value;
+            }
+        }
+        
+        [System.Xml.Serialization.XmlIgnoreAttribute()]
+        public bool EdidSpecified {
+            get {
+                return this.edidSpecified;
+            }
+            set {
+                this.edidSpecified = value;
             }
         }
         
@@ -45592,6 +45640,8 @@ namespace Libvirt.Model {
         
         private string uuid;
         
+        private string hwuuid;
+        
         private string genid;
         
         private string title;
@@ -45739,6 +45789,16 @@ namespace Libvirt.Model {
             }
             set {
                 this.uuid = value;
+            }
+        }
+        
+        [System.Xml.Serialization.XmlElementAttribute("hwuuid", Namespace="")]
+        public string Hwuuid {
+            get {
+                return this.hwuuid;
+            }
+            set {
+                this.hwuuid = value;
             }
         }
         

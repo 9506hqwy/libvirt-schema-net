@@ -20,11 +20,11 @@ internal class Repository
 
     internal RngFile[] Files { get; }
 
-    internal ParsedNode[] Types => this.types.Values.Where(v => v.ChildParsed).ToArray();
+    internal ParsedNode[] Types => [.. this.types.Values.Where(v => v.ChildParsed)];
 
     private static int GetNameLength(INode[] nodes)
     {
-        return nodes.OfType<IHasName>().Select(n => n.Name.GetNameLength()).Sum();
+        return nodes.OfType<IHasName>().Sum(n => n.Name.GetNameLength());
     }
 
     private void Init()
@@ -114,7 +114,9 @@ internal class Repository
                     }
                     else
                     {
+#pragma warning disable CA2201
                         throw new Exception($"Not supported. Unknown grammar syntax in `{content.Position}`.");
+#pragma warning restore CA2201
                     }
                 }
 

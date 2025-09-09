@@ -41,6 +41,6 @@ internal static class DataType
     {
         return name is null
             ? null
-            : DataType.Mapping.TryGetValue(name, out var type) ? type : throw new NotSupportedException($"Not suppored type `{name}`.");
+            : Mapping.TryGetValue(name, out var type) ? type : throw new NotSupportedException($"Not suppored type `{name}`.");
     }
 }

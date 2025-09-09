@@ -7,17 +7,17 @@ internal static class Utility
 {
     internal static string ToClassName(string value)
     {
-        return Utility.Replace(Utility.ToUpperCamelCase(Utility.Normalize(value)));
+        return Replace(ToUpperCamelCase(Normalize(value)));
     }
 
     internal static string ToFieldName(string value)
     {
-        return Utility.Replace(Utility.ToLowerCamelCase(Utility.Normalize(value)));
+        return Replace(ToLowerCamelCase(Normalize(value)));
     }
 
     internal static string ToPropertyName(string value)
     {
-        return Utility.Replace(Utility.ToUpperCamelCase(Utility.Normalize(value)));
+        return Replace(ToUpperCamelCase(Normalize(value)));
     }
 
     private static string Normalize(string value)
@@ -34,12 +34,14 @@ internal static class Utility
 
     private static string ToLowerCamelCase(string value)
     {
+#pragma warning disable CA1308
         var terms = Regex.Replace(value, @"([A-Z]+)", "_$1")
             .Trim('_')
             .Split(['_', '-'])
             .Select(t => t.ToLowerInvariant())
-            .Select((t, i) => i == 0 ? t : Utility.ToCaption(t));
+            .Select((t, i) => i == 0 ? t : ToCaption(t));
         return string.Join(string.Empty, terms);
+#pragma warning restore CA1308
     }
 
     private static string ToUpperCamelCase(string value)
@@ -47,7 +49,7 @@ internal static class Utility
         var terms = Regex.Replace(value, @"([A-Z]+)", "_$1")
             .Trim('_')
             .Split(['_', '-'])
-            .Select(Utility.ToCaption);
+            .Select(ToCaption);
         return string.Join(string.Empty, terms);
     }
 

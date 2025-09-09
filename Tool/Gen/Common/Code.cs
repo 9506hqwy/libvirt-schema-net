@@ -16,7 +16,7 @@ internal static class Code
         out CodeMemberField field,
         out CodeMemberProperty prop)
     {
-        Code.ToProperty(type, propertyName, out field, out prop);
+        ToProperty(type, propertyName, out field, out prop);
 
         _ = prop.CustomAttributes.Add(new CodeAttributeDeclaration(
             new CodeTypeReference(typeof(XmlAttributeAttribute)),
@@ -27,7 +27,7 @@ internal static class Code
         out CodeMemberField field,
         out CodeMemberProperty prop)
     {
-        Code.ToProperty(new CodeTypeReference(typeof(XmlElement[])), "elements", out field, out prop);
+        ToProperty(new CodeTypeReference(typeof(XmlElement[])), "elements", out field, out prop);
 
         _ = prop.CustomAttributes.Add(new CodeAttributeDeclaration(
             new CodeTypeReference(typeof(XmlAnyElementAttribute))));
@@ -41,12 +41,12 @@ internal static class Code
         out CodeMemberField field,
         out CodeMemberProperty prop)
     {
-        Code.ToProperty(type, propertyName, out field, out prop);
+        ToProperty(type, propertyName, out field, out prop);
 
         var attrArgs = new List<CodeAttributeArgument>
         {
             new(new CodePrimitiveExpression(elementName)),
-            new("Namespace", new CodePrimitiveExpression(ns ?? Code.DefaultNs)),
+            new("Namespace", new CodePrimitiveExpression(ns ?? DefaultNs)),
         };
 
         _ = prop.CustomAttributes.Add(new CodeAttributeDeclaration(
@@ -67,7 +67,7 @@ internal static class Code
         out CodeMemberField field,
         out CodeMemberProperty prop)
     {
-        Code.ToProperty(new CodeTypeReference(typeof(string)), "value", out field, out prop);
+        ToProperty(new CodeTypeReference(typeof(string)), "value", out field, out prop);
 
         _ = prop.CustomAttributes.Add(new CodeAttributeDeclaration(
             new CodeTypeReference(typeof(XmlTextAttribute))));
@@ -78,7 +78,7 @@ internal static class Code
         out CodeMemberField field,
         out CodeMemberProperty prop)
     {
-        Code.ToProperty(new CodeTypeReference(typeof(bool)), $"{targetName}_Specified", out field, out prop);
+        ToProperty(new CodeTypeReference(typeof(bool)), $"{targetName}_Specified", out field, out prop);
 
         _ = prop.CustomAttributes.Add(new CodeAttributeDeclaration(
             new CodeTypeReference(typeof(XmlIgnoreAttribute))));
@@ -96,7 +96,7 @@ internal static class Code
             var attrArgs = new List<CodeAttributeArgument>
             {
                 new(new CodePrimitiveExpression(elementName)),
-                new("Namespace", new CodePrimitiveExpression(ns ?? Code.DefaultNs)),
+                new("Namespace", new CodePrimitiveExpression(ns ?? DefaultNs)),
             };
 
             _ = cls.CustomAttributes.Add(new CodeAttributeDeclaration(

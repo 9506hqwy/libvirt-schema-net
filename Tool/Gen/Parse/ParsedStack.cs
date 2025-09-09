@@ -35,11 +35,10 @@ internal class ParsedStack
 
     internal INode[] GetFrom(INode node)
     {
-        return this.inner
+        return [.. this.inner
             .Reverse<INode>()
             .TakeWhile(n => !n.Position.Equals(node.Position))
-            .Reverse()
-            .ToArray();
+            .Reverse()];
     }
 
     internal bool HasNode(INode node)

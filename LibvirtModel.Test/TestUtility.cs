@@ -6,7 +6,7 @@ internal static class TestUtility
 {
     internal static T Deserialize<T>(string filename)
     {
-        var xml = TestUtility.GetTestData(typeof(T), filename);
+        var xml = GetTestData(typeof(T), filename);
 
         var ser = new XmlSerializer(typeof(T));
 #pragma warning disable CA5369
@@ -16,7 +16,7 @@ internal static class TestUtility
 
     internal static string GetTestData(Type type, string filename)
     {
-        return File.ReadAllText(TestUtility.GetDataFilePath(type, filename));
+        return File.ReadAllText(GetDataFilePath(type, filename));
     }
 
     internal static string Serialize<T>(T obj)
@@ -31,7 +31,7 @@ internal static class TestUtility
 
     private static string GetDataFilePath(Type type, string filename)
     {
-        return Path.Combine(TestUtility.GetTestDirectory(), "Data", type.Name, filename);
+        return Path.Combine(GetTestDirectory(), "Data", type.Name, filename);
     }
 
     private static string GetTestDirectory()

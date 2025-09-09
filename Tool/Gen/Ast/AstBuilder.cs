@@ -338,7 +338,9 @@ internal class AstBuilder
             return;
         }
 
+#pragma warning disable CA2201
         throw new Exception($"Not supported. Unexpected member type in `{primitives[0].Type}`.");
+#pragma warning restore CA2201
     }
 
     private void MergeFragmentValue(AstTypeDeclarationBase type, AstTypeMember member, AstTypeFragment[] values)
@@ -378,11 +380,13 @@ internal class AstBuilder
 
         if (values.All(v => v.Type!.ValueType!.IsPrimitive))
         {
-            MergeFragmentPrimitive(member, values.Select(v => v.Type!.ValueType!).ToArray(), optional, isArray);
+            MergeFragmentPrimitive(member, [.. values.Select(v => v.Type!.ValueType!)], optional, isArray);
             return;
         }
 
+#pragma warning disable CA2201
         throw new Exception($"Not supported. Mixed primitive and enum type in `{values[0].Node.Position}`.");
+#pragma warning restore CA2201
     }
 
     private void InitType(ParsedNode parsed)
@@ -450,7 +454,9 @@ internal class AstBuilder
 
         if (type.Values.Any(v => v.IsArray != type.Values[0].IsArray))
         {
+#pragma warning disable CA2201
             throw new Exception($"Not supported. Mixed unit and array type in `{type.Values[0].Node.Position}`.");
+#pragma warning restore CA2201
         }
 
         var text = type.Values.FirstOrDefault(v => v.Node is Text);
@@ -470,7 +476,7 @@ internal class AstBuilder
         }
 
         type.ValueType = new AstTypeReference(
-            values.Select(v => v.Node).OfType<Value>().ToArray(),
+            [.. values.Select(v => v.Node).OfType<Value>()],
             values.Any(v => v.Optional),
             values[0].IsArray,
             type);
@@ -532,7 +538,9 @@ internal class AstBuilder
                     ? new AstTypeReference(typeof(int), optional, isArray)
                     : types.Contains(typeof(short))
                                     ? new AstTypeReference(typeof(short), optional, isArray)
+#pragma warning disable CA2201
                                     : throw new Exception($"Not supported. Data type in `{datum[0].Node.Position}`.");
+#pragma warning restore CA2201
             }
 
             // TODO: values is not number.

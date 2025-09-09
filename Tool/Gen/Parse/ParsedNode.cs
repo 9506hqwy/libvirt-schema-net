@@ -36,7 +36,7 @@ internal class ParsedNode
 
     internal ParsedStack? Stack { get; set; }
 
-    internal ParsedValue[] Values => this.valueList.Where(v => !v.IsNotAllowed).ToArray();
+    internal ParsedValue[] Values => [.. this.valueList.Where(v => !v.IsNotAllowed)];
 
     internal void AddChild(ParsedNode child, int branchCount, Guid branchId)
     {

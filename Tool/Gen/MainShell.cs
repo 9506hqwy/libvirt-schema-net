@@ -12,7 +12,9 @@ internal class MainShell
         {
             Work(args);
         }
+#pragma warning disable CA1031
         catch (Exception e)
+#pragma warning restore CA1031
         {
             Console.Error.WriteLine("{0}", e);
         }

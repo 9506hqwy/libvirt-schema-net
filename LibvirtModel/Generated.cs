@@ -5566,6 +5566,8 @@ namespace Libvirt.Model {
         
         private bool indexSpecified;
         
+        private string nodeset;
+        
         [System.Xml.Serialization.XmlAttributeAttribute("index")]
         public uint Index {
             get {
@@ -5583,6 +5585,16 @@ namespace Libvirt.Model {
             }
             set {
                 this.indexSpecified = value;
+            }
+        }
+        
+        [System.Xml.Serialization.XmlAttributeAttribute("nodeset")]
+        public string Nodeset {
+            get {
+                return this.nodeset;
+            }
+            set {
+                this.nodeset = value;
             }
         }
     }
@@ -24960,6 +24972,10 @@ namespace Libvirt.Model {
         
         private string logFile;
         
+        private string hostname;
+        
+        private string fqdn;
+        
         [System.Xml.Serialization.XmlAttributeAttribute("type")]
         public DomainInterfaceBackendType Type {
             get {
@@ -25007,6 +25023,26 @@ namespace Libvirt.Model {
             }
             set {
                 this.logFile = value;
+            }
+        }
+        
+        [System.Xml.Serialization.XmlAttributeAttribute("hostname")]
+        public string Hostname {
+            get {
+                return this.hostname;
+            }
+            set {
+                this.hostname = value;
+            }
+        }
+        
+        [System.Xml.Serialization.XmlAttributeAttribute("fqdn")]
+        public string Fqdn {
+            get {
+                return this.fqdn;
+            }
+            set {
+                this.fqdn = value;
             }
         }
     }

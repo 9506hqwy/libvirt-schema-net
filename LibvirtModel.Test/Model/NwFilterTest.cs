@@ -7,14 +7,14 @@ public class NwFilterTest : TestBase
     public void ActionType()
     {
         var values = Enum.GetValues(typeof(ActionType));
-        Assert.AreEqual(5, values.Length);
+        Assert.HasCount(5, values);
     }
 
     [TestMethod]
     public void Boolean()
     {
         var values = Enum.GetValues(typeof(Libvirt.Model.Boolean));
-        Assert.AreEqual(6, values.Length);
+        Assert.HasCount(6, values);
     }
 
     [TestMethod]

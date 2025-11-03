@@ -62,7 +62,7 @@ public class DomainCapsTest : TestBase
     public void DomainCapabilitiesCpuCustomModelUsable()
     {
         var values = Enum.GetValues(typeof(DomainCapabilitiesCpuCustomModelUsable));
-        Assert.AreEqual(3, values.Length);
+        Assert.HasCount(3, values);
     }
 
     [TestMethod]
@@ -91,7 +91,7 @@ public class DomainCapsTest : TestBase
     public void DomainCapabilitiesCpuModeName()
     {
         var values = Enum.GetValues(typeof(DomainCapabilitiesCpuModeName));
-        Assert.AreEqual(4, values.Length);
+        Assert.HasCount(4, values);
     }
 
     [TestMethod]
@@ -340,7 +340,7 @@ public class DomainCapsTest : TestBase
     public void DomainCapabilitiesSgxSectionsSectionUnit()
     {
         var values = Enum.GetValues(typeof(DomainCapabilitiesSgxSectionsSectionUnit));
-        Assert.AreEqual(1, values.Length);
+        Assert.HasCount(1, values);
     }
 
     [TestMethod]
@@ -358,7 +358,7 @@ public class DomainCapsTest : TestBase
     public void DomainCapabilitiesSgxSectionSizeUnit()
     {
         var values = Enum.GetValues(typeof(DomainCapabilitiesSgxSectionSizeUnit));
-        Assert.AreEqual(1, values.Length);
+        Assert.HasCount(1, values);
     }
 
     [TestMethod]

@@ -73,7 +73,7 @@ public class NodeDevTest : TestBase
     public void DeviceCapabilityCapabilityFieldsAccess()
     {
         var values = Enum.GetValues(typeof(DeviceCapabilityCapabilityFieldsAccess));
-        Assert.AreEqual(2, values.Length);
+        Assert.HasCount(2, values);
     }
 
     [TestMethod]
@@ -91,14 +91,14 @@ public class NodeDevTest : TestBase
     public void DeviceCapabilityCapabilityTypeAttr()
     {
         var values = Enum.GetValues(typeof(DeviceCapabilityCapabilityTypeAttr));
-        Assert.AreEqual(17, values.Length);
+        Assert.HasCount(17, values);
     }
 
     [TestMethod]
     public void DeviceCapstorageremoveableMediaAvailable()
     {
         var values = Enum.GetValues(typeof(DeviceCapstorageremoveableMediaAvailable));
-        Assert.AreEqual(2, values.Length);
+        Assert.HasCount(2, values);
     }
 
     [TestMethod]
@@ -229,7 +229,7 @@ public class NodeDevTest : TestBase
     public void DeviceCapabilityPciExpressLinkValidity()
     {
         var values = Enum.GetValues(typeof(DeviceCapabilityPciExpressLinkValidity));
-        Assert.AreEqual(2, values.Length);
+        Assert.HasCount(2, values);
     }
 
     [TestMethod]
@@ -258,7 +258,7 @@ public class NodeDevTest : TestBase
     public void DeviceCapabilityTypeAttr()
     {
         var values = Enum.GetValues(typeof(DeviceCapabilityTypeAttr));
-        Assert.AreEqual(19, values.Length);
+        Assert.HasCount(19, values);
     }
 
     [TestMethod]
@@ -298,7 +298,7 @@ public class NodeDevTest : TestBase
     public void DeviceDevnodeType()
     {
         var values = Enum.GetValues(typeof(DeviceDevnodeType));
-        Assert.AreEqual(2, values.Length);
+        Assert.HasCount(2, values);
     }
 
     [TestMethod]

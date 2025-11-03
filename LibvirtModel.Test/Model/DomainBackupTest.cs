@@ -40,14 +40,14 @@ public class DomainBackupTest : TestBase
     public void DomainbackupDisksDiskBackup()
     {
         var values = Enum.GetValues(typeof(DomainbackupDisksDiskBackup));
-        Assert.AreEqual(2, values.Length);
+        Assert.HasCount(2, values);
     }
 
     [TestMethod]
     public void DomainbackupDisksDiskBackupmode()
     {
         var values = Enum.GetValues(typeof(DomainbackupDisksDiskBackupmode));
-        Assert.AreEqual(2, values.Length);
+        Assert.HasCount(2, values);
     }
 
     [TestMethod]
@@ -65,7 +65,7 @@ public class DomainBackupTest : TestBase
     public void DomainbackupDisksDiskDriverType()
     {
         var values = Enum.GetValues(typeof(DomainbackupDisksDiskDriverType));
-        Assert.AreEqual(17, values.Length);
+        Assert.HasCount(17, values);
     }
 
     [TestMethod]
@@ -116,14 +116,14 @@ public class DomainBackupTest : TestBase
     public void DomainbackupBackupEncryptionEngine()
     {
         var values = Enum.GetValues(typeof(DomainbackupBackupEncryptionEngine));
-        Assert.AreEqual(1, values.Length);
+        Assert.HasCount(1, values);
     }
 
     [TestMethod]
     public void DomainbackupBackupEncryptionFormat()
     {
         var values = Enum.GetValues(typeof(DomainbackupBackupEncryptionFormat));
-        Assert.AreEqual(1, values.Length);
+        Assert.HasCount(1, values);
     }
 
     [TestMethod]
@@ -141,14 +141,14 @@ public class DomainBackupTest : TestBase
     public void DomainbackupDisksDiskType()
     {
         var values = Enum.GetValues(typeof(DomainbackupDisksDiskType));
-        Assert.AreEqual(2, values.Length);
+        Assert.HasCount(2, values);
     }
 
     [TestMethod]
     public void DomainbackupMode()
     {
         var values = Enum.GetValues(typeof(DomainbackupMode));
-        Assert.AreEqual(2, values.Length);
+        Assert.HasCount(2, values);
     }
 
     [TestMethod]
@@ -166,6 +166,6 @@ public class DomainBackupTest : TestBase
     public void DomainbackupServerTransport()
     {
         var values = Enum.GetValues(typeof(DomainbackupServerTransport));
-        Assert.AreEqual(3, values.Length);
+        Assert.HasCount(3, values);
     }
 }

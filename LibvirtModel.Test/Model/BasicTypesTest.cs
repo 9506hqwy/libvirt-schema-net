@@ -7,7 +7,7 @@ public class BasicTypesTest : TestBase
     public void Archnames()
     {
         var values = Enum.GetValues(typeof(Archnames));
-        Assert.AreEqual(35, values.Length);
+        Assert.HasCount(35, values);
     }
 
     [TestMethod]
@@ -25,7 +25,7 @@ public class BasicTypesTest : TestBase
     public void HostdevDriverName()
     {
         var values = Enum.GetValues(typeof(HostdevDriverName));
-        Assert.AreEqual(3, values.Length);
+        Assert.HasCount(3, values);
     }
 
     [TestMethod]
@@ -54,7 +54,7 @@ public class BasicTypesTest : TestBase
     public void LinkState()
     {
         var values = Enum.GetValues(typeof(LinkState));
-        Assert.AreEqual(7, values.Length);
+        Assert.HasCount(7, values);
     }
 
     [TestMethod]

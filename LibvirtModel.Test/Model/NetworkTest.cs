@@ -29,7 +29,7 @@ public class NetworkTest : TestBase
     public void MacTableManager()
     {
         var values = Enum.GetValues(typeof(MacTableManager));
-        Assert.AreEqual(2, values.Length);
+        Assert.HasCount(2, values);
     }
 
     [TestMethod]
@@ -146,7 +146,7 @@ public class NetworkTest : TestBase
     public void NetworkForwardAddressType()
     {
         var values = Enum.GetValues(typeof(NetworkForwardAddressType));
-        Assert.AreEqual(1, values.Length);
+        Assert.HasCount(1, values);
     }
 
     [TestMethod]
@@ -164,7 +164,7 @@ public class NetworkTest : TestBase
     public void NetworkForwardMode()
     {
         var values = Enum.GetValues(typeof(NetworkForwardMode));
-        Assert.AreEqual(8, values.Length);
+        Assert.HasCount(8, values);
     }
 
     [TestMethod]
@@ -336,7 +336,7 @@ public class NetworkTest : TestBase
     public void NetworkPortgroupVirtualportType()
     {
         var values = Enum.GetValues(typeof(NetworkPortgroupVirtualportType));
-        Assert.AreEqual(4, values.Length);
+        Assert.HasCount(4, values);
     }
 
     [TestMethod]
@@ -365,7 +365,7 @@ public class NetworkTest : TestBase
     public void NetworkVirtualportType()
     {
         var values = Enum.GetValues(typeof(NetworkVirtualportType));
-        Assert.AreEqual(4, values.Length);
+        Assert.HasCount(4, values);
     }
 
     [TestMethod]

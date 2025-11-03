@@ -64,7 +64,7 @@ public class CapabilityTest : TestBase
     public void CapabilitiesCacheType()
     {
         var values = Enum.GetValues(typeof(CapabilitiesCacheType));
-        Assert.AreEqual(3, values.Length);
+        Assert.HasCount(3, values);
     }
 
     [TestMethod]
@@ -414,7 +414,7 @@ public class CapabilityTest : TestBase
     public void CapabilitiesMigrationUriTransportsUriTransport()
     {
         var values = Enum.GetValues(typeof(CapabilitiesMigrationUriTransportsUriTransport));
-        Assert.AreEqual(4, values.Length);
+        Assert.HasCount(4, values);
     }
 
     [TestMethod]

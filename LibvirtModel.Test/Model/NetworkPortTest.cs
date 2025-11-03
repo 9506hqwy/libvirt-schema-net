@@ -62,14 +62,14 @@ public class NetworkPortTest : TestBase
     public void NetworkportPlugMode()
     {
         var values = Enum.GetValues(typeof(NetworkportPlugMode));
-        Assert.AreEqual(4, values.Length);
+        Assert.HasCount(4, values);
     }
 
     [TestMethod]
     public void NetworkportPlugType()
     {
         var values = Enum.GetValues(typeof(NetworkportPlugType));
-        Assert.AreEqual(4, values.Length);
+        Assert.HasCount(4, values);
     }
 
     [TestMethod]

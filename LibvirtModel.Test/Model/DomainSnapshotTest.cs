@@ -18,7 +18,7 @@ public class DomainSnapshotTest : TestBase
     public void DomainsnapshotActive()
     {
         var values = Enum.GetValues(typeof(DomainsnapshotActive));
-        Assert.AreEqual(2, values.Length);
+        Assert.HasCount(2, values);
     }
 
     [TestMethod]
@@ -80,14 +80,14 @@ public class DomainSnapshotTest : TestBase
     public void StorageFormatBacking()
     {
         var values = Enum.GetValues(typeof(StorageFormatBacking));
-        Assert.AreEqual(5, values.Length);
+        Assert.HasCount(5, values);
     }
 
     [TestMethod]
     public void DomainsnapshotDisksnapshotSnapshot()
     {
         var values = Enum.GetValues(typeof(DomainsnapshotDisksnapshotSnapshot));
-        Assert.AreEqual(4, values.Length);
+        Assert.HasCount(4, values);
     }
 
     [TestMethod]
@@ -127,14 +127,14 @@ public class DomainSnapshotTest : TestBase
     public void DomainsnapshotDisksnapshotSourceProtocol()
     {
         var values = Enum.GetValues(typeof(DomainsnapshotDisksnapshotSourceProtocol));
-        Assert.AreEqual(13, values.Length);
+        Assert.HasCount(13, values);
     }
 
     [TestMethod]
     public void DomainsnapshotDisksnapshotType()
     {
         var values = Enum.GetValues(typeof(DomainsnapshotDisksnapshotType));
-        Assert.AreEqual(3, values.Length);
+        Assert.HasCount(3, values);
     }
 
     [TestMethod]
@@ -163,7 +163,7 @@ public class DomainSnapshotTest : TestBase
     public void DomainsnapshotMemorySnapshot()
     {
         var values = Enum.GetValues(typeof(DomainsnapshotMemorySnapshot));
-        Assert.AreEqual(3, values.Length);
+        Assert.HasCount(3, values);
     }
 
     [TestMethod]
@@ -203,6 +203,6 @@ public class DomainSnapshotTest : TestBase
     public void State()
     {
         var values = Enum.GetValues(typeof(State));
-        Assert.AreEqual(7, values.Length);
+        Assert.HasCount(7, values);
     }
 }

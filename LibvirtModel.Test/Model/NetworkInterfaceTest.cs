@@ -40,7 +40,7 @@ public class NetworkInterfaceTest : TestBase
     public void BondInterfaceProtocolFamily()
     {
         var values = Enum.GetValues(typeof(BondInterfaceProtocolFamily));
-        Assert.AreEqual(2, values.Length);
+        Assert.HasCount(2, values);
     }
 
     [TestMethod]
@@ -91,7 +91,7 @@ public class NetworkInterfaceTest : TestBase
     public void BondInterfaceBondElementArpmonValidate()
     {
         var values = Enum.GetValues(typeof(BondInterfaceBondElementArpmonValidate));
-        Assert.AreEqual(4, values.Length);
+        Assert.HasCount(4, values);
     }
 
     [TestMethod]
@@ -109,21 +109,21 @@ public class NetworkInterfaceTest : TestBase
     public void BondInterfaceBondElementMiimonCarrier()
     {
         var values = Enum.GetValues(typeof(BondInterfaceBondElementMiimonCarrier));
-        Assert.AreEqual(2, values.Length);
+        Assert.HasCount(2, values);
     }
 
     [TestMethod]
     public void BondInterfaceBondElementMode()
     {
         var values = Enum.GetValues(typeof(BondInterfaceBondElementMode));
-        Assert.AreEqual(7, values.Length);
+        Assert.HasCount(7, values);
     }
 
     [TestMethod]
     public void BondInterfaceCommon()
     {
         var values = Enum.GetValues(typeof(BondInterfaceCommon));
-        Assert.AreEqual(1, values.Length);
+        Assert.HasCount(1, values);
     }
 
     [TestMethod]
@@ -163,7 +163,7 @@ public class NetworkInterfaceTest : TestBase
     public void BridgeInterfaceBridgeInterfaceType()
     {
         var values = Enum.GetValues(typeof(BridgeInterfaceBridgeInterfaceType));
-        Assert.AreEqual(3, values.Length);
+        Assert.HasCount(3, values);
     }
 
     [TestMethod]
@@ -203,7 +203,7 @@ public class NetworkInterfaceTest : TestBase
     public void BridgeInterfaceType()
     {
         var values = Enum.GetValues(typeof(BridgeInterfaceType));
-        Assert.AreEqual(1, values.Length);
+        Assert.HasCount(1, values);
     }
 
     [TestMethod]
@@ -309,14 +309,14 @@ public class NetworkInterfaceTest : TestBase
     public void EthernetInterfaceStartMode()
     {
         var values = Enum.GetValues(typeof(EthernetInterfaceStartMode));
-        Assert.AreEqual(3, values.Length);
+        Assert.HasCount(3, values);
     }
 
     [TestMethod]
     public void EthernetInterfaceType()
     {
         var values = Enum.GetValues(typeof(EthernetInterfaceType));
-        Assert.AreEqual(1, values.Length);
+        Assert.HasCount(1, values);
     }
 
     [TestMethod]

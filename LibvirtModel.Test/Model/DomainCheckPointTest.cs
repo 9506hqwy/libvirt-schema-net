@@ -40,7 +40,7 @@ public class DomainCheckPointTest : TestBase
     public void DomaincheckpointDiskcheckpointCheckpoint()
     {
         var values = Enum.GetValues(typeof(DomaincheckpointDiskcheckpointCheckpoint));
-        Assert.AreEqual(2, values.Length);
+        Assert.HasCount(2, values);
     }
 
     [TestMethod]

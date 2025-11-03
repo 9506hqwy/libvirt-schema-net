@@ -40,14 +40,14 @@ public class StorageCommonTest : TestBase
     public void StorageEncryptionEngine()
     {
         var values = Enum.GetValues(typeof(StorageEncryptionEngine));
-        Assert.AreEqual(2, values.Length);
+        Assert.HasCount(2, values);
     }
 
     [TestMethod]
     public void StorageEncryptionFormat()
     {
         var values = Enum.GetValues(typeof(StorageEncryptionFormat));
-        Assert.AreEqual(5, values.Length);
+        Assert.HasCount(5, values);
     }
 
     [TestMethod]
@@ -164,14 +164,14 @@ public class StorageCommonTest : TestBase
     public void StorageUnixSocketSourceMode()
     {
         var values = Enum.GetValues(typeof(StorageUnixSocketSourceMode));
-        Assert.AreEqual(2, values.Length);
+        Assert.HasCount(2, values);
     }
 
     [TestMethod]
     public void StorageUnixSocketSourceType()
     {
         var values = Enum.GetValues(typeof(StorageUnixSocketSourceType));
-        Assert.AreEqual(1, values.Length);
+        Assert.HasCount(1, values);
     }
 
     [TestMethod]
@@ -189,6 +189,6 @@ public class StorageCommonTest : TestBase
     public void StorageSecretType()
     {
         var values = Enum.GetValues(typeof(StorageSecretType));
-        Assert.AreEqual(1, values.Length);
+        Assert.HasCount(1, values);
     }
 }

@@ -161,7 +161,7 @@ public class StoragePoolTest : TestBase
     public void PoolSourceFormatType()
     {
         var values = Enum.GetValues(typeof(PoolSourceFormatType));
-        Assert.AreEqual(26, values.Length);
+        Assert.HasCount(26, values);
     }
 
     [TestMethod]
@@ -256,7 +256,7 @@ public class StoragePoolTest : TestBase
     public void PoolType()
     {
         var values = Enum.GetValues(typeof(PoolType));
-        Assert.AreEqual(14, values.Length);
+        Assert.HasCount(14, values);
     }
 
     [TestMethod]

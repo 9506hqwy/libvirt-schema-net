@@ -84,7 +84,7 @@ public class NetworkCommonTest : TestBase
     public void NetworkportVirtualportType()
     {
         var values = Enum.GetValues(typeof(NetworkportVirtualportType));
-        Assert.AreEqual(4, values.Length);
+        Assert.HasCount(4, values);
     }
 
     [TestMethod]
@@ -124,13 +124,13 @@ public class NetworkCommonTest : TestBase
     public void NetworkVlanTagNativeMode()
     {
         var values = Enum.GetValues(typeof(NetworkVlanTagNativeMode));
-        Assert.AreEqual(2, values.Length);
+        Assert.HasCount(2, values);
     }
 
     [TestMethod]
     public void NetworkVlanTrunk()
     {
         var values = Enum.GetValues(typeof(NetworkVlanTrunk));
-        Assert.AreEqual(1, values.Length);
+        Assert.HasCount(1, values);
     }
 }

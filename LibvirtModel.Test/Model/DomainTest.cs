@@ -18,7 +18,7 @@ public class DomainTest : TestBase
     public void DomainAiaValue()
     {
         var values = Enum.GetValues(typeof(DomainAiaValue));
-        Assert.AreEqual(3, values.Length);
+        Assert.HasCount(3, values);
     }
 
     [TestMethod]
@@ -47,7 +47,7 @@ public class DomainTest : TestBase
     public void CrashOptions()
     {
         var values = Enum.GetValues(typeof(CrashOptions));
-        Assert.AreEqual(6, values.Length);
+        Assert.HasCount(6, values);
     }
 
     [TestMethod]
@@ -98,7 +98,7 @@ public class DomainTest : TestBase
     public void DomainAddressType()
     {
         var values = Enum.GetValues(typeof(DomainAddressType));
-        Assert.AreEqual(11, values.Length);
+        Assert.HasCount(11, values);
     }
 
     [TestMethod]
@@ -116,7 +116,7 @@ public class DomainTest : TestBase
     public void DomainAudioDriver()
     {
         var values = Enum.GetValues(typeof(DomainAudioDriver));
-        Assert.AreEqual(4, values.Length);
+        Assert.HasCount(4, values);
     }
 
     [TestMethod]
@@ -145,7 +145,7 @@ public class DomainTest : TestBase
     public void DomainAudioInputSettingsFormat()
     {
         var values = Enum.GetValues(typeof(DomainAudioInputSettingsFormat));
-        Assert.AreEqual(7, values.Length);
+        Assert.HasCount(7, values);
     }
 
     [TestMethod]
@@ -163,7 +163,7 @@ public class DomainTest : TestBase
     public void DomainAudioType()
     {
         var values = Enum.GetValues(typeof(DomainAudioType));
-        Assert.AreEqual(11, values.Length);
+        Assert.HasCount(11, values);
     }
 
     [TestMethod]
@@ -423,7 +423,7 @@ public class DomainTest : TestBase
     public void DomainCapabilitiespolicy()
     {
         var values = Enum.GetValues(typeof(DomainCapabilitiespolicy));
-        Assert.AreEqual(3, values.Length);
+        Assert.HasCount(3, values);
     }
 
     [TestMethod]
@@ -628,7 +628,7 @@ public class DomainTest : TestBase
     public void DomainCfpcValue()
     {
         var values = Enum.GetValues(typeof(DomainCfpcValue));
-        Assert.AreEqual(3, values.Length);
+        Assert.HasCount(3, values);
     }
 
     [TestMethod]
@@ -657,7 +657,7 @@ public class DomainTest : TestBase
     public void DomainChannelTargetType()
     {
         var values = Enum.GetValues(typeof(DomainChannelTargetType));
-        Assert.AreEqual(3, values.Length);
+        Assert.HasCount(3, values);
     }
 
     [TestMethod]
@@ -686,14 +686,14 @@ public class DomainTest : TestBase
     public void DomainClockBasis()
     {
         var values = Enum.GetValues(typeof(DomainClockBasis));
-        Assert.AreEqual(2, values.Length);
+        Assert.HasCount(2, values);
     }
 
     [TestMethod]
     public void DomainClockOffset()
     {
         var values = Enum.GetValues(typeof(DomainClockOffset));
-        Assert.AreEqual(5, values.Length);
+        Assert.HasCount(5, values);
     }
 
     [TestMethod]
@@ -744,7 +744,7 @@ public class DomainTest : TestBase
     public void DomainCodecType()
     {
         var values = Enum.GetValues(typeof(DomainCodecType));
-        Assert.AreEqual(3, values.Length);
+        Assert.HasCount(3, values);
     }
 
     [TestMethod]
@@ -784,14 +784,14 @@ public class DomainTest : TestBase
     public void DomainControllerModelAttr()
     {
         var values = Enum.GetValues(typeof(DomainControllerModelAttr));
-        Assert.AreEqual(41, values.Length);
+        Assert.HasCount(41, values);
     }
 
     [TestMethod]
     public void DomainControllerModelName()
     {
         var values = Enum.GetValues(typeof(DomainControllerModelName));
-        Assert.AreEqual(10, values.Length);
+        Assert.HasCount(10, values);
     }
 
     [TestMethod]
@@ -820,7 +820,7 @@ public class DomainTest : TestBase
     public void DomainControllerType()
     {
         var values = Enum.GetValues(typeof(DomainControllerType));
-        Assert.AreEqual(11, values.Length);
+        Assert.HasCount(11, values);
     }
 
     [TestMethod]
@@ -871,7 +871,7 @@ public class DomainTest : TestBase
     public void DomainCputuneCachetuneCacheType()
     {
         var values = Enum.GetValues(typeof(DomainCputuneCachetuneCacheType));
-        Assert.AreEqual(3, values.Length);
+        Assert.HasCount(3, values);
     }
 
     [TestMethod]
@@ -911,7 +911,7 @@ public class DomainTest : TestBase
     public void DomainCputuneEmulatorschedScheduler()
     {
         var values = Enum.GetValues(typeof(DomainCputuneEmulatorschedScheduler));
-        Assert.AreEqual(4, values.Length);
+        Assert.HasCount(4, values);
     }
 
     [TestMethod]
@@ -940,7 +940,7 @@ public class DomainTest : TestBase
     public void DomainCputuneIothreadschedScheduler()
     {
         var values = Enum.GetValues(typeof(DomainCputuneIothreadschedScheduler));
-        Assert.AreEqual(4, values.Length);
+        Assert.HasCount(4, values);
     }
 
     [TestMethod]
@@ -1002,7 +1002,7 @@ public class DomainTest : TestBase
     public void DomainCputuneVcpuschedScheduler()
     {
         var values = Enum.GetValues(typeof(DomainCputuneVcpuschedScheduler));
-        Assert.AreEqual(4, values.Length);
+        Assert.HasCount(4, values);
     }
 
     [TestMethod]
@@ -1031,7 +1031,7 @@ public class DomainTest : TestBase
     public void DomainCryptoBackendModel()
     {
         var values = Enum.GetValues(typeof(DomainCryptoBackendModel));
-        Assert.AreEqual(2, values.Length);
+        Assert.HasCount(2, values);
     }
 
     [TestMethod]
@@ -1225,7 +1225,7 @@ public class DomainTest : TestBase
     public void DomainDevicesRngRngBackendModel()
     {
         var values = Enum.GetValues(typeof(DomainDevicesRngRngBackendModel));
-        Assert.AreEqual(3, values.Length);
+        Assert.HasCount(3, values);
     }
 
     [TestMethod]
@@ -1254,28 +1254,28 @@ public class DomainTest : TestBase
     public void DomainDevSeclabelLabelskip()
     {
         var values = Enum.GetValues(typeof(DomainDevSeclabelLabelskip));
-        Assert.AreEqual(1, values.Length);
+        Assert.HasCount(1, values);
     }
 
     [TestMethod]
     public void DomainDetectZeroes()
     {
         var values = Enum.GetValues(typeof(DomainDetectZeroes));
-        Assert.AreEqual(3, values.Length);
+        Assert.HasCount(3, values);
     }
 
     [TestMethod]
     public void DomainDiscard()
     {
         var values = Enum.GetValues(typeof(DomainDiscard));
-        Assert.AreEqual(2, values.Length);
+        Assert.HasCount(2, values);
     }
 
     [TestMethod]
     public void DomainDevSeclabelRelabel()
     {
         var values = Enum.GetValues(typeof(DomainDevSeclabelRelabel));
-        Assert.AreEqual(2, values.Length);
+        Assert.HasCount(2, values);
     }
 
     [TestMethod]
@@ -1315,7 +1315,7 @@ public class DomainTest : TestBase
     public void DomainDiskAuthSecretType()
     {
         var values = Enum.GetValues(typeof(DomainDiskAuthSecretType));
-        Assert.AreEqual(2, values.Length);
+        Assert.HasCount(2, values);
     }
 
     [TestMethod]
@@ -1366,7 +1366,7 @@ public class DomainTest : TestBase
     public void DomainDiskBackingStoreType()
     {
         var values = Enum.GetValues(typeof(DomainDiskBackingStoreType));
-        Assert.AreEqual(8, values.Length);
+        Assert.HasCount(8, values);
     }
 
     [TestMethod]
@@ -1384,7 +1384,7 @@ public class DomainTest : TestBase
     public void DomainDiskDevice()
     {
         var values = Enum.GetValues(typeof(DomainDiskDevice));
-        Assert.AreEqual(4, values.Length);
+        Assert.HasCount(4, values);
     }
 
     [TestMethod]
@@ -1413,7 +1413,7 @@ public class DomainTest : TestBase
     public void DomainDiskDriverType()
     {
         var values = Enum.GetValues(typeof(DomainDiskDriverType));
-        Assert.AreEqual(18, values.Length);
+        Assert.HasCount(18, values);
     }
 
     [TestMethod]
@@ -1497,14 +1497,14 @@ public class DomainTest : TestBase
     public void DomainDiskMirrorJob()
     {
         var values = Enum.GetValues(typeof(DomainDiskMirrorJob));
-        Assert.AreEqual(2, values.Length);
+        Assert.HasCount(2, values);
     }
 
     [TestMethod]
     public void DomainDiskMirrorReady()
     {
         var values = Enum.GetValues(typeof(DomainDiskMirrorReady));
-        Assert.AreEqual(3, values.Length);
+        Assert.HasCount(3, values);
     }
 
     [TestMethod]
@@ -1533,7 +1533,7 @@ public class DomainTest : TestBase
     public void DomainDiskModel()
     {
         var values = Enum.GetValues(typeof(DomainDiskModel));
-        Assert.AreEqual(5, values.Length);
+        Assert.HasCount(5, values);
     }
 
     [TestMethod]
@@ -1595,7 +1595,7 @@ public class DomainTest : TestBase
     public void DomainDiskSourceNetworkHostTransport()
     {
         var values = Enum.GetValues(typeof(DomainDiskSourceNetworkHostTransport));
-        Assert.AreEqual(3, values.Length);
+        Assert.HasCount(3, values);
     }
 
     [TestMethod]
@@ -1690,7 +1690,7 @@ public class DomainTest : TestBase
     public void DomainDiskSourceType()
     {
         var values = Enum.GetValues(typeof(DomainDiskSourceType));
-        Assert.AreEqual(2, values.Length);
+        Assert.HasCount(2, values);
     }
 
     [TestMethod]
@@ -1708,14 +1708,14 @@ public class DomainTest : TestBase
     public void DomainDiskTargetBus()
     {
         var values = Enum.GetValues(typeof(DomainDiskTargetBus));
-        Assert.AreEqual(10, values.Length);
+        Assert.HasCount(10, values);
     }
 
     [TestMethod]
     public void DomainDiskTargetTray()
     {
         var values = Enum.GetValues(typeof(DomainDiskTargetTray));
-        Assert.AreEqual(2, values.Length);
+        Assert.HasCount(2, values);
     }
 
     [TestMethod]
@@ -1733,35 +1733,35 @@ public class DomainTest : TestBase
     public void DomainDiskType()
     {
         var values = Enum.GetValues(typeof(DomainDiskType));
-        Assert.AreEqual(8, values.Length);
+        Assert.HasCount(8, values);
     }
 
     [TestMethod]
     public void DomainDriverCache()
     {
         var values = Enum.GetValues(typeof(DomainDriverCache));
-        Assert.AreEqual(6, values.Length);
+        Assert.HasCount(6, values);
     }
 
     [TestMethod]
     public void DomainDriverErrorPolicy()
     {
         var values = Enum.GetValues(typeof(DomainDriverErrorPolicy));
-        Assert.AreEqual(4, values.Length);
+        Assert.HasCount(4, values);
     }
 
     [TestMethod]
     public void DomainDriverIo()
     {
         var values = Enum.GetValues(typeof(DomainDriverIo));
-        Assert.AreEqual(3, values.Length);
+        Assert.HasCount(3, values);
     }
 
     [TestMethod]
     public void DomainDriverRerrorPolicy()
     {
         var values = Enum.GetValues(typeof(DomainDriverRerrorPolicy));
-        Assert.AreEqual(3, values.Length);
+        Assert.HasCount(3, values);
     }
 
     [TestMethod]
@@ -1845,7 +1845,7 @@ public class DomainTest : TestBase
     public void DomainFeaturesGicVersion()
     {
         var values = Enum.GetValues(typeof(DomainFeaturesGicVersion));
-        Assert.AreEqual(3, values.Length);
+        Assert.HasCount(3, values);
     }
 
     [TestMethod]
@@ -2028,21 +2028,21 @@ public class DomainTest : TestBase
     public void DomainFilesystemAccessmode()
     {
         var values = Enum.GetValues(typeof(DomainFilesystemAccessmode));
-        Assert.AreEqual(3, values.Length);
+        Assert.HasCount(3, values);
     }
 
     [TestMethod]
     public void DomainFilesystemModel()
     {
         var values = Enum.GetValues(typeof(DomainFilesystemModel));
-        Assert.AreEqual(3, values.Length);
+        Assert.HasCount(3, values);
     }
 
     [TestMethod]
     public void DomainFilesystemMultidevs()
     {
         var values = Enum.GetValues(typeof(DomainFilesystemMultidevs));
-        Assert.AreEqual(4, values.Length);
+        Assert.HasCount(4, values);
     }
 
     [TestMethod]
@@ -2082,7 +2082,7 @@ public class DomainTest : TestBase
     public void DomainFilesystemType()
     {
         var values = Enum.GetValues(typeof(DomainFilesystemType));
-        Assert.AreEqual(6, values.Length);
+        Assert.HasCount(6, values);
     }
 
     [TestMethod]
@@ -2111,7 +2111,7 @@ public class DomainTest : TestBase
     public void DomainFsBinaryCacheMode()
     {
         var values = Enum.GetValues(typeof(DomainFsBinaryCacheMode));
-        Assert.AreEqual(2, values.Length);
+        Assert.HasCount(2, values);
     }
 
     [TestMethod]
@@ -2151,7 +2151,7 @@ public class DomainTest : TestBase
     public void DomainFsBinarySandboxMode()
     {
         var values = Enum.GetValues(typeof(DomainFsBinarySandboxMode));
-        Assert.AreEqual(2, values.Length);
+        Assert.HasCount(2, values);
     }
 
     [TestMethod]
@@ -2180,21 +2180,21 @@ public class DomainTest : TestBase
     public void DomainFsDriverFormat()
     {
         var values = Enum.GetValues(typeof(DomainFsDriverFormat));
-        Assert.AreEqual(17, values.Length);
+        Assert.HasCount(17, values);
     }
 
     [TestMethod]
     public void DomainFsDriverType()
     {
         var values = Enum.GetValues(typeof(DomainFsDriverType));
-        Assert.AreEqual(7, values.Length);
+        Assert.HasCount(7, values);
     }
 
     [TestMethod]
     public void DomainFsDriverWrpolicy()
     {
         var values = Enum.GetValues(typeof(DomainFsDriverWrpolicy));
-        Assert.AreEqual(1, values.Length);
+        Assert.HasCount(1, values);
     }
 
     [TestMethod]
@@ -2234,28 +2234,28 @@ public class DomainTest : TestBase
     public void DomainGraphicChannelMode()
     {
         var values = Enum.GetValues(typeof(DomainGraphicChannelMode));
-        Assert.AreEqual(3, values.Length);
+        Assert.HasCount(3, values);
     }
 
     [TestMethod]
     public void DomainGraphicChannelName()
     {
         var values = Enum.GetValues(typeof(DomainGraphicChannelName));
-        Assert.AreEqual(8, values.Length);
+        Assert.HasCount(8, values);
     }
 
     [TestMethod]
     public void DomainGraphicConnected()
     {
         var values = Enum.GetValues(typeof(DomainGraphicConnected));
-        Assert.AreEqual(3, values.Length);
+        Assert.HasCount(3, values);
     }
 
     [TestMethod]
     public void DomainGraphicDefaultMode()
     {
         var values = Enum.GetValues(typeof(DomainGraphicDefaultMode));
-        Assert.AreEqual(3, values.Length);
+        Assert.HasCount(3, values);
     }
 
     [TestMethod]
@@ -2295,7 +2295,7 @@ public class DomainTest : TestBase
     public void DomainGraphicImageCompression()
     {
         var values = Enum.GetValues(typeof(DomainGraphicImageCompression));
-        Assert.AreEqual(6, values.Length);
+        Assert.HasCount(6, values);
     }
 
     [TestMethod]
@@ -2313,7 +2313,7 @@ public class DomainTest : TestBase
     public void DomainGraphicJpegCompression()
     {
         var values = Enum.GetValues(typeof(DomainGraphicJpegCompression));
-        Assert.AreEqual(3, values.Length);
+        Assert.HasCount(3, values);
     }
 
     [TestMethod]
@@ -2331,7 +2331,7 @@ public class DomainTest : TestBase
     public void DomainGraphicListenType()
     {
         var values = Enum.GetValues(typeof(DomainGraphicListenType));
-        Assert.AreEqual(4, values.Length);
+        Assert.HasCount(4, values);
     }
 
     [TestMethod]
@@ -2349,7 +2349,7 @@ public class DomainTest : TestBase
     public void DomainGraphicSharePolicy()
     {
         var values = Enum.GetValues(typeof(DomainGraphicSharePolicy));
-        Assert.AreEqual(3, values.Length);
+        Assert.HasCount(3, values);
     }
 
     [TestMethod]
@@ -2367,14 +2367,14 @@ public class DomainTest : TestBase
     public void DomainGraphicStreamingMode()
     {
         var values = Enum.GetValues(typeof(DomainGraphicStreamingMode));
-        Assert.AreEqual(3, values.Length);
+        Assert.HasCount(3, values);
     }
 
     [TestMethod]
     public void DomainGraphicType()
     {
         var values = Enum.GetValues(typeof(DomainGraphicType));
-        Assert.AreEqual(7, values.Length);
+        Assert.HasCount(7, values);
     }
 
     [TestMethod]
@@ -2392,7 +2392,7 @@ public class DomainTest : TestBase
     public void DomainGraphicZlibCompression()
     {
         var values = Enum.GetValues(typeof(DomainGraphicZlibCompression));
-        Assert.AreEqual(3, values.Length);
+        Assert.HasCount(3, values);
     }
 
     [TestMethod]
@@ -2410,7 +2410,7 @@ public class DomainTest : TestBase
     public void DomainGeometryTrans()
     {
         var values = Enum.GetValues(typeof(DomainGeometryTrans));
-        Assert.AreEqual(3, values.Length);
+        Assert.HasCount(3, values);
     }
 
     [TestMethod]
@@ -2439,14 +2439,14 @@ public class DomainTest : TestBase
     public void DomainHostdevMode()
     {
         var values = Enum.GetValues(typeof(DomainHostdevMode));
-        Assert.AreEqual(2, values.Length);
+        Assert.HasCount(2, values);
     }
 
     [TestMethod]
     public void DomainHostdevModel()
     {
         var values = Enum.GetValues(typeof(DomainHostdevModel));
-        Assert.AreEqual(6, values.Length);
+        Assert.HasCount(6, values);
     }
 
     [TestMethod]
@@ -2508,7 +2508,7 @@ public class DomainTest : TestBase
     public void DomainHostdevSourceGuestReset()
     {
         var values = Enum.GetValues(typeof(DomainHostdevSourceGuestReset));
-        Assert.AreEqual(3, values.Length);
+        Assert.HasCount(3, values);
     }
 
     [TestMethod]
@@ -2526,7 +2526,7 @@ public class DomainTest : TestBase
     public void DomainHostdevSourceProtocol()
     {
         var values = Enum.GetValues(typeof(DomainHostdevSourceProtocol));
-        Assert.AreEqual(3, values.Length);
+        Assert.HasCount(3, values);
     }
 
     [TestMethod]
@@ -2544,7 +2544,7 @@ public class DomainTest : TestBase
     public void DomainHostdevType()
     {
         var values = Enum.GetValues(typeof(DomainHostdevType));
-        Assert.AreEqual(8, values.Length);
+        Assert.HasCount(8, values);
     }
 
     [TestMethod]
@@ -2562,7 +2562,7 @@ public class DomainTest : TestBase
     public void DomainHptResizing()
     {
         var values = Enum.GetValues(typeof(DomainHptResizing));
-        Assert.AreEqual(3, values.Length);
+        Assert.HasCount(3, values);
     }
 
     [TestMethod]
@@ -2591,14 +2591,14 @@ public class DomainTest : TestBase
     public void DomainHubType()
     {
         var values = Enum.GetValues(typeof(DomainHubType));
-        Assert.AreEqual(1, values.Length);
+        Assert.HasCount(1, values);
     }
 
     [TestMethod]
     public void DomainHvs()
     {
         var values = Enum.GetValues(typeof(DomainHvs));
-        Assert.AreEqual(15, values.Length);
+        Assert.HasCount(15, values);
     }
 
     [TestMethod]
@@ -2671,7 +2671,7 @@ public class DomainTest : TestBase
     public void DomainHypervMode()
     {
         var values = Enum.GetValues(typeof(DomainHypervMode));
-        Assert.AreEqual(2, values.Length);
+        Assert.HasCount(2, values);
     }
 
     [TestMethod]
@@ -2854,7 +2854,7 @@ public class DomainTest : TestBase
     public void DomainIbsValue()
     {
         var values = Enum.GetValues(typeof(DomainIbsValue));
-        Assert.AreEqual(5, values.Length);
+        Assert.HasCount(5, values);
     }
 
     [TestMethod]
@@ -2905,7 +2905,7 @@ public class DomainTest : TestBase
     public void DomainInputBus()
     {
         var values = Enum.GetValues(typeof(DomainInputBus));
-        Assert.AreEqual(4, values.Length);
+        Assert.HasCount(4, values);
     }
 
     [TestMethod]
@@ -2923,7 +2923,7 @@ public class DomainTest : TestBase
     public void DomainInputModel()
     {
         var values = Enum.GetValues(typeof(DomainInputModel));
-        Assert.AreEqual(3, values.Length);
+        Assert.HasCount(3, values);
     }
 
     [TestMethod]
@@ -2941,21 +2941,21 @@ public class DomainTest : TestBase
     public void DomainInputSourceGrab()
     {
         var values = Enum.GetValues(typeof(DomainInputSourceGrab));
-        Assert.AreEqual(1, values.Length);
+        Assert.HasCount(1, values);
     }
 
     [TestMethod]
     public void DomainInputSourceGrabToggle()
     {
         var values = Enum.GetValues(typeof(DomainInputSourceGrabToggle));
-        Assert.AreEqual(6, values.Length);
+        Assert.HasCount(6, values);
     }
 
     [TestMethod]
     public void DomainInputType()
     {
         var values = Enum.GetValues(typeof(DomainInputType));
-        Assert.AreEqual(5, values.Length);
+        Assert.HasCount(5, values);
     }
 
     [TestMethod]
@@ -2995,7 +2995,7 @@ public class DomainTest : TestBase
     public void DomainInterfaceBackendType()
     {
         var values = Enum.GetValues(typeof(DomainInterfaceBackendType));
-        Assert.AreEqual(2, values.Length);
+        Assert.HasCount(2, values);
     }
 
     [TestMethod]
@@ -3046,14 +3046,14 @@ public class DomainTest : TestBase
     public void DomainInterfaceDriverName()
     {
         var values = Enum.GetValues(typeof(DomainInterfaceDriverName));
-        Assert.AreEqual(5, values.Length);
+        Assert.HasCount(5, values);
     }
 
     [TestMethod]
     public void DomainInterfaceDriverTxmode()
     {
         var values = Enum.GetValues(typeof(DomainInterfaceDriverTxmode));
-        Assert.AreEqual(2, values.Length);
+        Assert.HasCount(2, values);
     }
 
     [TestMethod]
@@ -3093,7 +3093,7 @@ public class DomainTest : TestBase
     public void DomainInterfaceLinkState()
     {
         var values = Enum.GetValues(typeof(DomainInterfaceLinkState));
-        Assert.AreEqual(2, values.Length);
+        Assert.HasCount(2, values);
     }
 
     [TestMethod]
@@ -3111,7 +3111,7 @@ public class DomainTest : TestBase
     public void DomainInterfaceMacType()
     {
         var values = Enum.GetValues(typeof(DomainInterfaceMacType));
-        Assert.AreEqual(2, values.Length);
+        Assert.HasCount(2, values);
     }
 
     [TestMethod]
@@ -3140,7 +3140,7 @@ public class DomainTest : TestBase
     public void DomainInterfacePortForwardProto()
     {
         var values = Enum.GetValues(typeof(DomainInterfacePortForwardProto));
-        Assert.AreEqual(2, values.Length);
+        Assert.HasCount(2, values);
     }
 
     [TestMethod]
@@ -3180,7 +3180,7 @@ public class DomainTest : TestBase
     public void DomainInterfaceSourceAddressType()
     {
         var values = Enum.GetValues(typeof(DomainInterfaceSourceAddressType));
-        Assert.AreEqual(2, values.Length);
+        Assert.HasCount(2, values);
     }
 
     [TestMethod]
@@ -3231,7 +3231,7 @@ public class DomainTest : TestBase
     public void DomainInterfaceType()
     {
         var values = Enum.GetValues(typeof(DomainInterfaceType));
-        Assert.AreEqual(15, values.Length);
+        Assert.HasCount(15, values);
     }
 
     [TestMethod]
@@ -3249,7 +3249,7 @@ public class DomainTest : TestBase
     public void DomainInterfaceVirtualportType()
     {
         var values = Enum.GetValues(typeof(DomainInterfaceVirtualportType));
-        Assert.AreEqual(4, values.Length);
+        Assert.HasCount(4, values);
     }
 
     [TestMethod]
@@ -3278,7 +3278,7 @@ public class DomainTest : TestBase
     public void DomainIoapicDriver()
     {
         var values = Enum.GetValues(typeof(DomainIoapicDriver));
-        Assert.AreEqual(2, values.Length);
+        Assert.HasCount(2, values);
     }
 
     [TestMethod]
@@ -3307,7 +3307,7 @@ public class DomainTest : TestBase
     public void DomainIommuModel()
     {
         var values = Enum.GetValues(typeof(DomainIommuModel));
-        Assert.AreEqual(4, values.Length);
+        Assert.HasCount(4, values);
     }
 
     [TestMethod]
@@ -3391,7 +3391,7 @@ public class DomainTest : TestBase
     public void DomainKeywrapCipherName()
     {
         var values = Enum.GetValues(typeof(DomainKeywrapCipherName));
-        Assert.AreEqual(2, values.Length);
+        Assert.HasCount(2, values);
     }
 
     [TestMethod]
@@ -3486,7 +3486,7 @@ public class DomainTest : TestBase
     public void DomainLaunchSecurityType()
     {
         var values = Enum.GetValues(typeof(DomainLaunchSecurityType));
-        Assert.AreEqual(4, values.Length);
+        Assert.HasCount(4, values);
     }
 
     [TestMethod]
@@ -3515,21 +3515,21 @@ public class DomainTest : TestBase
     public void DomainLxcsharensShareipcType()
     {
         var values = Enum.GetValues(typeof(DomainLxcsharensShareipcType));
-        Assert.AreEqual(2, values.Length);
+        Assert.HasCount(2, values);
     }
 
     [TestMethod]
     public void DomainLxcsharensSharenetType()
     {
         var values = Enum.GetValues(typeof(DomainLxcsharensSharenetType));
-        Assert.AreEqual(3, values.Length);
+        Assert.HasCount(3, values);
     }
 
     [TestMethod]
     public void DomainLxcsharensShareutsType()
     {
         var values = Enum.GetValues(typeof(DomainLxcsharensShareutsType));
-        Assert.AreEqual(2, values.Length);
+        Assert.HasCount(2, values);
     }
 
     [TestMethod]
@@ -3569,7 +3569,7 @@ public class DomainTest : TestBase
     public void DomainMemballoonModel()
     {
         var values = Enum.GetValues(typeof(DomainMemballoonModel));
-        Assert.AreEqual(5, values.Length);
+        Assert.HasCount(5, values);
     }
 
     [TestMethod]
@@ -3620,7 +3620,7 @@ public class DomainTest : TestBase
     public void DomainMemoryBackingAccessMode()
     {
         var values = Enum.GetValues(typeof(DomainMemoryBackingAccessMode));
-        Assert.AreEqual(2, values.Length);
+        Assert.HasCount(2, values);
     }
 
     [TestMethod]
@@ -3638,7 +3638,7 @@ public class DomainTest : TestBase
     public void DomainMemoryBackingAllocationMode()
     {
         var values = Enum.GetValues(typeof(DomainMemoryBackingAllocationMode));
-        Assert.AreEqual(2, values.Length);
+        Assert.HasCount(2, values);
     }
 
     [TestMethod]
@@ -3711,7 +3711,7 @@ public class DomainTest : TestBase
     public void DomainMemoryBackingSourceType()
     {
         var values = Enum.GetValues(typeof(DomainMemoryBackingSourceType));
-        Assert.AreEqual(3, values.Length);
+        Assert.HasCount(3, values);
     }
 
     [TestMethod]
@@ -3729,14 +3729,14 @@ public class DomainTest : TestBase
     public void DomainMemorydevAccess()
     {
         var values = Enum.GetValues(typeof(DomainMemorydevAccess));
-        Assert.AreEqual(2, values.Length);
+        Assert.HasCount(2, values);
     }
 
     [TestMethod]
     public void DomainMemorydevModel()
     {
         var values = Enum.GetValues(typeof(DomainMemorydevModel));
-        Assert.AreEqual(5, values.Length);
+        Assert.HasCount(5, values);
     }
 
     [TestMethod]
@@ -3864,7 +3864,7 @@ public class DomainTest : TestBase
     public void DomainMousemodeMode()
     {
         var values = Enum.GetValues(typeof(DomainMousemodeMode));
-        Assert.AreEqual(2, values.Length);
+        Assert.HasCount(2, values);
     }
 
     [TestMethod]
@@ -3882,7 +3882,7 @@ public class DomainTest : TestBase
     public void DomainMsrsUnknown()
     {
         var values = Enum.GetValues(typeof(DomainMsrsUnknown));
-        Assert.AreEqual(2, values.Length);
+        Assert.HasCount(2, values);
     }
 
     [TestMethod]
@@ -3911,7 +3911,7 @@ public class DomainTest : TestBase
     public void DomainNumatuneMemnodeMode()
     {
         var values = Enum.GetValues(typeof(DomainNumatuneMemnodeMode));
-        Assert.AreEqual(4, values.Length);
+        Assert.HasCount(4, values);
     }
 
     [TestMethod]
@@ -3929,14 +3929,14 @@ public class DomainTest : TestBase
     public void DomainNumatuneMemoryMode()
     {
         var values = Enum.GetValues(typeof(DomainNumatuneMemoryMode));
-        Assert.AreEqual(4, values.Length);
+        Assert.HasCount(4, values);
     }
 
     [TestMethod]
     public void DomainNumatuneMemoryPlacement()
     {
         var values = Enum.GetValues(typeof(DomainNumatuneMemoryPlacement));
-        Assert.AreEqual(2, values.Length);
+        Assert.HasCount(2, values);
     }
 
     [TestMethod]
@@ -3987,7 +3987,7 @@ public class DomainTest : TestBase
     public void DomainOsbootdevDev()
     {
         var values = Enum.GetValues(typeof(DomainOsbootdevDev));
-        Assert.AreEqual(4, values.Length);
+        Assert.HasCount(4, values);
     }
 
     [TestMethod]
@@ -4027,7 +4027,7 @@ public class DomainTest : TestBase
     public void DomainOsFirmwareAttr()
     {
         var values = Enum.GetValues(typeof(DomainOsFirmwareAttr));
-        Assert.AreEqual(2, values.Length);
+        Assert.HasCount(2, values);
     }
 
     [TestMethod]
@@ -4045,7 +4045,7 @@ public class DomainTest : TestBase
     public void DomainOsFirmwareFeatureName()
     {
         var values = Enum.GetValues(typeof(DomainOsFirmwareFeatureName));
-        Assert.AreEqual(2, values.Length);
+        Assert.HasCount(2, values);
     }
 
     [TestMethod]
@@ -4063,7 +4063,7 @@ public class DomainTest : TestBase
     public void DomainOsLoaderType()
     {
         var values = Enum.GetValues(typeof(DomainOsLoaderType));
-        Assert.AreEqual(2, values.Length);
+        Assert.HasCount(2, values);
     }
 
     [TestMethod]
@@ -4125,14 +4125,14 @@ public class DomainTest : TestBase
     public void DomainOsNvramSourceMode()
     {
         var values = Enum.GetValues(typeof(DomainOsNvramSourceMode));
-        Assert.AreEqual(2, values.Length);
+        Assert.HasCount(2, values);
     }
 
     [TestMethod]
     public void DomainOsNvramSourceProtocol()
     {
         var values = Enum.GetValues(typeof(DomainOsNvramSourceProtocol));
-        Assert.AreEqual(13, values.Length);
+        Assert.HasCount(13, values);
     }
 
     [TestMethod]
@@ -4161,14 +4161,14 @@ public class DomainTest : TestBase
     public void DomainOsNvramSourceSlicesSliceType()
     {
         var values = Enum.GetValues(typeof(DomainOsNvramSourceSlicesSliceType));
-        Assert.AreEqual(1, values.Length);
+        Assert.HasCount(1, values);
     }
 
     [TestMethod]
     public void DomainOsNvramType()
     {
         var values = Enum.GetValues(typeof(DomainOsNvramType));
-        Assert.AreEqual(8, values.Length);
+        Assert.HasCount(8, values);
     }
 
     [TestMethod]
@@ -4186,7 +4186,7 @@ public class DomainTest : TestBase
     public void DomainOsTypeArch()
     {
         var values = Enum.GetValues(typeof(DomainOsTypeArch));
-        Assert.AreEqual(35, values.Length);
+        Assert.HasCount(35, values);
     }
 
     [TestMethod]
@@ -4204,7 +4204,7 @@ public class DomainTest : TestBase
     public void DomainPanicModel()
     {
         var values = Enum.GetValues(typeof(DomainPanicModel));
-        Assert.AreEqual(5, values.Length);
+        Assert.HasCount(5, values);
     }
 
     [TestMethod]
@@ -4244,7 +4244,7 @@ public class DomainTest : TestBase
     public void DomainPerfEventName()
     {
         var values = Enum.GetValues(typeof(DomainPerfEventName));
-        Assert.AreEqual(22, values.Length);
+        Assert.HasCount(22, values);
     }
 
     [TestMethod]
@@ -4306,7 +4306,7 @@ public class DomainTest : TestBase
     public void DomainPstoreBackend()
     {
         var values = Enum.GetValues(typeof(DomainPstoreBackend));
-        Assert.AreEqual(1, values.Length);
+        Assert.HasCount(1, values);
     }
 
     [TestMethod]
@@ -4335,28 +4335,28 @@ public class DomainTest : TestBase
     public void DomainQemucdevSerialTgtModelName()
     {
         var values = Enum.GetValues(typeof(DomainQemucdevSerialTgtModelName));
-        Assert.AreEqual(9, values.Length);
+        Assert.HasCount(9, values);
     }
 
     [TestMethod]
     public void DomainQemucdevTgtDefType()
     {
         var values = Enum.GetValues(typeof(DomainQemucdevTgtDefType));
-        Assert.AreEqual(15, values.Length);
+        Assert.HasCount(15, values);
     }
 
     [TestMethod]
     public void DomainQemudeprecationBehavior()
     {
         var values = Enum.GetValues(typeof(DomainQemudeprecationBehavior));
-        Assert.AreEqual(4, values.Length);
+        Assert.HasCount(4, values);
     }
 
     [TestMethod]
     public void DomainQemuoverridepropertyType()
     {
         var values = Enum.GetValues(typeof(DomainQemuoverridepropertyType));
-        Assert.AreEqual(5, values.Length);
+        Assert.HasCount(5, values);
     }
 
     [TestMethod]
@@ -4374,7 +4374,7 @@ public class DomainTest : TestBase
     public void DomainRedirdevBus()
     {
         var values = Enum.GetValues(typeof(DomainRedirdevBus));
-        Assert.AreEqual(1, values.Length);
+        Assert.HasCount(1, values);
     }
 
     [TestMethod]
@@ -4425,7 +4425,7 @@ public class DomainTest : TestBase
     public void DomainRngModel()
     {
         var values = Enum.GetValues(typeof(DomainRngModel));
-        Assert.AreEqual(3, values.Length);
+        Assert.HasCount(3, values);
     }
 
     [TestMethod]
@@ -4465,7 +4465,7 @@ public class DomainTest : TestBase
     public void DomainSbbcValue()
     {
         var values = Enum.GetValues(typeof(DomainSbbcValue));
-        Assert.AreEqual(3, values.Length);
+        Assert.HasCount(3, values);
     }
 
     [TestMethod]
@@ -4483,7 +4483,7 @@ public class DomainTest : TestBase
     public void DomainSeclabelType()
     {
         var values = Enum.GetValues(typeof(DomainSeclabelType));
-        Assert.AreEqual(3, values.Length);
+        Assert.HasCount(3, values);
     }
 
     [TestMethod]
@@ -4523,7 +4523,7 @@ public class DomainTest : TestBase
     public void DomainSerialProtocolType()
     {
         var values = Enum.GetValues(typeof(DomainSerialProtocolType));
-        Assert.AreEqual(4, values.Length);
+        Assert.HasCount(4, values);
     }
 
     [TestMethod]
@@ -4541,7 +4541,7 @@ public class DomainTest : TestBase
     public void DomainSgIo()
     {
         var values = Enum.GetValues(typeof(DomainSgIo));
-        Assert.AreEqual(2, values.Length);
+        Assert.HasCount(2, values);
     }
 
     [TestMethod]
@@ -4581,14 +4581,14 @@ public class DomainTest : TestBase
     public void DomainShmemModelType()
     {
         var values = Enum.GetValues(typeof(DomainShmemModelType));
-        Assert.AreEqual(3, values.Length);
+        Assert.HasCount(3, values);
     }
 
     [TestMethod]
     public void DomainShmemRole()
     {
         var values = Enum.GetValues(typeof(DomainShmemRole));
-        Assert.AreEqual(2, values.Length);
+        Assert.HasCount(2, values);
     }
 
     [TestMethod]
@@ -4617,7 +4617,7 @@ public class DomainTest : TestBase
     public void DomainSmartcardMode()
     {
         var values = Enum.GetValues(typeof(DomainSmartcardMode));
-        Assert.AreEqual(3, values.Length);
+        Assert.HasCount(3, values);
     }
 
     [TestMethod]
@@ -4635,14 +4635,14 @@ public class DomainTest : TestBase
     public void DomainSmbiosMode()
     {
         var values = Enum.GetValues(typeof(DomainSmbiosMode));
-        Assert.AreEqual(3, values.Length);
+        Assert.HasCount(3, values);
     }
 
     [TestMethod]
     public void DomainSnapshot()
     {
         var values = Enum.GetValues(typeof(DomainSnapshot));
-        Assert.AreEqual(4, values.Length);
+        Assert.HasCount(4, values);
     }
 
     [TestMethod]
@@ -4682,14 +4682,14 @@ public class DomainTest : TestBase
     public void DomainSoundModel()
     {
         var values = Enum.GetValues(typeof(DomainSoundModel));
-        Assert.AreEqual(9, values.Length);
+        Assert.HasCount(9, values);
     }
 
     [TestMethod]
     public void DomainStartupPolicy()
     {
         var values = Enum.GetValues(typeof(DomainStartupPolicy));
-        Assert.AreEqual(3, values.Length);
+        Assert.HasCount(3, values);
     }
 
     [TestMethod]
@@ -4707,7 +4707,7 @@ public class DomainTest : TestBase
     public void DomainSysinfoType()
     {
         var values = Enum.GetValues(typeof(DomainSysinfoType));
-        Assert.AreEqual(2, values.Length);
+        Assert.HasCount(2, values);
     }
 
     [TestMethod]
@@ -4736,7 +4736,7 @@ public class DomainTest : TestBase
     public void DomainTeamingType()
     {
         var values = Enum.GetValues(typeof(DomainTeamingType));
-        Assert.AreEqual(2, values.Length);
+        Assert.HasCount(2, values);
     }
 
     [TestMethod]
@@ -4809,28 +4809,28 @@ public class DomainTest : TestBase
     public void DomainTimerTickpolicy()
     {
         var values = Enum.GetValues(typeof(DomainTimerTickpolicy));
-        Assert.AreEqual(4, values.Length);
+        Assert.HasCount(4, values);
     }
 
     [TestMethod]
     public void DomainTimerMode()
     {
         var values = Enum.GetValues(typeof(DomainTimerMode));
-        Assert.AreEqual(5, values.Length);
+        Assert.HasCount(5, values);
     }
 
     [TestMethod]
     public void DomainTimerName()
     {
         var values = Enum.GetValues(typeof(DomainTimerName));
-        Assert.AreEqual(8, values.Length);
+        Assert.HasCount(8, values);
     }
 
     [TestMethod]
     public void DomainTimerTrack()
     {
         var values = Enum.GetValues(typeof(DomainTimerTrack));
-        Assert.AreEqual(4, values.Length);
+        Assert.HasCount(4, values);
     }
 
     [TestMethod]
@@ -4958,35 +4958,35 @@ public class DomainTest : TestBase
     public void DomainTpmBackendSourceMode()
     {
         var values = Enum.GetValues(typeof(DomainTpmBackendSourceMode));
-        Assert.AreEqual(1, values.Length);
+        Assert.HasCount(1, values);
     }
 
     [TestMethod]
     public void DomainTpmBackendSourceType()
     {
         var values = Enum.GetValues(typeof(DomainTpmBackendSourceType));
-        Assert.AreEqual(3, values.Length);
+        Assert.HasCount(3, values);
     }
 
     [TestMethod]
     public void DomainTpmBackendType()
     {
         var values = Enum.GetValues(typeof(DomainTpmBackendType));
-        Assert.AreEqual(3, values.Length);
+        Assert.HasCount(3, values);
     }
 
     [TestMethod]
     public void DomainTpmBackendVersion()
     {
         var values = Enum.GetValues(typeof(DomainTpmBackendVersion));
-        Assert.AreEqual(2, values.Length);
+        Assert.HasCount(2, values);
     }
 
     [TestMethod]
     public void DomainTpmModel()
     {
         var values = Enum.GetValues(typeof(DomainTpmModel));
-        Assert.AreEqual(4, values.Length);
+        Assert.HasCount(4, values);
     }
 
     [TestMethod]
@@ -5026,7 +5026,7 @@ public class DomainTest : TestBase
     public void DomainVcpuPlacement()
     {
         var values = Enum.GetValues(typeof(DomainVcpuPlacement));
-        Assert.AreEqual(2, values.Length);
+        Assert.HasCount(2, values);
     }
 
     [TestMethod]
@@ -5077,14 +5077,14 @@ public class DomainTest : TestBase
     public void DomainVideoDriverName()
     {
         var values = Enum.GetValues(typeof(DomainVideoDriverName));
-        Assert.AreEqual(2, values.Length);
+        Assert.HasCount(2, values);
     }
 
     [TestMethod]
     public void DomainVideoDriverVgaconf()
     {
         var values = Enum.GetValues(typeof(DomainVideoDriverVgaconf));
-        Assert.AreEqual(3, values.Length);
+        Assert.HasCount(3, values);
     }
 
     [TestMethod]
@@ -5124,14 +5124,14 @@ public class DomainTest : TestBase
     public void DomainVideoModelType()
     {
         var values = Enum.GetValues(typeof(DomainVideoModelType));
-        Assert.AreEqual(11, values.Length);
+        Assert.HasCount(11, values);
     }
 
     [TestMethod]
     public void DomainVirtioTargetState()
     {
         var values = Enum.GetValues(typeof(DomainVirtioTargetState));
-        Assert.AreEqual(2, values.Length);
+        Assert.HasCount(2, values);
     }
 
     [TestMethod]
@@ -5182,7 +5182,7 @@ public class DomainTest : TestBase
     public void DomainVsockModel()
     {
         var values = Enum.GetValues(typeof(DomainVsockModel));
-        Assert.AreEqual(3, values.Length);
+        Assert.HasCount(3, values);
     }
 
     [TestMethod]
@@ -5200,14 +5200,14 @@ public class DomainTest : TestBase
     public void DomainWatchdogAction()
     {
         var values = Enum.GetValues(typeof(DomainWatchdogAction));
-        Assert.AreEqual(7, values.Length);
+        Assert.HasCount(7, values);
     }
 
     [TestMethod]
     public void DomainWatchdogModel()
     {
         var values = Enum.GetValues(typeof(DomainWatchdogModel));
-        Assert.AreEqual(4, values.Length);
+        Assert.HasCount(4, values);
     }
 
     [TestMethod]
@@ -5247,7 +5247,7 @@ public class DomainTest : TestBase
     public void LockfailureOptions()
     {
         var values = Enum.GetValues(typeof(LockfailureOptions));
-        Assert.AreEqual(4, values.Length);
+        Assert.HasCount(4, values);
     }
 
     [TestMethod]
@@ -5298,14 +5298,14 @@ public class DomainTest : TestBase
     public void OffOptions()
     {
         var values = Enum.GetValues(typeof(OffOptions));
-        Assert.AreEqual(4, values.Length);
+        Assert.HasCount(4, values);
     }
 
     [TestMethod]
     public void PflashFormatTypes()
     {
         var values = Enum.GetValues(typeof(PflashFormatTypes));
-        Assert.AreEqual(2, values.Length);
+        Assert.HasCount(2, values);
     }
 
     [TestMethod]
@@ -5433,49 +5433,49 @@ public class DomainTest : TestBase
     public void SysinfoBaseBoardName()
     {
         var values = Enum.GetValues(typeof(SysinfoBaseBoardName));
-        Assert.AreEqual(6, values.Length);
+        Assert.HasCount(6, values);
     }
 
     [TestMethod]
     public void SysinfoBiosName()
     {
         var values = Enum.GetValues(typeof(SysinfoBiosName));
-        Assert.AreEqual(4, values.Length);
+        Assert.HasCount(4, values);
     }
 
     [TestMethod]
     public void SysinfoChassisName()
     {
         var values = Enum.GetValues(typeof(SysinfoChassisName));
-        Assert.AreEqual(5, values.Length);
+        Assert.HasCount(5, values);
     }
 
     [TestMethod]
     public void SysinfoMemoryName()
     {
         var values = Enum.GetValues(typeof(SysinfoMemoryName));
-        Assert.AreEqual(10, values.Length);
+        Assert.HasCount(10, values);
     }
 
     [TestMethod]
     public void SysinfoProcessorName()
     {
         var values = Enum.GetValues(typeof(SysinfoProcessorName));
-        Assert.AreEqual(11, values.Length);
+        Assert.HasCount(11, values);
     }
 
     [TestMethod]
     public void SysinfoSystemName()
     {
         var values = Enum.GetValues(typeof(SysinfoSystemName));
-        Assert.AreEqual(7, values.Length);
+        Assert.HasCount(7, values);
     }
 
     [TestMethod]
     public void SysinfoType()
     {
         var values = Enum.GetValues(typeof(SysinfoType));
-        Assert.AreEqual(2, values.Length);
+        Assert.HasCount(2, values);
     }
 
     [TestMethod]

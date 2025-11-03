@@ -9,7 +9,7 @@ public class StoragepoolCapabilitiesTest
         var cap = TestUtility.Deserialize<StoragepoolCapabilities>("full.xml");
         Assert.IsNotNull(cap);
         Assert.IsNotNull(cap.Pool);
-        Assert.AreEqual(14, cap.Pool.Length);
+        Assert.HasCount(14, cap.Pool);
 
         var xml = TestUtility.Serialize(cap);
         Assert.IsNotNull(xml);

@@ -29,21 +29,21 @@ public class CpuTest : TestBase
     public void GuestcpuCpuCacheLevel()
     {
         var values = Enum.GetValues(typeof(GuestcpuCpuCacheLevel));
-        Assert.AreEqual(3, values.Length);
+        Assert.HasCount(3, values);
     }
 
     [TestMethod]
     public void GuestcpuCpuCacheMode()
     {
         var values = Enum.GetValues(typeof(GuestcpuCpuCacheMode));
-        Assert.AreEqual(3, values.Length);
+        Assert.HasCount(3, values);
     }
 
     [TestMethod]
     public void GuestcpuCpuCheck()
     {
         var values = Enum.GetValues(typeof(GuestcpuCpuCheck));
-        Assert.AreEqual(3, values.Length);
+        Assert.HasCount(3, values);
     }
 
     [TestMethod]
@@ -61,14 +61,14 @@ public class CpuTest : TestBase
     public void GuestcpuCGuestcpuCpuFeaturePolicypuMatch()
     {
         var values = Enum.GetValues(typeof(GuestcpuCpuFeaturePolicy));
-        Assert.AreEqual(5, values.Length);
+        Assert.HasCount(5, values);
     }
 
     [TestMethod]
     public void GuestcpuCpuMatch()
     {
         var values = Enum.GetValues(typeof(GuestcpuCpuMatch));
-        Assert.AreEqual(3, values.Length);
+        Assert.HasCount(3, values);
     }
 
     [TestMethod]
@@ -86,14 +86,14 @@ public class CpuTest : TestBase
     public void GuestcpuCpuMaxPhysAddrMode()
     {
         var values = Enum.GetValues(typeof(GuestcpuCpuMaxPhysAddrMode));
-        Assert.AreEqual(2, values.Length);
+        Assert.HasCount(2, values);
     }
 
     [TestMethod]
     public void GuestcpuCpuMode()
     {
         var values = Enum.GetValues(typeof(GuestcpuCpuMode));
-        Assert.AreEqual(4, values.Length);
+        Assert.HasCount(4, values);
     }
 
     [TestMethod]
@@ -111,7 +111,7 @@ public class CpuTest : TestBase
     public void GuestcpuCpuModelFallback()
     {
         var values = Enum.GetValues(typeof(GuestcpuCpuModelFallback));
-        Assert.AreEqual(2, values.Length);
+        Assert.HasCount(2, values);
     }
 
     [TestMethod]
@@ -151,7 +151,7 @@ public class CpuTest : TestBase
     public void GuestcpuNumaCacheAssociativity()
     {
         var values = Enum.GetValues(typeof(GuestcpuNumaCacheAssociativity));
-        Assert.AreEqual(3, values.Length);
+        Assert.HasCount(3, values);
     }
 
     [TestMethod]
@@ -169,7 +169,7 @@ public class CpuTest : TestBase
     public void GuestcpuNumaCachePolicy()
     {
         var values = Enum.GetValues(typeof(GuestcpuNumaCachePolicy));
-        Assert.AreEqual(3, values.Length);
+        Assert.HasCount(3, values);
     }
 
     [TestMethod]
@@ -220,7 +220,7 @@ public class CpuTest : TestBase
     public void GuestcpuNumaCellMemAccess()
     {
         var values = Enum.GetValues(typeof(GuestcpuNumaCellMemAccess));
-        Assert.AreEqual(2, values.Length);
+        Assert.HasCount(2, values);
     }
 
     [TestMethod]
@@ -249,7 +249,7 @@ public class CpuTest : TestBase
     public void GuestcpuNumaInterconnectsBandwidthType()
     {
         var values = Enum.GetValues(typeof(GuestcpuNumaInterconnectsBandwidthType));
-        Assert.AreEqual(3, values.Length);
+        Assert.HasCount(3, values);
     }
 
     [TestMethod]
@@ -267,7 +267,7 @@ public class CpuTest : TestBase
     public void GuestcpuNumaInterconnectsLatencyType()
     {
         var values = Enum.GetValues(typeof(GuestcpuNumaInterconnectsLatencyType));
-        Assert.AreEqual(3, values.Length);
+        Assert.HasCount(3, values);
     }
 
     [TestMethod]

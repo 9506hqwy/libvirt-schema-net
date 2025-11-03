@@ -117,7 +117,7 @@ public class StorageVolTest : TestBase
     public void VolTargetFormatType()
     {
         var values = Enum.GetValues(typeof(VolTargetFormatType));
-        Assert.AreEqual(40, values.Length);
+        Assert.HasCount(40, values);
     }
 
     [TestMethod]
@@ -146,6 +146,6 @@ public class StorageVolTest : TestBase
     public void VolType()
     {
         var values = Enum.GetValues(typeof(VolType));
-        Assert.AreEqual(5, values.Length);
+        Assert.HasCount(5, values);
     }
 }

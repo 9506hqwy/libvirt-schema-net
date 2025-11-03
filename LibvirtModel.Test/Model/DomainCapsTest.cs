@@ -282,6 +282,17 @@ public class DomainCapsTest : TestBase
     }
 
     [TestMethod]
+    public void DomainCapabilitiesHypervDefaults()
+    {
+        const string expected = $@"
+{XMLDECL}
+<DomainCapabilitiesHypervDefaults {XMLNS} />
+";
+
+        this.AssertXml<DomainCapabilitiesHypervDefaults>(expected);
+    }
+
+    [TestMethod]
     public void DomainCapabilitiesS390Pv()
     {
         const string expected = $@"

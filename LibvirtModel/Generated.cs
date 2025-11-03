@@ -8858,6 +8858,8 @@ namespace Libvirt.Model {
         
         private DomainCapabilitiesOsEnum[] @enum;
         
+        private DomainCapabilitiesHypervDefaults defaults;
+        
         [System.Xml.Serialization.XmlAttributeAttribute("supported")]
         public VirYesNo Supported {
             get {
@@ -8875,6 +8877,127 @@ namespace Libvirt.Model {
             }
             set {
                 this.@enum = value;
+            }
+        }
+        
+        [System.Xml.Serialization.XmlElementAttribute("defaults", Namespace="")]
+        public DomainCapabilitiesHypervDefaults Defaults {
+            get {
+                return this.defaults;
+            }
+            set {
+                this.defaults = value;
+            }
+        }
+    }
+    
+    public partial class DomainCapabilitiesHypervDefaults {
+        
+        private uint spinlocks;
+        
+        private bool spinlocksSpecified;
+        
+        private VirOnOff stimerDirect;
+        
+        private bool stimerDirectSpecified;
+        
+        private VirOnOff tlbflushDirect;
+        
+        private bool tlbflushDirectSpecified;
+        
+        private VirOnOff tlbflushExtended;
+        
+        private bool tlbflushExtendedSpecified;
+        
+        private string vendorId;
+        
+        [System.Xml.Serialization.XmlElementAttribute("spinlocks", Namespace="")]
+        public uint Spinlocks {
+            get {
+                return this.spinlocks;
+            }
+            set {
+                this.spinlocks = value;
+            }
+        }
+        
+        [System.Xml.Serialization.XmlIgnoreAttribute()]
+        public bool SpinlocksSpecified {
+            get {
+                return this.spinlocksSpecified;
+            }
+            set {
+                this.spinlocksSpecified = value;
+            }
+        }
+        
+        [System.Xml.Serialization.XmlElementAttribute("stimer_direct", Namespace="")]
+        public VirOnOff StimerDirect {
+            get {
+                return this.stimerDirect;
+            }
+            set {
+                this.stimerDirect = value;
+            }
+        }
+        
+        [System.Xml.Serialization.XmlIgnoreAttribute()]
+        public bool StimerDirectSpecified {
+            get {
+                return this.stimerDirectSpecified;
+            }
+            set {
+                this.stimerDirectSpecified = value;
+            }
+        }
+        
+        [System.Xml.Serialization.XmlElementAttribute("tlbflush_direct", Namespace="")]
+        public VirOnOff TlbflushDirect {
+            get {
+                return this.tlbflushDirect;
+            }
+            set {
+                this.tlbflushDirect = value;
+            }
+        }
+        
+        [System.Xml.Serialization.XmlIgnoreAttribute()]
+        public bool TlbflushDirectSpecified {
+            get {
+                return this.tlbflushDirectSpecified;
+            }
+            set {
+                this.tlbflushDirectSpecified = value;
+            }
+        }
+        
+        [System.Xml.Serialization.XmlElementAttribute("tlbflush_extended", Namespace="")]
+        public VirOnOff TlbflushExtended {
+            get {
+                return this.tlbflushExtended;
+            }
+            set {
+                this.tlbflushExtended = value;
+            }
+        }
+        
+        [System.Xml.Serialization.XmlIgnoreAttribute()]
+        public bool TlbflushExtendedSpecified {
+            get {
+                return this.tlbflushExtendedSpecified;
+            }
+            set {
+                this.tlbflushExtendedSpecified = value;
+            }
+        }
+        
+        [System.Xml.Serialization.XmlElementAttribute("vendor_id", Namespace="")]
+        public string VendorId {
+            get {
+                return this.vendorId;
+            }
+            set {
+                this.vendorId = value;
             }
         }
     }
@@ -23701,6 +23824,9 @@ namespace Libvirt.Model {
         [System.Xml.Serialization.XmlEnumAttribute(Name="custom")]
         Custom,
         
+        [System.Xml.Serialization.XmlEnumAttribute(Name="host-model")]
+        HostModel,
+        
         [System.Xml.Serialization.XmlEnumAttribute(Name="passthrough")]
         Passthrough,
     }
@@ -28609,6 +28735,8 @@ namespace Libvirt.Model {
         
         private string uuid;
         
+        private DomainMemorydevDriver driver;
+        
         private DomainMemorydevSource source;
         
         private DomainMemorydevTarget target;
@@ -28679,6 +28807,16 @@ namespace Libvirt.Model {
             }
         }
         
+        [System.Xml.Serialization.XmlElementAttribute("driver", Namespace="")]
+        public DomainMemorydevDriver Driver {
+            get {
+                return this.driver;
+            }
+            set {
+                this.driver = value;
+            }
+        }
+        
         [System.Xml.Serialization.XmlElementAttribute("source", Namespace="")]
         public DomainMemorydevSource Source {
             get {
@@ -28737,6 +28875,105 @@ namespace Libvirt.Model {
         
         [System.Xml.Serialization.XmlEnumAttribute(Name="shared")]
         Shared,
+    }
+    
+    public partial class DomainMemorydevDriver {
+        
+        private VirOnOff iommu;
+        
+        private bool iommuSpecified;
+        
+        private VirOnOff ats;
+        
+        private bool atsSpecified;
+        
+        private VirOnOff packed;
+        
+        private bool packedSpecified;
+        
+        private VirOnOff pagePerVq;
+        
+        private bool pagePerVqSpecified;
+        
+        [System.Xml.Serialization.XmlAttributeAttribute("iommu")]
+        public VirOnOff Iommu {
+            get {
+                return this.iommu;
+            }
+            set {
+                this.iommu = value;
+            }
+        }
+        
+        [System.Xml.Serialization.XmlIgnoreAttribute()]
+        public bool IommuSpecified {
+            get {
+                return this.iommuSpecified;
+            }
+            set {
+                this.iommuSpecified = value;
+            }
+        }
+        
+        [System.Xml.Serialization.XmlAttributeAttribute("ats")]
+        public VirOnOff Ats {
+            get {
+                return this.ats;
+            }
+            set {
+                this.ats = value;
+            }
+        }
+        
+        [System.Xml.Serialization.XmlIgnoreAttribute()]
+        public bool AtsSpecified {
+            get {
+                return this.atsSpecified;
+            }
+            set {
+                this.atsSpecified = value;
+            }
+        }
+        
+        [System.Xml.Serialization.XmlAttributeAttribute("packed")]
+        public VirOnOff Packed {
+            get {
+                return this.packed;
+            }
+            set {
+                this.packed = value;
+            }
+        }
+        
+        [System.Xml.Serialization.XmlIgnoreAttribute()]
+        public bool PackedSpecified {
+            get {
+                return this.packedSpecified;
+            }
+            set {
+                this.packedSpecified = value;
+            }
+        }
+        
+        [System.Xml.Serialization.XmlAttributeAttribute("page_per_vq")]
+        public VirOnOff PagePerVq {
+            get {
+                return this.pagePerVq;
+            }
+            set {
+                this.pagePerVq = value;
+            }
+        }
+        
+        [System.Xml.Serialization.XmlIgnoreAttribute()]
+        public bool PagePerVqSpecified {
+            get {
+                return this.pagePerVqSpecified;
+            }
+            set {
+                this.pagePerVqSpecified = value;
+            }
+        }
     }
     
     public enum DomainMemorydevModel {

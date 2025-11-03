@@ -2671,7 +2671,7 @@ public class DomainTest : TestBase
     public void DomainHypervMode()
     {
         var values = Enum.GetValues(typeof(DomainHypervMode));
-        Assert.HasCount(2, values);
+        Assert.HasCount(3, values);
     }
 
     [TestMethod]
@@ -3737,6 +3737,17 @@ public class DomainTest : TestBase
     {
         var values = Enum.GetValues(typeof(DomainMemorydevModel));
         Assert.HasCount(5, values);
+    }
+
+    [TestMethod]
+    public void DomainMemorydevDriver()
+    {
+        const string expected = $@"
+{XMLDECL}
+<DomainMemorydevDriver {XMLNS} />
+";
+
+        this.AssertXml<DomainMemorydevDriver>(expected);
     }
 
     [TestMethod]

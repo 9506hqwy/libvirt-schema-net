@@ -1410,6 +1410,28 @@ public class DomainTest : TestBase
     }
 
     [TestMethod]
+    public void DomainDiskDriverStatistics()
+    {
+        const string expected = $@"
+{XMLDECL}
+<DomainDiskDriverStatistics {XMLNS} />
+";
+
+        this.AssertXml<DomainDiskDriverStatistics>(expected);
+    }
+
+    [TestMethod]
+    public void DomainDiskDriverStatisticsStatistic()
+    {
+        const string expected = $@"
+{XMLDECL}
+<DomainDiskDriverStatisticsStatistic {XMLNS} interval=""0"" />
+";
+
+        this.AssertXml<DomainDiskDriverStatisticsStatistic>(expected);
+    }
+
+    [TestMethod]
     public void DomainDiskDriverType()
     {
         var values = Enum.GetValues(typeof(DomainDiskDriverType));
@@ -2595,9 +2617,9 @@ public class DomainTest : TestBase
     }
 
     [TestMethod]
-    public void DomainHvs()
+    public void Virttype()
     {
-        var values = Enum.GetValues(typeof(DomainHvs));
+        var values = Enum.GetValues(typeof(Virttype));
         Assert.HasCount(15, values);
     }
 

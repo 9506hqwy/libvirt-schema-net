@@ -1705,14 +1705,14 @@ namespace Libvirt.Model {
     
     public partial class CapabilitiesDomain {
         
-        private CapabilitiesDomainType type;
+        private Virttype type;
         
         private string emulator;
         
         private CapabilitiesGuestcapsArchMachine[] machine;
         
         [System.Xml.Serialization.XmlAttributeAttribute("type")]
-        public CapabilitiesDomainType Type {
+        public Virttype Type {
             get {
                 return this.type;
             }
@@ -1740,36 +1740,6 @@ namespace Libvirt.Model {
                 this.machine = value;
             }
         }
-    }
-    
-    public enum CapabilitiesDomainType {
-        
-        [System.Xml.Serialization.XmlEnumAttribute(Name="hvf")]
-        Hvf,
-        
-        [System.Xml.Serialization.XmlEnumAttribute(Name="kqemu")]
-        Kqemu,
-        
-        [System.Xml.Serialization.XmlEnumAttribute(Name="kvm")]
-        Kvm,
-        
-        [System.Xml.Serialization.XmlEnumAttribute(Name="lxc")]
-        Lxc,
-        
-        [System.Xml.Serialization.XmlEnumAttribute(Name="openvz")]
-        Openvz,
-        
-        [System.Xml.Serialization.XmlEnumAttribute(Name="qemu")]
-        Qemu,
-        
-        [System.Xml.Serialization.XmlEnumAttribute(Name="test")]
-        Test,
-        
-        [System.Xml.Serialization.XmlEnumAttribute(Name="uml")]
-        Uml,
-        
-        [System.Xml.Serialization.XmlEnumAttribute(Name="xen")]
-        Xen,
     }
     
     [System.Xml.Serialization.XmlTypeAttribute("features", Namespace="")]
@@ -4887,7 +4857,7 @@ namespace Libvirt.Model {
     [System.Xml.Serialization.XmlTypeAttribute("domain", Namespace="")]
     public partial class Domain {
         
-        private DomainHvs type;
+        private Virttype type;
         
         private uint id;
         
@@ -5000,7 +4970,7 @@ namespace Libvirt.Model {
         private string vmwareDatacenterpath;
         
         [System.Xml.Serialization.XmlAttributeAttribute("type")]
-        public DomainHvs Type {
+        public Virttype Type {
             get {
                 return this.type;
             }
@@ -13010,7 +12980,7 @@ namespace Libvirt.Model {
         
         private DomainPanic[] panic;
         
-        private DomainIommu iommu;
+        private DomainIommu[] iommu;
         
         private DomainVsock vsock;
         
@@ -13307,7 +13277,7 @@ namespace Libvirt.Model {
         }
         
         [System.Xml.Serialization.XmlElementAttribute("iommu", Namespace="")]
-        public DomainIommu Iommu {
+        public DomainIommu[] Iommu {
             get {
                 return this.iommu;
             }
@@ -15356,6 +15326,8 @@ namespace Libvirt.Model {
         
         private DomainIothreadMapping iothreads;
         
+        private DomainDiskDriverStatistics statistics;
+        
         [System.Xml.Serialization.XmlAttributeAttribute("name")]
         public string Name {
             get {
@@ -15745,6 +15717,16 @@ namespace Libvirt.Model {
                 this.iothreads = value;
             }
         }
+        
+        [System.Xml.Serialization.XmlElementAttribute("statistics", Namespace="")]
+        public DomainDiskDriverStatistics Statistics {
+            get {
+                return this.statistics;
+            }
+            set {
+                this.statistics = value;
+            }
+        }
     }
     
     public partial class DomainDiskDriverMetadataCache {
@@ -15758,6 +15740,36 @@ namespace Libvirt.Model {
             }
             set {
                 this.maxSize = value;
+            }
+        }
+    }
+    
+    public partial class DomainDiskDriverStatistics {
+        
+        private DomainDiskDriverStatisticsStatistic[] statistic;
+        
+        [System.Xml.Serialization.XmlElementAttribute("statistic", Namespace="")]
+        public DomainDiskDriverStatisticsStatistic[] Statistic {
+            get {
+                return this.statistic;
+            }
+            set {
+                this.statistic = value;
+            }
+        }
+    }
+    
+    public partial class DomainDiskDriverStatisticsStatistic {
+        
+        private uint interval;
+        
+        [System.Xml.Serialization.XmlAttributeAttribute("interval")]
+        public uint Interval {
+            get {
+                return this.interval;
+            }
+            set {
+                this.interval = value;
             }
         }
     }
@@ -18911,6 +18923,10 @@ namespace Libvirt.Model {
         
         private bool rotationRateSpecified;
         
+        private VirOnOff dpofua;
+        
+        private bool dpofuaSpecified;
+        
         [System.Xml.Serialization.XmlAttributeAttribute("dev")]
         public string Dev {
             get {
@@ -18998,6 +19014,26 @@ namespace Libvirt.Model {
             }
             set {
                 this.rotationRateSpecified = value;
+            }
+        }
+        
+        [System.Xml.Serialization.XmlAttributeAttribute("dpofua")]
+        public VirOnOff Dpofua {
+            get {
+                return this.dpofua;
+            }
+            set {
+                this.dpofua = value;
+            }
+        }
+        
+        [System.Xml.Serialization.XmlIgnoreAttribute()]
+        public bool DpofuaSpecified {
+            get {
+                return this.dpofuaSpecified;
+            }
+            set {
+                this.dpofuaSpecified = value;
             }
         }
     }
@@ -21516,6 +21552,10 @@ namespace Libvirt.Model {
         
         private bool powerControlSpecified;
         
+        private VirYesNo wait;
+        
+        private bool waitSpecified;
+        
         private string socket;
         
         private string passwd;
@@ -21751,6 +21791,26 @@ namespace Libvirt.Model {
             }
             set {
                 this.powerControlSpecified = value;
+            }
+        }
+        
+        [System.Xml.Serialization.XmlAttributeAttribute("wait")]
+        public VirYesNo Wait {
+            get {
+                return this.wait;
+            }
+            set {
+                this.wait = value;
+            }
+        }
+        
+        [System.Xml.Serialization.XmlIgnoreAttribute()]
+        public bool WaitSpecified {
+            get {
+                return this.waitSpecified;
+            }
+            set {
+                this.waitSpecified = value;
             }
         }
         
@@ -23462,54 +23522,6 @@ namespace Libvirt.Model {
         
         [System.Xml.Serialization.XmlEnumAttribute(Name="usb")]
         Usb,
-    }
-    
-    public enum DomainHvs {
-        
-        [System.Xml.Serialization.XmlEnumAttribute(Name="bhyve")]
-        Bhyve,
-        
-        [System.Xml.Serialization.XmlEnumAttribute(Name="hvf")]
-        Hvf,
-        
-        [System.Xml.Serialization.XmlEnumAttribute(Name="hyperv")]
-        Hyperv,
-        
-        [System.Xml.Serialization.XmlEnumAttribute(Name="kqemu")]
-        Kqemu,
-        
-        [System.Xml.Serialization.XmlEnumAttribute(Name="kvm")]
-        Kvm,
-        
-        [System.Xml.Serialization.XmlEnumAttribute(Name="lxc")]
-        Lxc,
-        
-        [System.Xml.Serialization.XmlEnumAttribute(Name="openvz")]
-        Openvz,
-        
-        [System.Xml.Serialization.XmlEnumAttribute(Name="phyp")]
-        Phyp,
-        
-        [System.Xml.Serialization.XmlEnumAttribute(Name="qemu")]
-        Qemu,
-        
-        [System.Xml.Serialization.XmlEnumAttribute(Name="test")]
-        Test,
-        
-        [System.Xml.Serialization.XmlEnumAttribute(Name="uml")]
-        Uml,
-        
-        [System.Xml.Serialization.XmlEnumAttribute(Name="vbox")]
-        Vbox,
-        
-        [System.Xml.Serialization.XmlEnumAttribute(Name="vmware")]
-        Vmware,
-        
-        [System.Xml.Serialization.XmlEnumAttribute(Name="vz")]
-        Vz,
-        
-        [System.Xml.Serialization.XmlEnumAttribute(Name="xen")]
-        Xen,
     }
     
     [System.Xml.Serialization.XmlTypeAttribute("hyperv", Namespace="")]
@@ -27067,6 +27079,10 @@ namespace Libvirt.Model {
         
         private bool passthroughSpecified;
         
+        private uint pciBus;
+        
+        private bool pciBusSpecified;
+        
         [System.Xml.Serialization.XmlAttributeAttribute("intremap")]
         public VirOnOff Intremap {
             get {
@@ -27214,6 +27230,26 @@ namespace Libvirt.Model {
             }
             set {
                 this.passthroughSpecified = value;
+            }
+        }
+        
+        [System.Xml.Serialization.XmlAttributeAttribute("pciBus")]
+        public uint PciBus {
+            get {
+                return this.pciBus;
+            }
+            set {
+                this.pciBus = value;
+            }
+        }
+        
+        [System.Xml.Serialization.XmlIgnoreAttribute()]
+        public bool PciBusSpecified {
+            get {
+                return this.pciBusSpecified;
+            }
+            set {
+                this.pciBusSpecified = value;
             }
         }
     }
@@ -34282,7 +34318,7 @@ namespace Libvirt.Model {
         
         private string uuid;
         
-        private DomainHvs type;
+        private Virttype type;
         
         private bool typeSpecified;
         
@@ -34405,7 +34441,7 @@ namespace Libvirt.Model {
         }
         
         [System.Xml.Serialization.XmlAttributeAttribute("type")]
-        public DomainHvs Type {
+        public Virttype Type {
             get {
                 return this.type;
             }
@@ -45903,7 +45939,7 @@ namespace Libvirt.Model {
     [System.Xml.Serialization.XmlTypeAttribute("inactiveDomain", Namespace="")]
     public partial class InactiveDomain {
         
-        private DomainHvs type;
+        private Virttype type;
         
         private uint id;
         
@@ -46016,7 +46052,7 @@ namespace Libvirt.Model {
         private string vmwareDatacenterpath;
         
         [System.Xml.Serialization.XmlAttributeAttribute("type")]
-        public DomainHvs Type {
+        public Virttype Type {
             get {
                 return this.type;
             }
@@ -53292,6 +53328,54 @@ namespace Libvirt.Model {
         
         [System.Xml.Serialization.XmlEnumAttribute(Name="on")]
         On,
+    }
+    
+    public enum Virttype {
+        
+        [System.Xml.Serialization.XmlEnumAttribute(Name="bhyve")]
+        Bhyve,
+        
+        [System.Xml.Serialization.XmlEnumAttribute(Name="hvf")]
+        Hvf,
+        
+        [System.Xml.Serialization.XmlEnumAttribute(Name="hyperv")]
+        Hyperv,
+        
+        [System.Xml.Serialization.XmlEnumAttribute(Name="kqemu")]
+        Kqemu,
+        
+        [System.Xml.Serialization.XmlEnumAttribute(Name="kvm")]
+        Kvm,
+        
+        [System.Xml.Serialization.XmlEnumAttribute(Name="lxc")]
+        Lxc,
+        
+        [System.Xml.Serialization.XmlEnumAttribute(Name="openvz")]
+        Openvz,
+        
+        [System.Xml.Serialization.XmlEnumAttribute(Name="phyp")]
+        Phyp,
+        
+        [System.Xml.Serialization.XmlEnumAttribute(Name="qemu")]
+        Qemu,
+        
+        [System.Xml.Serialization.XmlEnumAttribute(Name="test")]
+        Test,
+        
+        [System.Xml.Serialization.XmlEnumAttribute(Name="uml")]
+        Uml,
+        
+        [System.Xml.Serialization.XmlEnumAttribute(Name="vbox")]
+        Vbox,
+        
+        [System.Xml.Serialization.XmlEnumAttribute(Name="vmware")]
+        Vmware,
+        
+        [System.Xml.Serialization.XmlEnumAttribute(Name="vz")]
+        Vz,
+        
+        [System.Xml.Serialization.XmlEnumAttribute(Name="xen")]
+        Xen,
     }
     
     public enum VirYesNo {

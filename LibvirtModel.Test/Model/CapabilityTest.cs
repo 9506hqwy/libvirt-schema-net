@@ -138,7 +138,7 @@ public class CapabilityTest : TestBase
     {
         const string expected = $@"
 {XMLDECL}
-<CapabilitiesDomain {XMLNS} type=""hvf"" />
+<CapabilitiesDomain {XMLNS} type=""bhyve"" />
 ";
 
         this.AssertXml<CapabilitiesDomain>(expected);

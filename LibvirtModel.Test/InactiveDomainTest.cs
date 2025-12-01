@@ -8,7 +8,7 @@ public class InactiveDomainTest
     {
         var dom = TestUtility.Deserialize<InactiveDomain>("min.xml");
         Assert.IsNotNull(dom);
-        Assert.AreEqual(DomainHvs.Qemu, dom.Type);
+        Assert.AreEqual(Virttype.Qemu, dom.Type);
         Assert.AreEqual("name", dom.Name);
         Assert.AreEqual("hvm", dom.Os.Type.Value);
 

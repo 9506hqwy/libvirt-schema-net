@@ -19,7 +19,7 @@ public class CapabilitiesTest
         Assert.AreEqual(Archnames.Aarch64, cap.Guest[0].Arch.Name);
         Assert.AreEqual(CapabilitiesWordsize.N32, cap.Guest[0].Arch.Wordsize);
         Assert.AreEqual("machine1", cap.Guest[0].Arch.Machine[0].Value);
-        Assert.AreEqual(CapabilitiesDomainType.Qemu, cap.Guest[0].Arch.Domain[0].Type);
+        Assert.AreEqual(Virttype.Qemu, cap.Guest[0].Arch.Domain[0].Type);
         Assert.AreEqual("machine2", cap.Guest[0].Arch.Domain[0].Machine[0].Value);
 
         var xml = TestUtility.Serialize(cap);

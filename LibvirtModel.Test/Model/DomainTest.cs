@@ -1366,7 +1366,7 @@ public class DomainTest : TestBase
     public void DomainDiskBackingStoreType()
     {
         var values = Enum.GetValues(typeof(DomainDiskBackingStoreType));
-        Assert.HasCount(8, values);
+        Assert.HasCount(9, values);
     }
 
     [TestMethod]
@@ -1755,7 +1755,7 @@ public class DomainTest : TestBase
     public void DomainDiskType()
     {
         var values = Enum.GetValues(typeof(DomainDiskType));
-        Assert.HasCount(8, values);
+        Assert.HasCount(9, values);
     }
 
     [TestMethod]
@@ -4201,7 +4201,7 @@ public class DomainTest : TestBase
     public void DomainOsNvramType()
     {
         var values = Enum.GetValues(typeof(DomainOsNvramType));
-        Assert.HasCount(8, values);
+        Assert.HasCount(9, values);
     }
 
     [TestMethod]

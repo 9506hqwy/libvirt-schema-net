@@ -15134,6 +15134,9 @@ namespace Libvirt.Model {
         [System.Xml.Serialization.XmlEnumAttribute(Name="block")]
         Block,
         
+        [System.Xml.Serialization.XmlEnumAttribute(Name="ctl")]
+        Ctl,
+        
         [System.Xml.Serialization.XmlEnumAttribute(Name="dir")]
         Dir,
         
@@ -17270,6 +17273,9 @@ namespace Libvirt.Model {
         [System.Xml.Serialization.XmlEnumAttribute(Name="block")]
         Block,
         
+        [System.Xml.Serialization.XmlEnumAttribute(Name="ctl")]
+        Ctl,
+        
         [System.Xml.Serialization.XmlEnumAttribute(Name="dir")]
         Dir,
         
@@ -18016,6 +18022,9 @@ namespace Libvirt.Model {
         
         [System.Xml.Serialization.XmlEnumAttribute(Name="block")]
         Block,
+        
+        [System.Xml.Serialization.XmlEnumAttribute(Name="ctl")]
+        Ctl,
         
         [System.Xml.Serialization.XmlEnumAttribute(Name="dir")]
         Dir,
@@ -19111,6 +19120,9 @@ namespace Libvirt.Model {
         
         [System.Xml.Serialization.XmlEnumAttribute(Name="block")]
         Block,
+        
+        [System.Xml.Serialization.XmlEnumAttribute(Name="ctl")]
+        Ctl,
         
         [System.Xml.Serialization.XmlEnumAttribute(Name="dir")]
         Dir,
@@ -31214,6 +31226,9 @@ namespace Libvirt.Model {
         
         [System.Xml.Serialization.XmlEnumAttribute(Name="block")]
         Block,
+        
+        [System.Xml.Serialization.XmlEnumAttribute(Name="ctl")]
+        Ctl,
         
         [System.Xml.Serialization.XmlEnumAttribute(Name="dir")]
         Dir,
@@ -48056,6 +48071,10 @@ namespace Libvirt.Model {
         
         private string domain;
         
+        private long port;
+        
+        private bool portSpecified;
+        
         [System.Xml.Serialization.XmlAttributeAttribute("addr")]
         public string Addr {
             get {
@@ -48073,6 +48092,26 @@ namespace Libvirt.Model {
             }
             set {
                 this.domain = value;
+            }
+        }
+        
+        [System.Xml.Serialization.XmlAttributeAttribute("port")]
+        public long Port {
+            get {
+                return this.port;
+            }
+            set {
+                this.port = value;
+            }
+        }
+        
+        [System.Xml.Serialization.XmlIgnoreAttribute()]
+        public bool PortSpecified {
+            get {
+                return this.portSpecified;
+            }
+            set {
+                this.portSpecified = value;
             }
         }
     }

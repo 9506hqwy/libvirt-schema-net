@@ -494,6 +494,17 @@ public class DomainCapsTest : TestBase
     }
 
     [TestMethod]
+    public void DomainCapabilitiesVarstore()
+    {
+        const string expected = $@"
+{XMLDECL}
+<varstore {XMLNS} supported=""no"" />
+";
+
+        this.AssertXml<DomainCapabilitiesVarstore>(expected);
+    }
+
+    [TestMethod]
     public void DomainCapabilitiesVcpu()
     {
         const string expected = $@"

@@ -266,6 +266,17 @@ public class DomainTest : TestBase
     }
 
     [TestMethod]
+    public void DomainCapabilitiesFirmwareFeatures()
+    {
+        const string expected = $@"
+{XMLDECL}
+<firmwareFeatures {XMLNS} supported=""no"" />
+";
+
+        this.AssertXml<DomainCapabilitiesFirmwareFeatures>(expected);
+    }
+
+    [TestMethod]
     public void DomainCapabilitiesFowner()
     {
         const string expected = $@"
@@ -1421,6 +1432,35 @@ public class DomainTest : TestBase
     }
 
     [TestMethod]
+    public void DomainDiskDriverStatisticsLatencyHistogram()
+    {
+        const string expected = $@"
+{XMLDECL}
+<DomainDiskDriverStatisticsLatencyHistogram {XMLNS} />
+";
+
+        this.AssertXml<DomainDiskDriverStatisticsLatencyHistogram>(expected);
+    }
+
+    [TestMethod]
+    public void DomainDiskDriverStatisticsLatencyHistogramBin()
+    {
+        const string expected = $@"
+{XMLDECL}
+<DomainDiskDriverStatisticsLatencyHistogramBin {XMLNS} start=""0"" />
+";
+
+        this.AssertXml<DomainDiskDriverStatisticsLatencyHistogramBin>(expected);
+    }
+
+    [TestMethod]
+    public void DomainDiskDriverStatisticsLatencyHistogramType()
+    {
+        var values = Enum.GetValues(typeof(DomainDiskDriverStatisticsLatencyHistogramType));
+        Assert.HasCount(4, values);
+    }
+
+    [TestMethod]
     public void DomainDiskDriverStatisticsStatistic()
     {
         const string expected = $@"
@@ -1632,14 +1672,14 @@ public class DomainTest : TestBase
     }
 
     [TestMethod]
-    public void DomainOsNvramDiskSourceNetworkProtocolHttpDiskSourceNetworkProtocolHttpcookiesCookie()
+    public void DomainOsOsnvramDiskSourceNetworkProtocolHttpDiskSourceNetworkProtocolHttpcookiesCookie()
     {
         const string expected = $@"
 {XMLDECL}
-<DomainOsNvramDiskSourceNetworkProtocolHttpDiskSourceNetworkProtocolHttpcookiesCookie {XMLNS} />
+<DomainOsOsnvramDiskSourceNetworkProtocolHttpDiskSourceNetworkProtocolHttpcookiesCookie {XMLNS} />
 ";
 
-        this.AssertXml<DomainOsNvramDiskSourceNetworkProtocolHttpDiskSourceNetworkProtocolHttpcookiesCookie>(expected);
+        this.AssertXml<DomainOsOsnvramDiskSourceNetworkProtocolHttpDiskSourceNetworkProtocolHttpcookiesCookie>(expected);
     }
 
     [TestMethod]
@@ -2011,6 +2051,17 @@ public class DomainTest : TestBase
 ";
 
         this.AssertXml<DomainFeaturesViridian>(expected);
+    }
+
+    [TestMethod]
+    public void DomainFeaturesVirtualization()
+    {
+        const string expected = $@"
+{XMLDECL}
+<DomainFeaturesVirtualization {XMLNS} />
+";
+
+        this.AssertXml<DomainFeaturesVirtualization>(expected);
     }
 
     [TestMethod]
@@ -3326,6 +3377,25 @@ public class DomainTest : TestBase
     }
 
     [TestMethod]
+    public void DomainIommuDriverGranule()
+    {
+        const string expected = $@"
+{XMLDECL}
+<DomainIommuDriverGranule {XMLNS} />
+";
+
+        this.AssertXml<DomainIommuDriverGranule>(expected);
+    }
+
+    [TestMethod]
+    public void DomainIommuDriverGranuleMode()
+    {
+        var values = Enum.GetValues(typeof(DomainIommuDriverGranuleMode));
+        Assert.HasCount(1, values);
+
+    }
+
+    [TestMethod]
     public void DomainIommuModel()
     {
         var values = Enum.GetValues(typeof(DomainIommuModel));
@@ -4100,107 +4170,107 @@ public class DomainTest : TestBase
     }
 
     [TestMethod]
-    public void DomainOsNvram()
+    public void DomainOsOsnvram()
     {
         const string expected = $@"
 {XMLDECL}
-<DomainOsNvram {XMLNS} />
+<DomainOsOsnvram {XMLNS} />
 ";
 
-        this.AssertXml<DomainOsNvram>(expected);
+        this.AssertXml<DomainOsOsnvram>(expected);
     }
 
     [TestMethod]
-    public void DomainOsNvramSource()
+    public void DomainOsOsnvramSource()
     {
         const string expected = $@"
 {XMLDECL}
-<DomainOsNvramSource {XMLNS} />
+<DomainOsOsnvramSource {XMLNS} />
 ";
 
-        this.AssertXml<DomainOsNvramSource>(expected);
+        this.AssertXml<DomainOsOsnvramSource>(expected);
     }
 
     [TestMethod]
-    public void DomainOsNvramSourceDataStore()
+    public void DomainOsnvramSourceDataStore()
     {
         const string expected = $@"
 {XMLDECL}
-<DomainOsNvramSourceDataStore {XMLNS} />
+<DomainOsnvramSourceDataStore {XMLNS} />
 ";
 
-        this.AssertXml<DomainOsNvramSourceDataStore>(expected);
+        this.AssertXml<DomainOsnvramSourceDataStore>(expected);
     }
 
     [TestMethod]
-    public void DomainOsNvramSourceIdentity()
+    public void DomainOsOsnvramSourceIdentity()
     {
         const string expected = $@"
 {XMLDECL}
-<DomainOsNvramSourceIdentity {XMLNS} />
+<DomainOsOsnvramSourceIdentity {XMLNS} />
 ";
 
-        this.AssertXml<DomainOsNvramSourceIdentity>(expected);
+        this.AssertXml<DomainOsOsnvramSourceIdentity>(expected);
     }
 
     [TestMethod]
-    public void DomainOsNvramSourceAddress()
+    public void DomainOsnvramSourceAddress()
     {
         const string expected = $@"
 {XMLDECL}
-<DomainOsNvramSourceAddress {XMLNS} />
+<DomainOsnvramSourceAddress {XMLNS} />
 ";
 
-        this.AssertXml<DomainOsNvramSourceAddress>(expected);
+        this.AssertXml<DomainOsnvramSourceAddress>(expected);
     }
 
     [TestMethod]
-    public void DomainOsNvramSourceMode()
+    public void DomainOsnvramSourceMode()
     {
-        var values = Enum.GetValues(typeof(DomainOsNvramSourceMode));
+        var values = Enum.GetValues(typeof(DomainOsnvramSourceMode));
         Assert.HasCount(2, values);
     }
 
     [TestMethod]
-    public void DomainOsNvramSourceProtocol()
+    public void DomainOsOsnvramSourceProtocol()
     {
-        var values = Enum.GetValues(typeof(DomainOsNvramSourceProtocol));
+        var values = Enum.GetValues(typeof(DomainOsOsnvramSourceProtocol));
         Assert.HasCount(13, values);
     }
 
     [TestMethod]
-    public void DomainOsNvramSourceSlices()
+    public void DomainOsnvramSourceSlices()
     {
         const string expected = $@"
 {XMLDECL}
-<DomainOsNvramSourceSlices {XMLNS} />
+<DomainOsnvramSourceSlices {XMLNS} />
 ";
 
-        this.AssertXml<DomainOsNvramSourceSlices>(expected);
+        this.AssertXml<DomainOsnvramSourceSlices>(expected);
     }
 
     [TestMethod]
-    public void DomainOsNvramSourceSlicesSlice()
+    public void DomainOsnvramSourceSlicesSlice()
     {
         const string expected = $@"
 {XMLDECL}
-<DomainOsNvramSourceSlicesSlice {XMLNS} type=""storage"" offset=""0"" size=""0"" />
+<DomainOsnvramSourceSlicesSlice {XMLNS} type=""storage"" offset=""0"" size=""0"" />
 ";
 
-        this.AssertXml<DomainOsNvramSourceSlicesSlice>(expected);
+        this.AssertXml<DomainOsnvramSourceSlicesSlice>(expected);
     }
 
     [TestMethod]
-    public void DomainOsNvramSourceSlicesSliceType()
+    public void DomainOsnvramSourceSlicesSliceType()
     {
-        var values = Enum.GetValues(typeof(DomainOsNvramSourceSlicesSliceType));
+        var values = Enum.GetValues(typeof(DomainOsnvramSourceSlicesSliceType));
         Assert.HasCount(1, values);
     }
 
     [TestMethod]
-    public void DomainOsNvramType()
+    public void DomainOsOsnvramType()
     {
-        var values = Enum.GetValues(typeof(DomainOsNvramType));
+        var values = Enum.GetValues(typeof(DomainOsOsnvramType));
         Assert.HasCount(9, values);
     }
 

@@ -2883,6 +2883,10 @@ namespace Libvirt.Model {
         
         private bool deviceSpecified;
         
+        private ulong port;
+        
+        private bool portSpecified;
+        
         private ulong number;
         
         private bool numberSpecified;
@@ -3164,6 +3168,26 @@ namespace Libvirt.Model {
             }
             set {
                 this.deviceSpecified = value;
+            }
+        }
+        
+        [System.Xml.Serialization.XmlElementAttribute("port", Namespace="")]
+        public ulong Port {
+            get {
+                return this.port;
+            }
+            set {
+                this.port = value;
+            }
+        }
+        
+        [System.Xml.Serialization.XmlIgnoreAttribute()]
+        public bool PortSpecified {
+            get {
+                return this.portSpecified;
+            }
+            set {
+                this.portSpecified = value;
             }
         }
         
@@ -8707,6 +8731,34 @@ namespace Libvirt.Model {
         }
     }
     
+    [System.Xml.Serialization.XmlTypeAttribute("firmwareFeatures", Namespace="")]
+    public partial class DomainCapabilitiesFirmwareFeatures {
+        
+        private VirYesNo supported;
+        
+        private DomainCapabilitiesOsEnum[] @enum;
+        
+        [System.Xml.Serialization.XmlAttributeAttribute("supported")]
+        public VirYesNo Supported {
+            get {
+                return this.supported;
+            }
+            set {
+                this.supported = value;
+            }
+        }
+        
+        [System.Xml.Serialization.XmlElementAttribute("enum", Namespace="")]
+        public DomainCapabilitiesOsEnum[] Enum {
+            get {
+                return this.@enum;
+            }
+            set {
+                this.@enum = value;
+            }
+        }
+    }
+    
     public partial class DomainCapabilitiesFowner {
         
         private VirOnOff state;
@@ -9299,7 +9351,11 @@ namespace Libvirt.Model {
         
         private DomainCapabilitiesOsEnum[] @enum;
         
+        private DomainCapabilitiesFirmwareFeatures firmwareFeatures;
+        
         private DomainCapabilitiesLoader loader;
+        
+        private DomainCapabilitiesVarstore varstore;
         
         [System.Xml.Serialization.XmlAttributeAttribute("supported")]
         public VirYesNo Supported {
@@ -9321,6 +9377,16 @@ namespace Libvirt.Model {
             }
         }
         
+        [System.Xml.Serialization.XmlElementAttribute("firmwareFeatures", Namespace="")]
+        public DomainCapabilitiesFirmwareFeatures FirmwareFeatures {
+            get {
+                return this.firmwareFeatures;
+            }
+            set {
+                this.firmwareFeatures = value;
+            }
+        }
+        
         [System.Xml.Serialization.XmlElementAttribute("loader", Namespace="")]
         public DomainCapabilitiesLoader Loader {
             get {
@@ -9328,6 +9394,16 @@ namespace Libvirt.Model {
             }
             set {
                 this.loader = value;
+            }
+        }
+        
+        [System.Xml.Serialization.XmlElementAttribute("varstore", Namespace="")]
+        public DomainCapabilitiesVarstore Varstore {
+            get {
+                return this.varstore;
+            }
+            set {
+                this.varstore = value;
             }
         }
     }
@@ -10069,6 +10145,22 @@ namespace Libvirt.Model {
             }
             set {
                 this.@enum = value;
+            }
+        }
+    }
+    
+    [System.Xml.Serialization.XmlTypeAttribute("varstore", Namespace="")]
+    public partial class DomainCapabilitiesVarstore {
+        
+        private VirYesNo supported;
+        
+        [System.Xml.Serialization.XmlAttributeAttribute("supported")]
+        public VirYesNo Supported {
+            get {
+                return this.supported;
+            }
+            set {
+                this.supported = value;
             }
         }
     }
@@ -14494,11 +14586,11 @@ namespace Libvirt.Model {
         
         private bool indexSpecified;
         
-        private DomainOsNvramSourceSlices slices;
+        private DomainOsnvramSourceSlices slices;
         
-        private DomainOsNvramSourceDataStore dataStore;
+        private DomainOsnvramSourceDataStore dataStore;
         
-        private DomainOsNvramSourcePrivateData privateData;
+        private DomainOsnvramSourcePrivateData privateData;
         
         private DomainStartupPolicy startupPolicy;
         
@@ -14556,7 +14648,7 @@ namespace Libvirt.Model {
         
         private string volume;
         
-        private DomainOsNvramSourceMode mode;
+        private DomainOsnvramSourceMode mode;
         
         private bool modeSpecified;
         
@@ -14570,7 +14662,7 @@ namespace Libvirt.Model {
         
         private bool managedSpecified;
         
-        private DomainOsNvramSourceAddress address;
+        private DomainOsnvramSourceAddress address;
         
         private string path;
         
@@ -14615,7 +14707,7 @@ namespace Libvirt.Model {
         }
         
         [System.Xml.Serialization.XmlElementAttribute("slices", Namespace="")]
-        public DomainOsNvramSourceSlices Slices {
+        public DomainOsnvramSourceSlices Slices {
             get {
                 return this.slices;
             }
@@ -14625,7 +14717,7 @@ namespace Libvirt.Model {
         }
         
         [System.Xml.Serialization.XmlElementAttribute("dataStore", Namespace="")]
-        public DomainOsNvramSourceDataStore DataStore {
+        public DomainOsnvramSourceDataStore DataStore {
             get {
                 return this.dataStore;
             }
@@ -14635,7 +14727,7 @@ namespace Libvirt.Model {
         }
         
         [System.Xml.Serialization.XmlElementAttribute("privateData", Namespace="")]
-        public DomainOsNvramSourcePrivateData PrivateData {
+        public DomainOsnvramSourcePrivateData PrivateData {
             get {
                 return this.privateData;
             }
@@ -14925,7 +15017,7 @@ namespace Libvirt.Model {
         }
         
         [System.Xml.Serialization.XmlAttributeAttribute("mode")]
-        public DomainOsNvramSourceMode Mode {
+        public DomainOsnvramSourceMode Mode {
             get {
                 return this.mode;
             }
@@ -14995,7 +15087,7 @@ namespace Libvirt.Model {
         }
         
         [System.Xml.Serialization.XmlElementAttribute("address", Namespace="")]
-        public DomainOsNvramSourceAddress Address {
+        public DomainOsnvramSourceAddress Address {
             get {
                 return this.address;
             }
@@ -15751,6 +15843,8 @@ namespace Libvirt.Model {
         
         private DomainDiskDriverStatisticsStatistic[] statistic;
         
+        private DomainDiskDriverStatisticsLatencyHistogram[] latencyHistogram;
+        
         [System.Xml.Serialization.XmlElementAttribute("statistic", Namespace="")]
         public DomainDiskDriverStatisticsStatistic[] Statistic {
             get {
@@ -15760,6 +15854,85 @@ namespace Libvirt.Model {
                 this.statistic = value;
             }
         }
+        
+        [System.Xml.Serialization.XmlElementAttribute("latency-histogram", Namespace="")]
+        public DomainDiskDriverStatisticsLatencyHistogram[] LatencyHistogram {
+            get {
+                return this.latencyHistogram;
+            }
+            set {
+                this.latencyHistogram = value;
+            }
+        }
+    }
+    
+    public partial class DomainDiskDriverStatisticsLatencyHistogram {
+        
+        private DomainDiskDriverStatisticsLatencyHistogramType type;
+        
+        private bool typeSpecified;
+        
+        private DomainDiskDriverStatisticsLatencyHistogramBin[] bin;
+        
+        [System.Xml.Serialization.XmlAttributeAttribute("type")]
+        public DomainDiskDriverStatisticsLatencyHistogramType Type {
+            get {
+                return this.type;
+            }
+            set {
+                this.type = value;
+            }
+        }
+        
+        [System.Xml.Serialization.XmlIgnoreAttribute()]
+        public bool TypeSpecified {
+            get {
+                return this.typeSpecified;
+            }
+            set {
+                this.typeSpecified = value;
+            }
+        }
+        
+        [System.Xml.Serialization.XmlElementAttribute("bin", Namespace="")]
+        public DomainDiskDriverStatisticsLatencyHistogramBin[] Bin {
+            get {
+                return this.bin;
+            }
+            set {
+                this.bin = value;
+            }
+        }
+    }
+    
+    public partial class DomainDiskDriverStatisticsLatencyHistogramBin {
+        
+        private uint start;
+        
+        [System.Xml.Serialization.XmlAttributeAttribute("start")]
+        public uint Start {
+            get {
+                return this.start;
+            }
+            set {
+                this.start = value;
+            }
+        }
+    }
+    
+    public enum DomainDiskDriverStatisticsLatencyHistogramType {
+        
+        [System.Xml.Serialization.XmlEnumAttribute(Name="flush")]
+        Flush,
+        
+        [System.Xml.Serialization.XmlEnumAttribute(Name="read")]
+        Read,
+        
+        [System.Xml.Serialization.XmlEnumAttribute(Name="write")]
+        Write,
+        
+        [System.Xml.Serialization.XmlEnumAttribute(Name="zone")]
+        Zone,
     }
     
     public partial class DomainDiskDriverStatisticsStatistic {
@@ -16633,11 +16806,11 @@ namespace Libvirt.Model {
         
         private bool indexSpecified;
         
-        private DomainOsNvramSourceSlices slices;
+        private DomainOsnvramSourceSlices slices;
         
-        private DomainOsNvramSourceDataStore dataStore;
+        private DomainOsnvramSourceDataStore dataStore;
         
-        private DomainOsNvramSourcePrivateData privateData;
+        private DomainOsnvramSourcePrivateData privateData;
         
         private DomainStartupPolicy startupPolicy;
         
@@ -16695,7 +16868,7 @@ namespace Libvirt.Model {
         
         private string volume;
         
-        private DomainOsNvramSourceMode mode;
+        private DomainOsnvramSourceMode mode;
         
         private bool modeSpecified;
         
@@ -16709,7 +16882,7 @@ namespace Libvirt.Model {
         
         private bool managedSpecified;
         
-        private DomainOsNvramSourceAddress address;
+        private DomainOsnvramSourceAddress address;
         
         private string path;
         
@@ -16754,7 +16927,7 @@ namespace Libvirt.Model {
         }
         
         [System.Xml.Serialization.XmlElementAttribute("slices", Namespace="")]
-        public DomainOsNvramSourceSlices Slices {
+        public DomainOsnvramSourceSlices Slices {
             get {
                 return this.slices;
             }
@@ -16764,7 +16937,7 @@ namespace Libvirt.Model {
         }
         
         [System.Xml.Serialization.XmlElementAttribute("dataStore", Namespace="")]
-        public DomainOsNvramSourceDataStore DataStore {
+        public DomainOsnvramSourceDataStore DataStore {
             get {
                 return this.dataStore;
             }
@@ -16774,7 +16947,7 @@ namespace Libvirt.Model {
         }
         
         [System.Xml.Serialization.XmlElementAttribute("privateData", Namespace="")]
-        public DomainOsNvramSourcePrivateData PrivateData {
+        public DomainOsnvramSourcePrivateData PrivateData {
             get {
                 return this.privateData;
             }
@@ -17064,7 +17237,7 @@ namespace Libvirt.Model {
         }
         
         [System.Xml.Serialization.XmlAttributeAttribute("mode")]
-        public DomainOsNvramSourceMode Mode {
+        public DomainOsnvramSourceMode Mode {
             get {
                 return this.mode;
             }
@@ -17134,7 +17307,7 @@ namespace Libvirt.Model {
         }
         
         [System.Xml.Serialization.XmlElementAttribute("address", Namespace="")]
-        public DomainOsNvramSourceAddress Address {
+        public DomainOsnvramSourceAddress Address {
             get {
                 return this.address;
             }
@@ -17383,11 +17556,11 @@ namespace Libvirt.Model {
         
         private bool indexSpecified;
         
-        private DomainOsNvramSourceSlices slices;
+        private DomainOsnvramSourceSlices slices;
         
-        private DomainOsNvramSourceDataStore dataStore;
+        private DomainOsnvramSourceDataStore dataStore;
         
-        private DomainOsNvramSourcePrivateData privateData;
+        private DomainOsnvramSourcePrivateData privateData;
         
         private DomainStartupPolicy startupPolicy;
         
@@ -17445,7 +17618,7 @@ namespace Libvirt.Model {
         
         private string volume;
         
-        private DomainOsNvramSourceMode mode;
+        private DomainOsnvramSourceMode mode;
         
         private bool modeSpecified;
         
@@ -17459,7 +17632,7 @@ namespace Libvirt.Model {
         
         private bool managedSpecified;
         
-        private DomainOsNvramSourceAddress address;
+        private DomainOsnvramSourceAddress address;
         
         private string path;
         
@@ -17504,7 +17677,7 @@ namespace Libvirt.Model {
         }
         
         [System.Xml.Serialization.XmlElementAttribute("slices", Namespace="")]
-        public DomainOsNvramSourceSlices Slices {
+        public DomainOsnvramSourceSlices Slices {
             get {
                 return this.slices;
             }
@@ -17514,7 +17687,7 @@ namespace Libvirt.Model {
         }
         
         [System.Xml.Serialization.XmlElementAttribute("dataStore", Namespace="")]
-        public DomainOsNvramSourceDataStore DataStore {
+        public DomainOsnvramSourceDataStore DataStore {
             get {
                 return this.dataStore;
             }
@@ -17524,7 +17697,7 @@ namespace Libvirt.Model {
         }
         
         [System.Xml.Serialization.XmlElementAttribute("privateData", Namespace="")]
-        public DomainOsNvramSourcePrivateData PrivateData {
+        public DomainOsnvramSourcePrivateData PrivateData {
             get {
                 return this.privateData;
             }
@@ -17814,7 +17987,7 @@ namespace Libvirt.Model {
         }
         
         [System.Xml.Serialization.XmlAttributeAttribute("mode")]
-        public DomainOsNvramSourceMode Mode {
+        public DomainOsnvramSourceMode Mode {
             get {
                 return this.mode;
             }
@@ -17884,7 +18057,7 @@ namespace Libvirt.Model {
         }
         
         [System.Xml.Serialization.XmlElementAttribute("address", Namespace="")]
-        public DomainOsNvramSourceAddress Address {
+        public DomainOsnvramSourceAddress Address {
             get {
                 return this.address;
             }
@@ -18085,11 +18258,11 @@ namespace Libvirt.Model {
         
         private bool indexSpecified;
         
-        private DomainOsNvramSourceSlices slices;
+        private DomainOsnvramSourceSlices slices;
         
-        private DomainOsNvramSourceDataStore dataStore;
+        private DomainOsnvramSourceDataStore dataStore;
         
-        private DomainOsNvramSourcePrivateData privateData;
+        private DomainOsnvramSourcePrivateData privateData;
         
         private DomainStartupPolicy startupPolicy;
         
@@ -18147,7 +18320,7 @@ namespace Libvirt.Model {
         
         private string volume;
         
-        private DomainOsNvramSourceMode mode;
+        private DomainOsnvramSourceMode mode;
         
         private bool modeSpecified;
         
@@ -18161,7 +18334,7 @@ namespace Libvirt.Model {
         
         private bool managedSpecified;
         
-        private DomainOsNvramSourceAddress address;
+        private DomainOsnvramSourceAddress address;
         
         private string path;
         
@@ -18206,7 +18379,7 @@ namespace Libvirt.Model {
         }
         
         [System.Xml.Serialization.XmlElementAttribute("slices", Namespace="")]
-        public DomainOsNvramSourceSlices Slices {
+        public DomainOsnvramSourceSlices Slices {
             get {
                 return this.slices;
             }
@@ -18216,7 +18389,7 @@ namespace Libvirt.Model {
         }
         
         [System.Xml.Serialization.XmlElementAttribute("dataStore", Namespace="")]
-        public DomainOsNvramSourceDataStore DataStore {
+        public DomainOsnvramSourceDataStore DataStore {
             get {
                 return this.dataStore;
             }
@@ -18226,7 +18399,7 @@ namespace Libvirt.Model {
         }
         
         [System.Xml.Serialization.XmlElementAttribute("privateData", Namespace="")]
-        public DomainOsNvramSourcePrivateData PrivateData {
+        public DomainOsnvramSourcePrivateData PrivateData {
             get {
                 return this.privateData;
             }
@@ -18516,7 +18689,7 @@ namespace Libvirt.Model {
         }
         
         [System.Xml.Serialization.XmlAttributeAttribute("mode")]
-        public DomainOsNvramSourceMode Mode {
+        public DomainOsnvramSourceMode Mode {
             get {
                 return this.mode;
             }
@@ -18586,7 +18759,7 @@ namespace Libvirt.Model {
         }
         
         [System.Xml.Serialization.XmlElementAttribute("address", Namespace="")]
-        public DomainOsNvramSourceAddress Address {
+        public DomainOsnvramSourceAddress Address {
             get {
                 return this.address;
             }
@@ -18758,10 +18931,10 @@ namespace Libvirt.Model {
     
     public partial class DomainDiskSourceNetworkProtocolHttpcookies {
         
-        private DomainOsNvramDiskSourceNetworkProtocolHttpDiskSourceNetworkProtocolHttpcookiesCookie[] cookie;
+        private DomainOsOsnvramDiskSourceNetworkProtocolHttpDiskSourceNetworkProtocolHttpcookiesCookie[] cookie;
         
         [System.Xml.Serialization.XmlElementAttribute("cookie", Namespace="")]
-        public DomainOsNvramDiskSourceNetworkProtocolHttpDiskSourceNetworkProtocolHttpcookiesCookie[] Cookie {
+        public DomainOsOsnvramDiskSourceNetworkProtocolHttpDiskSourceNetworkProtocolHttpcookiesCookie[] Cookie {
             get {
                 return this.cookie;
             }
@@ -19268,6 +19441,8 @@ namespace Libvirt.Model {
         
         private DomainAia aia;
         
+        private DomainFeaturesVirtualization virtualization;
+        
         [System.Xml.Serialization.XmlElementAttribute("pae", Namespace="")]
         public DomainFeaturesPae Pae {
             get {
@@ -19565,6 +19740,16 @@ namespace Libvirt.Model {
             }
             set {
                 this.aia = value;
+            }
+        }
+        
+        [System.Xml.Serialization.XmlElementAttribute("virtualization", Namespace="")]
+        public DomainFeaturesVirtualization Virtualization {
+            get {
+                return this.virtualization;
+            }
+            set {
+                this.virtualization = value;
             }
         }
     }
@@ -20381,6 +20566,9 @@ namespace Libvirt.Model {
     }
     
     public partial class DomainFeaturesViridian {
+    }
+    
+    public partial class DomainFeaturesVirtualization {
     }
     
     public partial class DomainFeaturesVmport {
@@ -23196,6 +23384,8 @@ namespace Libvirt.Model {
         
         private string device;
         
+        private string port;
+        
         private string target;
         
         private string unit;
@@ -23269,6 +23459,16 @@ namespace Libvirt.Model {
             }
             set {
                 this.device = value;
+            }
+        }
+        
+        [System.Xml.Serialization.XmlAttributeAttribute("port")]
+        public string Port {
+            get {
+                return this.port;
+            }
+            set {
+                this.port = value;
             }
         }
         
@@ -25244,6 +25444,10 @@ namespace Libvirt.Model {
         
         private string model;
         
+        private VirYesNo iommufd;
+        
+        private bool iommufdSpecified;
+        
         private ulong queues;
         
         private bool queuesSpecified;
@@ -25323,6 +25527,26 @@ namespace Libvirt.Model {
             }
             set {
                 this.model = value;
+            }
+        }
+        
+        [System.Xml.Serialization.XmlAttributeAttribute("iommufd")]
+        public VirYesNo Iommufd {
+            get {
+                return this.iommufd;
+            }
+            set {
+                this.iommufd = value;
+            }
+        }
+        
+        [System.Xml.Serialization.XmlIgnoreAttribute()]
+        public bool IommufdSpecified {
+            get {
+                return this.iommufdSpecified;
+            }
+            set {
+                this.iommufdSpecified = value;
             }
         }
         
@@ -26592,6 +26816,8 @@ namespace Libvirt.Model {
         
         private string device;
         
+        private string port;
+        
         private DomainInterfaceSourceAddressType type;
         
         private string domain;
@@ -26621,6 +26847,16 @@ namespace Libvirt.Model {
             }
             set {
                 this.device = value;
+            }
+        }
+        
+        [System.Xml.Serialization.XmlAttributeAttribute("port")]
+        public string Port {
+            get {
+                return this.port;
+            }
+            set {
+                this.port = value;
             }
         }
         
@@ -27095,6 +27331,8 @@ namespace Libvirt.Model {
         
         private bool pciBusSpecified;
         
+        private DomainIommuDriverGranule granule;
+        
         [System.Xml.Serialization.XmlAttributeAttribute("intremap")]
         public VirOnOff Intremap {
             get {
@@ -27264,6 +27502,85 @@ namespace Libvirt.Model {
                 this.pciBusSpecified = value;
             }
         }
+        
+        [System.Xml.Serialization.XmlElementAttribute("granule", Namespace="")]
+        public DomainIommuDriverGranule Granule {
+            get {
+                return this.granule;
+            }
+            set {
+                this.granule = value;
+            }
+        }
+    }
+    
+    public partial class DomainIommuDriverGranule {
+        
+        private DomainIommuDriverGranuleMode mode;
+        
+        private bool modeSpecified;
+        
+        private uint size;
+        
+        private bool sizeSpecified;
+        
+        private string unit;
+        
+        [System.Xml.Serialization.XmlAttributeAttribute("mode")]
+        public DomainIommuDriverGranuleMode Mode {
+            get {
+                return this.mode;
+            }
+            set {
+                this.mode = value;
+            }
+        }
+        
+        [System.Xml.Serialization.XmlIgnoreAttribute()]
+        public bool ModeSpecified {
+            get {
+                return this.modeSpecified;
+            }
+            set {
+                this.modeSpecified = value;
+            }
+        }
+        
+        [System.Xml.Serialization.XmlAttributeAttribute("size")]
+        public uint Size {
+            get {
+                return this.size;
+            }
+            set {
+                this.size = value;
+            }
+        }
+        
+        [System.Xml.Serialization.XmlIgnoreAttribute()]
+        public bool SizeSpecified {
+            get {
+                return this.sizeSpecified;
+            }
+            set {
+                this.sizeSpecified = value;
+            }
+        }
+        
+        [System.Xml.Serialization.XmlAttributeAttribute("unit")]
+        public string Unit {
+            get {
+                return this.unit;
+            }
+            set {
+                this.unit = value;
+            }
+        }
+    }
+    
+    public enum DomainIommuDriverGranuleMode {
+        
+        [System.Xml.Serialization.XmlEnumAttribute(Name="host")]
+        Host,
     }
     
     public enum DomainIommuModel {
@@ -29694,7 +30011,9 @@ namespace Libvirt.Model {
         
         private DomainOsLoader loader;
         
-        private DomainOsNvram nvram;
+        private DomainOsOsnvram nvram;
+        
+        private DomainOsvarstore varstore;
         
         private DomainOsbootdev[] boot;
         
@@ -29829,12 +30148,22 @@ namespace Libvirt.Model {
         }
         
         [System.Xml.Serialization.XmlElementAttribute("nvram", Namespace="")]
-        public DomainOsNvram Nvram {
+        public DomainOsOsnvram Nvram {
             get {
                 return this.nvram;
             }
             set {
                 this.nvram = value;
+            }
+        }
+        
+        [System.Xml.Serialization.XmlElementAttribute("varstore", Namespace="")]
+        public DomainOsvarstore Varstore {
+            get {
+                return this.varstore;
+            }
+            set {
+                this.varstore = value;
             }
         }
         
@@ -30277,7 +30606,169 @@ namespace Libvirt.Model {
         Rom,
     }
     
-    public partial class DomainOsNvram {
+    public partial class DomainOsnvramSourceAddress {
+        
+        private string domain;
+        
+        private string bus;
+        
+        private string slot;
+        
+        private string function;
+        
+        private VirOnOff multifunction;
+        
+        private bool multifunctionSpecified;
+        
+        [System.Xml.Serialization.XmlAttributeAttribute("domain")]
+        public string Domain {
+            get {
+                return this.domain;
+            }
+            set {
+                this.domain = value;
+            }
+        }
+        
+        [System.Xml.Serialization.XmlAttributeAttribute("bus")]
+        public string Bus {
+            get {
+                return this.bus;
+            }
+            set {
+                this.bus = value;
+            }
+        }
+        
+        [System.Xml.Serialization.XmlAttributeAttribute("slot")]
+        public string Slot {
+            get {
+                return this.slot;
+            }
+            set {
+                this.slot = value;
+            }
+        }
+        
+        [System.Xml.Serialization.XmlAttributeAttribute("function")]
+        public string Function {
+            get {
+                return this.function;
+            }
+            set {
+                this.function = value;
+            }
+        }
+        
+        [System.Xml.Serialization.XmlAttributeAttribute("multifunction")]
+        public VirOnOff Multifunction {
+            get {
+                return this.multifunction;
+            }
+            set {
+                this.multifunction = value;
+            }
+        }
+        
+        [System.Xml.Serialization.XmlIgnoreAttribute()]
+        public bool MultifunctionSpecified {
+            get {
+                return this.multifunctionSpecified;
+            }
+            set {
+                this.multifunctionSpecified = value;
+            }
+        }
+    }
+    
+    public partial class DomainOsnvramSourceDataStore {
+        
+        private DomainDiskFormat format;
+        
+        [System.Xml.Serialization.XmlElementAttribute("format", Namespace="")]
+        public DomainDiskFormat Format {
+            get {
+                return this.format;
+            }
+            set {
+                this.format = value;
+            }
+        }
+    }
+    
+    public enum DomainOsnvramSourceMode {
+        
+        [System.Xml.Serialization.XmlEnumAttribute(Name="direct")]
+        Direct,
+        
+        [System.Xml.Serialization.XmlEnumAttribute(Name="host")]
+        Host,
+    }
+    
+    public partial class DomainOsnvramSourcePrivateData {
+    }
+    
+    public partial class DomainOsnvramSourceSlices {
+        
+        private DomainOsnvramSourceSlicesSlice slice;
+        
+        [System.Xml.Serialization.XmlElementAttribute("slice", Namespace="")]
+        public DomainOsnvramSourceSlicesSlice Slice {
+            get {
+                return this.slice;
+            }
+            set {
+                this.slice = value;
+            }
+        }
+    }
+    
+    public partial class DomainOsnvramSourceSlicesSlice {
+        
+        private DomainOsnvramSourceSlicesSliceType type;
+        
+        private uint offset;
+        
+        private ulong size;
+        
+        [System.Xml.Serialization.XmlAttributeAttribute("type")]
+        public DomainOsnvramSourceSlicesSliceType Type {
+            get {
+                return this.type;
+            }
+            set {
+                this.type = value;
+            }
+        }
+        
+        [System.Xml.Serialization.XmlAttributeAttribute("offset")]
+        public uint Offset {
+            get {
+                return this.offset;
+            }
+            set {
+                this.offset = value;
+            }
+        }
+        
+        [System.Xml.Serialization.XmlAttributeAttribute("size")]
+        public ulong Size {
+            get {
+                return this.size;
+            }
+            set {
+                this.size = value;
+            }
+        }
+    }
+    
+    public enum DomainOsnvramSourceSlicesSliceType {
+        
+        [System.Xml.Serialization.XmlEnumAttribute(Name="storage")]
+        Storage,
+    }
+    
+    public partial class DomainOsOsnvram {
         
         private string template;
         
@@ -30289,11 +30780,11 @@ namespace Libvirt.Model {
         
         private bool formatSpecified;
         
-        private DomainOsNvramType type;
+        private DomainOsOsnvramType type;
         
         private bool typeSpecified;
         
-        private DomainOsNvramSource source;
+        private DomainOsOsnvramSource source;
         
         private string value;
         
@@ -30348,7 +30839,7 @@ namespace Libvirt.Model {
         }
         
         [System.Xml.Serialization.XmlAttributeAttribute("type")]
-        public DomainOsNvramType Type {
+        public DomainOsOsnvramType Type {
             get {
                 return this.type;
             }
@@ -30368,7 +30859,7 @@ namespace Libvirt.Model {
         }
         
         [System.Xml.Serialization.XmlElementAttribute("source", Namespace="")]
-        public DomainOsNvramSource Source {
+        public DomainOsOsnvramSource Source {
             get {
                 return this.source;
             }
@@ -30388,7 +30879,7 @@ namespace Libvirt.Model {
         }
     }
     
-    public partial class DomainOsNvramDiskSourceNetworkProtocolHttpDiskSourceNetworkProtocolHttpcookiesCookie {
+    public partial class DomainOsOsnvramDiskSourceNetworkProtocolHttpDiskSourceNetworkProtocolHttpcookiesCookie {
         
         private string name;
         
@@ -30415,7 +30906,7 @@ namespace Libvirt.Model {
         }
     }
     
-    public partial class DomainOsNvramSource {
+    public partial class DomainOsOsnvramSource {
         
         private string file;
         
@@ -30425,11 +30916,11 @@ namespace Libvirt.Model {
         
         private bool indexSpecified;
         
-        private DomainOsNvramSourceSlices slices;
+        private DomainOsnvramSourceSlices slices;
         
-        private DomainOsNvramSourceDataStore dataStore;
+        private DomainOsnvramSourceDataStore dataStore;
         
-        private DomainOsNvramSourcePrivateData privateData;
+        private DomainOsnvramSourcePrivateData privateData;
         
         private DomainStartupPolicy startupPolicy;
         
@@ -30445,7 +30936,7 @@ namespace Libvirt.Model {
         
         private string dir;
         
-        private DomainOsNvramSourceProtocol protocol;
+        private DomainOsOsnvramSourceProtocol protocol;
         
         private bool protocolSpecified;
         
@@ -30481,17 +30972,17 @@ namespace Libvirt.Model {
         
         private DomainDiskSourceNetworkProtocolSshhostVerify knownHosts;
         
-        private DomainOsNvramSourceIdentity identity;
+        private DomainOsOsnvramSourceIdentity identity;
         
         private string pool;
         
         private string volume;
         
-        private DomainOsNvramSourceMode mode;
+        private DomainOsnvramSourceMode mode;
         
         private bool modeSpecified;
         
-        private DomainOsNvramSourceType type;
+        private DomainOsOsnvramSourceType type;
         
         private bool typeSpecified;
         
@@ -30501,7 +30992,7 @@ namespace Libvirt.Model {
         
         private bool managedSpecified;
         
-        private DomainOsNvramSourceAddress address;
+        private DomainOsnvramSourceAddress address;
         
         private string path;
         
@@ -30546,7 +31037,7 @@ namespace Libvirt.Model {
         }
         
         [System.Xml.Serialization.XmlElementAttribute("slices", Namespace="")]
-        public DomainOsNvramSourceSlices Slices {
+        public DomainOsnvramSourceSlices Slices {
             get {
                 return this.slices;
             }
@@ -30556,7 +31047,7 @@ namespace Libvirt.Model {
         }
         
         [System.Xml.Serialization.XmlElementAttribute("dataStore", Namespace="")]
-        public DomainOsNvramSourceDataStore DataStore {
+        public DomainOsnvramSourceDataStore DataStore {
             get {
                 return this.dataStore;
             }
@@ -30566,7 +31057,7 @@ namespace Libvirt.Model {
         }
         
         [System.Xml.Serialization.XmlElementAttribute("privateData", Namespace="")]
-        public DomainOsNvramSourcePrivateData PrivateData {
+        public DomainOsnvramSourcePrivateData PrivateData {
             get {
                 return this.privateData;
             }
@@ -30646,7 +31137,7 @@ namespace Libvirt.Model {
         }
         
         [System.Xml.Serialization.XmlAttributeAttribute("protocol")]
-        public DomainOsNvramSourceProtocol Protocol {
+        public DomainOsOsnvramSourceProtocol Protocol {
             get {
                 return this.protocol;
             }
@@ -30826,7 +31317,7 @@ namespace Libvirt.Model {
         }
         
         [System.Xml.Serialization.XmlElementAttribute("identity", Namespace="")]
-        public DomainOsNvramSourceIdentity Identity {
+        public DomainOsOsnvramSourceIdentity Identity {
             get {
                 return this.identity;
             }
@@ -30856,7 +31347,7 @@ namespace Libvirt.Model {
         }
         
         [System.Xml.Serialization.XmlAttributeAttribute("mode")]
-        public DomainOsNvramSourceMode Mode {
+        public DomainOsnvramSourceMode Mode {
             get {
                 return this.mode;
             }
@@ -30876,7 +31367,7 @@ namespace Libvirt.Model {
         }
         
         [System.Xml.Serialization.XmlAttributeAttribute("type")]
-        public DomainOsNvramSourceType Type {
+        public DomainOsOsnvramSourceType Type {
             get {
                 return this.type;
             }
@@ -30926,7 +31417,7 @@ namespace Libvirt.Model {
         }
         
         [System.Xml.Serialization.XmlElementAttribute("address", Namespace="")]
-        public DomainOsNvramSourceAddress Address {
+        public DomainOsnvramSourceAddress Address {
             get {
                 return this.address;
             }
@@ -30946,97 +31437,7 @@ namespace Libvirt.Model {
         }
     }
     
-    public partial class DomainOsNvramSourceAddress {
-        
-        private string domain;
-        
-        private string bus;
-        
-        private string slot;
-        
-        private string function;
-        
-        private VirOnOff multifunction;
-        
-        private bool multifunctionSpecified;
-        
-        [System.Xml.Serialization.XmlAttributeAttribute("domain")]
-        public string Domain {
-            get {
-                return this.domain;
-            }
-            set {
-                this.domain = value;
-            }
-        }
-        
-        [System.Xml.Serialization.XmlAttributeAttribute("bus")]
-        public string Bus {
-            get {
-                return this.bus;
-            }
-            set {
-                this.bus = value;
-            }
-        }
-        
-        [System.Xml.Serialization.XmlAttributeAttribute("slot")]
-        public string Slot {
-            get {
-                return this.slot;
-            }
-            set {
-                this.slot = value;
-            }
-        }
-        
-        [System.Xml.Serialization.XmlAttributeAttribute("function")]
-        public string Function {
-            get {
-                return this.function;
-            }
-            set {
-                this.function = value;
-            }
-        }
-        
-        [System.Xml.Serialization.XmlAttributeAttribute("multifunction")]
-        public VirOnOff Multifunction {
-            get {
-                return this.multifunction;
-            }
-            set {
-                this.multifunction = value;
-            }
-        }
-        
-        [System.Xml.Serialization.XmlIgnoreAttribute()]
-        public bool MultifunctionSpecified {
-            get {
-                return this.multifunctionSpecified;
-            }
-            set {
-                this.multifunctionSpecified = value;
-            }
-        }
-    }
-    
-    public partial class DomainOsNvramSourceDataStore {
-        
-        private DomainDiskFormat format;
-        
-        [System.Xml.Serialization.XmlElementAttribute("format", Namespace="")]
-        public DomainDiskFormat Format {
-            get {
-                return this.format;
-            }
-            set {
-                this.format = value;
-            }
-        }
-    }
-    
-    public partial class DomainOsNvramSourceIdentity {
+    public partial class DomainOsOsnvramSourceIdentity {
         
         private string username;
         
@@ -31099,19 +31500,7 @@ namespace Libvirt.Model {
         }
     }
     
-    public enum DomainOsNvramSourceMode {
-        
-        [System.Xml.Serialization.XmlEnumAttribute(Name="direct")]
-        Direct,
-        
-        [System.Xml.Serialization.XmlEnumAttribute(Name="host")]
-        Host,
-    }
-    
-    public partial class DomainOsNvramSourcePrivateData {
-    }
-    
-    public enum DomainOsNvramSourceProtocol {
+    public enum DomainOsOsnvramSourceProtocol {
         
         [System.Xml.Serialization.XmlEnumAttribute(Name="ftp")]
         Ftp,
@@ -31153,67 +31542,7 @@ namespace Libvirt.Model {
         Vxhs,
     }
     
-    public partial class DomainOsNvramSourceSlices {
-        
-        private DomainOsNvramSourceSlicesSlice slice;
-        
-        [System.Xml.Serialization.XmlElementAttribute("slice", Namespace="")]
-        public DomainOsNvramSourceSlicesSlice Slice {
-            get {
-                return this.slice;
-            }
-            set {
-                this.slice = value;
-            }
-        }
-    }
-    
-    public partial class DomainOsNvramSourceSlicesSlice {
-        
-        private DomainOsNvramSourceSlicesSliceType type;
-        
-        private uint offset;
-        
-        private ulong size;
-        
-        [System.Xml.Serialization.XmlAttributeAttribute("type")]
-        public DomainOsNvramSourceSlicesSliceType Type {
-            get {
-                return this.type;
-            }
-            set {
-                this.type = value;
-            }
-        }
-        
-        [System.Xml.Serialization.XmlAttributeAttribute("offset")]
-        public uint Offset {
-            get {
-                return this.offset;
-            }
-            set {
-                this.offset = value;
-            }
-        }
-        
-        [System.Xml.Serialization.XmlAttributeAttribute("size")]
-        public ulong Size {
-            get {
-                return this.size;
-            }
-            set {
-                this.size = value;
-            }
-        }
-    }
-    
-    public enum DomainOsNvramSourceSlicesSliceType {
-        
-        [System.Xml.Serialization.XmlEnumAttribute(Name="storage")]
-        Storage,
-    }
-    
-    public enum DomainOsNvramSourceType {
+    public enum DomainOsOsnvramSourceType {
         
         [System.Xml.Serialization.XmlEnumAttribute(Name="pci")]
         Pci,
@@ -31222,7 +31551,7 @@ namespace Libvirt.Model {
         Unix,
     }
     
-    public enum DomainOsNvramType {
+    public enum DomainOsOsnvramType {
         
         [System.Xml.Serialization.XmlEnumAttribute(Name="block")]
         Block,
@@ -31409,6 +31738,34 @@ namespace Libvirt.Model {
         
         [System.Xml.Serialization.XmlEnumAttribute(Name="xtensaeb")]
         Xtensaeb,
+    }
+    
+    [System.Xml.Serialization.XmlTypeAttribute("varstore", Namespace="")]
+    public partial class DomainOsvarstore {
+        
+        private string template;
+        
+        private string path;
+        
+        [System.Xml.Serialization.XmlAttributeAttribute("template")]
+        public string Template {
+            get {
+                return this.template;
+            }
+            set {
+                this.template = value;
+            }
+        }
+        
+        [System.Xml.Serialization.XmlAttributeAttribute("path")]
+        public string Path {
+            get {
+                return this.path;
+            }
+            set {
+                this.path = value;
+            }
+        }
     }
     
     [System.Xml.Serialization.XmlTypeAttribute("panic", Namespace="")]
@@ -33883,11 +34240,11 @@ namespace Libvirt.Model {
         
         private bool indexSpecified;
         
-        private DomainOsNvramSourceSlices slices;
+        private DomainOsnvramSourceSlices slices;
         
-        private DomainOsNvramSourceDataStore dataStore;
+        private DomainOsnvramSourceDataStore dataStore;
         
-        private DomainOsNvramSourcePrivateData privateData;
+        private DomainOsnvramSourcePrivateData privateData;
         
         private StorageEncryption encryption;
         
@@ -33972,7 +34329,7 @@ namespace Libvirt.Model {
         }
         
         [System.Xml.Serialization.XmlElementAttribute("slices", Namespace="")]
-        public DomainOsNvramSourceSlices Slices {
+        public DomainOsnvramSourceSlices Slices {
             get {
                 return this.slices;
             }
@@ -33982,7 +34339,7 @@ namespace Libvirt.Model {
         }
         
         [System.Xml.Serialization.XmlElementAttribute("dataStore", Namespace="")]
-        public DomainOsNvramSourceDataStore DataStore {
+        public DomainOsnvramSourceDataStore DataStore {
             get {
                 return this.dataStore;
             }
@@ -33992,7 +34349,7 @@ namespace Libvirt.Model {
         }
         
         [System.Xml.Serialization.XmlElementAttribute("privateData", Namespace="")]
-        public DomainOsNvramSourcePrivateData PrivateData {
+        public DomainOsnvramSourcePrivateData PrivateData {
             get {
                 return this.privateData;
             }
@@ -35040,7 +35397,9 @@ namespace Libvirt.Model {
         
         private DomainOsLoader loader;
         
-        private DomainOsNvram nvram;
+        private DomainOsOsnvram nvram;
+        
+        private DomainOsvarstore varstore;
         
         private DomainOsbootdev[] boot;
         
@@ -35175,12 +35534,22 @@ namespace Libvirt.Model {
         }
         
         [System.Xml.Serialization.XmlElementAttribute("nvram", Namespace="")]
-        public DomainOsNvram Nvram {
+        public DomainOsOsnvram Nvram {
             get {
                 return this.nvram;
             }
             set {
                 this.nvram = value;
+            }
+        }
+        
+        [System.Xml.Serialization.XmlElementAttribute("varstore", Namespace="")]
+        public DomainOsvarstore Varstore {
+            get {
+                return this.varstore;
+            }
+            set {
+                this.varstore = value;
             }
         }
         
@@ -45908,6 +46277,10 @@ namespace Libvirt.Model {
         
         private string model;
         
+        private VirYesNo iommufd;
+        
+        private bool iommufdSpecified;
+        
         [System.Xml.Serialization.XmlAttributeAttribute("name")]
         public HostdevDriverName Name {
             get {
@@ -45935,6 +46308,26 @@ namespace Libvirt.Model {
             }
             set {
                 this.model = value;
+            }
+        }
+        
+        [System.Xml.Serialization.XmlAttributeAttribute("iommufd")]
+        public VirYesNo Iommufd {
+            get {
+                return this.iommufd;
+            }
+            set {
+                this.iommufd = value;
+            }
+        }
+        
+        [System.Xml.Serialization.XmlIgnoreAttribute()]
+        public bool IommufdSpecified {
+            get {
+                return this.iommufdSpecified;
+            }
+            set {
+                this.iommufdSpecified = value;
             }
         }
     }
@@ -46651,7 +47044,9 @@ namespace Libvirt.Model {
         
         private DomainOsLoader loader;
         
-        private DomainOsNvram nvram;
+        private DomainOsOsnvram nvram;
+        
+        private DomainOsvarstore varstore;
         
         private DomainOsbootdev[] boot;
         
@@ -46786,12 +47181,22 @@ namespace Libvirt.Model {
         }
         
         [System.Xml.Serialization.XmlElementAttribute("nvram", Namespace="")]
-        public DomainOsNvram Nvram {
+        public DomainOsOsnvram Nvram {
             get {
                 return this.nvram;
             }
             set {
                 this.nvram = value;
+            }
+        }
+        
+        [System.Xml.Serialization.XmlElementAttribute("varstore", Namespace="")]
+        public DomainOsvarstore Varstore {
+            get {
+                return this.varstore;
+            }
+            set {
+                this.varstore = value;
             }
         }
         
@@ -52642,6 +53047,10 @@ namespace Libvirt.Model {
         
         private bool managedSpecified;
         
+        private VirYesNo migration;
+        
+        private bool migrationSpecified;
+        
         private StorageUnixSocketSource source;
         
         [System.Xml.Serialization.XmlAttributeAttribute("managed")]
@@ -52661,6 +53070,26 @@ namespace Libvirt.Model {
             }
             set {
                 this.managedSpecified = value;
+            }
+        }
+        
+        [System.Xml.Serialization.XmlAttributeAttribute("migration")]
+        public VirYesNo Migration {
+            get {
+                return this.migration;
+            }
+            set {
+                this.migration = value;
+            }
+        }
+        
+        [System.Xml.Serialization.XmlIgnoreAttribute()]
+        public bool MigrationSpecified {
+            get {
+                return this.migrationSpecified;
+            }
+            set {
+                this.migrationSpecified = value;
             }
         }
         

@@ -32,6 +32,7 @@ internal class MainShell
             "bond-interface_bare-ethernet-interface",
             "capabilities_topology",
             "domaincheckpoint_diskcheckpoint",
+            "domain_os_osnvram",
             "domainsnapshot_disksnapshot",
         };
 

@@ -81,13 +81,13 @@ internal class AstBuilder
         {
             if (member.Type?.Declaration is not null)
             {
-                TraverseType(member.Type!.Declaration!);
+                TraverseType(member.Type.Declaration);
             }
         }
 
         if (type.ValueType?.Declaration is not null)
         {
-            TraverseType(type.ValueType!.Declaration!);
+            TraverseType(type.ValueType.Declaration);
         }
     }
 

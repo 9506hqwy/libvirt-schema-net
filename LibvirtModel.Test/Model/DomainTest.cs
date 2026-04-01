@@ -3366,6 +3366,17 @@ public class DomainTest : TestBase
     }
 
     [TestMethod]
+    public void DomainIommufd()
+    {
+        const string expected = $@"
+{XMLDECL}
+<iommufd {XMLNS} enabled=""no"" />
+";
+
+        this.AssertXml<DomainIommufd>(expected);
+    }
+
+    [TestMethod]
     public void DomainIommuDriver()
     {
         const string expected = $@"

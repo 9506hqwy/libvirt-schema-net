@@ -4943,6 +4943,8 @@ namespace Libvirt.Model {
         
         private DomainNumatune numatune;
         
+        private DomainIommufd iommufd;
+        
         private DomainRespartition resource;
         
         private DomainFeatures features;
@@ -5300,6 +5302,16 @@ namespace Libvirt.Model {
             }
             set {
                 this.numatune = value;
+            }
+        }
+        
+        [System.Xml.Serialization.XmlElementAttribute("iommufd", Namespace="")]
+        public DomainIommufd Iommufd {
+            get {
+                return this.iommufd;
+            }
+            set {
+                this.iommufd = value;
             }
         }
         
@@ -27583,6 +27595,34 @@ namespace Libvirt.Model {
         Host,
     }
     
+    [System.Xml.Serialization.XmlTypeAttribute("iommufd", Namespace="")]
+    public partial class DomainIommufd {
+        
+        private VirYesNo enabled;
+        
+        private string fdgroup;
+        
+        [System.Xml.Serialization.XmlAttributeAttribute("enabled")]
+        public VirYesNo Enabled {
+            get {
+                return this.enabled;
+            }
+            set {
+                this.enabled = value;
+            }
+        }
+        
+        [System.Xml.Serialization.XmlAttributeAttribute("fdgroup")]
+        public string Fdgroup {
+            get {
+                return this.fdgroup;
+            }
+            set {
+                this.fdgroup = value;
+            }
+        }
+    }
+    
     public enum DomainIommuModel {
         
         [System.Xml.Serialization.XmlEnumAttribute(Name="amd")]
@@ -34752,6 +34792,8 @@ namespace Libvirt.Model {
         
         private DomainNumatune numatune;
         
+        private DomainIommufd iommufd;
+        
         private DomainRespartition resource;
         
         private DomainFeatures features;
@@ -35119,6 +35161,16 @@ namespace Libvirt.Model {
             }
             set {
                 this.numatune = value;
+            }
+        }
+        
+        [System.Xml.Serialization.XmlElementAttribute("iommufd", Namespace="")]
+        public DomainIommufd Iommufd {
+            get {
+                return this.iommufd;
+            }
+            set {
+                this.iommufd = value;
             }
         }
         
@@ -46409,6 +46461,8 @@ namespace Libvirt.Model {
         
         private DomainNumatune numatune;
         
+        private DomainIommufd iommufd;
+        
         private DomainRespartition resource;
         
         private DomainFeatures features;
@@ -46766,6 +46820,16 @@ namespace Libvirt.Model {
             }
             set {
                 this.numatune = value;
+            }
+        }
+        
+        [System.Xml.Serialization.XmlElementAttribute("iommufd", Namespace="")]
+        public DomainIommufd Iommufd {
+            get {
+                return this.iommufd;
+            }
+            set {
+                this.iommufd = value;
             }
         }
         

@@ -926,6 +926,17 @@ public class DomainTest : TestBase
     }
 
     [TestMethod]
+    public void DomainCputuneEnergytune()
+    {
+        const string expected = $@"
+{XMLDECL}
+<DomainCputuneEnergytune {XMLNS} />
+";
+
+        this.AssertXml<DomainCputuneEnergytune>(expected);
+    }
+
+    [TestMethod]
     public void DomainCputuneIothreadpin()
     {
         const string expected = $@"

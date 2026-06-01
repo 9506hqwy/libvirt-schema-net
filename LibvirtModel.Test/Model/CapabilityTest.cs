@@ -145,6 +145,17 @@ public class CapabilityTest : TestBase
     }
 
     [TestMethod]
+    public void CapabilitiesEnergy()
+    {
+        const string expected = $@"
+{XMLDECL}
+<energy {XMLNS} />
+";
+
+        this.AssertXml<CapabilitiesEnergy>(expected);
+    }
+
+    [TestMethod]
     public void CapabilitiesFeatures()
     {
         const string expected = $@"

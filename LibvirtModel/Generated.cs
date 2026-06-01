@@ -1742,6 +1742,64 @@ namespace Libvirt.Model {
         }
     }
     
+    [System.Xml.Serialization.XmlTypeAttribute("energy", Namespace="")]
+    public partial class CapabilitiesEnergy {
+        
+        private CapabilitiesEnergyMonitor monitor;
+        
+        [System.Xml.Serialization.XmlElementAttribute("monitor", Namespace="")]
+        public CapabilitiesEnergyMonitor Monitor {
+            get {
+                return this.monitor;
+            }
+            set {
+                this.monitor = value;
+            }
+        }
+    }
+    
+    public partial class CapabilitiesEnergyMonitor {
+        
+        private uint maxMonitors;
+        
+        private CapabilitiesEnergyMonitorFeature[] feature;
+        
+        [System.Xml.Serialization.XmlAttributeAttribute("maxMonitors")]
+        public uint MaxMonitors {
+            get {
+                return this.maxMonitors;
+            }
+            set {
+                this.maxMonitors = value;
+            }
+        }
+        
+        [System.Xml.Serialization.XmlElementAttribute("feature", Namespace="")]
+        public CapabilitiesEnergyMonitorFeature[] Feature {
+            get {
+                return this.feature;
+            }
+            set {
+                this.feature = value;
+            }
+        }
+    }
+    
+    public partial class CapabilitiesEnergyMonitorFeature {
+        
+        private EnergyMonitorFeature name;
+        
+        [System.Xml.Serialization.XmlAttributeAttribute("name")]
+        public EnergyMonitorFeature Name {
+            get {
+                return this.name;
+            }
+            set {
+                this.name = value;
+            }
+        }
+    }
+    
     [System.Xml.Serialization.XmlTypeAttribute("features", Namespace="")]
     public partial class CapabilitiesFeatures {
         
@@ -2126,6 +2184,8 @@ namespace Libvirt.Model {
         
         private CapabilitiesMemoryBandwidth memoryBandwidth;
         
+        private CapabilitiesEnergy energy;
+        
         private CapabilitiesSecmodel[] secmodel;
         
         [System.Xml.Serialization.XmlElementAttribute("uuid", Namespace="")]
@@ -2205,6 +2265,16 @@ namespace Libvirt.Model {
             }
             set {
                 this.memoryBandwidth = value;
+            }
+        }
+        
+        [System.Xml.Serialization.XmlElementAttribute("energy", Namespace="")]
+        public CapabilitiesEnergy Energy {
+            get {
+                return this.energy;
+            }
+            set {
+                this.energy = value;
             }
         }
         
@@ -11921,6 +11991,8 @@ namespace Libvirt.Model {
         
         private DomainCputuneMemorytune[] memorytune;
         
+        private DomainCputuneEnergytune[] energytune;
+        
         [System.Xml.Serialization.XmlElementAttribute("shares", Namespace="")]
         public uint Shares {
             get {
@@ -12180,6 +12252,16 @@ namespace Libvirt.Model {
                 this.memorytune = value;
             }
         }
+        
+        [System.Xml.Serialization.XmlElementAttribute("energytune", Namespace="")]
+        public DomainCputuneEnergytune[] Energytune {
+            get {
+                return this.energytune;
+            }
+            set {
+                this.energytune = value;
+            }
+        }
     }
     
     public partial class DomainCputuneCachetune {
@@ -12402,6 +12484,60 @@ namespace Libvirt.Model {
         
         [System.Xml.Serialization.XmlEnumAttribute(Name="rr")]
         Rr,
+    }
+    
+    public partial class DomainCputuneEnergytune {
+        
+        private string vcpus;
+        
+        private string id;
+        
+        private DomainCputuneEnergytuneMonitor[] monitor;
+        
+        [System.Xml.Serialization.XmlAttributeAttribute("vcpus")]
+        public string Vcpus {
+            get {
+                return this.vcpus;
+            }
+            set {
+                this.vcpus = value;
+            }
+        }
+        
+        [System.Xml.Serialization.XmlAttributeAttribute("id")]
+        public string Id {
+            get {
+                return this.id;
+            }
+            set {
+                this.id = value;
+            }
+        }
+        
+        [System.Xml.Serialization.XmlElementAttribute("monitor", Namespace="")]
+        public DomainCputuneEnergytuneMonitor[] Monitor {
+            get {
+                return this.monitor;
+            }
+            set {
+                this.monitor = value;
+            }
+        }
+    }
+    
+    public partial class DomainCputuneEnergytuneMonitor {
+        
+        private string vcpus;
+        
+        [System.Xml.Serialization.XmlAttributeAttribute("vcpus")]
+        public string Vcpus {
+            get {
+                return this.vcpus;
+            }
+            set {
+                this.vcpus = value;
+            }
+        }
     }
     
     public partial class DomainCputuneIothreadpin {
@@ -38968,6 +39104,15 @@ namespace Libvirt.Model {
                 this.mode = value;
             }
         }
+    }
+    
+    public enum EnergyMonitorFeature {
+        
+        [System.Xml.Serialization.XmlEnumAttribute(Name="activity")]
+        Activity,
+        
+        [System.Xml.Serialization.XmlEnumAttribute(Name="core_energy")]
+        CoreEnergy,
     }
     
     [System.Xml.Serialization.XmlTypeAttribute("interface", Namespace="")]

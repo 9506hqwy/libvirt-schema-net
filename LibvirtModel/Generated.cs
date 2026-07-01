@@ -38293,6 +38293,10 @@ namespace Libvirt.Model {
         
         private bool vram64Specified;
         
+        private DomainVideoModelDevice device;
+        
+        private bool deviceSpecified;
+        
         private uint vram;
         
         private bool vramSpecified;
@@ -38384,6 +38388,26 @@ namespace Libvirt.Model {
             }
             set {
                 this.vram64Specified = value;
+            }
+        }
+        
+        [System.Xml.Serialization.XmlAttributeAttribute("device")]
+        public DomainVideoModelDevice Device {
+            get {
+                return this.device;
+            }
+            set {
+                this.device = value;
+            }
+        }
+        
+        [System.Xml.Serialization.XmlIgnoreAttribute()]
+        public bool DeviceSpecified {
+            get {
+                return this.deviceSpecified;
+            }
+            set {
+                this.deviceSpecified = value;
             }
         }
         
@@ -38569,6 +38593,27 @@ namespace Libvirt.Model {
                 this.rendernode = value;
             }
         }
+    }
+    
+    public enum DomainVideoModelDevice {
+        
+        [System.Xml.Serialization.XmlEnumAttribute(Name="vhost-user-gpu")]
+        VhostUserGpu,
+        
+        [System.Xml.Serialization.XmlEnumAttribute(Name="vhost-user-vga")]
+        VhostUserVga,
+        
+        [System.Xml.Serialization.XmlEnumAttribute(Name="virtio-gpu")]
+        VirtioGpu,
+        
+        [System.Xml.Serialization.XmlEnumAttribute(Name="virtio-gpu-gl")]
+        VirtioGpuGl,
+        
+        [System.Xml.Serialization.XmlEnumAttribute(Name="virtio-vga")]
+        VirtioVga,
+        
+        [System.Xml.Serialization.XmlEnumAttribute(Name="virtio-vga-gl")]
+        VirtioVgaGl,
     }
     
     public partial class DomainVideoModelResolution {

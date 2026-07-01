@@ -5235,6 +5235,13 @@ public class DomainTest : TestBase
     }
 
     [TestMethod]
+    public void DomainVideoModelDevice()
+    {
+        var values = Enum.GetValues(typeof(DomainVideoModelDevice));
+        Assert.HasCount(6, values);
+    }
+
+    [TestMethod]
     public void DomainVideoModelResolution()
     {
         const string expected = $@"

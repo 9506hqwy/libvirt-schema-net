@@ -2776,6 +2776,9 @@ namespace Libvirt.Model {
         [System.Xml.Serialization.XmlEnumAttribute(Name="preserve")]
         Preserve,
         
+        [System.Xml.Serialization.XmlEnumAttribute(Name="preserve-running")]
+        PreserveRunning,
+        
         [System.Xml.Serialization.XmlEnumAttribute(Name="rename-restart")]
         RenameRestart,
         

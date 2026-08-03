@@ -47,7 +47,7 @@ public class DomainTest : TestBase
     public void CrashOptions()
     {
         var values = Enum.GetValues(typeof(CrashOptions));
-        Assert.HasCount(6, values);
+        Assert.HasCount(7, values);
     }
 
     [TestMethod]

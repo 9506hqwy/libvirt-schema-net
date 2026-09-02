@@ -27484,6 +27484,30 @@ namespace Libvirt.Model {
         
         private DomainIommuDriverGranule granule;
         
+        private VirOnOff accel;
+        
+        private bool accelSpecified;
+        
+        private VirOnOff ats;
+        
+        private bool atsSpecified;
+        
+        private VirOnOff ril;
+        
+        private bool rilSpecified;
+        
+        private int ssidsize;
+        
+        private bool ssidsizeSpecified;
+        
+        private int oas;
+        
+        private bool oasSpecified;
+        
+        private VirOnOff cmdqv;
+        
+        private bool cmdqvSpecified;
+        
         [System.Xml.Serialization.XmlAttributeAttribute("intremap")]
         public VirOnOff Intremap {
             get {
@@ -27661,6 +27685,126 @@ namespace Libvirt.Model {
             }
             set {
                 this.granule = value;
+            }
+        }
+        
+        [System.Xml.Serialization.XmlAttributeAttribute("accel")]
+        public VirOnOff Accel {
+            get {
+                return this.accel;
+            }
+            set {
+                this.accel = value;
+            }
+        }
+        
+        [System.Xml.Serialization.XmlIgnoreAttribute()]
+        public bool AccelSpecified {
+            get {
+                return this.accelSpecified;
+            }
+            set {
+                this.accelSpecified = value;
+            }
+        }
+        
+        [System.Xml.Serialization.XmlAttributeAttribute("ats")]
+        public VirOnOff Ats {
+            get {
+                return this.ats;
+            }
+            set {
+                this.ats = value;
+            }
+        }
+        
+        [System.Xml.Serialization.XmlIgnoreAttribute()]
+        public bool AtsSpecified {
+            get {
+                return this.atsSpecified;
+            }
+            set {
+                this.atsSpecified = value;
+            }
+        }
+        
+        [System.Xml.Serialization.XmlAttributeAttribute("ril")]
+        public VirOnOff Ril {
+            get {
+                return this.ril;
+            }
+            set {
+                this.ril = value;
+            }
+        }
+        
+        [System.Xml.Serialization.XmlIgnoreAttribute()]
+        public bool RilSpecified {
+            get {
+                return this.rilSpecified;
+            }
+            set {
+                this.rilSpecified = value;
+            }
+        }
+        
+        [System.Xml.Serialization.XmlAttributeAttribute("ssidsize")]
+        public int Ssidsize {
+            get {
+                return this.ssidsize;
+            }
+            set {
+                this.ssidsize = value;
+            }
+        }
+        
+        [System.Xml.Serialization.XmlIgnoreAttribute()]
+        public bool SsidsizeSpecified {
+            get {
+                return this.ssidsizeSpecified;
+            }
+            set {
+                this.ssidsizeSpecified = value;
+            }
+        }
+        
+        [System.Xml.Serialization.XmlAttributeAttribute("oas")]
+        public int Oas {
+            get {
+                return this.oas;
+            }
+            set {
+                this.oas = value;
+            }
+        }
+        
+        [System.Xml.Serialization.XmlIgnoreAttribute()]
+        public bool OasSpecified {
+            get {
+                return this.oasSpecified;
+            }
+            set {
+                this.oasSpecified = value;
+            }
+        }
+        
+        [System.Xml.Serialization.XmlAttributeAttribute("cmdqv")]
+        public VirOnOff Cmdqv {
+            get {
+                return this.cmdqv;
+            }
+            set {
+                this.cmdqv = value;
+            }
+        }
+        
+        [System.Xml.Serialization.XmlIgnoreAttribute()]
+        public bool CmdqvSpecified {
+            get {
+                return this.cmdqvSpecified;
+            }
+            set {
+                this.cmdqvSpecified = value;
             }
         }
     }
@@ -27881,6 +28025,10 @@ namespace Libvirt.Model {
         
         private bool shrinkSpecified;
         
+        private uint weight;
+        
+        private bool weightSpecified;
+        
         [System.Xml.Serialization.XmlAttributeAttribute("max")]
         public ulong Max {
             get {
@@ -27938,6 +28086,26 @@ namespace Libvirt.Model {
             }
             set {
                 this.shrinkSpecified = value;
+            }
+        }
+        
+        [System.Xml.Serialization.XmlAttributeAttribute("weight")]
+        public uint Weight {
+            get {
+                return this.weight;
+            }
+            set {
+                this.weight = value;
+            }
+        }
+        
+        [System.Xml.Serialization.XmlIgnoreAttribute()]
+        public bool WeightSpecified {
+            get {
+                return this.weightSpecified;
+            }
+            set {
+                this.weightSpecified = value;
             }
         }
     }

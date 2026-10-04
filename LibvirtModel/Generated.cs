@@ -16058,10 +16058,10 @@ namespace Libvirt.Model {
     
     public partial class DomainDiskDriverStatisticsLatencyHistogramBin {
         
-        private uint start;
+        private ulong start;
         
         [System.Xml.Serialization.XmlAttributeAttribute("start")]
-        public uint Start {
+        public ulong Start {
             get {
                 return this.start;
             }
@@ -39740,6 +39740,8 @@ namespace Libvirt.Model {
         
         private FilterbindingFilterref filterref;
         
+        private FilterbindingBackend backend;
+        
         [System.Xml.Serialization.XmlElementAttribute("owner", Namespace="")]
         public FilterbindingOwner Owner {
             get {
@@ -39787,6 +39789,31 @@ namespace Libvirt.Model {
             }
             set {
                 this.filterref = value;
+            }
+        }
+        
+        [System.Xml.Serialization.XmlElementAttribute("backend", Namespace="")]
+        public FilterbindingBackend Backend {
+            get {
+                return this.backend;
+            }
+            set {
+                this.backend = value;
+            }
+        }
+    }
+    
+    public partial class FilterbindingBackend {
+        
+        private string name;
+        
+        [System.Xml.Serialization.XmlAttributeAttribute("name")]
+        public string Name {
+            get {
+                return this.name;
+            }
+            set {
+                this.name = value;
             }
         }
     }

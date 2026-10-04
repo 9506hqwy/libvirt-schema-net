@@ -1,6 +1,6 @@
 <Solution>
-  <Folder Name="/Tool/">
-    <Project Path="Tool/Gen/Gen.csproj" />
+  <Folder Name="/Tools/">
+    <Project Path="Tools/Gen/Gen.csproj" />
   </Folder>
   <Project Path="LibvirtModel.Test/LibvirtModel.Test.csproj" />
   <Project Path="LibvirtModel/LibvirtModel.csproj" />

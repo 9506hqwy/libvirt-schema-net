@@ -73,8 +73,3 @@ dotnet tool install -g dotnet-trace
 
 # Install CycloneDX
 dotnet tool install -g CycloneDX
-
-# Add local package registry.
-export LOCALPKG=/packages
-./.github/workflows/resolve-extra-dependencies.sh
-dotnet nuget add source /packages --name local
